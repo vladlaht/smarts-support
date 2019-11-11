@@ -1,0 +1,515 @@
+.Main {
+    font-family: GothamProRegular;
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.btn {
+    border: none !important;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: none !important;
+}
+
+.smarts-button {
+    font-family: GothamProMedium;
+    background: #655290 !important;
+    border-radius: 50px !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+}
+
+
+/* ------------------------------------------
+ ACCOUNT
+ ------------------------------------------ */
+
+.account-card {
+    position: relative;
+}
+
+.account-card .account-card-body {
+    position: absolute;
+    right: 0;
+}
+
+.account-card-body button {
+    font-size: 13px;
+    font-family: GothamProMedium;
+    background: none;
+    color: black;
+}
+
+.account-card-logo {
+    height: 20px;
+    width: auto;
+    color: #655290;
+}
+
+.account-card-body button:hover,
+.show > .btn-primary.dropdown-toggle {
+    background: #655290 !important;
+    color: white !important;
+}
+
+.account-card-body button:hover .account-card-logo,
+.show > .btn-primary.dropdown-toggle .account-card-logo {
+    color: white;
+}
+
+.account-card-body .dropdown-menu {
+    font-size: 13px;
+    width: 100%;
+}
+
+.account-button-title {
+    padding: 0 8px;
+}
+
+.account-card-items-logo {
+    height: 20px;
+    width: auto;
+    padding: 0 8px;
+}
+
+.account-card-body .dropdown-item {
+    padding: .25rem 0.4rem !important;
+
+}
+
+
+/* ------------------------------------------
+ SIDEBAR MENU
+ ------------------------------------------ */
+
+.sidebar {
+    font-family: GothamProLight;
+    font-size: 13px;
+    background: #655290;
+    width: 10vh;
+    height: 100vh;
+    min-width: 65px;
+    min-height: 550px;
+    position: fixed;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.sidebar-logo img {
+    height: 70px;
+    width: auto;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    height: 90px;
+}
+
+.sidebar-links .active {
+    background: #56457B;
+}
+
+.sidebar-link:hover {
+    background: #56457B;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-link .sidebar-link-logo {
+    height: 40px;
+    width: auto;
+}
+
+/* ------------------------------------------
+ TICKET MODAL FORM
+ ------------------------------------------ */
+.ticket-modal-content {
+    font-family: GothamProRegular;
+}
+
+.ticket-create-button {
+    font-family: GothamProRegular;
+    width: 115px;
+    height: 32px;
+    font-size: 13px !important;
+}
+
+.modal-underline-selector {
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+.smarts-ticket-box {
+    position: relative;
+    width: 100%;
+    font-size: 15px;
+}
+
+.smarts-input,
+.smarts-select {
+    height: 39px;
+}
+
+.smarts-textarea {
+    height: 95px;
+}
+
+.smarts-input,
+.smarts-select,
+.smarts-textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #655290;
+    box-shadow: none;
+    margin: 4px 0;
+    background: #F0F0F0;
+    padding: .375rem .75rem;
+}
+
+.smarts-input:hover,
+.smarts-select:hover,
+.smarts-textarea:hover {
+    border-bottom: 2px solid #655290;
+}
+
+.smarts-ticket-box .smarts-ticket-label {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 10px;
+    transition: 0.2s ease all;
+    color: #8C8C8C;
+}
+
+.smarts-selector-label {
+    color: #8C8C8C;
+    font-size: 13px;
+    margin-bottom: 0 !important;
+}
+
+.smarts-ticket-box input:focus ~ .smarts-ticket-label,
+.smarts-ticket-box textarea:focus ~ .smarts-ticket-label,
+.smarts-ticket-box input:not(:focus):valid ~ .smarts-ticket-label,
+.smarts-ticket-box textarea:not(:focus):valid ~ .smarts-ticket-label {
+    top: 5px;
+    left: 0;
+    font-size: 13px;
+    opacity: 1;
+
+}
+
+/* ------------------------------------------
+ TICKETS LAYOUT
+ ------------------------------------------ */
+
+.tickets-layout-content {
+    margin: 0 6vw 0 1vw;;
+}
+
+.tickets-top-component {
+    position: relative;
+    height: 15vh;
+    min-height: 90px;
+    padding-top: 80px;
+}
+
+.ticket-new-button {
+    width: 160px;
+    height: 36px;
+}
+
+.tickets-page-header {
+    font-family: GothamProMedium;
+    margin-bottom: 20px;
+}
+
+.tickets-table-issues {
+    font-family: GothamProLight;
+}
+
+.ticket-search-input {
+    position: relative;
+}
+
+.ticket-search-input .smarts-input {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+}
+
+.ticket-table-head {
+    font-size: 15px;
+}
+
+.ticket-table-body {
+    font-family: GothamProLight;
+    font-size: 14px;
+}
+
+.ticket-table-head tr,
+.ticket-table-body tr:nth-of-type(2n+2) {
+    background-color: #F9F9F9;
+}
+
+/* ------------------------------------------
+ TICKETS DETAILS
+ ------------------------------------------ */
+
+
+/*
+.details-group {
+     display: table;
+     font-size: 14px;
+     box-sizing: border-box;
+     border-spacing: 0;
+     table-layout: fixed;
+     width: 100%;
+ }
+
+.details-group > .details-item {
+    display: table-cell;
+    vertical-align: top;
+    margin: 0;
+}
+
+.details-group .main-column {
+    background: #EBECFF;
+}
+
+.details-group .side-column {
+    width: 35%;
+    padding-left: 30px;
+    background: #FFC5C5;
+}
+
+.module-list {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.module-list.two-cols .item {
+    box-sizing: border-box;
+    clear: left;
+    float: left;
+    width: 50%;
+}
+
+.module-list.two-cols .item-right {
+    clear: right;
+    float: right;
+}
+
+.module-list .item.full-width {
+    clear: both;
+    width: 100%
+}
+
+.module-list .item .name {
+    display: inline-block;
+    width: 150px;
+    color: #7a869a;
+    font-family: GothamProLight;
+}
+
+.module-list .item-right .name {
+    width: 100px;
+}
+
+.module-list .item .value {
+    display: inline-block;
+    width: 200px;
+    padding-right: 50px;
+    max-width: 100%;
+}
+*/
+
+
+/*////////////////////////////////////////////////*/
+
+/*.details-group {*/
+/*    display: table;*/
+/*    font-size: 14px;*/
+/*    box-sizing: border-box;*/
+/*    border-spacing: 0;*/
+/*    table-layout: fixed;*/
+/*    width: 100%;*/
+/*    margin: 20px 0;*/
+/*    background: #EBECFF;*/
+/*}*/
+
+/*.details-group .details-column,*/
+/*.details-group .two-columns {*/
+/*    display: table-cell;*/
+/*}*/
+
+/*.details-group .side-column {*/
+/*    width: 35%;*/
+/*}*/
+
+/*.module-list {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.module-list .item {*/
+/*    display: flex;*/
+/*}*/
+
+/*.module-list .item .name {*/
+/*    display: inline-block;*/
+/*    width: 150px;*/
+/*    color: #7a869a;*/
+/*    font-family: GothamProLight;*/
+/*}*/
+
+/*.module-list .item .value {*/
+/*    display: inline-block;*/
+/*    width: 200px;*/
+/*}*/
+
+/*.module.one-row-items {*/
+/*    display: flex;*/
+/*}*/
+
+/*.one-rowww {*/
+/*    width: 150px;*/
+/*}*/
+
+/*      */
+
+
+.details-group {
+    display: flex;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.details-column.main-column {
+    flex:2;
+}
+
+.details-column.side-column {
+    flex:1;
+}
+
+.module-content.two-columns {
+    display:flex;
+}
+
+.module{
+    margin-bottom: 30px;
+}
+
+.module .module-header {
+    font-family: GothamProMedium;
+    margin-bottom: 6px;
+}
+
+.module .module-content .item {
+    margin-bottom: 7px;
+}
+
+.module-list.column {
+    flex:1;
+    margin:0;
+}
+
+.module-list {
+    list-style: none;
+    padding: 0;
+}
+
+.module-list .item {
+    display: flex;
+}
+
+.module-list .item .name {
+    width: 140px;
+    color: #7a869a;
+    font-family: GothamProLight;
+}
+
+.module-list.short-name .item .name {
+    width: 120px;
+}
+
+.module-list .item .value.priority{
+    background: #E74C3C;
+    color:white;
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+.module-content.description{
+    margin-right: 45px;
+}
+
+.module-list.comment {
+    margin-bottom: 25px;
+}
+
+.module-list.comment .date-time,
+.module-list.comment .text {
+    padding-left: 33px;
+}
+
+.module-list.comment .date-time {
+    color: #7a869a;
+    font-size: 13px;
+}
+
+.module-list.comment .text {
+    margin: 7px 0;
+}
+
+.module-list.comment .author .account-card-logo{
+    height: 25px;
+    width: auto;
+
+}
+
+.module .button-area {
+    position: relative;
+}
+
+.module-footer .comment-textarea.smarts-textarea {
+    border-top: 2px solid #655290;
+    margin: 0 !important;
+    border-bottom: none;
+}
+
+.module-footer .comment-textarea.smarts-textarea:hover {
+    border-bottom: none;
+}
+
+.module-footer .comment-button {
+    position: absolute;
+    right: 0;
+}
+
+
+
+
+
