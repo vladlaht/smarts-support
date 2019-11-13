@@ -1,9 +1,14 @@
+$font-regular: GothamProRegular;
+$font-light: GothamProLight;
+$font-medium: GothamProMedium;
+
 .Main {
-  font-family: GothamProRegular;
+  font-family: $font-regular;
   width: 98%;
-}
-.Main .container-fluid {
-  margin-left: 120px;
+
+  .container-fluid {
+    margin-left: 120px;
+  }
 }
 
 .container-fluid {
@@ -21,35 +26,42 @@
 }
 
 .smarts-button {
-  font-family: GothamProMedium;
+  font-family: $font-medium;
   background: #655290 !important;
   border-radius: 50px !important;
   padding: 0 !important;
   font-size: 16px !important;
 }
 
+
 /* ------------------------------------------
  ACCOUNT
  ------------------------------------------ */
+
 .account-card {
   position: relative;
-}
-.account-card .account-card-body {
-  position: absolute;
-  right: 0;
-}
-.account-card .account-card-body button {
-  font-size: 13px;
-  font-family: GothamProMedium;
-  background: none;
-  color: black;
-}
-.account-card .account-card-body .dropdown-menu {
-  font-size: 13px;
-  width: 100%;
-}
-.account-card .account-card-body .dropdown-item {
-  padding: 0.25rem 0.4rem !important;
+
+  .account-card-body {
+    position: absolute;
+    right: 0;
+
+    button {
+      font-size: 13px;
+      font-family: $font-medium;
+      background: none;
+      color: black;
+    }
+
+    .dropdown-menu {
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .dropdown-item {
+      padding: .25rem 0.4rem !important;
+
+    }
+  }
 }
 
 .account-card-logo {
@@ -83,7 +95,7 @@
  SIDEBAR MENU
  ------------------------------------------ */
 .sidebar {
-  font-family: GothamProLight;
+  font-family: $font-light;
   font-size: 13px;
   background: #655290;
   width: 100px;
@@ -98,10 +110,11 @@
   align-items: center;
   flex-direction: column;
   margin: 30px 0;
-}
-.sidebar-logo img {
-  height: 70px;
-  width: auto;
+
+  img {
+    height: 70px;
+    width: auto;
+  }
 }
 
 .sidebar-link {
@@ -111,30 +124,34 @@
   flex-direction: column;
   color: white;
   height: 90px;
-}
-.sidebar-link:hover {
-  background: #56457B;
-  text-decoration: none;
-  color: white;
-}
-.sidebar-link .sidebar-link-logo {
-  height: 40px;
-  width: auto;
+
+  &:hover {
+    background: #56457B;
+    text-decoration: none;
+    color: white;
+  }
+
+  .sidebar-link-logo {
+    height: 40px;
+    width: auto;
+  }
 }
 
 .sidebar-links .active {
   background: #56457B;
 }
 
+
 /* ------------------------------------------
  TICKET MODAL FORM
  ------------------------------------------ */
+
 .ticket-modal-content {
-  font-family: GothamProRegular;
+  font-family: $font-regular;
 }
 
 .ticket-create-button {
-  font-family: GothamProRegular;
+  font-family: $font-regular;
   width: 115px;
   height: 32px;
   font-size: 13px !important;
@@ -149,14 +166,15 @@
   position: relative;
   width: 100%;
   font-size: 15px;
-}
-.smarts-ticket-box .smarts-ticket-label {
-  position: absolute;
-  pointer-events: none;
-  top: 50%;
-  left: 10px;
-  transition: 0.2s ease all;
-  color: #8C8C8C;
+
+  .smarts-ticket-label {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 10px;
+    transition: 0.2s ease all;
+    color: #8C8C8C;
+  }
 }
 
 .smarts-input,
@@ -179,12 +197,12 @@
   margin: 4px 0;
   background: #F0F0F0;
   padding: 6px 12px;
-}
-.smarts-input:hover,
-.smarts-select:hover,
-.smarts-textarea:hover {
-  border-bottom: 2px solid #655290;
-  padding-bottom: 5px;
+
+
+  &:hover {
+    border-bottom: 2px solid #655290;
+    padding-bottom: 5px;
+  }
 }
 
 .smarts-selector-label {
@@ -206,8 +224,9 @@
 /* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
+
 .tickets-layout-content {
-  margin: 0 6vw 0 1vw;
+  margin: 0 6vw 0 1vw;;
 }
 
 .tickets-top-component {
@@ -223,30 +242,32 @@
 }
 
 .tickets-page-header {
-  font-family: GothamProMedium;
+  font-family: $font-medium;
   margin-bottom: 20px;
 }
 
 .tickets-table-issues {
-  font-family: GothamProLight;
+  font-family: $font-light;
 }
 
 .ticket-search-input {
   position: relative;
+
+  .smarts-input {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+  }
 }
-.ticket-search-input .smarts-input {
-  width: 50%;
-  position: absolute;
-  right: 0;
-  font-size: 14px;
-}
+
 
 .ticket-table-head {
   font-size: 15px;
 }
 
 .ticket-table-body {
-  font-family: GothamProLight;
+  font-family: $font-light;
   font-size: 14px;
 }
 
@@ -258,6 +279,7 @@
 /* ------------------------------------------
  TICKETS DETAILS
  ------------------------------------------ */
+
 .details-group {
   display: flex;
   font-size: 14px;
@@ -266,89 +288,113 @@
   table-layout: fixed;
   width: 100%;
   margin: 20px 0;
-}
-.details-group .main-column {
-  flex: 2;
-}
-.details-group .side-column {
-  flex: 1;
+
+  .main-column {
+    flex: 2;
+  }
+
+  .side-column {
+    flex: 1;
+  }
 }
 
 .module {
   margin-bottom: 30px;
-}
-.module .module-header {
-  font-family: GothamProMedium;
-  margin-bottom: 6px;
-}
-.module .two-columns {
-  display: flex;
-}
-.module .two-columns .column {
-  flex: 1;
-  margin: 0;
+
+  .module-header {
+    font-family: $font-medium;
+    margin-bottom: 6px;
+  }
+
+  .two-columns {
+    display: flex;
+
+    .column {
+      flex: 1;
+      margin: 0;
+    }
+  }
 }
 
-.module-content .description {
-  margin-right: 45px;
-}
-.module-content .comment {
-  margin-bottom: 25px;
-}
-.module-content .comment .date-time {
-  color: #7a869a;
-  font-size: 13px;
-}
-.module-content .comment .text {
-  margin: 7px 0;
-}
-.module-content .comment .author .account-card-logo {
-  height: 25px;
-  width: auto;
-}
-.module-content .comment .date-time,
-.module-content .comment .text {
-  padding-left: 33px;
+.module-content {
+  .description {
+    margin-right: 45px;
+  }
+
+  .comment {
+    margin-bottom: 25px;
+
+    .date-time {
+      color: #7a869a;
+      font-size: 13px;
+    }
+
+    .text {
+      margin: 7px 0;
+    }
+
+    .author .account-card-logo {
+      height: 25px;
+      width: auto;
+
+    }
+
+    .date-time,
+    .text {
+      padding-left: 33px;
+    }
+  }
 }
 
 .module-list {
   list-style: none;
   padding: 0;
-}
-.module-list .item {
-  display: flex;
-  margin-bottom: 7px;
-}
-.module-list .item .name {
-  width: 140px;
-  color: #7a869a;
-  font-family: GothamProLight;
-}
-.module-list .item .value.priority {
-  background: #E74C3C;
-  color: white;
-  padding: 0 3px;
-  border-radius: 3px;
+
+  .item {
+    display: flex;
+    margin-bottom: 7px;
+
+    .name {
+      width: 140px;
+      color: #7a869a;
+      font-family: $font-light;
+    }
+
+    .value.priority {
+      background: #E74C3C;
+      color: white;
+      padding: 0 3px;
+      border-radius: 3px;
+    }
+  }
 }
 
 .module-list.short-name .item .name {
   width: 120px;
 }
 
-.module-footer .smarts-textarea {
-  border-top: 2px solid #655290;
-  margin: 0 !important;
-  border-bottom: none;
-}
-.module-footer .smarts-textarea:hover {
-  border-bottom: none;
-}
-.module-footer .comment-button {
-  position: absolute;
-  right: 0;
-}
-.module-footer .button-area {
-  position: relative;
+.module-footer {
+  .smarts-textarea {
+    border-top: 2px solid #655290;
+    margin: 0 !important;
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
+  .comment-button {
+    position: absolute;
+    right: 0;
+  }
+
+  .button-area {
+    position: relative;
+  }
 }
 
-/*# sourceMappingURL=App.css.map */
+
+
+
+

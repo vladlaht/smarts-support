@@ -1,4 +1,3 @@
-import React from "react";
 
 const initialState = {
     ticketNumber: "15741 $",

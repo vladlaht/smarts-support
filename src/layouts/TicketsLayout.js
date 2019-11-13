@@ -12,12 +12,10 @@ class TicketsLayout extends Component {
     render() {
         return (
             <React.Fragment>
+                <Navigation activeRoute={TICKETS_ROUTE}/>
                 <Container fluid>
                     <Row>
-                        <Col lg={1} md={1} sm={1}>
-                            <Navigation activeRoute={TICKETS_ROUTE}/>
-                        </Col>
-                        <Col lg={11} md={11} sm={11}>
+                        <Col sm={12}>
                             <div className="tickets-layout-content">
                                 <Row>
                                     <Col>

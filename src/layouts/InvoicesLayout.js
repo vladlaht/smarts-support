@@ -9,16 +9,13 @@ class InvoicesLayout extends Component {
     render() {
         return (
             <React.Fragment>
+                <Navigation activeRoute={INVOICES_ROUTE}/>
                 <Container fluid>
                     <Row>
-                        <Col lg={1} md={1} sm={1}>
-                            <Navigation activeRoute={INVOICES_ROUTE}/>
-                        </Col>
-                        <Col lg={11} md={11} sm={1}>
+                        <Col sm={12}>
                             <h1>Invoices page</h1>
                         </Col>
                     </Row>
-
                 </Container>
             </React.Fragment>
         )

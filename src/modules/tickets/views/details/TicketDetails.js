@@ -18,60 +18,6 @@ class TicketsTable extends Component {
                         </div>
                     </Col>
                 </Row>
-
-                {/*<div className="details-group">*/}
-                {/*    <div className="details-item main-column">*/}
-                {/*        <div className="module">*/}
-                {/*            <div className="module-header">*/}
-                {/*                Details*/}
-                {/*            </div>*/}
-                {/*            <div className="module-content">*/}
-                {/*                <ul className="module-list two-cols">*/}
-                {/*                    <li className="item">*/}
-                {/*                        <span className="name">Ticket number:</span>*/}
-                {/*                        <span className="value">54011</span>*/}
-                {/*                    </li>*/}
-                {/*                    <li className="item item-right">*/}
-                {/*                        <span className="name">Type:</span>*/}
-                {/*                        <span className="value">Payment</span>*/}
-                {/*                    </li>*/}
-                {/*                    <li className="item">*/}
-                {/*                        <span className="name">Ticket name:</span>*/}
-                {/*                        <span className="value">Payed twice</span>*/}
-                {/*                    </li>*/}
-                {/*                    <li className="item item-right">*/}
-                {/*                        <span className="name">Priority:</span>*/}
-                {/*                        <span className="value">CRITICAL</span>*/}
-                {/*                    </li>*/}
-                {/*                    <li className="item full-width">*/}
-                {/*                        <span className="name">Invoice number:</span>*/}
-                {/*                        <span className="value">123123123123</span>*/}
-                {/*                    </li>*/}
-                {/*                </ul>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <div className="details-item side-column">*/}
-                {/*        <div className="module">*/}
-                {/*            <div className="module-header">*/}
-                {/*                People*/}
-                {/*            </div>*/}
-                {/*            <div className="module-content">*/}
-                {/*                <ul className="module-list">*/}
-                {/*                    <li className="item">*/}
-                {/*                        <span className="name">Created by</span>*/}
-                {/*                        <span className="value">Vlad Laht</span>*/}
-                {/*                    </li>*/}
-                {/*                    <li className="item">*/}
-                {/*                        <span className="name">Assignee</span>*/}
-                {/*                        <span className="value">Kristo Truu</span>*/}
-                {/*                    </li>*/}
-                {/*                </ul>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
                 <div className="details-group">
                     <div className="details-column main-column">
                         <div className="module">
@@ -113,8 +59,10 @@ class TicketsTable extends Component {
                         </div>
                         <div className="module">
                             <div className="module-header">Description</div>
-                            <div className="module-content description">
-                                {this.props.details.description}
+                            <div className="module-content">
+                                <div className="description">
+                                    {this.props.details.description}
+                                </div>
                             </div>
                         </div>
                         <div className="module">
@@ -139,7 +87,7 @@ class TicketsTable extends Component {
                                 })}
                             </div>
                             <div className="module-footer ">
-                                <textarea rows="3" className=" comment-textarea smarts-textarea" placeholder='Comment here'/>
+                                            <textarea rows="3" className="smarts-textarea" placeholder='Comment here'/>
                                 <div className="button-area">
                                     <Button className="smarts-button ticket-new-button comment-button">
                                         COMMENT
@@ -147,16 +95,6 @@ class TicketsTable extends Component {
                                 </div>
                             </div>
                         </div>
-                        {/*<div className="module">*/}
-                        {/*    <ul className="module-list column">*/}
-                        {/*        <li className="item">*/}
-                        {/*            <span className="name">Description:</span>*/}
-                        {/*            <span className="value-v">Money was withdrawn twice from a bank.*/}
-                        {/*        The amount was high and the client asks to hurry up with the return of funds.*/}
-                        {/*            </span>*/}
-                        {/*        </li>*/}
-                        {/*    </ul>*/}
-                        {/*</div>*/}
                     </div>
                     <div className="details-column side-column">
                         <div className="module">
