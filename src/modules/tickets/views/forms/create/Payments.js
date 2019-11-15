@@ -98,7 +98,6 @@ class Payments extends Component {
 
 function mapStateToProps(state) {
     return {
-        createTicket: state.createTicket,
         form: state.createPaymentsTicketForm,
     }
 }

@@ -1,14 +1,10 @@
 .Main {
   font-family: GothamProRegular;
-  width: 98%;
 }
 .Main .container-fluid {
   margin-left: 120px;
-}
-
-.container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  width: 93%;
+  padding: 0 2vw;
 }
 
 .btn {
@@ -88,8 +84,6 @@
   background: #655290;
   width: 100px;
   height: 100vh;
-  min-width: 65px;
-  min-height: 550px;
   position: fixed;
 }
 
@@ -207,7 +201,7 @@
  TICKETS LAYOUT
  ------------------------------------------ */
 .tickets-layout-content {
-  margin: 0 6vw 0 1vw;
+  margin: 0 2vw;
 }
 
 .tickets-top-component {

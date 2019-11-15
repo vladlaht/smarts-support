@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import AccountCard from "../../../account/views/cards/AccountDropdownCard";
 
-class CreateTicketButton extends Component {
+class TicketHeadComponent extends Component {
 
     toggleModal = () => {
         const {createTicket} = this.props;
@@ -41,4 +41,4 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({changeField }, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTicketButton);
+export default connect(mapStateToProps, mapDispatchToProps)(TicketHeadComponent);

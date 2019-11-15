@@ -4,16 +4,12 @@ $font-medium: GothamProMedium;
 
 .Main {
   font-family: $font-regular;
-  width: 98%;
 
   .container-fluid {
     margin-left: 120px;
+    width: 93%;
+    padding: 0 2vw;
   }
-}
-
-.container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
 }
 
 .btn {
@@ -100,8 +96,6 @@ $font-medium: GothamProMedium;
   background: #655290;
   width: 100px;
   height: 100vh;
-  min-width: 65px;
-  min-height: 550px;
   position: fixed;
 }
 
@@ -226,7 +220,7 @@ $font-medium: GothamProMedium;
  ------------------------------------------ */
 
 .tickets-layout-content {
-  margin: 0 6vw 0 1vw;;
+  margin: 0 2vw;
 }
 
 .tickets-top-component {

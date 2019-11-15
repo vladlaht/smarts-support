@@ -1,3 +1,8 @@
+import {
+    ADD_TICKET_DETAILS_COMMENT,
+    SAVE_TICKET_DETAILS_COMMENT
+} from "../constants/ReducerConstants";
+import {ACTION_STATUS_FORM_FIELD_CHANGE, getAction} from "../../../global/constants/action-types";
 
 const initialState = {
     ticketNumber: "15741 $",
@@ -25,14 +30,52 @@ const initialState = {
             text: "2.Client said that the problem is still not resolved. $"
         }
 
-    ]
+    ],
+    testComment: [
+        {
+            author: "Vladislav Lahtarin 1",
+            datetime: "13.08.2019 13:56:42 1",
+            text: 'its a test comment 1'
+        },
+        {
+            author: "Vladislav Lahtarin 2",
+            datetime: "13.08.2019 13:56:42 2",
+            text: 'its a test comment 2'
+        },
+        {
+            author: "Vladislav Lahtarin 3",
+            datetime: "13.08.2019 13:56:42 3",
+            text: 'its a test comment 3'
+        }
+    ],
+    newComment: null,
+    btnDisabled: true,
 };
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case "TICKET_DETAILS" :
-            return {
-                ...state
-            };
+        case ADD_TICKET_DETAILS_COMMENT:
+            if(action.payload !==null && action.payload !== undefined && action.payload.length > 0) {
+                return {
+                    ...state,
+                    comments: [...state.comments,
+                        {
+                            author: "Vlad Laht",
+                            datetime: new Date().toLocaleString(),
+                            text: action.payload
+                        }
+                    ],
+                    newComment: null
+                };
+            } else {
+                return {
+                    ...state
+                }
+            }
+        case getAction(SAVE_TICKET_DETAILS_COMMENT, ACTION_STATUS_FORM_FIELD_CHANGE):
+                return {
+                    ...state,
+                    [action.payload.field]: action.payload.value,
+                };
         default:
             return state
     }

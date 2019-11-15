@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import CreateTicket from "../modules/tickets/views/cards/CreateTicketButton";
+import TicketHeadComponent from "../modules/tickets/views/cards/TicketHeadComponent";
 import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
 import CreateTicketModal from "../modules/tickets/views/modals/CreateTicketModal";
 import {Container, Row, Col} from "react-bootstrap";
@@ -19,7 +19,7 @@ class TicketsLayout extends Component {
                             <div className="tickets-layout-content">
                                 <Row>
                                     <Col>
-                                        <CreateTicket/>
+                                        <TicketHeadComponent/>
                                     </Col>
                                 </Row>
                                 <Row>

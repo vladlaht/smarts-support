@@ -4,8 +4,42 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Row, Col, Button} from "react-bootstrap";
 import AccountCard from "../../../account/views/cards/AccountCard";
+import {addComment} from "../../actions/TicketDetailsAction";
+import {SAVE_TICKET_DETAILS_COMMENT} from "../../constants/ReducerConstants";
 
 class TicketsTable extends Component {
+
+    componentDidUpdate() {
+        this.commentText.value = '';
+    }
+
+    handleClick = () => {
+        if (this.commentText !== null && this.commentText !== undefined) {
+            this.props.addComment(this.commentText.value);
+        }
+    }
+
+    handleChange = () => {
+        // if (this.commentText !== null || this.commentText !== undefined || this.commentText > 0) {
+        //     this.props.changeField(SAVE_TICKET_DETAILS_COMMENT, "btnDisabled", false)
+        // } else if (this.commentText == null || this.commentText == undefined || this.commentText < 1){
+        //     this.props.changeField(SAVE_TICKET_DETAILS_COMMENT, "btnDisabled", true)
+        // }
+    }
+
+    // handleClick = () => {
+    //     this.props.addComment();
+    // };
+    // handleFieldChange(field, value) {
+    //     this.props.changeField(SAVE_TICKET_DETAILS_COMMENT, field, value);
+    //     if (this.props.details.newComment && this.props.details.newComment.length > 0) {
+    //         {console.log('more ' + this.props.details.btnDisabled)}
+    //         this.props.changeField(SAVE_TICKET_DETAILS_COMMENT, "btnDisabled", false);
+    //     } else if (this.props.details.newComment == null || this.props.details.newComment.length === 1) {
+    //         {console.log('less ' + this.props.details.btnDisabled)}
+    //         this.props.changeField(SAVE_TICKET_DETAILS_COMMENT, "btnDisabled", true);
+    //     }
+    // }
 
     render() {
         return (
@@ -69,7 +103,7 @@ class TicketsTable extends Component {
                             <div className="module-header">Comments</div>
                             <div className="module-content">
                                 {this.props.details.comments && this.props.details.comments.map((comment, key) => {
-                                    return(
+                                    return (
                                         <ul key={key} className="module-list comment">
                                             <li className="author">
                                                 <AccountCard
@@ -85,11 +119,41 @@ class TicketsTable extends Component {
                                         </ul>
                                     )
                                 })}
+
+                                {/*<div>*/}
+                                {/*    {this.props.details.testComment && this.props.details.testComment.map((comment, key) => {*/}
+                                {/*        return (*/}
+                                {/*            <ul key={key} className="module-list">*/}
+                                {/*                <li>*/}
+                                {/*                    {comment.author}*/}
+                                {/*                </li>*/}
+                                {/*                <li>*/}
+                                {/*                    {comment.datetime}*/}
+                                {/*                </li>*/}
+                                {/*                <li>*/}
+                                {/*                    {comment.text}*/}
+                                {/*                </li>*/}
+                                {/*            </ul>*/}
+                                {/*        )*/}
+                                {/*    })}*/}
+                                {/*</div>*/}
+                                {/*{console.log(this.props.details.newComment && this.props.details.newComment)}*/}
+                                {/*{console.log(this.props.details.testComment.length)}*/}
+
                             </div>
                             <div className="module-footer ">
-                                            <textarea rows="3" className="smarts-textarea" placeholder='Comment here'/>
+                                            <textarea rows="3"
+                                                      className="smarts-textarea"
+                                                      placeholder='Comment here'
+                                                      ref={(ref) => this.commentText = ref}
+                                                      onChange={this.handleChange}
+                                                // onChange={(e) => this.handleFieldChange("newComment", e.currentTarget.value)}
+                                            />
                                 <div className="button-area">
-                                    <Button className="smarts-button ticket-new-button comment-button">
+                                    <Button className="smarts-button ticket-new-button comment-button"
+                                            onClick={this.handleClick}
+                                            //disabled={this.props.details.btnDisabled}
+                                    >
                                         COMMENT
                                     </Button>
                                 </div>
@@ -105,7 +169,7 @@ class TicketsTable extends Component {
                                         <span className="name">Created by:</span>
                                         <span className="value">
                                             <AccountCard
-                                                fullname= {this.props.details.createdBy}/>
+                                                fullname={this.props.details.createdBy}/>
                                         </span>
                                     </li>
                                     <li className="item">
@@ -148,7 +212,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({
-    changeField
+    changeField,
+    addComment
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketsTable);

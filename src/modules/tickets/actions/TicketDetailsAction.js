@@ -1,6 +1,8 @@
-export function getDetails(actionType, field, value) {
+import {ADD_TICKET_DETAILS_COMMENT} from "../constants/ReducerConstants";
+
+export function addComment(comment) {
     return (dispatch) => dispatch({
-        type: actionType,
-        payload: {field: field, value: value}
-    })
+        type: ADD_TICKET_DETAILS_COMMENT,
+        payload: comment
+    });
 }
