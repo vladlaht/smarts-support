@@ -318,12 +318,6 @@
   color: #7a869a;
   font-family: GothamProLight;
 }
-.module-list .item .value.priority {
-  background: #E74C3C;
-  color: white;
-  padding: 0 3px;
-  border-radius: 3px;
-}
 
 .module-list.short-name .item .name {
   width: 120px;
@@ -343,6 +337,22 @@
 }
 .module-footer .button-area {
   position: relative;
+}
+
+.styles_Editext__button__6H8n_,
+.styles_Editext__input__1534X {
+  padding: 0 !important;
+}
+
+.styles_Editext__button__6H8n_ {
+  min-width: 24px !important;
+}
+
+.details-custom-priority {
+  background: #E74C3C;
+  color: white;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 /*# sourceMappingURL=App.css.map */

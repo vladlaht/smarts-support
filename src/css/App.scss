@@ -1,6 +1,7 @@
 $font-regular: GothamProRegular;
 $font-light: GothamProLight;
 $font-medium: GothamProMedium;
+$color-smarts-main: #655290;
 
 .Main {
   font-family: $font-regular;
@@ -23,7 +24,7 @@ $font-medium: GothamProMedium;
 
 .smarts-button {
   font-family: $font-medium;
-  background: #655290 !important;
+  background: $color-smarts-main !important;
   border-radius: 50px !important;
   padding: 0 !important;
   font-size: 16px !important;
@@ -63,12 +64,12 @@ $font-medium: GothamProMedium;
 .account-card-logo {
   height: 20px;
   width: auto;
-  color: #655290;
+  color: $color-smarts-main;
 }
 
 .account-card-body button:hover,
 .show > .btn-primary.dropdown-toggle {
-  background: #655290 !important;
+  background: $color-smarts-main !important;
   color: white !important;
 }
 
@@ -93,7 +94,7 @@ $font-medium: GothamProMedium;
 .sidebar {
   font-family: $font-light;
   font-size: 13px;
-  background: #655290;
+  background: $color-smarts-main;
   width: 100px;
   height: 100vh;
   position: fixed;
@@ -186,7 +187,7 @@ $font-medium: GothamProMedium;
   width: 100%;
   outline: none;
   border: none;
-  border-bottom: 1px solid #655290;
+  border-bottom: 1px solid $color-smarts-main;
   box-shadow: none;
   margin: 4px 0;
   background: #F0F0F0;
@@ -194,7 +195,7 @@ $font-medium: GothamProMedium;
 
 
   &:hover {
-    border-bottom: 2px solid #655290;
+    border-bottom: 2px solid $color-smarts-main;
     padding-bottom: 5px;
   }
 }
@@ -354,14 +355,28 @@ $font-medium: GothamProMedium;
       font-family: $font-light;
     }
 
-    .value.priority {
-      background: #E74C3C;
-      color: white;
-      padding: 0 3px;
-      border-radius: 3px;
-    }
+    //.editable-value {
+    //  .details-edit-icon {
+    //    height: 23px;
+    //    width: auto;
+    //    color: $color-smarts-main;
+    //    opacity: 0;
+    //  }
+    //
+    //  &:hover {
+    //    box-shadow: 0 0 0 1px #ebecf0;
+    //
+    //    .details-edit-icon {
+    //    opacity: 1;
+    //      z-index: auto;
+    //    }
+    //  }
+    //}
+
+
   }
 }
+
 
 .module-list.short-name .item .name {
   width: 120px;
@@ -369,7 +384,7 @@ $font-medium: GothamProMedium;
 
 .module-footer {
   .smarts-textarea {
-    border-top: 2px solid #655290;
+    border-top: 2px solid $color-smarts-main;
     margin: 0 !important;
     border-bottom: none;
 
@@ -388,7 +403,21 @@ $font-medium: GothamProMedium;
   }
 }
 
+.styles_Editext__button__6H8n_,
+.styles_Editext__input__1534X {
+  padding: 0 !important;
+}
 
+.styles_Editext__button__6H8n_ {
+  min-width: 24px !important;
+}
+
+.details-custom-priority {
+  background: #E74C3C;
+  color: white;
+  padding: 0 3px;
+  border-radius: 3px;
+}
 
 
 

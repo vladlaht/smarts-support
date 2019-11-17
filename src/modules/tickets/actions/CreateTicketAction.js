@@ -1,4 +1,4 @@
-import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAction} from "../../../global/constants/action-types";
+import {ACTION_STATUS_START, getAction} from "../../../global/constants/action-types";
 import {CREATE_TICKET_ACTION} from "../constants/ReducerConstants";
 
 
@@ -25,18 +25,18 @@ function start() {
     }
 }
 
-function success(payload) {
-    /*showFlipNotification("Ticket created successfully");*/
-    return {
-        type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_SUCCESS),
-        payload,
-    }
-}
-
-function failed(error) {
-   /* showFlipNotification(error ? error.toString() : "Failed to create ticket", "danger");*/
-    return {
-        type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_FAILED),
-        error
-    }
-}
+// function success(payload) {
+//     /*showFlipNotification("Ticket created successfully");*/
+//     return {
+//         type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_SUCCESS),
+//         payload,
+//     }
+// }
+//
+// function failed(error) {
+//    /* showFlipNotification(error ? error.toString() : "Failed to create ticket", "danger");*/
+//     return {
+//         type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_FAILED),
+//         error
+//     }
+// }

@@ -9,7 +9,7 @@ import {createPaymentsTicket} from "../../../actions/create/CreatePaymentsTicket
 
 class Payments extends Component {
 
-    handleFieldChange(field, value) {
+    handleFieldChange = (field, value) => {
         this.props.changeField(CREATE_PAYMENTS_TICKET, field, value)
     }
 

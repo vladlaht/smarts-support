@@ -5,8 +5,8 @@ import {DropdownButton, Dropdown} from "react-bootstrap";
 import {IconContext} from "react-icons";
 import {IoMdLogOut, IoMdClipboard} from "react-icons/io"
 import {MdSettings} from "react-icons/md"
-
 import AccountCard from "./AccountCard";
+
 class AccountDropdownCard extends Component {
 
     render() {
@@ -14,7 +14,7 @@ class AccountDropdownCard extends Component {
             <div className="account-card">
                 <DropdownButton className="account-card-body" id="dropdown-basic-button"
                                 title={<AccountCard
-                                    fullname={'Vladsialv Lahtarin'}/>}>
+                                    fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item href="#/action-1">
                         <IconContext.Provider value={{className: "account-card-items-logo"}}>
                             <MdSettings/>
@@ -40,7 +40,9 @@ class AccountDropdownCard extends Component {
 }
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        account : state.accountCard
+    }
 }
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));
