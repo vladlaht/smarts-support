@@ -5,12 +5,13 @@ import {bindActionCreators} from "redux";
 import Navigation from "../global/navigation/Navigation";
 import TicketDetails from "../modules/tickets/views/details/TicketDetails";
 import AccountCard from "../modules/account/views/cards/AccountDropdownCard";
+import {TICKETS_ROUTE} from "../global/constants/routes";
 
 class TicketDetailsLayout extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navigation/>
+                <Navigation  activeRoute={TICKETS_ROUTE}/>
                 <Container fluid>
                     <Row>
                         <Col  sm={12}>

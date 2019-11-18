@@ -6,6 +6,7 @@ import {IconContext} from "react-icons";
 import {IoMdLogOut, IoMdClipboard} from "react-icons/io"
 import {MdSettings} from "react-icons/md"
 import AccountCard from "./AccountCard";
+import {Link} from "react-router-dom";
 
 class AccountDropdownCard extends Component {
 
@@ -31,7 +32,10 @@ class AccountDropdownCard extends Component {
                         <IconContext.Provider value={{className: "account-card-items-logo"}}>
                             <IoMdLogOut/>
                         </IconContext.Provider>
-                        Log out
+                        <Link className="dropdown-link" to="/">
+                            Log out
+                        </Link>
+
                     </Dropdown.Item>
                 </DropdownButton>
             </div>

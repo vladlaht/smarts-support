@@ -186,7 +186,7 @@ class TicketsTable extends Component {
                                 <div className="button-area">
                                     <Button className="smarts-button ticket-new-button comment-button"
                                             onClick={this.handleClick}>
-                                        COMMENT
+                                        Comment
                                     </Button>
                                 </div>
                             </div>

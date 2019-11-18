@@ -14,6 +14,7 @@ import TicketsLayout from "./layouts/TicketsLayout";
 import ClientsLayout from "./layouts/ClientsLayout";
 import InvoicesLayout from "./layouts/InvoicesLayout";
 import TicketDetailsLayout from "./layouts/TicketDetailsLayout";
+import AuthorizationLayout from "./layouts/AuthorizationLayout";
 
 export const history = createBrowserHistory();
 
@@ -24,7 +25,8 @@ class Main extends Component {
                 <Provider store={appStore}>
                     <Router history={history}>
                         <Switch>
-                            <Route exact path="/" component={HomeLayout}/>
+                            <Route exact path="/" component={AuthorizationLayout}/>
+                            <Route exact path="/home" component={HomeLayout}/>
                             <Route exact path="/tickets" component={TicketsLayout}/>
                             <Route exact path="/clients" component={ClientsLayout}/>
                             <Route exact path="/invoices" component={InvoicesLayout}/>
