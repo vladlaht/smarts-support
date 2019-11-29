@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
@@ -11,9 +11,14 @@ class Payments extends Component {
 
     handleFieldChange = (field, value) => {
         this.props.changeField(CREATE_PAYMENTS_TICKET, field, value)
-    }
+    };
+
+    createTicket = () => {
+        this.props.createPaymentsTicket();
+    };
 
     render() {
+        const {form} = this.props;
         return (
             <React.Fragment>
                 <Row>
@@ -22,7 +27,7 @@ class Payments extends Component {
                             <label className="smarts-selector-label"> Assignee</label>
                             <select className="smarts-select"
                                     defaultValue="default"
-                            onChange={(e)=> this.handleFieldChange("assignee", e.currentTarget.value)}>
+                            onChange={(e)=> this.handleFieldChange("assignee", e.target.value)}>
                                 <option value="default" disabled>Ticket assignee</option>
                                 <option>Kristo Truu</option>
                                 <option>Ilja Andrejev</option>
@@ -35,7 +40,7 @@ class Payments extends Component {
                             <label className="smarts-selector-label"> Priority</label>
                             <select className="smarts-select"
                                     defaultValue="default"
-                                    onChange={(e)=> this.handleFieldChange("priority", e.currentTarget.value)}>
+                                    onChange={(e)=> this.handleFieldChange("priority", e.target.value)}>
                                 <option value="default" disabled>Ticket priority</option>
                                 <option>Critical</option>
                                 <option>High</option>
@@ -90,7 +95,15 @@ class Payments extends Component {
                         </Form.Group>
                     </Col>
                 </Row>
-                {console.log("Ticket form:" + JSON.stringify(this.props.form))}
+                <Row>
+                    <Col>
+                        <div className="ticket-create-button-area">
+                            <Button className="smarts-button ticket-create-button"
+                                    onClick={this.createTicket}>Create</Button>
+                        </div>
+                    </Col>
+                </Row>
+                {console.log("Ticket form:" + JSON.stringify(form))}
             </React.Fragment>
         )
     }

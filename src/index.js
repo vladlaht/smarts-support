@@ -30,7 +30,7 @@ class Main extends Component {
                             <Route exact path="/tickets" component={TicketsLayout}/>
                             <Route exact path="/clients" component={ClientsLayout}/>
                             <Route exact path="/invoices" component={InvoicesLayout}/>
-                            <Route exact path="/invoices/details" component={TicketDetailsLayout}/>
+                            <Route exact path="/tickets/details" component={TicketDetailsLayout}/>
                         </Switch>
                     </Router>
                 </Provider>

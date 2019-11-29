@@ -4,6 +4,7 @@ import Navigation from "../global/navigation/Navigation";
 import {HOME_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
 class HomeLayout extends Component {
     render() {
@@ -13,7 +14,20 @@ class HomeLayout extends Component {
                     <Container fluid>
                         <Row>
                             <Col sm={12}>
-                                <h1>Home page</h1>
+                                <div className="tickets-layout-content">
+                                    <Row>
+                                        <Col>
+                                            <div className="tickets-top-component">
+                                                <AccountDropdownCard/>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                           <h1>Home Page</h1>
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Col>
                         </Row>
 

@@ -4,6 +4,7 @@ import Navigation from "../global/navigation/Navigation";
 import {CLIENTS_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
 class ClientsLayout extends Component {
     render() {
@@ -13,7 +14,20 @@ class ClientsLayout extends Component {
                 <Container fluid>
                     <Row>
                         <Col sm={12}>
-                            <h1>Clients page</h1>
+                            <div className="tickets-layout-content">
+                                <Row>
+                                    <Col>
+                                        <div className="tickets-top-component">
+                                            <AccountDropdownCard/>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <h1>Clients Page</h1>
+                                    </Col>
+                                </Row>
+                            </div>
                         </Col>
                     </Row>
                 </Container>

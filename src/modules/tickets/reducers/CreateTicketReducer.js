@@ -1,5 +1,10 @@
 import {CREATE_TICKET_ACTION} from "../constants/ReducerConstants";
-import {ACTION_STATUS_FORM_FIELD_CHANGE, getAction} from "../../../global/constants/action-types";
+import {
+    ACTION_STATUS_FAILED,
+    ACTION_STATUS_FORM_FIELD_CHANGE,
+    ACTION_STATUS_START, ACTION_STATUS_SUCCESS,
+    getAction
+} from "../../../global/constants/action-types";
 
 const initialState = {
     modalIsOpen: false,
@@ -12,6 +17,15 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 [action.payload.field]: action.payload.value
             };
+
+        case getAction(CREATE_TICKET_ACTION, ACTION_STATUS_START):
+            return initialState;
+
+        case getAction(CREATE_TICKET_ACTION, ACTION_STATUS_SUCCESS):
+            return initialState;
+
+        case getAction(CREATE_TICKET_ACTION, ACTION_STATUS_FAILED):
+            return initialState;
         default:
             return state
     }

@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
-import ticketModalReducers from "../../modules/tickets/reducers";
+import ticketReducers from "../../modules/tickets/reducers";
+import detailsReducers from "../../modules/ticketDetails/reducers";
+import accountReducers from "../../modules/account/reducers";
 
 export default combineReducers({
-   ...ticketModalReducers
+   ...ticketReducers,
+   ...detailsReducers,
+   ...accountReducers
 });

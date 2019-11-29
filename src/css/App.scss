@@ -36,7 +36,6 @@ input:required {
   box-shadow: none;
 }
 
-
 /* ------------------------------------------
  ACCOUNT
  ------------------------------------------ */
@@ -160,10 +159,17 @@ input:required {
   font-family: $font-regular;
 }
 
-.ticket-create-button {
-  width: 115px;
-  height: 32px;
-  font-size: 13px !important;
+.ticket-create-button-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+
+  .ticket-create-button {
+    width: 115px;
+    height: 32px;
+    font-size: 13px !important;
+  }
 }
 
 .modal-underline-selector {
@@ -193,6 +199,7 @@ input:required {
 
 .smarts-textarea {
   height: 95px;
+  resize: none;
 }
 
 .smarts-input,
@@ -370,40 +377,19 @@ input:required {
       color: #7a869a;
       font-family: $font-light;
     }
-
-    //.editable-value {
-    //  .details-edit-icon {
-    //    height: 23px;
-    //    width: auto;
-    //    color: $color-smarts-main;
-    //    opacity: 0;
-    //  }
-    //
-    //  &:hover {
-    //    box-shadow: 0 0 0 1px #ebecf0;
-    //
-    //    .details-edit-icon {
-    //    opacity: 1;
-    //      z-index: auto;
-    //    }
-    //  }
-    //}
-
-
   }
 }
-
 
 .module-list.short-name .item .name {
   width: 120px;
 }
+
 
 .module-footer {
   .smarts-textarea {
     border-top: 2px solid $color-smarts-main;
     margin: 0 !important;
     border-bottom: none;
-
     &:hover {
       border-bottom: none;
     }
@@ -440,7 +426,7 @@ input:required {
  AUTHORIZATION
  ------------------------------------------ */
 
-.authorization-layout {
+.auth-layout {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -448,7 +434,7 @@ input:required {
   height: 100vh;
 }
 
-.authorization-form {
+.auth-form {
   font-family: $font-light;
   background-color: #fff;
   width: 450px;

@@ -14,9 +14,11 @@ export function createPaymentsTicket() {
                 assignee: form.assignee,
                 priority: form.priority,
                 ticketName: form.ticketName,
-                client: form.client,
+                clientName: form.client,
                 invoiceNumber: form.invoiceNumber,
                 description: form.description,
+                createdBy: form.createdBy,
+                createdAt: form.createdAt
             }
         };
         dispatch(start());

@@ -12,7 +12,7 @@ import Software from "./Software";
 class Create extends Component {
 
     handleFieldChange = (e) => {
-        this.props.changeField(CREATE_TICKET_ACTION, "ticketType", e.currentTarget.value );
+        this.props.changeField(CREATE_TICKET_ACTION, "ticketType", e.target.value );
     };
 
     renderSelection() {

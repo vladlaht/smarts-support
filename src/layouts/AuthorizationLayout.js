@@ -6,8 +6,8 @@ class AuthorizationLayout extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="authorization-layout">
-                    <div className="authorization-form">
+                <div className="auth-layout">
+                    <div className="auth-form">
                         <div className="auth-head">
                             <img className="auth-logo" src={`${process.env.PUBLIC_URL}/img/logo.png`} alt="logo"/>
                         </div>

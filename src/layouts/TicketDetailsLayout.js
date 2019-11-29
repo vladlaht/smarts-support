@@ -3,8 +3,8 @@ import {Container, Row, Col} from "react-bootstrap";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import Navigation from "../global/navigation/Navigation";
-import TicketDetails from "../modules/tickets/views/details/TicketDetails";
-import AccountCard from "../modules/account/views/cards/AccountDropdownCard";
+import TicketDetails from "../modules/ticketDetails/views/TicketDetails";
+import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 import {TICKETS_ROUTE} from "../global/constants/routes";
 
 class TicketDetailsLayout extends Component {
@@ -19,7 +19,7 @@ class TicketDetailsLayout extends Component {
                                 <Row>
                                     <Col>
                                         <div className="tickets-top-component">
-                                            <AccountCard/>
+                                            <AccountDropdownCard/>
                                         </div>
                                     </Col>
                                 </Row>

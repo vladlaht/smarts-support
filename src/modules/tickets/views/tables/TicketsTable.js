@@ -8,9 +8,10 @@ import {Link} from "react-router-dom";
 
 class TicketsTable extends Component {
     render() {
+        const {details} = this.props;
         let rows = [];
         let number = 12345;
-        for (let i = 0; i < 11; i++) {
+        for (let i = 0; i < 12; i++) {
             rows.push(
                 <tr key={i}>
                     <td>{++number}</td>
@@ -52,15 +53,15 @@ class TicketsTable extends Component {
                     <tbody className="ticket-table-body">
                     <tr>
                         <td>
-                            <Link to="/invoices/details">
-                                {this.props.details.ticketNumber}
+                            <Link to="/tickets/details">
+                                {details.ticketNumber}
                             </Link>
                         </td>
-                        <td>{this.props.details.ticketName}</td>
-                        <td>{this.props.details.clientName}</td>
-                        <td>{this.props.details.assignee}</td>
-                        <td>{this.props.details.createdAt}</td>
-                        <td>{this.props.details.status}</td>
+                        <td>{details.ticketName}</td>
+                        <td>{details.clientName}</td>
+                        <td>{details.assignee}</td>
+                        <td>{details.createdAt}</td>
+                        <td>{details.status}</td>
                     </tr>
                     {rows}
                     </tbody>

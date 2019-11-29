@@ -1,5 +1,5 @@
 const initialState = {
-    profileName: "Vladislav Lahtarin $$"
+    profileName: "Vladislav Lahtarin"
 };
 
 export default function reducer(state = initialState, action) {

@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import {changeField} from "../../../../global/actions/StandardActions";
+import {changeField} from "../../../global/actions/StandardActions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Row, Col, Button} from "react-bootstrap";
-import AccountCard from "../../../account/views/cards/AccountCard";
-import {addComment} from "../../actions/TicketDetailsAction";
+import AccountCard from "../../account/views/cards/AccountCard";
+import {addComment} from "../actions/TicketDetailsAction";
 import EdiText from "react-editext";
-import {EDIT_TICKET_DETAILS_VALUE} from "../../constants/ReducerConstants";
+import {EDIT_TICKET_DETAILS_VALUE} from "../../tickets/constants/ReducerConstants";
 
 
 class TicketsTable extends Component {
@@ -15,37 +15,25 @@ class TicketsTable extends Component {
         this.commentText.value = '';
     }
 
-    handleClick = () => {
+    saveComment = () => {
         if (this.commentText !== null && this.commentText !== undefined) {
             this.props.addComment(this.commentText.value);
         }
     };
 
-    onSave = (event) => {
-        console.log('Edited Value -> ' + event)
+    handleFieldChange (field, value) {
+        this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value);
     };
-
-    changeMode = () => {
-        this.props.changeField(EDIT_TICKET_DETAILS_VALUE, "changeEditMode", !this.props.details.changeEditMode)
-    }
-
-    closeEdit = () => {
-        this.props.changeField(EDIT_TICKET_DETAILS_VALUE, "changeEditMode", false)
-    };
-
-    handleFieldChange = (field, value) => {
-        this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value)
-    };
-
 
     render() {
+        const {details} = this.props;
         return (
             <div>
                 <Row>
                     <Col>
                         <div className="tickets-page-header">
                             <h4>Customer support tickets</h4>
-                            {this.props.details.ticketName}
+                            {details.ticketName}
                         </div>
                     </Col>
                 </Row>
@@ -57,40 +45,21 @@ class TicketsTable extends Component {
                                 <ul className="module-list column">
                                     <li className="item">
                                         <div className="name">Ticket number:</div>
-                                        {console.log("old" + this.props.details.ticketNumber)}
-                                        {this.props.details.changeEditMode ?
-                                            (<div>
-                                                <input className="value editable-value"
-                                                       type="text"
-                                                       defaultValue={this.props.details.ticketNumber}
-                                                       onChange={(e) => this.handleFieldChange("ticketNumber", e.currentTarget.value)}/>
-                                                <button onClick={this.closeEdit}>X</button>
-                                            </div>)
-                                            :
-                                            (<div className="value editable-value"
-                                                  onClick={this.changeMode}>
-                                                {this.props.details.ticketNumber}
-                                            </div>)
-                                        }
+                                        <EdiText
+                                            showButtonsOnHover
+                                            editOnViewClick={true}
+                                            type='text'
+                                            value={details.ticketNumber}
+                                            onSave={(value) => this.handleFieldChange("ticketNumber", value)}/>
                                     </li>
-                                    {console.log("new" + this.props.details.ticketNumber)}
                                     <li className="item">
                                         <div className="name">Ticket name:</div>
-                                        {this.props.details.changeEditMode ?
-                                            (<div>
-                                                <input className="value editable-value"
-                                                       type="text"
-                                                       defaultValue={this.props.details.ticketName}
-                                                       onChange={(e) => this.handleFieldChange("ticketName", e.currentTarget.value)}/>
-                                                <button onClick={this.closeEdit}>X</button>
-                                            </div>)
-                                            :
-                                            (<div className="value editable-value"
-                                                  onClick={this.changeMode}>
-                                                {this.props.details.ticketName}
-                                            </div>)
-                                        }
-
+                                        <EdiText
+                                            showButtonsOnHover
+                                            editOnViewClick={true}
+                                            type='text'
+                                            value={details.ticketName}
+                                            onSave={(value) => this.handleFieldChange("ticketName", value)}/>
                                     </li>
                                     <li className="item">
                                         <div className="name">Invoice number:</div>
@@ -98,8 +67,8 @@ class TicketsTable extends Component {
                                             showButtonsOnHover
                                             editOnViewClick={true}
                                             type='text'
-                                            value={this.props.details.invoiceNumber}
-                                            onSave={this.onSave}/>
+                                            value={details.invoiceNumber}
+                                            onSave={(value) => this.handleFieldChange("invoiceNumber", value)}/>
                                     </li>
                                     <li className="item">
                                         <div className="name">Client:</div>
@@ -107,28 +76,24 @@ class TicketsTable extends Component {
                                             showButtonsOnHover
                                             editOnViewClick={true}
                                             type='text'
-                                            value={this.props.details.clientName}
-                                            onSave={this.onSave}/>
-                                    </li>
+                                            value={details.clientName}
+                                            onSave={(value) => this.handleFieldChange("ticketName", value)}/>                                    </li>
                                 </ul>
                                 <ul className="module-list column short-name">
                                     <li className="item">
                                         <div className="name">Type:</div>
-                                        <div className="value">{this.props.details.type}</div>
+                                        <div className="value">{details.type}</div>
                                     </li>
                                     <li className="item">
                                         <div className="name">Priority:</div>
 
-                                            <EdiText
-                                                viewProps={{
-                                                    className: 'details-custom-priority'
-                                                }}
-                                                showButtonsOnHover
-                                                editOnViewClick={true}
-                                                type='text'
-                                                value={this.props.details.priority}
-                                                onSave={this.onSave}/>
-
+                                        <EdiText
+                                            viewProps={{className: 'details-custom-priority'}}
+                                            showButtonsOnHover
+                                            editOnViewClick={true}
+                                            type='text'
+                                            value={details.priority}
+                                            onSave={(value) => this.handleFieldChange("ticketName", value)}/>
                                     </li>
                                     <li className="item">
                                         <div className="name">Status:</div>
@@ -136,9 +101,8 @@ class TicketsTable extends Component {
                                             showButtonsOnHover
                                             editOnViewClick={true}
                                             type='text'
-                                            value={this.props.details.status}
-                                            onSave={this.onSave}/>
-                                    </li>
+                                            value={details.status}
+                                            onSave={(value) => this.handleFieldChange("ticketName", value)}/>                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -150,15 +114,14 @@ class TicketsTable extends Component {
                                         type='textarea'
                                         showButtonsOnHover
                                         editOnViewClick={true}
-                                        value={this.props.details.description}
-                                        onSave={this.onSave}/>
-                                </div>
+                                        value={details.description}
+                                        onSave={(value) => this.handleFieldChange("ticketName", value)}/>                                </div>
                             </div>
                         </div>
                         <div className="module">
                             <div className="module-header">Comments</div>
                             <div className="module-content">
-                                {this.props.details.comments && this.props.details.comments.map((comment, key) => {
+                                {details.comments && details.comments.map((comment, key) => {
                                     return (
                                         <ul key={key} className="module-list comment">
                                             <li className="author">
@@ -181,11 +144,10 @@ class TicketsTable extends Component {
                                                       className="smarts-textarea"
                                                       placeholder='Comment here'
                                                       ref={(ref) => this.commentText = ref}
-
                                             />
                                 <div className="button-area">
                                     <Button className="smarts-button ticket-new-button comment-button"
-                                            onClick={this.handleClick}>
+                                            onClick={this.saveComment}>
                                         Comment
                                     </Button>
                                 </div>
@@ -201,18 +163,13 @@ class TicketsTable extends Component {
                                         <div className="name">Created by:</div>
                                         <div className="value">
                                             <AccountCard
-                                                fullname={this.props.details.createdBy}/>
+                                                fullname={details.createdBy}/>
                                         </div>
                                     </li>
                                     <li className="item">
                                         <div className="name">Assignee:</div>
-                                        <EdiText
-                                            showButtonsOnHover
-                                            editOnViewClick={true}
-                                            type='text'
-                                            value={<AccountCard
-                                                fullname={this.props.details.assignee}/>}
-                                            onSave={this.onSave}/>
+                                        <AccountCard
+                                            fullname={details.assignee}/>
                                     </li>
                                 </ul>
                             </div>
@@ -223,11 +180,11 @@ class TicketsTable extends Component {
                                 <ul className="module-list short-name">
                                     <li className="item">
                                         <div className="name">Created at:</div>
-                                        <div className="value">{this.props.details.createdAt}</div>
+                                        <div className="value">{details.createdAt}</div>
                                     </li>
                                     <li className="item">
                                         <div className="name">Updated at:</div>
-                                        <div className="value">{this.props.details.updatedAt}</div>
+                                        <div className="value">{details.updatedAt}</div>
                                     </li>
                                 </ul>
                             </div>

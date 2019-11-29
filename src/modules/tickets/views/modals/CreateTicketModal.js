@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Modal} from "react-bootstrap";
+import { Modal} from "react-bootstrap";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {changeField} from "../../../../global/actions/StandardActions";
@@ -12,10 +12,6 @@ class CreateTicketModal extends Component {
     toggleModal = () => {
         const {createTicket} = this.props;
         this.props.changeField(CREATE_TICKET_ACTION, "modalIsOpen", !createTicket.modalIsOpen)
-    };
-
-    create = () => {
-        this.props.createPaymentsTicket();
     };
 
     render() {
@@ -33,10 +29,6 @@ class CreateTicketModal extends Component {
                     <Modal.Body>
                         <Create/>
                     </Modal.Body>
-                    <Modal.Footer className="modal-underline-selector">
-                        <Button className="smarts-button ticket-create-button"
-                                onClick={this.toggleModal}>Create</Button>
-                    </Modal.Footer>
                 </Container>
             </Modal>
 

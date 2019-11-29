@@ -139,7 +139,13 @@ input:required {
   font-family: GothamProRegular;
 }
 
-.ticket-create-button {
+.ticket-create-button-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.ticket-create-button-area .ticket-create-button {
   width: 115px;
   height: 32px;
   font-size: 13px !important;
@@ -171,6 +177,7 @@ input:required {
 
 .smarts-textarea {
   height: 95px;
+  resize: none;
 }
 
 .smarts-input,
@@ -371,7 +378,7 @@ input:required {
 /* ------------------------------------------
  AUTHORIZATION
  ------------------------------------------ */
-.authorization-layout {
+.auth-layout {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,7 +386,7 @@ input:required {
   height: 100vh;
 }
 
-.authorization-form {
+.auth-form {
   font-family: GothamProLight;
   background-color: #fff;
   width: 450px;
