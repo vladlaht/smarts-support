@@ -14,17 +14,19 @@ class ClientsLayout extends Component {
                 <Container fluid>
                     <Row>
                         <Col sm={12}>
-                            <div className="tickets-layout-content">
+                            <div className="layout">
                                 <Row>
                                     <Col>
-                                        <div className="tickets-top-component">
+                                        <div className="layout-head">
                                             <AccountDropdownCard/>
                                         </div>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <h1>Clients Page</h1>
+                                        <div className="page-title">
+                                            <h3>Clients page</h3>
+                                        </div>
                                     </Col>
                                 </Row>
                             </div>

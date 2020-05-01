@@ -6,25 +6,21 @@ export function createPaymentsTicket() {
     return (dispatch, getState) => {
         const form = getState().createPaymentsTicketForm;
         const type = getState().createTicket.ticketType;
+
         const payload = {
-            id: null,
-            ticket: {
-                id: form.id,
-                type: type,
-                assignee: form.assignee,
-                priority: form.priority,
-                ticketName: form.ticketName,
-                clientName: form.client,
-                invoiceNumber: form.invoiceNumber,
-                description: form.description,
-                createdBy: form.createdBy,
-                createdAt: form.createdAt
-            }
+            type: type,
+            assignee: form.assignee,
+            priority: form.priority,
+            ticketName: form.ticketName,
+            clientName: form.clientName,
+            invoiceNumber: form.invoiceNumber,
+            description: form.description,
+            createdBy: form.createdBy
         };
         dispatch(start());
         dispatch(createTicketAction(payload))
             .then(res => dispatch(success(res)))
-            .catch(err => dispatch(failed(err)))
+            .catch(err => "failed" + dispatch(failed(err)))
     }
 }
 

@@ -9,13 +9,11 @@ const initialState = {
     id: null,
     assignee: null,
     priority: null,
-    ticketNumber: "15741",
     ticketName: null,
-    client: null,
+    clientName: null,
     invoiceNumber: null,
     description: null,
-    createdBy: "Kristo Truu",
-    createdAt: new Date().toLocaleString(),
+    createdBy: "Vladislav Lahtarin",
     status: "Open"
 };
 export default function reducer(state = initialState, action) {

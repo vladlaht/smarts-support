@@ -11,8 +11,8 @@ import Software from "./Software";
 
 class Create extends Component {
 
-    handleFieldChange = (e) => {
-        this.props.changeField(CREATE_TICKET_ACTION, "ticketType", e.target.value );
+    handleFieldChange(field, value) {
+        this.props.changeField(CREATE_TICKET_ACTION, field, value  );
     };
 
     renderSelection() {
@@ -26,9 +26,10 @@ class Create extends Component {
                                     <label className="smarts-selector-label"> Type</label>
                                     <select className="smarts-select"
                                             data-placeholder="Select type"
-                                            onChange={this.handleFieldChange}
+                                            onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
                                             defaultValue="default"
                                     >
+                                        {console.log()}
                                         <option value="default" disabled>Select ticket type</option>
                                         {AVAILABLE_TICKET_TYPES.map(
                                             type => <option key={type}
@@ -49,7 +50,7 @@ class Create extends Component {
             case TICKET_TYPE_PAYMENTS:
                 return <Payments/>;
             case TICKET_TYPE_SOFTWARE:
-                return <Software/>
+                return <Software/>;
             default:
                 return null;
         }

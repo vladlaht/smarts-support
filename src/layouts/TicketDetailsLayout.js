@@ -9,23 +9,32 @@ import {TICKETS_ROUTE} from "../global/constants/routes";
 
 class TicketDetailsLayout extends Component {
     render() {
+        const {details} = this.props;
         return (
             <React.Fragment>
                 <Navigation  activeRoute={TICKETS_ROUTE}/>
                 <Container fluid>
                     <Row>
                         <Col  sm={12}>
-                            <div className="tickets-layout-content">
+                            <div className="layout">
                                 <Row>
                                     <Col>
-                                        <div className="tickets-top-component">
+                                        <div className="layout-head">
                                             <AccountDropdownCard/>
                                         </div>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <TicketDetails/>
+                                        <div className="page-title">
+                                            <h3>Ticket details</h3>
+                                            <div className="page-subtitle">
+                                                {details.ticketName}
+                                            </div>
+                                        </div>
+                                        <div className="layout-body">
+                                            <TicketDetails/>
+                                        </div>
                                     </Col>
                                 </Row>
                             </div>
@@ -38,7 +47,9 @@ class TicketDetailsLayout extends Component {
 }
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        details: state.ticketDetails
+    }
 }
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));

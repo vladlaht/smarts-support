@@ -35,7 +35,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TICKET_DETAILS_COMMENT:
-            if (action.payload !== null && action.payload !== undefined && action.payload.length > 0) {
+            if (action.payload.length > 0) {
                 return {
                     ...state,
                     comments: [...state.comments,
@@ -52,10 +52,11 @@ export default function reducer(state = initialState, action) {
                 }
             }
         case getAction(EDIT_TICKET_DETAILS_VALUE, ACTION_STATUS_FORM_FIELD_CHANGE):
-            return {
-                ...state,
-                [action.payload.field]: action.payload.value
-            };
+                return {
+                    ...state,
+                    [action.payload.field]: action.payload.value,
+
+                };
         default:
             return state
     }

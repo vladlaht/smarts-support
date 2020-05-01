@@ -3,15 +3,40 @@
 }
 .Main .container-fluid {
   margin-left: 120px;
-  width: 93%;
-  padding: 0 2vw;
+  width: calc(100% - 120px);
+  padding: 0 3vw;
+}
+
+.layout {
+  margin: 0 4vw;
+}
+.layout .layout-head {
+  height: 9vh;
+  min-height: 50px;
+  padding-top: 40px;
+}
+.layout .page-title {
+  font-family: GothamProBold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.layout .page-title .page-subtitle {
+  font-family: GothamProMedium;
+}
+.layout .page-title .tickets-table-issues {
+  font-family: GothamProLight;
+}
+.layout .layout-body {
+  padding: 20px 30px;
+  margin: 20px 0;
+  -webkit-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+  box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
 }
 
 .btn {
   border: none !important;
 }
 
-.btn-primary.focus,
 .btn-primary:focus {
   box-shadow: none !important;
 }
@@ -19,8 +44,11 @@
 .smarts-button {
   font-family: GothamProRegular;
   background: #655290 !important;
-  border-radius: 17px !important;
+  border-radius: 10px !important;
   padding: 0 !important;
+}
+.smarts-button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
 }
 
 input:required {
@@ -28,63 +56,122 @@ input:required {
 }
 
 /* ------------------------------------------
- ACCOUNT
+ AUTHORIZATION
  ------------------------------------------ */
-.account-card {
+.auth-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8b5da6;
+  height: 100vh;
+}
+
+.auth-form {
+  font-family: GothamProLight;
+  background-color: #fff;
+  width: 450px;
+  height: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+}
+
+.auth-header {
+  display: flex;
+  justify-content: center;
+}
+.auth-header-logo {
+  width: 200px;
+  height: auto;
+}
+
+.auth-body {
+  padding: 30px 0 20px 0;
+  font-size: 14px;
+}
+.auth-body > div {
+  margin: 25px 0;
+}
+.auth-body-item {
   position: relative;
 }
-.account-card .account-card-body {
-  position: absolute;
-  right: 0;
-}
-.account-card .account-card-body button {
+.auth-body-item .auth-label {
+  padding-left: 1px;
+  margin-bottom: 0;
   font-size: 13px;
-  font-family: GothamProMedium;
-  background: none;
-  color: black;
 }
-.account-card .account-card-body .dropdown-menu {
-  font-size: 13px;
+.auth-body-item .auth-input {
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-bottom: 2px solid #d9d9d9;
+}
+.auth-body-item .auth-input:focus + .focus-border::before, .auth-body-item .auth-input:not(:focus):valid ~ .focus-border::before {
   width: 100%;
 }
-.account-card .account-card-body .dropdown-item {
-  padding: 0.25rem 0.4rem !important;
+.auth-body-item .focus-border {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.auth-body-item .focus-border::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #f68d37;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.auth-body .custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #655290 !important;
+  background-color: #655290 !important;
+  outline: none !important;
+}
+.auth-body .auth-button-area {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.auth-body .auth-button-area .sign-in {
+  width: 100%;
+}
+.auth-body .auth-button-area .smarts-button.btn-sign-in {
+  width: 100%;
+  height: 35px;
+  background: #f68d37 !important;
+  border-radius: 5px !important;
+  font-size: 16px !important;
+}
+.auth-body .auth-button-area .smarts-button.btn-sign-in:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
 }
 
-.account-card-logo {
-  height: 20px;
-  width: auto;
+.auth-footer {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-footer a {
   color: #655290;
+  font-family: GothamProRegular;
 }
-
-.account-card-body button:hover,
-.show > .btn-primary.dropdown-toggle {
-  background: #655290 !important;
-  color: white !important;
-}
-
-.account-card-body button:hover .account-card-logo,
-.show > .btn-primary.dropdown-toggle .account-card-logo {
-  color: white;
-}
-
-.account-button-title {
-  padding: 0 8px;
-}
-
-.account-card-items-logo {
-  height: 20px;
-  width: auto;
-  padding: 0 8px;
-}
-
-.dropdown-link,
-.dropdown-link:hover {
-  color: #000;
-}
-
-.dropdown-link:hover {
+.auth-footer a:hover {
   text-decoration: none;
+  color: #f68d37;
+}
+.auth-footer div {
+  margin: 5px 0;
 }
 
 /* ------------------------------------------
@@ -133,6 +220,147 @@ input:required {
 }
 
 /* ------------------------------------------
+ ACCOUNT-CARD
+ ------------------------------------------ */
+.account-card {
+  position: relative;
+}
+.account-card .account-card-body {
+  position: absolute;
+  right: 0;
+}
+.account-card .account-card-body button {
+  font-size: 13px;
+  font-family: GothamProMedium;
+  background: none;
+  color: black;
+}
+.account-card .account-card-body .dropdown-menu {
+  font-size: 13px;
+  width: 100%;
+}
+.account-card .account-card-body .dropdown-item {
+  padding: 0.25rem 0.4rem !important;
+}
+
+.account-card-logo {
+  height: 20px;
+  width: auto;
+  color: #655290;
+}
+
+.account-card-body button:hover,
+.show > .btn-primary.dropdown-toggle {
+  background: #655290 !important;
+  color: white !important;
+}
+
+.account-card-body button:hover .account-card-logo,
+.show > .btn-primary.dropdown-toggle .account-card-logo {
+  color: white;
+}
+
+.account-button-title {
+  padding: 0 8px;
+}
+
+.account-card-items-logo {
+  height: 20px;
+  width: auto;
+  padding: 0 8px;
+}
+.account-card-items-logo.profile-icon {
+  height: 17px;
+}
+
+.dropdown-link,
+.dropdown-link:hover {
+  color: #000;
+}
+
+.dropdown-link:hover {
+  text-decoration: none;
+}
+
+/* ------------------------------------------
+ PROFILE
+ ------------------------------------------ */
+.modal-body.profile-body {
+  padding: 0 !important;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px 40px;
+}
+.profile .profile-top {
+  display: flex;
+  width: 100%;
+  background: #655290;
+  padding: 12px;
+  color: white;
+  border-radius: 3px;
+}
+.profile .profile-top .profile-top-picture {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+.profile .profile-top .profile-top-picture img {
+  width: auto;
+  height: 120px;
+  border-radius: 50%;
+}
+.profile .profile-top .profile-top-contact {
+  flex: 3;
+  font-size: 14px;
+  font-family: GothamProLight;
+  line-height: 2;
+}
+.profile .profile-top .profile-top-contact .profile-top-contact-name {
+  font-size: 20px;
+  font-family: GothamProMedium;
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+.profile .profile-top .profile-top-contact .profile-top-contact-logo {
+  height: 20px;
+  width: auto;
+  margin-right: 5px;
+}
+.profile .profile-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.profile .profile-bottom .profile-bottom-title {
+  padding: 30px 0 5px;
+  font-family: GothamProRegular;
+  font-size: 14px;
+}
+.profile .profile-bottom .profile-bottom-amount {
+  display: flex;
+  width: 100%;
+}
+.profile .profile-bottom .profile-bottom-amount .profile-bottom-amount-type {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+.profile .profile-bottom .profile-bottom-amount .profile-bottom-amount-type .count {
+  font-family: GothamProMedium;
+  font-size: 26px;
+}
+.profile .profile-bottom .profile-bottom-amount .profile-bottom-amount-type .name {
+  font-family: GothamProLight;
+  font-size: 13px;
+  color: #7a869a;
+}
+
+/* ------------------------------------------
  TICKET MODAL FORM
  ------------------------------------------ */
 .ticket-modal-content {
@@ -142,7 +370,6 @@ input:required {
 .ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   padding-bottom: 10px;
 }
 .ticket-create-button-area .ticket-create-button {
@@ -192,9 +419,11 @@ input:required {
   background: #F0F0F0;
   padding: 6px 12px;
 }
-.smarts-input:hover,
+.smarts-input:hover, .smarts-input:focus,
 .smarts-select:hover,
-.smarts-textarea:hover {
+.smarts-select:focus,
+.smarts-textarea:hover,
+.smarts-textarea:focus {
   border-bottom: 2px solid #655290;
   padding-bottom: 5px;
 }
@@ -218,54 +447,37 @@ input:required {
 /* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
-.tickets-layout-content {
-  margin: 0 2vw;
-}
-
-.tickets-top-component {
-  position: relative;
-  height: 15vh;
-  min-height: 90px;
-  padding-top: 80px;
-}
-
 .ticket-new-button {
   font-size: 16px !important;
   width: 160px;
   height: 36px;
 }
 
-.tickets-page-header {
-  font-family: GothamProMedium;
-  margin-bottom: 20px;
+.button-search-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.tickets-table-issues {
-  font-family: GothamProLight;
-}
-
-.ticket-search-input {
-  position: relative;
-}
-.ticket-search-input .smarts-input {
-  width: 50%;
-  position: absolute;
-  right: 0;
+.button-search-elements .smarts-input {
   font-size: 14px;
+  width: 25%;
+  background: #c1c1c1;
+  border-radius: 1px;
+}
+.button-search-elements .smarts-input:hover, .button-search-elements .smarts-input:focus {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
 }
 
 .ticket-table-head {
-  font-size: 15px;
+  font-size: 14px;
+}
+.ticket-table-head th {
+  border-top: none !important;
 }
 
 .ticket-table-body {
   font-family: GothamProLight;
-  font-size: 14px;
-}
-
-.ticket-table-head tr,
-.ticket-table-body tr:nth-of-type(2n+2) {
-  background-color: #F9F9F9;
+  font-size: 13px;
 }
 
 /* ------------------------------------------
@@ -273,12 +485,11 @@ input:required {
  ------------------------------------------ */
 .details-group {
   display: flex;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
   border-spacing: 0;
   table-layout: fixed;
   width: 100%;
-  margin: 20px 0;
 }
 .details-group .main-column {
   flex: 2;
@@ -294,34 +505,33 @@ input:required {
   font-family: GothamProMedium;
   margin-bottom: 6px;
 }
+.module .module-content .description {
+  margin-right: 45px;
+}
+.module .module-content .comment {
+  margin-bottom: 25px;
+}
+.module .module-content .comment .date-time {
+  color: #7a869a;
+  font-size: 13px;
+}
+.module .module-content .comment .text {
+  margin: 7px 0;
+}
+.module .module-content .comment .author .account-card-logo {
+  height: 25px;
+  width: auto;
+}
+.module .module-content .comment .date-time,
+.module .module-content .comment .text {
+  padding-left: 33px;
+}
 .module .two-columns {
   display: flex;
 }
 .module .two-columns .column {
   flex: 1;
   margin: 0;
-}
-
-.module-content .description {
-  margin-right: 45px;
-}
-.module-content .comment {
-  margin-bottom: 25px;
-}
-.module-content .comment .date-time {
-  color: #7a869a;
-  font-size: 13px;
-}
-.module-content .comment .text {
-  margin: 7px 0;
-}
-.module-content .comment .author .account-card-logo {
-  height: 25px;
-  width: auto;
-}
-.module-content .comment .date-time,
-.module-content .comment .text {
-  padding-left: 33px;
 }
 
 .module-list {
@@ -339,7 +549,7 @@ input:required {
 }
 
 .module-list.short-name .item .name {
-  width: 120px;
+  width: 100px;
 }
 
 .module-footer .smarts-textarea {
@@ -347,16 +557,15 @@ input:required {
   margin: 0 !important;
   border-bottom: none;
 }
-.module-footer .smarts-textarea:hover {
-  border-bottom: none;
-}
-.module-footer .comment-button {
-  position: absolute;
-  right: 0;
-  margin-top: 10px;
+.module-footer .smarts-textarea:hover, .module-footer .smarts-textarea:focus {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
 }
 .module-footer .button-area {
-  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+.module-footer .button-area .comment-button {
+  margin-top: 10px;
 }
 
 .styles_Editext__button__6H8n_,
@@ -373,124 +582,6 @@ input:required {
   color: white;
   padding: 0 3px;
   border-radius: 3px;
-}
-
-/* ------------------------------------------
- AUTHORIZATION
- ------------------------------------------ */
-.auth-layout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #8b5da6;
-  height: 100vh;
-}
-
-.auth-form {
-  font-family: GothamProLight;
-  background-color: #fff;
-  width: 450px;
-  height: 600px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-}
-
-.auth-head {
-  display: flex;
-  justify-content: center;
-}
-.auth-head .auth-logo {
-  width: 200px;
-  height: auto;
-}
-
-.auth-body {
-  padding: 30px 0 20px 0;
-  font-size: 14px;
-}
-.auth-body > div {
-  margin: 25px 0;
-}
-
-.auth-item {
-  position: relative;
-}
-.auth-item .auth-label {
-  padding-left: 1px;
-  margin-bottom: 0;
-  font-size: 13px;
-}
-.auth-item .auth-input {
-  width: 100%;
-  height: 34px;
-  border: none;
-  border-bottom: 2px solid #d9d9d9;
-}
-.auth-item .auth-input:focus + .focus-border::before, .auth-item .auth-input:not(:focus):valid ~ .focus-border::before {
-  width: 100%;
-}
-
-.focus-border {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-.focus-border::before {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #f68d37;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.auth-button-area {
-  display: flex;
-  justify-content: center;
-  padding-top: 25px;
-}
-.auth-button-area .sign-in {
-  width: 100%;
-}
-
-.smarts-button.btn-sign-in {
-  width: 100%;
-  height: 35px;
-  background: #f68d37 !important;
-  border-radius: 5px !important;
-  font-size: 16px !important;
-}
-.smarts-button.btn-sign-in:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
-}
-
-.auth-footer {
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.auth-footer a {
-  color: #655290;
-  font-family: GothamProRegular;
-}
-.auth-footer a:hover {
-  text-decoration: none;
-  color: #f68d37;
-}
-.auth-footer div {
-  padding: 5px 0;
 }
 
 /*# sourceMappingURL=App.css.map */

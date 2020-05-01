@@ -6,6 +6,7 @@ import {
 } from "../../../global/constants/action-types";
 import {CREATE_TICKET_ACTION} from "../constants/ReducerConstants";
 import {CreateTicketAPI} from "../api/CreateTicketAPI";
+import {showFlipNotification} from "../../../global/utils/NotificationHelper";
 
 export function createTicketAction(body) {
     return (dispatch) => {
@@ -13,8 +14,6 @@ export function createTicketAction(body) {
         return dispatch(CreateTicketAPI(body))
             .then(res => {
                 dispatch(success(res));
-                // window.$("#createLoyaltyCardModal").modal("toggle");
-                // window.$("#a-c-loyalty-select").val(null).trigger("change");
                 return res;
             })
             .catch(err => {
@@ -31,7 +30,7 @@ function start() {
 }
 
 function success(payload) {
-    // showFlipNotification("Ticket created successfully");
+    showFlipNotification("Ticket created successfully");
     return {
         type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_SUCCESS),
         payload,
@@ -39,7 +38,7 @@ function success(payload) {
 }
 
 function failed(error) {
-   // showFlipNotification(error ? error.toString() : "Failed to create ticket", "danger");
+    showFlipNotification(error ? error.toString() : "Failed to create ticket", "danger");
     return {
         type: getAction(CREATE_TICKET_ACTION, ACTION_STATUS_FAILED),
         error

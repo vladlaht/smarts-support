@@ -1,0 +1,1 @@
+export const OPEN_PROFILE_ACTION = "OPEN_PROFILE";

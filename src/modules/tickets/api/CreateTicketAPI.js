@@ -11,7 +11,7 @@ export function CreateTicketAPI(body) {
         return fetch(TICKETS_ENDPOINT,{
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 "Authorization": "Bearer "
                     // + accessToken
@@ -28,5 +28,5 @@ export function CreateTicketAPI(body) {
                     throw Error("Something went wrong");
             }
         })
-    }
+   }
 }

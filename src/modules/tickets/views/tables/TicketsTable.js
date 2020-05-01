@@ -3,7 +3,6 @@ import {changeField} from "../../../../global/actions/StandardActions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Table} from "react-bootstrap";
-import {Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 class TicketsTable extends Component {
@@ -11,7 +10,7 @@ class TicketsTable extends Component {
         const {details} = this.props;
         let rows = [];
         let number = 12345;
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 11; i++) {
             rows.push(
                 <tr key={i}>
                     <td>{++number}</td>
@@ -25,21 +24,7 @@ class TicketsTable extends Component {
         }
 
         return (
-            <div>
-                <Row>
-                    <Col>
-                        <div className="tickets-page-header">
-                            <h4>Customer support tickets</h4>
-                            <div><span className="tickets-table-issues">Issues for solving:</span>45</div>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="ticket-search-input">
-                            <input className="smarts-input " type="text" placeholder="Search ticket"/>
-                        </div>
-                    </Col>
-                </Row>
-                <Table>
+                <Table hover striped >
                     <thead className="ticket-table-head">
                     <tr>
                         <th>Number</th>
@@ -66,7 +51,6 @@ class TicketsTable extends Component {
                     {rows}
                     </tbody>
                 </Table>
-            </div>
         )
     }
 }

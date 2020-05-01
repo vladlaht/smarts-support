@@ -38,7 +38,7 @@ class Software extends Component{
                         <Form.Group className="smarts-ticket-box">
                             <br/>
                             <input type="text" className="smarts-input" required/>
-                            <label className="smarts-ticket-label"> Client</label>
+                            <label className="smarts-ticket-label"> Client name</label>
                         </Form.Group>
                     </Col>
                 </Row>

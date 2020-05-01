@@ -1,6 +1,7 @@
-$font-regular: GothamProRegular;
 $font-light: GothamProLight;
+$font-regular: GothamProRegular;
 $font-medium: GothamProMedium;
+$font-bold: GothamProBold;
 $color-smarts-main: #655290;
 $color-smarts-main-v2: #8b5da6;
 $color-smarts-secondary: #f68d37;
@@ -11,16 +12,47 @@ $color-smarts-secondary: #f68d37;
 
   .container-fluid {
     margin-left: 120px;
-    width: 93%;
-    padding: 0 2vw;
+    width: calc(100% - 120px);
+    padding: 0 3vw;
   }
 }
+
+.layout {
+  margin: 0 4vw;
+
+  .layout-head {
+    height: 9vh;
+    min-height: 50px;
+    padding-top: 40px;
+  }
+
+  .page-title {
+    font-family: $font-bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    .page-subtitle {
+      font-family: $font-medium;
+    }
+
+    .tickets-table-issues {
+      font-family: $font-light;
+    }
+  }
+
+  .layout-body {
+    padding: 20px 30px;
+    margin: 20px 0;
+    -webkit-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+    box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+  }
+}
+
 
 .btn {
   border: none !important;
 }
 
-.btn-primary.focus,
 .btn-primary:focus {
   box-shadow: none !important;
 }
@@ -28,8 +60,12 @@ $color-smarts-secondary: #f68d37;
 .smarts-button {
   font-family: $font-regular;
   background: $color-smarts-main !important;
-  border-radius: 17px !important;
+  border-radius: 10px !important;
   padding: 0 !important;
+
+  &:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+  }
 }
 
 input:required {
@@ -37,7 +73,195 @@ input:required {
 }
 
 /* ------------------------------------------
- ACCOUNT
+ AUTHORIZATION
+ ------------------------------------------ */
+
+.auth-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-smarts-main-v2;
+  height: 100vh;
+}
+
+.auth-form {
+  font-family: $font-light;
+  background-color: #fff;
+  width: 450px;
+  height: 600px;
+  border-radius: 5px;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+}
+
+.auth-header {
+  display: flex;
+  justify-content: center;
+
+  &-logo {
+    width: 200px;
+    height: auto;
+  }
+}
+
+
+.auth-body {
+  padding: 30px 0 20px 0;
+  font-size: 14px;
+
+  > div {
+    margin: 25px 0;
+  }
+
+  &-item {
+    position: relative;
+
+    .auth-label {
+      padding-left: 1px;
+      margin-bottom: 0;
+      font-size: 13px;
+    }
+
+    .auth-input {
+      width: 100%;
+      height: 34px;
+      border: none;
+      border-bottom: 2px solid #d9d9d9;
+
+      &:focus + .focus-border::before,
+      &:not(:focus):valid ~ .focus-border::before {
+        width: 100%;
+      }
+    }
+
+    .focus-border {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $color-smarts-secondary;
+        -webkit-transition: all .4s;
+        -o-transition: all .4s;
+        -moz-transition: all .4s;
+        transition: all .4s;
+      }
+    }
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    border-color: $color-smarts-main !important;
+    background-color: $color-smarts-main !important;
+    outline: none !important;
+  }
+
+  .auth-button-area {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    .sign-in {
+      width: 100%;
+    }
+
+    .smarts-button.btn-sign-in {
+      width: 100%;
+      height: 35px;
+      background: $color-smarts-secondary !important;
+      border-radius: 5px !important;
+      font-size: 16px !important;
+
+      &:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
+      }
+    }
+  }
+}
+
+.auth-footer {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    color: $color-smarts-main;
+    font-family: $font-regular;
+
+    &:hover {
+      text-decoration: none;
+      color: $color-smarts-secondary;
+    }
+  }
+
+  div {
+    margin: 5px 0;
+  }
+}
+
+/* ------------------------------------------
+ SIDEBAR MENU
+ ------------------------------------------ */
+
+.sidebar {
+  font-family: $font-light;
+  font-size: 13px;
+  background: $color-smarts-main;
+  width: 100px;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0;
+
+  img {
+    height: 70px;
+    width: auto;
+  }
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  height: 90px;
+
+  &:hover {
+    background: #56457B;
+    text-decoration: none;
+    color: white;
+  }
+
+  .sidebar-link-logo {
+    height: 40px;
+    width: auto;
+  }
+}
+
+.sidebar-links .active {
+  background: #56457B;
+}
+
+
+/* ------------------------------------------
+ ACCOUNT-CARD
  ------------------------------------------ */
 
 .account-card {
@@ -91,6 +315,10 @@ input:required {
   height: 20px;
   width: auto;
   padding: 0 8px;
+
+  &.profile-icon {
+    height: 17px;
+  }
 }
 
 .dropdown-link,
@@ -103,53 +331,98 @@ input:required {
 }
 
 /* ------------------------------------------
- SIDEBAR MENU
+ PROFILE
  ------------------------------------------ */
-.sidebar {
-  font-family: $font-light;
-  font-size: 13px;
-  background: $color-smarts-main;
-  width: 100px;
-  height: 100vh;
-  position: fixed;
-}
 
-.sidebar-logo {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 30px 0;
-
-  img {
-    height: 70px;
-    width: auto;
+.modal-body {
+  &.profile-body {
+    padding: 0 !important;
   }
 }
 
-.sidebar-link {
+.profile {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  color: white;
-  height: 90px;
+  margin: 0 30px 40px;
 
-  &:hover {
-    background: #56457B;
-    text-decoration: none;
+  .profile-top {
+    display: flex;
+    width: 100%;
+    background: $color-smarts-main;
+    padding: 12px;
     color: white;
+    border-radius: 3px;
+
+    .profile-top-picture {
+      display: flex;
+      justify-content: center;
+      flex: 2;
+
+      img {
+        width: auto;
+        height: 120px;
+        border-radius: 50%;
+      }
+    }
+
+    .profile-top-contact {
+      flex: 3;
+      font-size: 14px;
+      font-family: $font-light;
+      line-height: 2;
+
+      .profile-top-contact-name {
+        font-size: 20px;
+        font-family: $font-medium;
+        margin-bottom: 8px;
+        padding-left: 5px;
+      }
+
+      .profile-top-contact-logo {
+        height: 20px;
+        width: auto;
+        margin-right: 5px;
+      }
+    }
   }
 
-  .sidebar-link-logo {
-    height: 40px;
-    width: auto;
+  .profile-bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .profile-bottom-title {
+      padding: 30px 0 5px;
+      font-family: $font-regular;
+      font-size: 14px;
+    }
+
+    .profile-bottom-amount {
+      display: flex;
+      width: 100%;
+
+      .profile-bottom-amount-type {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+
+        .count {
+          font-family: $font-medium;
+          font-size: 26px;
+        }
+
+        .name {
+          font-family: $font-light;
+          font-size: 13px;
+          color: #7a869a;
+        }
+      }
+    }
   }
-}
 
-.sidebar-links .active {
-  background: #56457B;
 }
-
 
 /* ------------------------------------------
  TICKET MODAL FORM
@@ -162,7 +435,6 @@ input:required {
 .ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   padding-bottom: 10px;
 
   .ticket-create-button {
@@ -215,7 +487,8 @@ input:required {
   padding: 6px 12px;
 
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-bottom: 2px solid $color-smarts-main;
     padding-bottom: 5px;
   }
@@ -241,57 +514,41 @@ input:required {
  TICKETS LAYOUT
  ------------------------------------------ */
 
-.tickets-layout-content {
-  margin: 0 2vw;
-}
-
-.tickets-top-component {
-  position: relative;
-  height: 15vh;
-  min-height: 90px;
-  padding-top: 80px;
-}
-
 .ticket-new-button {
   font-size: 16px !important;
   width: 160px;
   height: 36px;
-
 }
 
-.tickets-page-header {
-  font-family: $font-medium;
-  margin-bottom: 20px;
-}
-
-.tickets-table-issues {
-  font-family: $font-light;
-}
-
-.ticket-search-input {
-  position: relative;
+.button-search-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .smarts-input {
-    width: 50%;
-    position: absolute;
-    right: 0;
     font-size: 14px;
+    width: 25%;
+    background: #c1c1c1;
+    border-radius: 1px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+    }
   }
 }
 
-
 .ticket-table-head {
-  font-size: 15px;
+  font-size: 14px;
+
+  th {
+    border-top: none !important;
+  }
 }
 
 .ticket-table-body {
   font-family: $font-light;
-  font-size: 14px;
-}
-
-.ticket-table-head tr,
-.ticket-table-body tr:nth-of-type(2n+2) {
-  background-color: #F9F9F9;
+  font-size: 13px;
 }
 
 /* ------------------------------------------
@@ -300,12 +557,11 @@ input:required {
 
 .details-group {
   display: flex;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
   border-spacing: 0;
   table-layout: fixed;
   width: 100%;
-  margin: 20px 0;
 
   .main-column {
     flex: 2;
@@ -324,6 +580,37 @@ input:required {
     margin-bottom: 6px;
   }
 
+  .module-content {
+    .description {
+      margin-right: 45px;
+    }
+
+    .comment {
+      margin-bottom: 25px;
+
+      .date-time {
+        color: #7a869a;
+        font-size: 13px;
+      }
+
+      .text {
+        margin: 7px 0;
+      }
+
+      .author .account-card-logo {
+        height: 25px;
+        width: auto;
+
+      }
+
+      .date-time,
+      .text {
+        padding-left: 33px;
+      }
+    }
+  }
+
+
   .two-columns {
     display: flex;
 
@@ -334,35 +621,6 @@ input:required {
   }
 }
 
-.module-content {
-  .description {
-    margin-right: 45px;
-  }
-
-  .comment {
-    margin-bottom: 25px;
-
-    .date-time {
-      color: #7a869a;
-      font-size: 13px;
-    }
-
-    .text {
-      margin: 7px 0;
-    }
-
-    .author .account-card-logo {
-      height: 25px;
-      width: auto;
-
-    }
-
-    .date-time,
-    .text {
-      padding-left: 33px;
-    }
-  }
-}
 
 .module-list {
   list-style: none;
@@ -381,28 +639,28 @@ input:required {
 }
 
 .module-list.short-name .item .name {
-  width: 120px;
+  width: 100px;
 }
-
 
 .module-footer {
   .smarts-textarea {
     border-top: 2px solid $color-smarts-main;
     margin: 0 !important;
     border-bottom: none;
-    &:hover {
-      border-bottom: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
     }
   }
 
-  .comment-button {
-    position: absolute;
-    right: 0;
-    margin-top: 10px;
-  }
-
   .button-area {
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+    .comment-button {
+      margin-top: 10px;
+    }
   }
 }
 
@@ -420,140 +678,6 @@ input:required {
   color: white;
   padding: 0 3px;
   border-radius: 3px;
-}
-
-/* ------------------------------------------
- AUTHORIZATION
- ------------------------------------------ */
-
-.auth-layout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $color-smarts-main-v2;
-  height: 100vh;
-}
-
-.auth-form {
-  font-family: $font-light;
-  background-color: #fff;
-  width: 450px;
-  height: 600px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-}
-
-.auth-head {
-  display: flex;
-  justify-content: center;
-
-  .auth-logo {
-    width: 200px;
-    height: auto;
-  }
-}
-
-
-.auth-body {
-  padding: 30px 0 20px 0;
-  font-size: 14px;
-
-  > div {
-    margin: 25px 0;
-  }
-}
-
-.auth-item {
-  position: relative;
-
-  .auth-label {
-    padding-left: 1px;
-    margin-bottom: 0;
-    font-size: 13px;
-  }
-
-  .auth-input {
-    width: 100%;
-    height: 34px;
-    border: none;
-    border-bottom: 2px solid #d9d9d9;
-
-    &:focus + .focus-border::before,
-    &:not(:focus):valid ~ .focus-border::before {
-      width: 100%;
-    }
-  }
-}
-
-.focus-border {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: $color-smarts-secondary;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
-    -moz-transition: all .4s;
-    transition: all .4s;
-  }
-}
-
-.auth-button-area {
-  display: flex;
-  justify-content: center;
-  padding-top: 25px;
-
-  .sign-in {
-    width: 100%;
-  }
-}
-
-.smarts-button.btn-sign-in {
-  width: 100%;
-  height: 35px;
-  background: $color-smarts-secondary !important;
-  border-radius: 5px !important;
-  font-size: 16px !important;
-
-  &:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
-  }
-}
-
-
-.auth-footer {
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
-  a {
-    color: $color-smarts-main;
-    font-family: $font-regular;
-
-    &:hover {
-      text-decoration: none;
-      color: $color-smarts-secondary;
-    }
-  }
-
-  div {
-    padding: 5px 0;
-  }
 }
 
 

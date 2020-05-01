@@ -7,32 +7,34 @@ import {connect} from "react-redux";
 import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
 class HomeLayout extends Component {
+
     render() {
         return (
-                <React.Fragment>
-                    <Navigation activeRoute={HOME_ROUTE}/>
-                    <Container fluid>
-                        <Row>
-                            <Col sm={12}>
-                                <div className="tickets-layout-content">
-                                    <Row>
-                                        <Col>
-                                            <div className="tickets-top-component">
-                                                <AccountDropdownCard/>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                           <h1>Home Page</h1>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Row>
-
-                    </Container>
-                </React.Fragment>
+            <React.Fragment>
+                <Navigation activeRoute={HOME_ROUTE}/>
+                <Container fluid>
+                    <Row>
+                        <Col sm={12}>
+                            <div className="layout">
+                                <Row>
+                                    <Col>
+                                        <div className="layout-head">
+                                            <AccountDropdownCard/>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <div className="page-title">
+                                            <h3>Home page</h3>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </React.Fragment>
         )
     }
 }

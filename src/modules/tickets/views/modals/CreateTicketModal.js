@@ -1,10 +1,9 @@
 import React, {Component} from "react";
-import { Modal} from "react-bootstrap";
-import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {changeField} from "../../../../global/actions/StandardActions";
+import {connect} from "react-redux";
+import {changeField, reset} from "../../../../global/actions/StandardActions";
 import {CREATE_TICKET_ACTION} from "../../constants/ReducerConstants";
-import {Container} from "react-bootstrap";
+import {Container, Modal} from "react-bootstrap";
 import Create from "../forms/create/Create";
 
 class CreateTicketModal extends Component {
@@ -14,12 +13,17 @@ class CreateTicketModal extends Component {
         this.props.changeField(CREATE_TICKET_ACTION, "modalIsOpen", !createTicket.modalIsOpen)
     };
 
+    resetHandler = () => {
+        this.props.reset(CREATE_TICKET_ACTION);
+    };
+
     render() {
         const {createTicket} = this.props;
         return (
             <Modal className="ticket-modal-content"
                    show={createTicket.modalIsOpen}
                    onHide={this.toggleModal}
+                   onExit={this.resetHandler}
                    backdrop="static"
                    centered>
                 <Container>
@@ -31,19 +35,19 @@ class CreateTicketModal extends Component {
                     </Modal.Body>
                 </Container>
             </Modal>
-
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        createTicket: state.createTicket,
+        createTicket: state.createTicket
     }
 }
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({
-    changeField
+    changeField,
+    reset
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps) (CreateTicketModal);
