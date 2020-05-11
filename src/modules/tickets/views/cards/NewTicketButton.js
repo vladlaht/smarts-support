@@ -16,7 +16,7 @@ class NewTicketButton extends Component {
     render() {
         return (
             <React.Fragment>
-                       <Button className="smarts-button ticket-new-button" onClick={this.toggleModal}>
+                       <Button className="smarts-button new-ticket-button" onClick={this.toggleModal}>
                            New ticket
                        </Button>
                        <CreateTicketModal/>

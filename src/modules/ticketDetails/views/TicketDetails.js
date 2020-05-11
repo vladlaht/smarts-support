@@ -135,7 +135,7 @@ class TicketsTable extends Component {
                                                       ref={(ref) => this.commentText = ref}
                                             />
                             <div className="button-area">
-                                <Button className="smarts-button ticket-new-button comment-button"
+                                <Button className="smarts-button new-ticket-button comment-button"
                                         onClick={this.saveComment}>
                                     Add comment
                                 </Button>

@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {OPEN_PROFILE_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import {Container, Modal} from "react-bootstrap";
-import Profile from "./Profile";
+import Profile from "../cards/Profile";
 
 
 class ProfileModal extends Component {

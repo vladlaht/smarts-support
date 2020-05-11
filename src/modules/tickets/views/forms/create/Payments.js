@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {Button, Col, Row} from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import {Button, Col, Row, Form} from "react-bootstrap"
 import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
 import {createPaymentsTicket} from "../../../actions/create/CreatePaymentsTicket";

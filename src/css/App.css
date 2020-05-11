@@ -106,6 +106,9 @@ input:required {
   border: none;
   border-bottom: 2px solid #d9d9d9;
 }
+.auth-body-item .auth-input:focus {
+  outline: none;
+}
 .auth-body-item .auth-input:focus + .focus-border::before, .auth-body-item .auth-input:not(:focus):valid ~ .focus-border::before {
   width: 100%;
 }
@@ -133,8 +136,8 @@ input:required {
   transition: all 0.4s;
 }
 .auth-body .custom-control-input:checked ~ .custom-control-label::before {
-  border-color: #655290 !important;
-  background-color: #655290 !important;
+  border-color: #655290;
+  background-color: #655290;
   outline: none !important;
 }
 .auth-body .auth-button-area {
@@ -150,7 +153,7 @@ input:required {
   height: 35px;
   background: #f68d37 !important;
   border-radius: 5px !important;
-  font-size: 16px !important;
+  font-size: 16px;
 }
 .auth-body .auth-button-area .smarts-button.btn-sign-in:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
@@ -220,7 +223,7 @@ input:required {
 }
 
 /* ------------------------------------------
- ACCOUNT-CARD
+ ACCOUNT DROPDOWN CARD
  ------------------------------------------ */
 .account-card {
   position: relative;
@@ -283,7 +286,7 @@ input:required {
 }
 
 /* ------------------------------------------
- PROFILE
+ PROFILE MODAL
  ------------------------------------------ */
 .modal-body.profile-body {
   padding: 0 !important;
@@ -361,6 +364,42 @@ input:required {
 }
 
 /* ------------------------------------------
+ TICKETS LAYOUT
+ ------------------------------------------ */
+.new-ticket-button {
+  font-size: 16px;
+  width: 160px;
+  height: 36px;
+}
+
+.button-search-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button-search-elements .smarts-input {
+  font-size: 14px;
+  width: 25%;
+  background: #c1c1c1;
+  border-radius: 1px;
+}
+.button-search-elements .smarts-input:hover, .button-search-elements .smarts-input:focus {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+}
+
+.ticket-table-head {
+  font-size: 14px;
+}
+.ticket-table-head th {
+  border-top: none !important;
+}
+
+.ticket-table-body {
+  font-family: GothamProLight;
+  font-size: 13px;
+}
+
+/* ------------------------------------------
  TICKET MODAL FORM
  ------------------------------------------ */
 .ticket-modal-content {
@@ -375,7 +414,7 @@ input:required {
 .ticket-create-button-area .ticket-create-button {
   width: 115px;
   height: 32px;
-  font-size: 13px !important;
+  font-size: 13px;
 }
 
 .modal-underline-selector {
@@ -428,56 +467,19 @@ input:required {
   padding-bottom: 5px;
 }
 
-.smarts-selector-label {
-  color: #8C8C8C;
-  font-size: 13px;
-  margin-bottom: 0 !important;
-}
-
-.smarts-ticket-box .smarts-input:focus ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-textarea:focus ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
+.smarts-input:focus ~ .smarts-ticket-label, .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
+.smarts-textarea:focus ~ .smarts-ticket-label,
+.smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
   top: 5px;
   left: 0;
   font-size: 13px;
   opacity: 1;
 }
 
-/* ------------------------------------------
- TICKETS LAYOUT
- ------------------------------------------ */
-.ticket-new-button {
-  font-size: 16px !important;
-  width: 160px;
-  height: 36px;
-}
-
-.button-search-elements {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.button-search-elements .smarts-input {
-  font-size: 14px;
-  width: 25%;
-  background: #c1c1c1;
-  border-radius: 1px;
-}
-.button-search-elements .smarts-input:hover, .button-search-elements .smarts-input:focus {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
-}
-
-.ticket-table-head {
-  font-size: 14px;
-}
-.ticket-table-head th {
-  border-top: none !important;
-}
-
-.ticket-table-body {
-  font-family: GothamProLight;
+.smarts-selector-label {
+  color: #8C8C8C;
   font-size: 13px;
+  margin-bottom: 0 !important;
 }
 
 /* ------------------------------------------

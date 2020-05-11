@@ -128,6 +128,10 @@ input:required {
       border: none;
       border-bottom: 2px solid #d9d9d9;
 
+      &:focus {
+        outline: none;
+      }
+
       &:focus + .focus-border::before,
       &:not(:focus):valid ~ .focus-border::before {
         width: 100%;
@@ -161,8 +165,8 @@ input:required {
   }
 
   .custom-control-input:checked ~ .custom-control-label::before {
-    border-color: $color-smarts-main !important;
-    background-color: $color-smarts-main !important;
+    border-color: $color-smarts-main;
+    background-color: $color-smarts-main ;
     outline: none !important;
   }
 
@@ -180,7 +184,7 @@ input:required {
       height: 35px;
       background: $color-smarts-secondary !important;
       border-radius: 5px !important;
-      font-size: 16px !important;
+      font-size: 16px;
 
       &:hover {
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
@@ -261,7 +265,7 @@ input:required {
 
 
 /* ------------------------------------------
- ACCOUNT-CARD
+ ACCOUNT DROPDOWN CARD
  ------------------------------------------ */
 
 .account-card {
@@ -331,7 +335,7 @@ input:required {
 }
 
 /* ------------------------------------------
- PROFILE
+ PROFILE MODAL
  ------------------------------------------ */
 
 .modal-body {
@@ -425,6 +429,47 @@ input:required {
 }
 
 /* ------------------------------------------
+ TICKETS LAYOUT
+ ------------------------------------------ */
+
+.new-ticket-button {
+  font-size: 16px;
+  width: 160px;
+  height: 36px;
+}
+
+.button-search-elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .smarts-input {
+    font-size: 14px;
+    width: 25%;
+    background: #c1c1c1;
+    border-radius: 1px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+    }
+  }
+}
+
+.ticket-table-head {
+  font-size: 14px;
+
+  th {
+    border-top: none !important;
+  }
+}
+
+.ticket-table-body {
+  font-family: $font-light;
+  font-size: 13px;
+}
+
+/* ------------------------------------------
  TICKET MODAL FORM
  ------------------------------------------ */
 
@@ -440,7 +485,7 @@ input:required {
   .ticket-create-button {
     width: 115px;
     height: 32px;
-    font-size: 13px !important;
+    font-size: 13px;
   }
 }
 
@@ -486,11 +531,21 @@ input:required {
   background: #F0F0F0;
   padding: 6px 12px;
 
-
   &:hover,
   &:focus {
     border-bottom: 2px solid $color-smarts-main;
     padding-bottom: 5px;
+  }
+}
+
+.smarts-input,
+.smarts-textarea {
+  &:focus ~ .smarts-ticket-label,
+  &:not(:focus):valid ~ .smarts-ticket-label {
+    top: 5px;
+    left: 0;
+    font-size: 13px;
+    opacity: 1;
   }
 }
 
@@ -500,56 +555,6 @@ input:required {
   margin-bottom: 0 !important;
 }
 
-.smarts-ticket-box .smarts-input:focus ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-textarea:focus ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
-.smarts-ticket-box .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
-  top: 5px;
-  left: 0;
-  font-size: 13px;
-  opacity: 1;
-}
-
-/* ------------------------------------------
- TICKETS LAYOUT
- ------------------------------------------ */
-
-.ticket-new-button {
-  font-size: 16px !important;
-  width: 160px;
-  height: 36px;
-}
-
-.button-search-elements {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .smarts-input {
-    font-size: 14px;
-    width: 25%;
-    background: #c1c1c1;
-    border-radius: 1px;
-
-    &:hover,
-    &:focus {
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
-    }
-  }
-}
-
-.ticket-table-head {
-  font-size: 14px;
-
-  th {
-    border-top: none !important;
-  }
-}
-
-.ticket-table-body {
-  font-family: $font-light;
-  font-size: 13px;
-}
 
 /* ------------------------------------------
  TICKETS DETAILS

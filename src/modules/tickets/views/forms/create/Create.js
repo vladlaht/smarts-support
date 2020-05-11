@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {Row, Col, Form} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import {AVAILABLE_TICKET_TYPES, TICKET_TYPE_PAYMENTS, TICKET_TYPE_SOFTWARE} from "../../../constants";
 import {capitalizeFirstLetter} from "../../../../../global/utils/StringUpdates";
 import {changeField} from "../../../../../global/actions/StandardActions";
@@ -12,35 +12,29 @@ import Software from "./Software";
 class Create extends Component {
 
     handleFieldChange(field, value) {
-        this.props.changeField(CREATE_TICKET_ACTION, field, value  );
+        this.props.changeField(CREATE_TICKET_ACTION, field, value);
     };
 
     renderSelection() {
         return (
-            <Row>
-                <Col>
-                    <Form>
-                        <Row>
-                            <Col>
-                                <Form.Group className="smarts-ticket-box">
-                                    <label className="smarts-selector-label"> Type</label>
-                                    <select className="smarts-select"
-                                            data-placeholder="Select type"
-                                            onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
-                                            defaultValue="default"
-                                    >
-                                        {console.log()}
-                                        <option value="default" disabled>Select ticket type</option>
-                                        {AVAILABLE_TICKET_TYPES.map(
-                                            type => <option key={type}
-                                                            value={type}>{capitalizeFirstLetter(type).replace(/_/, " ")}</option>)}
-                                    </select>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Col>
-            </Row>
+            <Form>
+                <Form.Group className="smarts-ticket-box">
+                    <label className="smarts-selector-label"> Type</label>
+                    <select className="smarts-select"
+                            data-placeholder="Select type"
+                            onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
+                            defaultValue="default"
+                    >
+                        {console.log()}
+                        <option value="default" disabled>Select ticket type</option>
+                        {AVAILABLE_TICKET_TYPES.map(
+                            type => <option key={type}
+                                            value={type}>{capitalizeFirstLetter(type).replace(/_/, " ")}</option>)}
+                    </select>
+                </Form.Group>
+
+            </Form>
+
         )
     }
 
