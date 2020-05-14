@@ -68,6 +68,35 @@ $color-smarts-secondary: #f68d37;
   }
 }
 
+.smarts-input,
+.smarts-select {
+  height: 39px;
+}
+
+.smarts-textarea {
+  height: 95px;
+  resize: none;
+}
+
+.smarts-input,
+.smarts-select,
+.smarts-textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $color-smarts-main;
+  box-shadow: none;
+  margin: 4px 0;
+  background: #F0F0F0;
+  padding: 6px 12px;
+
+  &:hover,
+  &:focus {
+    border-bottom: 2px solid $color-smarts-main;
+    padding-bottom: 5px;
+  }
+}
+
 input:required {
   box-shadow: none;
 }
@@ -166,7 +195,7 @@ input:required {
 
   .custom-control-input:checked ~ .custom-control-label::before {
     border-color: $color-smarts-main;
-    background-color: $color-smarts-main ;
+    background-color: $color-smarts-main;
     outline: none !important;
   }
 
@@ -499,60 +528,36 @@ input:required {
   width: 100%;
   font-size: 15px;
 
+  &.form-group{
+    margin-bottom: 30px;
+  }
+
+
+  .smarts-ticket-selector-label {
+    color: #8C8C8C;
+    font-size: 13px;
+    margin-bottom: 0 !important;
+  }
+
   .smarts-ticket-label {
     position: absolute;
     pointer-events: none;
-    top: 50%;
+    top: 25%;
     left: 10px;
     transition: 0.2s ease all;
     color: #8C8C8C;
   }
-}
 
-.smarts-input,
-.smarts-select {
-  height: 39px;
-}
-
-.smarts-textarea {
-  height: 95px;
-  resize: none;
-}
-
-.smarts-input,
-.smarts-select,
-.smarts-textarea {
-  width: 100%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid $color-smarts-main;
-  box-shadow: none;
-  margin: 4px 0;
-  background: #F0F0F0;
-  padding: 6px 12px;
-
-  &:hover,
-  &:focus {
-    border-bottom: 2px solid $color-smarts-main;
-    padding-bottom: 5px;
+  .smarts-input,
+  .smarts-textarea {
+    &:focus ~ .smarts-ticket-label,
+    &:not(:focus):valid ~ .smarts-ticket-label {
+      top: -15px;
+      left: 0;
+      font-size: 13px;
+      opacity: 1;
+    }
   }
-}
-
-.smarts-input,
-.smarts-textarea {
-  &:focus ~ .smarts-ticket-label,
-  &:not(:focus):valid ~ .smarts-ticket-label {
-    top: 5px;
-    left: 0;
-    font-size: 13px;
-    opacity: 1;
-  }
-}
-
-.smarts-selector-label {
-  color: #8C8C8C;
-  font-size: 13px;
-  margin-bottom: 0 !important;
 }
 
 

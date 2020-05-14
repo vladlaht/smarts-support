@@ -51,6 +51,37 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
 }
 
+.smarts-input,
+.smarts-select {
+  height: 39px;
+}
+
+.smarts-textarea {
+  height: 95px;
+  resize: none;
+}
+
+.smarts-input,
+.smarts-select,
+.smarts-textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #655290;
+  box-shadow: none;
+  margin: 4px 0;
+  background: #F0F0F0;
+  padding: 6px 12px;
+}
+.smarts-input:hover, .smarts-input:focus,
+.smarts-select:hover,
+.smarts-select:focus,
+.smarts-textarea:hover,
+.smarts-textarea:focus {
+  border-bottom: 2px solid #655290;
+  padding-bottom: 5px;
+}
+
 input:required {
   box-shadow: none;
 }
@@ -427,59 +458,29 @@ input:required {
   width: 100%;
   font-size: 15px;
 }
+.smarts-ticket-box.form-group {
+  margin-bottom: 30px;
+}
+.smarts-ticket-box .smarts-ticket-selector-label {
+  color: #8C8C8C;
+  font-size: 13px;
+  margin-bottom: 0 !important;
+}
 .smarts-ticket-box .smarts-ticket-label {
   position: absolute;
   pointer-events: none;
-  top: 50%;
+  top: 25%;
   left: 10px;
   transition: 0.2s ease all;
   color: #8C8C8C;
 }
-
-.smarts-input,
-.smarts-select {
-  height: 39px;
-}
-
-.smarts-textarea {
-  height: 95px;
-  resize: none;
-}
-
-.smarts-input,
-.smarts-select,
-.smarts-textarea {
-  width: 100%;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #655290;
-  box-shadow: none;
-  margin: 4px 0;
-  background: #F0F0F0;
-  padding: 6px 12px;
-}
-.smarts-input:hover, .smarts-input:focus,
-.smarts-select:hover,
-.smarts-select:focus,
-.smarts-textarea:hover,
-.smarts-textarea:focus {
-  border-bottom: 2px solid #655290;
-  padding-bottom: 5px;
-}
-
-.smarts-input:focus ~ .smarts-ticket-label, .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
-.smarts-textarea:focus ~ .smarts-ticket-label,
-.smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
-  top: 5px;
+.smarts-ticket-box .smarts-input:focus ~ .smarts-ticket-label, .smarts-ticket-box .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
+.smarts-ticket-box .smarts-textarea:focus ~ .smarts-ticket-label,
+.smarts-ticket-box .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
+  top: -15px;
   left: 0;
   font-size: 13px;
   opacity: 1;
-}
-
-.smarts-selector-label {
-  color: #8C8C8C;
-  font-size: 13px;
-  margin-bottom: 0 !important;
 }
 
 /* ------------------------------------------

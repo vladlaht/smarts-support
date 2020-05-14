@@ -23,7 +23,7 @@ class Payments extends Component {
                 <Row>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <label className="smarts-selector-label"> Assignee</label>
+                            <label className="smarts-ticket-selector-label"> Assignee</label>
                             <select className="smarts-select"
                                     defaultValue="default"
                                     onChange={(e) => this.handleFieldChange("assignee", e.target.value)}>
@@ -36,7 +36,7 @@ class Payments extends Component {
                     </Col>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <label className="smarts-selector-label"> Priority</label>
+                            <label className="smarts-ticket-selector-label"> Priority</label>
                             <select className="smarts-select"
                                     defaultValue="default"
                                     onChange={(e) => this.handleFieldChange("priority", e.target.value)}>
@@ -49,11 +49,10 @@ class Payments extends Component {
                         </Form.Group>
                     </Col>
                 </Row>
-
                 <Row>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <br/>
+
                             <input type="text" className="smarts-input"
                                    required
                                    onChange={(e) => this.handleFieldChange("ticketName", e.target.value)}/>
@@ -64,7 +63,6 @@ class Payments extends Component {
                 <Row>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <br/>
                             <input type="text" className="smarts-input"
                                    required
                                    onChange={(e) => this.handleFieldChange("clientName", e.target.value)}/>
@@ -75,7 +73,6 @@ class Payments extends Component {
                 <Row>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <br/>
                             <input type="text" className="smarts-input"
                                    required
                                    onChange={(e) => this.handleFieldChange("invoiceNumber", e.target.value)}/>

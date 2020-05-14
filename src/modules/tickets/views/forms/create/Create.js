@@ -17,24 +17,19 @@ class Create extends Component {
 
     renderSelection() {
         return (
-            <Form>
-                <Form.Group className="smarts-ticket-box">
-                    <label className="smarts-selector-label"> Type</label>
-                    <select className="smarts-select"
-                            data-placeholder="Select type"
-                            onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
-                            defaultValue="default"
-                    >
-                        {console.log()}
-                        <option value="default" disabled>Select ticket type</option>
-                        {AVAILABLE_TICKET_TYPES.map(
-                            type => <option key={type}
-                                            value={type}>{capitalizeFirstLetter(type).replace(/_/, " ")}</option>)}
-                    </select>
-                </Form.Group>
-
-            </Form>
-
+            <Form.Group className="smarts-ticket-box">
+                <label className="smarts-ticket-selector-label"> Type</label>
+                <select className="smarts-select"
+                        data-placeholder="Select type"
+                        onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
+                        defaultValue="default">
+                    {console.log()}
+                    <option value="default" disabled>Select ticket type</option>
+                    {AVAILABLE_TICKET_TYPES.map(
+                        type => <option key={type}
+                                        value={type}>{capitalizeFirstLetter(type).replace(/_/, " ")}</option>)}
+                </select>
+            </Form.Group>
         )
     }
 
@@ -53,9 +48,12 @@ class Create extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.renderSelection()}
-                {this.renderTicketContent()}
+                <Form>
+                    {this.renderSelection()}
+                    {this.renderTicketContent()}
+                </Form>
             </React.Fragment>
+
         )
     }
 }
