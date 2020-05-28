@@ -11,6 +11,7 @@ import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownC
 class TicketsLayout extends Component {
 
     render() {
+        const unsolvedIssues = this.props.ticketsData.data.length;
         return (
             <React.Fragment>
                 <Navigation activeRoute={TICKETS_ROUTE}/>
@@ -29,7 +30,7 @@ class TicketsLayout extends Component {
                                     <Col>
                                         <div className="page-title">
                                             <h3>Customer support tickets</h3>
-                                            <div><span className="tickets-table-issues">Issues for solving:</span>45
+                                            <div><span className="tickets-table-issues">Issues for solving:</span>{unsolvedIssues}
                                             </div>
                                         </div>
 
@@ -41,24 +42,21 @@ class TicketsLayout extends Component {
                                         <div className="layout-body">
                                             <TicketsTable/>
                                         </div>
-
-
                                     </Col>
                                 </Row>
                             </div>
                         </Col>
                     </Row>
                 </Container>
-
             </React.Fragment>
-
-
         )
     }
 }
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        ticketsData: state.ticketsData
+    }
 }
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));

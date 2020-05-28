@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af5472e0-dac4-43d8-a386-060d420d4811" name="Default Changelist" comment="Changed scss, reorganized some DOM trees">
-      <change afterPath="$PROJECT_DIR$/src/modules/tickets/actions/FetchTicketsAction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/tickets/api/FetchTicketsAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/tickets/reducers/TicketsReducer.js" afterDir="false" />
+    <list default="true" id="af5472e0-dac4-43d8-a386-060d420d4811" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/tickets/views/cards/TicketTablePagination.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global/constants/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/constants/endpoints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/account/views/cards/AccountCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/account/views/cards/AccountCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/account/views/cards/AccountDropdownCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/account/views/cards/AccountDropdownCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/ticketDetails/views/TicketDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ticketDetails/views/TicketDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/actions/create/CreatePaymentsTicket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/actions/create/CreatePaymentTicket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/api/CreateTicketAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/api/CreateTicketAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/constants/ReducerConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/constants/ReducerConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/constants/endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/constants/endpoints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/reducers/CreatePaymentsTicketReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/reducers/CreatePaymentTicketReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/TicketsLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/TicketsLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,26 +24,14 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.678501">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="189">
-                  <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+                <state relative-caret-position="475">
+                  <caret line="114" column="22" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -76,12 +49,36 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/ticketDetails/reducers/TicketDetailsReducer.js">
+            <entry file="file://$PROJECT_DIR$/src/layouts/TicketsLayout.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="57" selection-start-line="57" selection-end-line="57" />
+                <state relative-caret-position="204">
+                  <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
                   <folding>
-                    <element signature="e#0#121#0" expanded="true" />
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="271">
+                  <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -171,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/modules/tickets/views/details/TicketDetails.js" />
         <option value="$PROJECT_DIR$/src/modules/tickets/reducers/TicketDetailsReducer.js" />
         <option value="$PROJECT_DIR$/src/modules/ticketDetails/constants/ReducerConstants.js" />
         <option value="$PROJECT_DIR$/src/modules/ticketDetails/reducers/index.js" />
@@ -191,15 +187,12 @@
         <option value="$PROJECT_DIR$/src/layouts/TicketDetailsLayout.js" />
         <option value="$PROJECT_DIR$/src/global/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/modules/tickets/actions/create/CreatePaymentsTicket.js" />
-        <option value="$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js" />
         <option value="$PROJECT_DIR$/src/modules/account/views/modals/ProfileModal.js" />
         <option value="$PROJECT_DIR$/src/layouts/InvoicesLayout.js" />
         <option value="$PROJECT_DIR$/src/layouts/HomeLayout.js" />
         <option value="$PROJECT_DIR$/src/layouts/ClientsLayout.js" />
-        <option value="$PROJECT_DIR$/src/layouts/TicketsLayout.js" />
         <option value="$PROJECT_DIR$/src/modules/ticketDetails/reducers/TicketDetailsReducer.js" />
         <option value="$PROJECT_DIR$/src/global/configurations/app-store.js" />
-        <option value="$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js" />
         <option value="$PROJECT_DIR$/src/modules/account/views/cards/Profile.js" />
         <option value="$PROJECT_DIR$/src/modules/tickets/views/forms/create/Create.js" />
         <option value="$PROJECT_DIR$/src/modules/account/views/cards/AccountDropdownCard.js" />
@@ -220,8 +213,12 @@
         <option value="$PROJECT_DIR$/src/modules/tickets/constants/ReducerConstants.js" />
         <option value="$PROJECT_DIR$/src/modules/tickets/reducers/TicketsReducer.js" />
         <option value="$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js" />
-        <option value="$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js" />
         <option value="$PROJECT_DIR$/src/css/App.scss" />
+        <option value="$PROJECT_DIR$/src/modules/tickets/views/cards/TicketTablePagination.js" />
+        <option value="$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js" />
+        <option value="$PROJECT_DIR$/src/layouts/TicketsLayout.js" />
+        <option value="$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js" />
+        <option value="$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js" />
       </list>
     </option>
   </component>
@@ -273,20 +270,13 @@
               <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="D:\Smarts projects\smarts-support" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="css" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="layouts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="D:\Smarts projects\smarts-support" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="D:\Smarts projects\smarts-support" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="account" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -309,14 +299,6 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="tickets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="D:\Smarts projects\smarts-support" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tickets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="reducers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -342,17 +324,7 @@
               <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="tickets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="forms" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="smarts-support" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="D:\Smarts projects\smarts-support" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="modules" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tickets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="forms" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="create" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tables" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -597,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589454538248</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added pagination and sort by ASC/DESC in ticket table;&#10;Getting tickets from backend">
+      <created>1590702348391</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590702348391</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -619,13 +598,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19863014" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19863014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2173913" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2173913" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -719,23 +698,10 @@
     <MESSAGE value="Changes project style file and some components position, edited code structure, renamed DOM trees, created Profile modal, updated reducers, fixed modal closing problems" />
     <MESSAGE value="Changed scss, added browser redux extension, renamed classNames and reorganized some DOM trees" />
     <MESSAGE value="Changed scss, reorganized some DOM trees" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed scss, reorganized some DOM trees" />
+    <MESSAGE value="Added pagination and sort by ASC/DESC in ticket table;&#10;Getting tickets from backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pagination and sort by ASC/DESC in ticket table;&#10;Getting tickets from backend" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/tickets/constants/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/global/utils/NotificationHelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/InvoicesLayout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -760,16 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/TicketDetailsLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,16 +775,6 @@
           <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/TicketsLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -904,16 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10">
           <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1040,16 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/ticketDetails/reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1104,33 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/ticketDetails/reducers/TicketDetailsReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#0#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/tickets/reducers/TicketsReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -1145,10 +1044,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/ticketDetails/reducers/TicketDetailsReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="e#0#121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/TicketDetailsLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/cards/TicketTablePagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="83" selection-start-line="51" selection-start-column="83" selection-end-line="51" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="441" column="8" selection-start-line="441" selection-start-column="8" selection-end-line="441" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/forms/create/Payments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="98" column="22" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/cards/NewTicketButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/tickets/reducers/TicketsReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/TicketsLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/tables/TicketsTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+        <state relative-caret-position="475">
+          <caret line="114" column="22" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/tickets/views/modals/CreateTicketModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

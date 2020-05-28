@@ -3,17 +3,13 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import ReactPaginate from 'react-paginate';
 import _ from "lodash";
 import {changeField} from "../../../../global/actions/StandardActions";
 import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
 import {SORT_TICKET_ACTION} from "../../constants/ReducerConstants";
+import TicketTablePagination from "../cards/TicketTablePagination";
 
 class TicketsTable extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.fetchTicketsAction();
@@ -38,15 +34,10 @@ class TicketsTable extends Component {
         changeField(SORT_TICKET_ACTION, "sortField", sortField);
     };
 
-    pageChangeHandler = ({selected}) => {
-        this.props.changeField(SORT_TICKET_ACTION, "currentPage", selected);
-    };
-
     render() {
         const {details, ticketsData} = this.props;
         const pageSize = 10;
         const displayedData = _.chunk(ticketsData.data, pageSize)[ticketsData.currentPage];
-        let pageCount = ticketsData.data.length / pageSize;
         return (
             <React.Fragment>
                 <Table hover striped>
@@ -79,7 +70,6 @@ class TicketsTable extends Component {
                     </thead>
                     <tbody className="ticket-table-body">
                     {
-
                         displayedData && displayedData.map((ticket, key) => {
                             return (
                                 <tr key={key}>
@@ -107,33 +97,11 @@ class TicketsTable extends Component {
                     </tr>
                     </tbody>
                 </Table>
-                {
-                    ticketsData.data.length > pageSize
-                        ? <ReactPaginate
-                            previousLabel={'<'}
-                            nextLabel={'>'}
-                            breakLabel={'...'}
-                            breakClassName={'break-me'}
-                            pageCount={pageCount}
-                            marginPagesDisplayed={2}
-                            pageRangeDisplayed={5}
-                            onPageChange={this.pageChangeHandler}
-                            containerClassName={'pagination'}
-                            activeClassName={'active'}
-                            forcePage={ticketsData.currentPage}
-                            pageClassName={"smarts-page-item"}
-                            pageLinkClassName={"smarts-page-link"}
-                            nextClassName={"smarts-page-item"}
-                            previousClassName={"smarts-page-item"}
-                            nextLinkClassName={"smarts-page-link"}
-                            previousLinkClassName={"smarts-page-link"}
-                        /> : null
-                }
+                {ticketsData.data.length > pageSize ? <TicketTablePagination/> : null}
             </React.Fragment>
         )
     }
 }
-
 
 function mapStateToProps(state) {
     return {

@@ -5,6 +5,7 @@ import {changeField, reset} from "../../../../global/actions/StandardActions";
 import {CREATE_TICKET_ACTION} from "../../constants/ReducerConstants";
 import {Container, Modal} from "react-bootstrap";
 import Create from "../forms/create/Create";
+import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
 
 class CreateTicketModal extends Component {
 
@@ -15,6 +16,7 @@ class CreateTicketModal extends Component {
 
     resetHandler = () => {
         this.props.reset(CREATE_TICKET_ACTION);
+        this.props.fetchTicketsAction();
     };
 
     render() {
@@ -47,7 +49,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({
     changeField,
-    reset
+    reset,
+    fetchTicketsAction
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps) (CreateTicketModal);
