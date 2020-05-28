@@ -115,8 +115,7 @@ class TicketsTable extends Component {
                                     <ul key={key} className="module-list comment">
                                         <li className="author">
                                             <AccountCard
-                                                fullname={this.props.account.profileName}
-                                            />
+                                                fullname={this.props.account.profileName}/>
                                         </li>
                                         <li className="date-time">
                                             {comment.datetime}
@@ -132,8 +131,7 @@ class TicketsTable extends Component {
                                             <textarea rows="3"
                                                       className="smarts-textarea"
                                                       placeholder='Comment here'
-                                                      ref={(ref) => this.commentText = ref}
-                                            />
+                                                      ref={(ref) => this.commentText = ref}/>
                             <div className="button-area">
                                 <Button className="smarts-button new-ticket-button comment-button"
                                         onClick={this.saveComment}>

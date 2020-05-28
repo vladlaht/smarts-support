@@ -498,6 +498,41 @@ input:required {
   font-size: 13px;
 }
 
+.smarts-page-item {
+  &:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }
+
+  &.active .smarts-page-link {
+    background-color: $color-smarts-main;
+    border-color: $color-smarts-main;
+    color: white;
+  }
+
+  &:last-child .smarts-page-link {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:first-child .smarts-page-link {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  .smarts-page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    margin-left: -1px;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+  }
+}
+
 /* ------------------------------------------
  TICKET MODAL FORM
  ------------------------------------------ */
@@ -528,7 +563,7 @@ input:required {
   width: 100%;
   font-size: 15px;
 
-  &.form-group{
+  &.form-group {
     margin-bottom: 30px;
   }
 

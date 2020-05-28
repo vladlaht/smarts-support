@@ -1,7 +1,10 @@
 import CreateTicketReducer from "./CreateTicketReducer";
-import CreatePaymentsTicketReducer from "./CreatePaymentsTicketReducer";
+import CreatePaymentTicketReducer from "./CreatePaymentTicketReducer";
+import TicketsReducer from "./TicketsReducer";
+
 
 export default {
     createTicket: CreateTicketReducer,
-    createPaymentsTicketForm: CreatePaymentsTicketReducer,
+    createPaymentTicketForm: CreatePaymentTicketReducer,
+    ticketsData : TicketsReducer
 };

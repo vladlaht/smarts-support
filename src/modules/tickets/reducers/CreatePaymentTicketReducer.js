@@ -14,7 +14,7 @@ const initialState = {
     invoiceNumber: null,
     description: null,
     createdBy: "Vladislav Lahtarin",
-    status: "Open"
+
 };
 export default function reducer(state = initialState, action) {
     switch (action.type) {

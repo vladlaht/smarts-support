@@ -2,9 +2,9 @@ import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAct
 import {CREATE_PAYMENTS_TICKET} from "../../constants/ReducerConstants";
 import {createTicketAction} from "../CreateTicketAction";
 
-export function createPaymentsTicket() {
+export function createPaymentTicket() {
     return (dispatch, getState) => {
-        const form = getState().createPaymentsTicketForm;
+        const form = getState().createPaymentTicketForm;
         const type = getState().createTicket.ticketType;
 
         const payload = {

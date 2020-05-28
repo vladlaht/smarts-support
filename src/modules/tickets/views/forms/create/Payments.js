@@ -4,20 +4,19 @@ import {connect} from "react-redux";
 import {Button, Col, Row, Form} from "react-bootstrap"
 import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
-import {createPaymentsTicket} from "../../../actions/create/CreatePaymentsTicket";
+import {createPaymentTicket} from "../../../actions/create/CreatePaymentTicket";
 
 class Payments extends Component {
 
     handleFieldChange(field, value) {
-        this.props.changeField(CREATE_PAYMENTS_TICKET, field, value)
+        this.props.changeField(CREATE_PAYMENTS_TICKET, field, value);
     };
 
     createTicket = () => {
-        this.props.createPaymentsTicket();
+        this.props.createPaymentTicket();
     };
 
     render() {
-        const {form} = this.props;
         return (
             <React.Fragment>
                 <Row>
@@ -83,7 +82,6 @@ class Payments extends Component {
                 <Row>
                     <Col>
                         <Form.Group className="smarts-ticket-box">
-                            <br/>
                             <textarea rows="3" className="smarts-textarea"
                                       required
                                       onChange={(e) => this.handleFieldChange("description", e.target.value)}/>
@@ -99,7 +97,6 @@ class Payments extends Component {
                         </div>
                     </Col>
                 </Row>
-                {console.log("Ticket form:" + "\n" + JSON.stringify(form).replace(/,/g, "\n"))}
             </React.Fragment>
         )
     }
@@ -107,14 +104,14 @@ class Payments extends Component {
 
 function mapStateToProps(state) {
     return {
-        form: state.createPaymentsTicketForm,
+        form: state.createPaymentTicketForm,
     }
 }
 
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({
     changeField,
-    createPaymentsTicket,
+    createPaymentTicket: createPaymentTicket,
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(Payments);

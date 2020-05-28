@@ -23,7 +23,7 @@ class AccountDropdownCard extends Component {
             <div className="account-card">
                 <DropdownButton className="account-card-body" id="dropdown-basic-button"
                                 title={<AccountCard
-                                    fullName={this.props.account.profileName}/>}>
+                                    fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item onClick={this.toggleModal} >
                         <IconContext.Provider value={{className: "account-card-items-logo profile-icon"}}>
                             <FaUser/>
