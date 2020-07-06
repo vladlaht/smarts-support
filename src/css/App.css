@@ -434,6 +434,17 @@ input:required {
   background-color: #e9ecef;
   cursor: pointer;
 }
+.smarts-page-item .smarts-page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  margin-left: -1px;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+}
 .smarts-page-item.active .smarts-page-link {
   background-color: #655290;
   border-color: #655290;
@@ -446,17 +457,6 @@ input:required {
 .smarts-page-item:first-child .smarts-page-link {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-}
-.smarts-page-item .smarts-page-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  margin-left: -1px;
-  color: #000000;
-  text-decoration: none;
-  border: 1px solid #dee2e6;
 }
 
 /* ------------------------------------------

@@ -15,16 +15,16 @@ class AccountDropdownCard extends Component {
 
     toggleModal = () => {
         const {profileDetails} = this.props;
-        this.props.changeField(OPEN_PROFILE_ACTION, "modalIsOpen", !profileDetails.modalIsOpen )
+        this.props.changeField(OPEN_PROFILE_ACTION, "modalIsOpen", !profileDetails.modalIsOpen)
     };
 
     render() {
         return (
             <div className="account-card">
                 <DropdownButton className="account-card-body" id="dropdown-basic-button"
-                                title={<AccountCard
-                                    fullname={this.props.account.profileName}/>}>
-                    <Dropdown.Item onClick={this.toggleModal} >
+                                title={
+                                    <AccountCard fullName={this.props.account.profileName}/>}>
+                    <Dropdown.Item onClick={this.toggleModal}>
                         <IconContext.Provider value={{className: "account-card-items-logo profile-icon"}}>
                             <FaUser/>
                         </IconContext.Provider>
@@ -46,7 +46,7 @@ class AccountDropdownCard extends Component {
                         <IconContext.Provider value={{className: "account-card-items-logo"}}>
                             <IoMdLogOut/>
                         </IconContext.Provider>
-                            Log out
+                        Log out
                     </Dropdown.Item>
                 </DropdownButton>
                 <ProfileModal/>
@@ -55,15 +55,15 @@ class AccountDropdownCard extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        account : state.accountCard,
+const mapStateToProps = state => ({
+        account: state.accountCard,
         profileDetails: state.profileDetails
-    }
-}
+});
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
-    changeField
-}, dispatch));
+
+
+const mapDispatchToProps = dispatch => (
+     bindActionCreators({changeField}, dispatch)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountDropdownCard);

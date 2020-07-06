@@ -504,6 +504,18 @@ input:required {
     cursor: pointer;
   }
 
+  .smarts-page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    margin-left: -1px;
+    color: #000000;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+  }
+
   &.active .smarts-page-link {
     background-color: $color-smarts-main;
     border-color: $color-smarts-main;
@@ -518,18 +530,6 @@ input:required {
   &:first-child .smarts-page-link {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-  }
-
-  .smarts-page-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    width: 35px;
-    margin-left: -1px;
-    color: #000000;
-    text-decoration: none;
-    border: 1px solid #dee2e6;
   }
 }
 

@@ -1,20 +1,17 @@
-import React, {Component} from "react";
+import React from "react";
 import {IconContext} from "react-icons";
 import {FaUserCircle} from "react-icons/fa"
 
-
-class AccountCard extends Component {
-
-    render() {
-        return (
-            <span>
+const AccountCardd = props => {
+    return (
+        <span>
                 <IconContext.Provider value={{className: "account-card-logo"}}>
                     <FaUserCircle/>
                 </IconContext.Provider>
-                <span className="account-button-title">{this.props.fullname}</span>
+                <span className="account-button-title">{props.fullName}</span>
             </span>
-        )
-    }
+    )
 }
 
-export default AccountCard;
+export default AccountCardd
+

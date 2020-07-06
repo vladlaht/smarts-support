@@ -70,8 +70,7 @@ class TicketsTable extends Component {
                     </thead>
                     <tbody className="ticket-table-body">
                     {
-                        displayedData && displayedData.map((ticket, key) => {
-                            return (
+                        displayedData && displayedData.map((ticket, key) =>  (
                                 <tr key={key}>
                                     <td>{ticket.ticketNumber}</td>
                                     <td>{ticket.ticketName}</td>
@@ -81,7 +80,7 @@ class TicketsTable extends Component {
                                     <td>{ticket.status}</td>
                                 </tr>
                             )
-                        })
+                        )
                     }
                     <tr>
                         <td>

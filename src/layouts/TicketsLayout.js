@@ -33,8 +33,6 @@ class TicketsLayout extends Component {
                                             <div><span className="tickets-table-issues">Issues for solving:</span>{unsolvedIssues}
                                             </div>
                                         </div>
-
-
                                         <div className="button-search-elements">
                                             <NewTicketButton/>
                                             <input className="smarts-input" type="text" placeholder="Search ticket"/>
