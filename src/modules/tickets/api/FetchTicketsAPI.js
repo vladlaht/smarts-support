@@ -2,7 +2,8 @@ import {TICKETS_ENDPOINT} from "../constants/endpoints";
 
 export function fetchTicketsAPI() {
     return () => {
-        return fetch(TICKETS_ENDPOINT,{
+        //return fetch(TICKETS_ENDPOINT,{
+        return fetch("https://7c5d6a5f-5fcb-4b46-831b-88962da10bdc.mock.pstmn.io/ticket",{
             method: 'GET',
             headers: {
                 Accept: 'application/json',

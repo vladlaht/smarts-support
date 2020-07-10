@@ -19,7 +19,7 @@ class TicketsTable extends Component {
         this.props.addComment(this.commentText.value);
     };
 
-    handleFieldChange (field, value) {
+    handleFieldChange(field, value) {
         this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value);
     };
 
@@ -133,7 +133,7 @@ class TicketsTable extends Component {
                                                       placeholder='Comment here'
                                                       ref={(ref) => this.commentText = ref}/>
                             <div className="button-area">
-                                <Button className="smarts-button new-ticket-button comment-button"
+                                <Button className="smarts-button comment-button"
                                         onClick={this.saveComment}>
                                     Add comment
                                 </Button>
@@ -184,14 +184,13 @@ class TicketsTable extends Component {
 }
 
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         details: state.ticketDetails,
         account: state.accountCard
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
     addComment
 }, dispatch));

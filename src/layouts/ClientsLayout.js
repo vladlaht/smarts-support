@@ -38,10 +38,7 @@ class ClientsLayout extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {}
-}
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));
+const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientsLayout);
+export default connect(null, mapDispatchToProps)(ClientsLayout);

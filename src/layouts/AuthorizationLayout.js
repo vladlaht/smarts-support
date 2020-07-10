@@ -9,7 +9,7 @@ class AuthorizationLayout extends Component {
                 <div className="auth-layout">
                     <div className="auth-form">
                         <div className="auth-header">
-                            <img className="auth-header-logo" src={`${process.env.PUBLIC_URL}/img/logo.png`} alt="logo"/>
+                            <img className="auth-header-logo" src={`${process.env.PUBLIC_URL}/img/full_logo.png`} alt="logo"/>
                         </div>
                         <div className="auth-body">
                             <div className="auth-body-item">

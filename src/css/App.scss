@@ -97,10 +97,6 @@ $color-smarts-secondary: #f68d37;
   }
 }
 
-input:required {
-  box-shadow: none;
-}
-
 /* ------------------------------------------
  AUTHORIZATION
  ------------------------------------------ */
@@ -467,7 +463,7 @@ input:required {
   height: 36px;
 }
 
-.button-search-elements {
+.tickets-layout-elements {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -496,6 +492,10 @@ input:required {
 .ticket-table-body {
   font-family: $font-light;
   font-size: 13px;
+
+  td:first-child {
+    font-family: $font-regular;
+  }
 }
 
 .smarts-page-item {
@@ -510,10 +510,10 @@ input:required {
     align-items: center;
     height: 35px;
     width: 35px;
-    margin-left: -1px;
     color: #000000;
     text-decoration: none;
     border: 1px solid #dee2e6;
+    outline: none;
   }
 
   &.active .smarts-page-link {
@@ -541,6 +541,12 @@ input:required {
   font-family: $font-regular;
 }
 
+.modal-underline-selector {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+
 .ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
@@ -553,14 +559,25 @@ input:required {
   }
 }
 
-.modal-underline-selector {
-  border-bottom: none !important;
-  border-top: none !important;
+.payments-form-selectors {
+  display: flex;
+  justify-content: space-between;
+
+  .smarts-ticket-box {
+    width: 47%;
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+
+    .smarts-ticket-box {
+      width: 100%;
+    }
+  }
 }
 
 .smarts-ticket-box {
   position: relative;
-  width: 100%;
   font-size: 15px;
 
   &.form-group {
@@ -577,7 +594,7 @@ input:required {
   .smarts-ticket-label {
     position: absolute;
     pointer-events: none;
-    top: 25%;
+    top: 26%;
     left: 10px;
     transition: 0.2s ease all;
     color: #8C8C8C;
@@ -704,6 +721,9 @@ input:required {
     justify-content: flex-end;
 
     .comment-button {
+      font-size: 16px;
+      width: 160px;
+      height: 36px;
       margin-top: 10px;
     }
   }

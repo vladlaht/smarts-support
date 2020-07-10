@@ -60,8 +60,6 @@ const mapStateToProps = state => ({
         profileDetails: state.profileDetails
 });
 
-
-
 const mapDispatchToProps = dispatch => (
      bindActionCreators({changeField}, dispatch)
 );

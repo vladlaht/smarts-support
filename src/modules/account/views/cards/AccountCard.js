@@ -2,7 +2,7 @@ import React from "react";
 import {IconContext} from "react-icons";
 import {FaUserCircle} from "react-icons/fa"
 
-const AccountCardd = props => {
+const AccountCard = props => {
     return (
         <span>
                 <IconContext.Provider value={{className: "account-card-logo"}}>
@@ -11,7 +11,7 @@ const AccountCardd = props => {
                 <span className="account-button-title">{props.fullName}</span>
             </span>
     )
-}
+};
 
-export default AccountCardd
+export default AccountCard
 

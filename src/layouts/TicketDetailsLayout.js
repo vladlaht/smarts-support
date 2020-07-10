@@ -12,10 +12,10 @@ class TicketDetailsLayout extends Component {
         const {details} = this.props;
         return (
             <React.Fragment>
-                <Navigation  activeRoute={TICKETS_ROUTE}/>
+                <Navigation activeRoute={TICKETS_ROUTE}/>
                 <Container fluid>
                     <Row>
-                        <Col  sm={12}>
+                        <Col sm={12}>
                             <div className="layout">
                                 <Row>
                                     <Col>
@@ -46,12 +46,11 @@ class TicketDetailsLayout extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         details: state.ticketDetails
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));
+const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketDetailsLayout);

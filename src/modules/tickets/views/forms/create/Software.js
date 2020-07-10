@@ -5,7 +5,7 @@ import {Col, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 
-class Software extends Component{
+class Software extends Component {
 
 
     render() {
@@ -56,13 +56,6 @@ class Software extends Component{
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
 
-    }
-}
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
-
-}, dispatch));
-
-export default connect(mapStateToProps, mapDispatchToProps)(Software);
+export default connect(null, mapDispatchToProps)(Software);

@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {changeField} from "../../../../global/actions/StandardActions";
 import {MdLocationOn} from "react-icons/md"
 import {IoIosMail, IoIosPhonePortrait} from "react-icons/io"
 import {IconContext} from "react-icons";
@@ -13,7 +11,7 @@ class Profile extends Component {
                 <div className="profile">
                     <div className="profile-top">
                         <div className="profile-top-picture">
-                            <img src={`${process.env.PUBLIC_URL}/img/profile-image.png`} alt="logo"/>
+                            <img src={`${process.env.PUBLIC_URL}/img/profile_default.png`} alt="logo"/>
                         </div>
                         <div className="profile-top-contact">
                             <div className="profile-top-contact-name">Vlad Laht</div>
@@ -61,14 +59,9 @@ class Profile extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         profileDetails: state.profileDetails
     }
-}
+);
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
-    changeField
-}, dispatch));
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, null)(Profile);

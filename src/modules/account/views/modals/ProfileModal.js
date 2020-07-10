@@ -34,13 +34,12 @@ class ProfileModal extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         profileDetails: state.profileDetails
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField
 }, dispatch));
 

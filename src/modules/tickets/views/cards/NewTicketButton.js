@@ -16,22 +16,21 @@ class NewTicketButton extends Component {
     render() {
         return (
             <React.Fragment>
-                       <Button className="smarts-button new-ticket-button" onClick={this.toggleModal}>
-                           New ticket
-                       </Button>
-                       <CreateTicketModal/>
+                <Button className="smarts-button new-ticket-button" onClick={this.toggleModal}>
+                    New ticket
+                </Button>
+                <CreateTicketModal/>
             </React.Fragment>
         )
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         createTicket: state.createTicket
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField
 }, dispatch));
 

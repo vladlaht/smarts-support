@@ -38,10 +38,8 @@ class InvoicesLayout extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {}
-}
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(InvoicesLayout);
+const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
+
+export default connect(null, mapDispatchToProps)(InvoicesLayout);

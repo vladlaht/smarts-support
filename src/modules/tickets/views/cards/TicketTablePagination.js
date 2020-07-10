@@ -39,13 +39,12 @@ class TicketTablePagination extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         ticketsData: state.ticketsData
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField
 }, dispatch));
 

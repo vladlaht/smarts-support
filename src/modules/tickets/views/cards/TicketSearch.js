@@ -14,13 +14,12 @@ class TicketSearch extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         createTicket: state.createTicket
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField
 }, dispatch));
 

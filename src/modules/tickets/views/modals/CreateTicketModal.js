@@ -41,16 +41,15 @@ class CreateTicketModal extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         createTicket: state.createTicket
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
     reset,
     fetchTicketsAction
 }, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps) (CreateTicketModal);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTicketModal);

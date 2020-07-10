@@ -82,10 +82,6 @@
   padding-bottom: 5px;
 }
 
-input:required {
-  box-shadow: none;
-}
-
 /* ------------------------------------------
  AUTHORIZATION
  ------------------------------------------ */
@@ -403,18 +399,18 @@ input:required {
   height: 36px;
 }
 
-.button-search-elements {
+.tickets-layout-elements {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.button-search-elements .smarts-input {
+.tickets-layout-elements .smarts-input {
   font-size: 14px;
   width: 25%;
   background: #c1c1c1;
   border-radius: 1px;
 }
-.button-search-elements .smarts-input:hover, .button-search-elements .smarts-input:focus {
+.tickets-layout-elements .smarts-input:hover, .tickets-layout-elements .smarts-input:focus {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
 }
 
@@ -429,6 +425,9 @@ input:required {
   font-family: GothamProLight;
   font-size: 13px;
 }
+.ticket-table-body td:first-child {
+  font-family: GothamProRegular;
+}
 
 .smarts-page-item:hover {
   background-color: #e9ecef;
@@ -440,10 +439,10 @@ input:required {
   align-items: center;
   height: 35px;
   width: 35px;
-  margin-left: -1px;
   color: #000000;
   text-decoration: none;
   border: 1px solid #dee2e6;
+  outline: none;
 }
 .smarts-page-item.active .smarts-page-link {
   background-color: #655290;
@@ -466,6 +465,11 @@ input:required {
   font-family: GothamProRegular;
 }
 
+.modal-underline-selector {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
 .ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
@@ -477,14 +481,24 @@ input:required {
   font-size: 13px;
 }
 
-.modal-underline-selector {
-  border-bottom: none !important;
-  border-top: none !important;
+.payments-form-selectors {
+  display: flex;
+  justify-content: space-between;
+}
+.payments-form-selectors .smarts-ticket-box {
+  width: 47%;
+}
+@media (max-width: 575px) {
+  .payments-form-selectors {
+    flex-direction: column;
+  }
+  .payments-form-selectors .smarts-ticket-box {
+    width: 100%;
+  }
 }
 
 .smarts-ticket-box {
   position: relative;
-  width: 100%;
   font-size: 15px;
 }
 .smarts-ticket-box.form-group {
@@ -498,7 +512,7 @@ input:required {
 .smarts-ticket-box .smarts-ticket-label {
   position: absolute;
   pointer-events: none;
-  top: 25%;
+  top: 26%;
   left: 10px;
   transition: 0.2s ease all;
   color: #8C8C8C;
@@ -597,6 +611,9 @@ input:required {
   justify-content: flex-end;
 }
 .module-footer .button-area .comment-button {
+  font-size: 16px;
+  width: 160px;
+  height: 36px;
   margin-top: 10px;
 }
 

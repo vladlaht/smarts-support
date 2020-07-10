@@ -39,10 +39,8 @@ class HomeLayout extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {}
-}
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({}, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeLayout);
+const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
+
+export default connect(null, mapDispatchToProps)(HomeLayout);

@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {FaHome, FaTasks, FaUsers, FaFileInvoiceDollar} from "react-icons/fa"
 import {IconContext} from "react-icons/lib/esm/index";
-import logo from "../../other/img/V2IKELOGO.png";
 import {Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 import {HOME_ROUTE, TICKETS_ROUTE, CLIENTS_ROUTE, INVOICES_ROUTE} from "../constants/routes";
+
 
 
 class Navigation extends Component {
@@ -13,7 +13,7 @@ class Navigation extends Component {
         return (
             <div className="sidebar">
                 <div className="sidebar-logo">
-                    <img src={logo} alt=""/>
+                    <img src={process.env.PUBLIC_URL + "/img/small_nav_logo.png"} alt="small-nav-logo"/>
                 </div>
                 <Nav className="flex-column sidebar-links">
                     <div className={this.props.hasOwnProperty("activeRoute") && this.props.activeRoute === HOME_ROUTE ? "active" : ""}>
@@ -54,10 +54,9 @@ class Navigation extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
 
     }
-}
+)
 
 export default connect(mapStateToProps)(Navigation);

@@ -70,7 +70,7 @@ class TicketsTable extends Component {
                     </thead>
                     <tbody className="ticket-table-body">
                     {
-                        displayedData && displayedData.map((ticket, key) =>  (
+                        displayedData && displayedData.map((ticket, key) => (
                                 <tr key={key}>
                                     <td>{ticket.ticketNumber}</td>
                                     <td>{ticket.ticketName}</td>
@@ -102,14 +102,13 @@ class TicketsTable extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
+const mapStateToProps = state => ({
         details: state.ticketDetails,
         ticketsData: state.ticketsData
     }
-}
+)
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({
+const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
     fetchTicketsAction
 }, dispatch));
