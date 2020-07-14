@@ -2,16 +2,16 @@ import React from "react";
 import {IconContext} from "react-icons";
 import {FaUserCircle} from "react-icons/fa"
 
-const AccountCard = props => {
+export default props => {
     return (
-        <span>
+        <React.Fragment>
                 <IconContext.Provider value={{className: "account-card-logo"}}>
                     <FaUserCircle/>
                 </IconContext.Provider>
                 <span className="account-button-title">{props.fullName}</span>
-            </span>
+            </React.Fragment>
     )
 };
 
-export default AccountCard
+
 

@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import NewTicketButton from "../modules/tickets/views/cards/NewTicketButton";
-import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
 import {Container, Row, Col} from "react-bootstrap";
 import {connect} from "react-redux";
-import Navigation from "../global/navigation/Navigation";
 import {TICKETS_ROUTE} from "../global/constants/routes";
+import Navigation from "../global/navigation/Navigation";
 import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
+import NewTicketButton from "../modules/tickets/views/cards/NewTicketButton";
+import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
+import TicketSearch from "../modules/tickets/views/cards/TicketSearch";
 
 class TicketsLayout extends Component {
 
@@ -29,13 +30,14 @@ class TicketsLayout extends Component {
                                     <Col>
                                         <div className="page-title">
                                             <h3>Customer support tickets</h3>
-                                            <div><span
-                                                className="tickets-table-issues">Issues for solving:</span>{unsolvedIssues}
+                                            <div>
+                                                <span className="tickets-table-issues">Issues for solving:</span>
+                                                {unsolvedIssues}
                                             </div>
                                         </div>
                                         <div className="tickets-layout-elements">
                                             <NewTicketButton/>
-                                            <input className="smarts-input" type="text" placeholder="Search ticket"/>
+                                            <TicketSearch/>
                                         </div>
                                         <div className="layout-body">
                                             <TicketsTable/>
@@ -53,6 +55,12 @@ class TicketsLayout extends Component {
 
 const mapStateToProps = state => ({
         ticketsData: state.ticketsData
+
+
+
+
+
+
     }
 );
 

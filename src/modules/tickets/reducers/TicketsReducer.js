@@ -6,17 +6,15 @@ import {
     getAction
 } from "../../../global/constants/action-types";
 import {
-    CREATE_TICKET_ACTION,
     FETCH_TICKET_ACTION,
-    UPDATE_TICKET_ACTION,
-    DELETE_TICKET_ACTION,
-    SORT_TICKET_ACTION
+    TICKET_TABLE_ACTION, FILTER_TABLE_ACTION
 } from "../constants/ReducerConstants";
 
 const initialState = {
     data: [],
     sortType: "desc",
     sortField: null,
+    filterField: null,
     currentPage: 0
 };
 
@@ -36,24 +34,16 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
             };
-
-        case getAction(SORT_TICKET_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
+        case getAction(TICKET_TABLE_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
             return {
                 ...state,
                 [action.payload.field]: action.payload.value
             };
-
-        case getAction(CREATE_TICKET_ACTION, ACTION_STATUS_SUCCESS):
+        case getAction(FILTER_TABLE_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
             return {
                 ...state,
-            };
-        case getAction(UPDATE_TICKET_ACTION, ACTION_STATUS_SUCCESS):
-            return {
-                ...state,
-            };
-        case getAction(DELETE_TICKET_ACTION, ACTION_STATUS_SUCCESS):
-            return {
-                ...state,
+                [action.payload.field]: action.payload.value,
+                currentPage: 0
             };
         default:
             return state;

@@ -6,8 +6,9 @@ import {Link} from "react-router-dom";
 import _ from "lodash";
 import {changeField} from "../../../../global/actions/StandardActions";
 import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
-import {SORT_TICKET_ACTION} from "../../constants/ReducerConstants";
+import {TICKET_TABLE_ACTION} from "../../constants/ReducerConstants";
 import TicketTablePagination from "../cards/TicketTablePagination";
+
 
 class TicketsTable extends Component {
 
@@ -18,10 +19,10 @@ class TicketsTable extends Component {
     typeHandler() {
         const {ticketsData, changeField} = this.props;
         if (ticketsData.sortType.indexOf("asc") > -1) {
-            changeField(SORT_TICKET_ACTION, "sortType", "desc");
+            changeField(TICKET_TABLE_ACTION, "sortType", "desc");
             return "desc"
         } else {
-            changeField(SORT_TICKET_ACTION, "sortType", "asc");
+            changeField(TICKET_TABLE_ACTION, "sortType", "asc");
             return "asc"
         }
     };
@@ -30,14 +31,31 @@ class TicketsTable extends Component {
         const {ticketsData, changeField} = this.props;
         const sortType = this.typeHandler();
         const orderedData = _.orderBy(ticketsData.data, sortField, sortType);
-        changeField(SORT_TICKET_ACTION, "data", orderedData);
-        changeField(SORT_TICKET_ACTION, "sortField", sortField);
+        changeField(TICKET_TABLE_ACTION, "data", orderedData);
+        changeField(TICKET_TABLE_ACTION, "sortField", sortField);
     };
+
+    getFilteredData() {
+        const {ticketsData} = this.props;
+        const filterField = ticketsData.filterField;
+        if (!filterField) {
+            return ticketsData.data;
+        }
+        return ticketsData.data.filter(item => {
+            return item["ticketName"].toLowerCase().includes(filterField.toLowerCase())
+            || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
+            || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
+            || item["status"].toLowerCase().includes(filterField.toLowerCase())
+        })
+    }
 
     render() {
         const {details, ticketsData} = this.props;
         const pageSize = 10;
-        const displayedData = _.chunk(ticketsData.data, pageSize)[ticketsData.currentPage];
+        const filteredData = this.getFilteredData();
+        const pageCount = Math.ceil(filteredData.length / pageSize);
+        const displayedData = _.chunk(filteredData, pageSize)[ticketsData.currentPage];
+
         return (
             <React.Fragment>
                 <Table hover striped>
@@ -96,7 +114,10 @@ class TicketsTable extends Component {
                     </tr>
                     </tbody>
                 </Table>
-                {ticketsData.data.length > pageSize ? <TicketTablePagination/> : null}
+                {filteredData.length > pageSize
+                    ? <TicketTablePagination pageCount={pageCount}
+                                             ticketsData={ticketsData}/>
+                    : null}
             </React.Fragment>
         )
     }
@@ -106,7 +127,7 @@ const mapStateToProps = state => ({
         details: state.ticketDetails,
         ticketsData: state.ticketsData
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
