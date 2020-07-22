@@ -42,7 +42,7 @@ class AccountDropdownCard extends Component {
                         </IconContext.Provider>
                         Settings
                     </Dropdown.Item>
-                    <Dropdown.Item href="/">
+                    <Dropdown.Item href="/authorize">
                         <IconContext.Provider value={{className: "account-card-items-logo"}}>
                             <IoMdLogOut/>
                         </IconContext.Provider>

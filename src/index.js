@@ -25,12 +25,13 @@ class Main extends Component {
                 <Provider store={appStore}>
                     <Router history={history}>
                         <Switch>
-                            <Route exact path="/" component={AuthorizationLayout}/>
-                            <Route exact path="/home" component={HomeLayout}/>
+                            <Route exact path="/authorize" render={(props) => <AuthorizationLayout {...props} authForm/>}/>
+                            <Route exact path="/register" render={(props) => <AuthorizationLayout {...props} />}/>
+                            <Route exact path="/" component={HomeLayout}/>
                             <Route exact path="/tickets" component={TicketsLayout}/>
+                            <Route exact path="/tickets/details" component={TicketDetailsLayout}/>
                             <Route exact path="/clients" component={ClientsLayout}/>
                             <Route exact path="/invoices" component={InvoicesLayout}/>
-                            <Route exact path="/tickets/details" component={TicketDetailsLayout}/>
                         </Switch>
                     </Router>
                 </Provider>

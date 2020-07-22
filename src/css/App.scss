@@ -98,7 +98,7 @@ $color-smarts-secondary: #f68d37;
 }
 
 /* ------------------------------------------
- AUTHORIZATION
+ AUTHORIZATION / REGISTRATION
  ------------------------------------------ */
 
 .auth-layout {
@@ -113,7 +113,6 @@ $color-smarts-secondary: #f68d37;
   font-family: $font-light;
   background-color: #fff;
   width: 450px;
-  height: 600px;
   border-radius: 5px;
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
   padding: 50px;
@@ -145,6 +144,7 @@ $color-smarts-secondary: #f68d37;
       padding-left: 1px;
       margin-bottom: 0;
       font-size: 13px;
+
     }
 
     .auth-input {
@@ -152,6 +152,7 @@ $color-smarts-secondary: #f68d37;
       height: 34px;
       border: none;
       border-bottom: 2px solid #d9d9d9;
+      font-family: $font-regular;
 
       &:focus {
         outline: none;

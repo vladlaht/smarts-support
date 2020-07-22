@@ -83,7 +83,7 @@
 }
 
 /* ------------------------------------------
- AUTHORIZATION
+ AUTHORIZATION / REGISTRATION
  ------------------------------------------ */
 .auth-layout {
   display: flex;
@@ -97,7 +97,6 @@
   font-family: GothamProLight;
   background-color: #fff;
   width: 450px;
-  height: 600px;
   border-radius: 5px;
   box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
   padding: 50px;
@@ -132,6 +131,7 @@
   height: 34px;
   border: none;
   border-bottom: 2px solid #d9d9d9;
+  font-family: GothamProRegular;
 }
 .auth-body-item .auth-input:focus {
   outline: none;

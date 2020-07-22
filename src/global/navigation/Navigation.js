@@ -17,7 +17,7 @@ class Navigation extends Component {
                 </div>
                 <Nav className="flex-column sidebar-links">
                     <div className={this.props.hasOwnProperty("activeRoute") && this.props.activeRoute === HOME_ROUTE ? "active" : ""}>
-                        <Link className="sidebar-link" to="/home">
+                        <Link className="sidebar-link" to="/">
                         <IconContext.Provider value={{className: "sidebar-link-logo"}}>
                             <FaHome/>
                         </IconContext.Provider>

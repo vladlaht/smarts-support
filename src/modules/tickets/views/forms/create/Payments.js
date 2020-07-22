@@ -17,7 +17,6 @@ class Payments extends Component {
     };
 
     render() {
-        const {form} = this.props;
         return (
             <React.Fragment>
                 <div className="payments-form-selectors">
@@ -79,15 +78,9 @@ class Payments extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-        form: state.createPaymentTicketForm,
-    }
-)
-
-
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
-    createPaymentTicket: createPaymentTicket,
+    createPaymentTicket,
 }, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(Payments);
+export default connect(mapDispatchToProps)(Payments);
