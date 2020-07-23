@@ -7,4 +7,5 @@ export default {
     createTicket: CreateTicketReducer,
     createPaymentTicketForm: CreatePaymentTicketReducer,
     ticketsData : TicketsReducer
+    
 };

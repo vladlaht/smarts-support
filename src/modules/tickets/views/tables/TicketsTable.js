@@ -43,9 +43,9 @@ class TicketsTable extends Component {
         }
         return ticketsData.data.filter(item => {
             return item["ticketName"].toLowerCase().includes(filterField.toLowerCase())
-            || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
-            || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
-            || item["status"].toLowerCase().includes(filterField.toLowerCase())
+                || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
+                || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
+                || item["status"].toLowerCase().includes(filterField.toLowerCase())
         })
     }
 
@@ -90,7 +90,12 @@ class TicketsTable extends Component {
                     {
                         displayedData && displayedData.map((ticket, key) => (
                                 <tr key={key}>
-                                    <td>{ticket.ticketNumber}</td>
+                                    <td>
+                                        <Link
+                                            to={`/tickets/details/${ticket.ticketNumber}`}>
+                                            {ticket.ticketNumber}
+                                        </Link>
+                                    </td>
                                     <td>{ticket.ticketName}</td>
                                     <td>{ticket.clientName}</td>
                                     <td>{ticket.assignee}</td>
@@ -102,7 +107,8 @@ class TicketsTable extends Component {
                     }
                     <tr>
                         <td>
-                            <Link to="/tickets/details">
+                            <Link
+                                to={`/tickets/details/${details.ticketNumber}`}>
                                 {details.ticketNumber}
                             </Link>
                         </td>

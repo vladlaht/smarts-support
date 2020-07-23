@@ -33,7 +33,7 @@ class TicketDetailsLayout extends Component {
                                             </div>
                                         </div>
                                         <div className="layout-body">
-                                            <TicketDetails/>
+                                            <TicketDetails ticket={this.props.match.params.number}/>
                                         </div>
                                     </Col>
                                 </Row>

@@ -23,8 +23,12 @@ class TicketsTable extends Component {
         this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value);
     };
 
+    getTicket () {
+
+    }
+
     render() {
-        const {details} = this.props;
+        const {details, account} = this.props;
         return (
             <div className="details-group">
                 <div className="details-column main-column">
@@ -34,6 +38,7 @@ class TicketsTable extends Component {
                             <ul className="module-list column">
                                 <li className="item">
                                     <div className="name">Ticket number:</div>
+                                    {console.log("Ticket number from Route props:" + this.props.ticket)}
                                     <EdiText
                                         showButtonsOnHover
                                         editOnViewClick={true}
@@ -115,7 +120,7 @@ class TicketsTable extends Component {
                                     <ul key={key} className="module-list comment">
                                         <li className="author">
                                             <AccountCard
-                                                fullname={this.props.account.profileName}/>
+                                                fullName={account.profileName}/>
                                         </li>
                                         <li className="date-time">
                                             {comment.datetime}
