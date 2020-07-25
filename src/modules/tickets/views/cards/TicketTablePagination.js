@@ -25,7 +25,7 @@ class TicketTablePagination extends Component {
                     onPageChange={this.pageChangeHandler}
                     containerClassName={'pagination'}
                     activeClassName={'active'}
-                    forcePage={this.props.ticketsData.currentPage}
+                    forcePage={this.props.ticketsTableData.currentPage}
                     pageClassName={"smarts-page-item"}
                     pageLinkClassName={"smarts-page-link"}
                     nextClassName={"smarts-page-item"}

@@ -11,7 +11,6 @@ import {
 } from "../constants/ReducerConstants";
 
 const initialState = {
-    data: [],
     sortType: "desc",
     sortField: null,
     filterField: null,

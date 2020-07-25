@@ -38,7 +38,7 @@ class TicketsTable extends Component {
                             <ul className="module-list column">
                                 <li className="item">
                                     <div className="name">Ticket number:</div>
-                                    {console.log("Ticket number from Route props:" + this.props.ticket)}
+                                    {console.log("Ticket number from Route props:" + this.props.ticketNumber)}
                                     <EdiText
                                         showButtonsOnHover
                                         editOnViewClick={true}

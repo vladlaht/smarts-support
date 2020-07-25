@@ -1,11 +1,13 @@
 import CreateTicketReducer from "./CreateTicketReducer";
 import CreatePaymentTicketReducer from "./CreatePaymentTicketReducer";
-import TicketsReducer from "./TicketsReducer";
+import TicketsTableReducer from "./TicketsTableReducer";
+import FetchTicketsReducer from "./FetchTicketsReducer";
 
 
 export default {
     createTicket: CreateTicketReducer,
     createPaymentTicketForm: CreatePaymentTicketReducer,
-    ticketsData : TicketsReducer
+    ticketsTableData : TicketsTableReducer,
+    tickets: FetchTicketsReducer
     
 };

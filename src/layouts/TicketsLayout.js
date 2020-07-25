@@ -11,7 +11,7 @@ import TicketSearch from "../modules/tickets/views/cards/TicketSearch";
 class TicketsLayout extends Component {
 
     render() {
-        const unsolvedIssues = this.props.ticketsData.data.length;
+        const unsolvedIssues = this.props.tickets.data.length;
         return (
             <React.Fragment>
                 <Navigation activeRoute={TICKETS_ROUTE}/>
@@ -54,13 +54,8 @@ class TicketsLayout extends Component {
 }
 
 const mapStateToProps = state => ({
-        ticketsData: state.ticketsData
-
-
-
-
-
-
+        ticketsTableData: state.ticketsTableData,
+        tickets: state.tickets
     }
 );
 

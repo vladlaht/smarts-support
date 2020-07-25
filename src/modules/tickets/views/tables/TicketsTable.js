@@ -17,8 +17,8 @@ class TicketsTable extends Component {
     }
 
     typeHandler() {
-        const {ticketsData, changeField} = this.props;
-        if (ticketsData.sortType.indexOf("asc") > -1) {
+        const {ticketsTableData, changeField} = this.props;
+        if (ticketsTableData.sortType.indexOf("asc") > -1) {
             changeField(TICKET_TABLE_ACTION, "sortType", "desc");
             return "desc"
         } else {
@@ -28,20 +28,20 @@ class TicketsTable extends Component {
     };
 
     onSort = sortField => {
-        const {ticketsData, changeField} = this.props;
+        const {tickets, changeField} = this.props;
         const sortType = this.typeHandler();
-        const orderedData = _.orderBy(ticketsData.data, sortField, sortType);
+        const orderedData = _.orderBy(tickets.data, sortField, sortType);
         changeField(TICKET_TABLE_ACTION, "data", orderedData);
         changeField(TICKET_TABLE_ACTION, "sortField", sortField);
     };
 
     getFilteredData() {
-        const {ticketsData} = this.props;
-        const filterField = ticketsData.filterField;
+        const {ticketsTableData, tickets} = this.props;
+        const filterField = ticketsTableData.filterField;
         if (!filterField) {
-            return ticketsData.data;
+            return tickets.data;
         }
-        return ticketsData.data.filter(item => {
+        return tickets.data.filter(item => {
             return item["ticketName"].toLowerCase().includes(filterField.toLowerCase())
                 || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
                 || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
@@ -50,11 +50,11 @@ class TicketsTable extends Component {
     }
 
     render() {
-        const {details, ticketsData} = this.props;
+        const {details, ticketsTableData} = this.props;
         const pageSize = 10;
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
-        const displayedData = _.chunk(filteredData, pageSize)[ticketsData.currentPage];
+        const displayedData = _.chunk(filteredData, pageSize)[ticketsTableData.currentPage];
 
         return (
             <React.Fragment>
@@ -62,27 +62,27 @@ class TicketsTable extends Component {
                     <thead className="ticket-table-head">
                     <tr>
                         <th onClick={() => this.onSort("ticketNumber")}>
-                            Number {ticketsData.sortField === "ticketNumber" ?
-                            <small> {ticketsData.sortType}</small> : null}
+                            Number {ticketsTableData.sortField === "ticketNumber" ?
+                            <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                         <th onClick={() => this.onSort("ticketName")}>
-                            Ticket name {ticketsData.sortField === "ticketName" ?
-                            <small> {ticketsData.sortType}</small> : null}
+                            Ticket name {ticketsTableData.sortField === "ticketName" ?
+                            <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                         <th onClick={() => this.onSort("clientName")}>
-                            Client name {ticketsData.sortField === "clientName" ?
-                            <small> {ticketsData.sortType}</small> : null}
+                            Client name {ticketsTableData.sortField === "clientName" ?
+                            <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                         <th onClick={() => this.onSort("assignee")}>
-                            Assignee {ticketsData.sortField === "assignee" ?
-                            <small> {ticketsData.sortType}</small> : null}
+                            Assignee {ticketsTableData.sortField === "assignee" ?
+                            <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                         <th onClick={() => this.onSort("createdAt")}>
-                            Created at {ticketsData.sortField === "createdAt" ?
-                            <small> {ticketsData.sortType}</small> : null}
+                            Created at {ticketsTableData.sortField === "createdAt" ?
+                            <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                         <th onClick={() => this.onSort("status")}>
-                            Status {ticketsData.sortField === "status" ? <small> {ticketsData.sortType}</small> : null}
+                            Status {ticketsTableData.sortField === "status" ? <small> {ticketsTableData.sortType}</small> : null}
                         </th>
                     </tr>
                     </thead>
@@ -122,7 +122,7 @@ class TicketsTable extends Component {
                 </Table>
                 {filteredData.length > pageSize
                     ? <TicketTablePagination pageCount={pageCount}
-                                             ticketsData={ticketsData}/>
+                                             ticketsTableData={ticketsTableData}/>
                     : null}
             </React.Fragment>
         )
@@ -131,7 +131,8 @@ class TicketsTable extends Component {
 
 const mapStateToProps = state => ({
         details: state.ticketDetails,
-        ticketsData: state.ticketsData
+        ticketsTableData: state.ticketsTableData,
+        tickets: state.tickets
     }
 );
 
