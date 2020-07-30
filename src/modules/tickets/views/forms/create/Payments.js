@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {Button, Form} from "react-bootstrap"
+import {Form} from "react-bootstrap"
 import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
 import {createPaymentTicket} from "../../../actions/create/CreatePaymentTicket";
@@ -20,7 +20,7 @@ class Payments extends Component {
         return (
             <React.Fragment>
                 <div className="payments-form-selectors">
-                    <Form.Group className="smarts-ticket-box">
+                    <Form.Group className="smarts-ticket-form">
                         <label className="smarts-ticket-selector-label"> Assignee</label>
                         <select className="smarts-select"
                                 defaultValue="default"
@@ -31,7 +31,7 @@ class Payments extends Component {
                             <option>Vladislav Lahtarin</option>
                         </select>
                     </Form.Group>
-                    <Form.Group className="smarts-ticket-box">
+                    <Form.Group className="smarts-ticket-form">
                         <label className="smarts-ticket-selector-label"> Priority</label>
                         <select className="smarts-select"
                                 defaultValue="default"
@@ -44,34 +44,33 @@ class Payments extends Component {
                         </select>
                     </Form.Group>
                 </div>
-
-                <Form.Group className="smarts-ticket-box">
+                <Form.Group className="smarts-ticket-form">
                     <input className="smarts-input" type="text"
                            required
                            onChange={(e) => this.handleFieldChange("ticketName", e.target.value)}/>
                     <label className="smarts-ticket-label"> Ticket name</label>
                 </Form.Group>
-                <Form.Group className="smarts-ticket-box">
+                <Form.Group className="smarts-ticket-form">
                     <input className="smarts-input" type="text"
                            required
                            onChange={(e) => this.handleFieldChange("clientName", e.target.value)}/>
                     <label className="smarts-ticket-label"> Client name</label>
                 </Form.Group>
-                <Form.Group className="smarts-ticket-box">
+                <Form.Group className="smarts-ticket-form">
                     <input className="smarts-input" type="text"
                            required
                            onChange={(e) => this.handleFieldChange("invoiceNumber", e.target.value)}/>
                     <label className="smarts-ticket-label">Invoice number</label>
                 </Form.Group>
-                <Form.Group className="smarts-ticket-box">
+                <Form.Group className="smarts-ticket-form">
                             <textarea className="smarts-textarea" rows="3"
                                       required
                                       onChange={(e) => this.handleFieldChange("description", e.target.value)}/>
                     <label className="smarts-ticket-label"> Description</label>
                 </Form.Group>
                 <div className="ticket-create-button-area">
-                    <Button className="smarts-button ticket-create-button"
-                            onClick={this.createTicket}>Create</Button>
+                    <button className="smarts-button ticket-create-button"
+                            onClick={this.createTicket}>Create</button>
                 </div>
             </React.Fragment>
         )
@@ -83,4 +82,4 @@ const mapDispatchToProps = dispatch => (bindActionCreators({
     createPaymentTicket,
 }, dispatch));
 
-export default connect(mapDispatchToProps)(Payments);
+export default connect(null, mapDispatchToProps)(Payments);

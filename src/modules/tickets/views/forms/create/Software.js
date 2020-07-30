@@ -13,7 +13,7 @@ class Software extends Component {
             <React.Fragment>
                 <Row>
                     <Col>
-                        <Form.Group className="smarts-ticket-box">
+                        <Form.Group className="smarts-ticket-form">
                             <br/>
                             <select className="smarts-select">
                                 <option disabled>Assignee</option>
@@ -26,7 +26,7 @@ class Software extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Form.Group className="smarts-ticket-box">
+                        <Form.Group className="smarts-ticket-form">
                             <br/>
                             <input type="text" className="smarts-input" required/>
                             <label className="smarts-ticket-label"> Ticket name</label>
@@ -35,7 +35,7 @@ class Software extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Form.Group className="smarts-ticket-box">
+                        <Form.Group className="smarts-ticket-form">
                             <br/>
                             <input type="text" className="smarts-input" required/>
                             <label className="smarts-ticket-label"> Client name</label>
@@ -44,7 +44,7 @@ class Software extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Form.Group className="smarts-ticket-box">
+                        <Form.Group className="smarts-ticket-form">
                             <br/>
                             <textarea rows="3" className="smarts-textarea" required/>
                             <label className="smarts-ticket-label"> Description</label>

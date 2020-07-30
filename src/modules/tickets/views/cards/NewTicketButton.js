@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {Button} from "react-bootstrap";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {CREATE_TICKET_ACTION} from "../../constants/ReducerConstants";
@@ -16,9 +15,9 @@ class NewTicketButton extends Component {
     render() {
         return (
             <React.Fragment>
-                <Button className="smarts-button new-ticket-button" onClick={this.toggleModal}>
+                <button className="smarts-button new-ticket-button" onClick={this.toggleModal}>
                     New ticket
-                </Button>
+                </button>
                 <CreateTicketModal/>
             </React.Fragment>
         )

@@ -17,26 +17,16 @@ class TicketDetailsLayout extends Component {
                     <Row>
                         <Col sm={12}>
                             <div className="layout">
-                                <Row>
-                                    <Col>
-                                        <div className="layout-head">
-                                            <AccountDropdownCard/>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <div className="page-title">
-                                            <h3>Ticket details</h3>
-                                            <div className="page-subtitle">
-                                                {details.ticketName}
-                                            </div>
-                                        </div>
-                                        <div className="layout-body">
-                                            <TicketDetails ticketNumber={this.props.match.params.number}/>
-                                        </div>
-                                    </Col>
-                                </Row>
+                                <div className="layout__header">
+                                    <AccountDropdownCard/>
+                                </div>
+                                <div className="layout__title">
+                                    <h3>Ticket details</h3>
+                                    <h6 className="layout__title-subtitle">{details.ticketName}</h6>
+                                </div>
+                                <div className="layout__body">
+                                    <TicketDetails ticketNumber={this.props.match.params.number}/>
+                                </div>
                             </div>
                         </Col>
                     </Row>

@@ -17,7 +17,7 @@ class Create extends Component {
 
     renderSelection() {
         return (
-            <Form.Group className="smarts-ticket-box">
+            <Form.Group className="smarts-ticket-form">
                 <label className="smarts-ticket-selector-label"> Type</label>
                 <select className="smarts-select"
                         data-placeholder="Select type"
@@ -61,7 +61,7 @@ class Create extends Component {
 const mapStateToProps = state => ({
         createTicket: state.createTicket,
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField

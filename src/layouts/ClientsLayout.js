@@ -15,20 +15,12 @@ class ClientsLayout extends Component {
                     <Row>
                         <Col sm={12}>
                             <div className="layout">
-                                <Row>
-                                    <Col>
-                                        <div className="layout-head">
-                                            <AccountDropdownCard/>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <div className="page-title">
-                                            <h3>Clients page</h3>
-                                        </div>
-                                    </Col>
-                                </Row>
+                                <div className="layout__header">
+                                    <AccountDropdownCard/>
+                                </div>
+                                <div className="layout__title">
+                                    <h3>Clients page</h3>
+                                </div>
                             </div>
                         </Col>
                     </Row>

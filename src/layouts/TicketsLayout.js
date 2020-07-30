@@ -19,31 +19,21 @@ class TicketsLayout extends Component {
                     <Row>
                         <Col sm={12}>
                             <div className="layout">
-                                <Row>
-                                    <Col>
-                                        <div className="layout-head">
-                                            <AccountDropdownCard/>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <div className="page-title">
-                                            <h3>Customer support tickets</h3>
-                                            <div>
-                                                <span className="tickets-table-issues">Issues for solving:</span>
-                                                {unsolvedIssues}
-                                            </div>
-                                        </div>
-                                        <div className="tickets-layout-elements">
-                                            <NewTicketButton/>
-                                            <TicketSearch/>
-                                        </div>
-                                        <div className="layout-body">
-                                            <TicketsTable/>
-                                        </div>
-                                    </Col>
-                                </Row>
+                                <div className="layout__header">
+                                    <AccountDropdownCard/>
+                                </div>
+                                <div className="layout__title">
+                                    <h3>Customer support tickets</h3>
+                                    <span className="tickets-table-issues">Issues for solving:</span>
+                                    {unsolvedIssues}
+                                </div>
+                                <div className="layout__ticket-table-elements">
+                                    <NewTicketButton/>
+                                    <TicketSearch/>
+                                </div>
+                                <div className="layout__body">
+                                    <TicketsTable/>
+                                </div>
                             </div>
                         </Col>
                     </Row>

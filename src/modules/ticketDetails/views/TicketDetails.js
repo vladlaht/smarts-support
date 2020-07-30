@@ -6,7 +6,6 @@ import AccountCard from "../../account/views/cards/AccountCard";
 import {addComment} from "../actions/TicketDetailsAction";
 import EdiText from "react-editext";
 import {EDIT_TICKET_DETAILS_VALUE} from "../../tickets/constants/ReducerConstants";
-import {Button} from "react-bootstrap";
 
 
 class TicketsTable extends Component {
@@ -120,7 +119,7 @@ class TicketsTable extends Component {
                                     <ul key={key} className="module-list comment">
                                         <li className="author">
                                             <AccountCard
-                                                fullName={account.profileName}/>
+                                                fullname={account.profileName}/>
                                         </li>
                                         <li className="date-time">
                                             {comment.datetime}
@@ -138,10 +137,10 @@ class TicketsTable extends Component {
                                                       placeholder='Comment here'
                                                       ref={(ref) => this.commentText = ref}/>
                             <div className="button-area">
-                                <Button className="smarts-button comment-button"
+                                <button className="smarts-button comment-button"
                                         onClick={this.saveComment}>
                                     Add comment
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </div>

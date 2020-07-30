@@ -44,7 +44,7 @@ class CreateTicketModal extends Component {
 const mapStateToProps = state => ({
         createTicket: state.createTicket
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,

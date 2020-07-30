@@ -14,42 +14,42 @@ import ProfileModal from "../modals/ProfileModal";
 class AccountDropdownCard extends Component {
 
     toggleModal = () => {
-        const {profileDetails} = this.props;
-        this.props.changeField(OPEN_PROFILE_ACTION, "modalIsOpen", !profileDetails.modalIsOpen)
+        this.props.changeField(OPEN_PROFILE_ACTION, "modalIsOpen", !this.props.profileDetails.modalIsOpen)
     };
 
     render() {
         return (
             <div className="account-card">
-                <DropdownButton className="account-card-body" id="dropdown-basic-button"
+                <DropdownButton id="dropdown-basic-button"
                                 title={
-                                    <AccountCard fullName={this.props.account.profileName}/>}>
+                                    <AccountCard fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item onClick={this.toggleModal}>
-                        <IconContext.Provider value={{className: "account-card-items-logo profile-icon"}}>
+                        <IconContext.Provider value={{className: "account-card__items-logo profile-icon"}}>
                             <FaUser/>
                         </IconContext.Provider>
                         My profile
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
-                        <IconContext.Provider value={{className: "account-card-items-logo"}}>
+                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
                             <IoMdClipboard/>
                         </IconContext.Provider>
                         Tasks
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-3">
-                        <IconContext.Provider value={{className: "account-card-items-logo"}}>
+                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
                             <MdSettings/>
                         </IconContext.Provider>
                         Settings
                     </Dropdown.Item>
                     <Dropdown.Item href="/authorize">
-                        <IconContext.Provider value={{className: "account-card-items-logo"}}>
+                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
                             <IoMdLogOut/>
                         </IconContext.Provider>
                         Log out
                     </Dropdown.Item>
                 </DropdownButton>
-                <ProfileModal/>
+                <ProfileModal toggle={this.toggleModal}
+                              profileDetails={this.props.profileDetails}/>
             </div>
         )
     }
