@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {changeField, reset} from "../../../../global/actions/StandardActions";
@@ -7,7 +7,7 @@ import {Container, Modal} from "react-bootstrap";
 import Create from "../forms/create/Create";
 import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
 
-class CreateTicketModal extends Component {
+class CreateTicketModal extends React.Component {
 
     toggleModal = () => {
         const {createTicket} = this.props;

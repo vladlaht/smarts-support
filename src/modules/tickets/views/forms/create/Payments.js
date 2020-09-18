@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Form} from "react-bootstrap"
@@ -6,7 +6,7 @@ import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
 import {createPaymentTicket} from "../../../actions/create/CreatePaymentTicket";
 
-class Payments extends Component {
+class Payments extends React.Component {
 
     handleFieldChange(field, value) {
         this.props.changeField(CREATE_PAYMENTS_TICKET, field, value);

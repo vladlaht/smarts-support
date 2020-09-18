@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {changeField} from "../../../../global/actions/StandardActions";
 import {FILTER_TABLE_ACTION} from "../../constants/ReducerConstants";
 
-class TicketSearch extends Component {
+class TicketSearch extends React.Component {
 
     handleFieldChange(field, value) {
         this.props.changeField(FILTER_TABLE_ACTION, field, value);

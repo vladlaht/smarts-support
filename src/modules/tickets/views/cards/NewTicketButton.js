@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {CREATE_TICKET_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import CreateTicketModal from "../modals/CreateTicketModal";
 
-class NewTicketButton extends Component {
+class NewTicketButton extends React.Component {
 
     toggleModal = () => {
         const {createTicket} = this.props;
@@ -27,7 +27,7 @@ class NewTicketButton extends Component {
 const mapStateToProps = state => ({
         createTicket: state.createTicket
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField

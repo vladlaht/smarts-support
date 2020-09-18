@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {MdLocationOn} from "react-icons/md"
 import {IoIosMail, IoIosPhonePortrait} from "react-icons/io"
 import {IconContext} from "react-icons";
 
-class Profile extends Component {
+class Profile extends React.Component {
 
     render() {
         return (
@@ -14,7 +14,7 @@ class Profile extends Component {
                             <img src={`${process.env.PUBLIC_URL}/img/profile_default.png`} alt="logo"/>
                         </div>
                         <div className="profile-top__contact">
-                            <div className="profile-top__contact-name">Vlad Laht</div>
+                            <div className="profile-top__contact-name">Vladislav Lahtarin</div>
                             <div className="profile-top__contact-email">
                                 <IconContext.Provider value={{className: "profile-top__contact-logo"}}>
                                     <IoIosMail/>

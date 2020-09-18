@@ -1,8 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {DropdownButton, Dropdown} from "react-bootstrap";
-import {IconContext} from "react-icons";
 import {IoMdLogOut, IoMdClipboard} from "react-icons/io"
 import {FaUser} from "react-icons/fa"
 import {MdSettings} from "react-icons/md"
@@ -11,7 +10,7 @@ import {OPEN_PROFILE_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import ProfileModal from "../modals/ProfileModal";
 
-class AccountDropdownCard extends Component {
+class AccountDropdownCard extends React.Component {
 
     toggleModal = () => {
         this.props.changeField(OPEN_PROFILE_ACTION, "modalIsOpen", !this.props.profileDetails.modalIsOpen)
@@ -21,30 +20,21 @@ class AccountDropdownCard extends Component {
         return (
             <div className="account-card">
                 <DropdownButton id="dropdown-basic-button"
-                                title={
-                                    <AccountCard fullname={this.props.account.profileName}/>}>
+                                title={<AccountCard fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item onClick={this.toggleModal}>
-                        <IconContext.Provider value={{className: "account-card__items-logo profile-icon"}}>
-                            <FaUser/>
-                        </IconContext.Provider>
+                        <FaUser className="account-card__items-logo profile-icon"/>
                         My profile
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
-                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
-                            <IoMdClipboard/>
-                        </IconContext.Provider>
+                        <IoMdClipboard className="account-card__items-logo"/>
                         Tasks
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-3">
-                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
-                            <MdSettings/>
-                        </IconContext.Provider>
+                        <MdSettings className="account-card__items-logo"/>
                         Settings
                     </Dropdown.Item>
-                    <Dropdown.Item href="/authorize">
-                        <IconContext.Provider value={{className: "account-card__items-logo"}}>
-                            <IoMdLogOut/>
-                        </IconContext.Provider>
+                    <Dropdown.Item href="#/authorize">
+                        <IoMdLogOut className="account-card__items-logo"/>
                         Log out
                     </Dropdown.Item>
                 </DropdownButton>
@@ -56,12 +46,12 @@ class AccountDropdownCard extends Component {
 }
 
 const mapStateToProps = state => ({
-        account: state.accountCard,
-        profileDetails: state.profileDetails
+    account: state.accountCard,
+    profileDetails: state.profileDetails
 });
 
 const mapDispatchToProps = dispatch => (
-     bindActionCreators({changeField}, dispatch)
+    bindActionCreators({changeField}, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountDropdownCard);

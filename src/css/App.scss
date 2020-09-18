@@ -487,6 +487,11 @@ $color-smarts-secondary: #f68d37;
 .ticket-table-head {
   font-size: 14px;
 
+  .table-sort-icon {
+    height: 17px;
+    width: auto;
+  }
+
   th {
     border-top: none !important;
   }

@@ -1,8 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 import AuthForm from "../modules/authorization/views/Forms/AuthForm";
 import RegistrationForm from "../modules/authorization/views/Forms/RegistrationForm";
 
-class AuthorizationLayout extends Component {
+class AuthorizationLayout extends React.Component {
     render() {
         return (
             <React.Fragment>

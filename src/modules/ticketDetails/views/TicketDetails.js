@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {changeField} from "../../../global/actions/StandardActions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
@@ -8,7 +8,7 @@ import EdiText from "react-editext";
 import {EDIT_TICKET_DETAILS_VALUE} from "../../tickets/constants/ReducerConstants";
 
 
-class TicketsTable extends Component {
+class TicketsTable extends React.Component {
 
     componentDidUpdate() {
         this.commentText.value = '';
@@ -192,7 +192,7 @@ const mapStateToProps = state => ({
         details: state.ticketDetails,
         account: state.accountCard
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,

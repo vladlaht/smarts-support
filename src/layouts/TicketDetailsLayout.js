@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Container, Row, Col} from "react-bootstrap";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
@@ -7,7 +7,7 @@ import TicketDetails from "../modules/ticketDetails/views/TicketDetails";
 import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 import {TICKETS_ROUTE} from "../global/constants/routes";
 
-class TicketDetailsLayout extends Component {
+class TicketDetailsLayout extends React.Component {
     render() {
         const {details} = this.props;
         return (
@@ -39,7 +39,7 @@ class TicketDetailsLayout extends Component {
 const mapStateToProps = state => ({
         details: state.ticketDetails
     }
-)
+);
 
 const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
 

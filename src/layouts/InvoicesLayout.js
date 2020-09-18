@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import Navigation from "../global/navigation/Navigation";
 import {INVOICES_ROUTE} from "../global/constants/routes";
@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
-class InvoicesLayout extends Component {
+class InvoicesLayout extends React.Component {
     render() {
         return (
             <React.Fragment>

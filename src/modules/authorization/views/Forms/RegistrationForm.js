@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 
-class RegistrationForm extends Component {
+class RegistrationForm extends React.Component {
     render() {
         return (
             <React.Fragment>

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./css/App.css";
 import * as serviceWorker from "./serviceWorker";
@@ -8,7 +8,7 @@ import {createBrowserHistory} from "history";
 import "./css/App.css";
 import "./css/Font.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Route, Router, Switch} from "react-router";
+import { HashRouter as Router, Route, Switch} from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import TicketsLayout from "./layouts/TicketsLayout";
 import ClientsLayout from "./layouts/ClientsLayout";
@@ -18,7 +18,7 @@ import AuthorizationLayout from "./layouts/AuthorizationLayout";
 
 export const history = createBrowserHistory();
 
-class Main extends Component {
+class Main extends React.Component {
     render() {
         return (
             <div className="Main">

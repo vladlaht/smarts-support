@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {TICKET_TABLE_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import ReactPaginate from "react-paginate";
 
-class TicketTablePagination extends Component {
+class TicketTablePagination extends React.Component {
 
     pageChangeHandler = ({selected}) => {
         this.props.changeField(TICKET_TABLE_ACTION, "currentPage", selected);

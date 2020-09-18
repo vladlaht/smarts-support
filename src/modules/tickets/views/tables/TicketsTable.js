@@ -1,23 +1,25 @@
-import React, {Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import _ from "lodash";
-import {changeField} from "../../../../global/actions/StandardActions";
+import {changeField, reset} from "../../../../global/actions/StandardActions";
 import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
-import {TICKET_TABLE_ACTION} from "../../constants/ReducerConstants";
+import {BiDownArrowAlt, BiUpArrowAlt} from 'react-icons/bi';
+import {TICKET_TABLE_ACTION, UPDATE_TICKETS_MASSIVE_ACTION} from "../../constants/ReducerConstants";
 import TicketTablePagination from "../cards/TicketTablePagination";
 
-
-class TicketsTable extends Component {
+class TicketsTable extends React.Component {
 
     componentDidMount() {
+        this.props.reset(TICKET_TABLE_ACTION);
         this.props.fetchTicketsAction();
     }
 
     typeHandler() {
         const {ticketsTableData, changeField} = this.props;
+
         if (ticketsTableData.sortType.indexOf("asc") > -1) {
             changeField(TICKET_TABLE_ACTION, "sortType", "desc");
             return "desc"
@@ -30,14 +32,16 @@ class TicketsTable extends Component {
     onSort = sortField => {
         const {tickets, changeField} = this.props;
         const sortType = this.typeHandler();
+
         const orderedData = _.orderBy(tickets.data, sortField, sortType);
-        changeField(TICKET_TABLE_ACTION, "data", orderedData);
+        changeField(UPDATE_TICKETS_MASSIVE_ACTION, "data", orderedData);
         changeField(TICKET_TABLE_ACTION, "sortField", sortField);
     };
 
     getFilteredData() {
         const {ticketsTableData, tickets} = this.props;
         const filterField = ticketsTableData.filterField;
+
         if (!filterField) {
             return tickets.data;
         }
@@ -55,6 +59,7 @@ class TicketsTable extends Component {
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
         const displayedData = _.chunk(filteredData, pageSize)[ticketsTableData.currentPage];
+        const iconType = ticketsTableData.sortType==="asc" ? <BiDownArrowAlt className="table-sort-icon"/> : <BiUpArrowAlt className="table-sort-icon"/>;
 
         return (
             <React.Fragment>
@@ -62,27 +67,22 @@ class TicketsTable extends Component {
                     <thead className="ticket-table-head">
                     <tr>
                         <th onClick={() => this.onSort("ticketNumber")}>
-                            Number {ticketsTableData.sortField === "ticketNumber" ?
-                            <small> {ticketsTableData.sortType}</small> : null}
+                            Number {ticketsTableData.sortField === "ticketNumber" ? iconType : null}
                         </th>
                         <th onClick={() => this.onSort("ticketName")}>
-                            Ticket name {ticketsTableData.sortField === "ticketName" ?
-                            <small> {ticketsTableData.sortType}</small> : null}
+                            Ticket name {ticketsTableData.sortField === "ticketName" ? iconType : null}
                         </th>
                         <th onClick={() => this.onSort("clientName")}>
-                            Client name {ticketsTableData.sortField === "clientName" ?
-                            <small> {ticketsTableData.sortType}</small> : null}
+                            Client name {ticketsTableData.sortField === "clientName" ? iconType : null}
                         </th>
                         <th onClick={() => this.onSort("assignee")}>
-                            Assignee {ticketsTableData.sortField === "assignee" ?
-                            <small> {ticketsTableData.sortType}</small> : null}
+                            Assignee {ticketsTableData.sortField === "assignee" ? iconType : null}
                         </th>
                         <th onClick={() => this.onSort("createdAt")}>
-                            Created at {ticketsTableData.sortField === "createdAt" ?
-                            <small> {ticketsTableData.sortType}</small> : null}
+                            Created at {ticketsTableData.sortField === "createdAt" ? iconType : null}
                         </th>
                         <th onClick={() => this.onSort("status")}>
-                            Status {ticketsTableData.sortField === "status" ? <small> {ticketsTableData.sortType}</small> : null}
+                            Status {ticketsTableData.sortField === "status" ? iconType : null}
                         </th>
                     </tr>
                     </thead>
@@ -138,6 +138,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
+    reset,
     fetchTicketsAction
 }, dispatch));
 

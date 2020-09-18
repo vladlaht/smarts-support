@@ -4,7 +4,7 @@ import {Container, Modal} from "react-bootstrap";
 import Profile from "../cards/Profile";
 
 
-export default props =>  {
+const ProfileModal = props => {
     return (
         <Modal className="ticket-modal-content"
                show={props.profileDetails.modalIsOpen}
@@ -20,4 +20,6 @@ export default props =>  {
             </Container>
         </Modal>
     )
-}
+};
+
+export default ProfileModal;

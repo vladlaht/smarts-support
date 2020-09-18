@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Col, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 
-class Software extends Component {
+class Software extends React.Component {
 
 
     render() {

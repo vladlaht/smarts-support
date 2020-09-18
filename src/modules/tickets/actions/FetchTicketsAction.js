@@ -29,5 +29,4 @@ export function failed(error) {
         type: getAction(FETCH_TICKET_ACTION, ACTION_STATUS_FAILED),
         error,
     }
-
 }

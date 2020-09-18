@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Container, Row, Col} from "react-bootstrap";
 import {connect} from "react-redux";
 import {TICKETS_ROUTE} from "../global/constants/routes";
@@ -8,7 +8,7 @@ import NewTicketButton from "../modules/tickets/views/cards/NewTicketButton";
 import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
 import TicketSearch from "../modules/tickets/views/cards/TicketSearch";
 
-class TicketsLayout extends Component {
+class TicketsLayout extends React.Component {
 
     render() {
         const unsolvedIssues = this.props.tickets.data.length;

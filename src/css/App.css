@@ -411,6 +411,10 @@
 .ticket-table-head {
   font-size: 14px;
 }
+.ticket-table-head .table-sort-icon {
+  height: 17px;
+  width: auto;
+}
 .ticket-table-head th {
   border-top: none !important;
 }
