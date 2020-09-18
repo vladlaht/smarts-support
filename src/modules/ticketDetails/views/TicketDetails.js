@@ -22,12 +22,9 @@ class TicketsTable extends React.Component {
         this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value);
     };
 
-    getTicket () {
-
-    }
-
     render() {
-        const {details, account} = this.props;
+        const {account, selectedTicket} = this.props;
+
         return (
             <div className="details-group">
                 <div className="details-column main-column">
@@ -37,12 +34,11 @@ class TicketsTable extends React.Component {
                             <ul className="module-list column">
                                 <li className="item">
                                     <div className="name">Ticket number:</div>
-                                    {console.log("Ticket number from Route props:" + this.props.ticketNumber)}
                                     <EdiText
                                         showButtonsOnHover
                                         editOnViewClick={true}
-                                        type='text'
-                                        value={details.ticketNumber}
+                                        type='type'
+                                        value={`${selectedTicket.ticketNumber}`}
                                         onSave={(value) => this.handleFieldChange("ticketNumber", value)}/>
                                 </li>
                                 <li className="item">
@@ -51,7 +47,7 @@ class TicketsTable extends React.Component {
                                         showButtonsOnHover
                                         editOnViewClick={true}
                                         type='text'
-                                        value={details.ticketName}
+                                        value={selectedTicket.ticketName}
                                         onSave={(value) => this.handleFieldChange("ticketName", value)}/>
                                 </li>
                                 <li className="item">
@@ -60,7 +56,7 @@ class TicketsTable extends React.Component {
                                         showButtonsOnHover
                                         editOnViewClick={true}
                                         type='text'
-                                        value={details.invoiceNumber}
+                                        value={selectedTicket.invoiceNumber}
                                         onSave={(value) => this.handleFieldChange("invoiceNumber", value)}/>
                                 </li>
                                 <li className="item">
@@ -69,23 +65,22 @@ class TicketsTable extends React.Component {
                                         showButtonsOnHover
                                         editOnViewClick={true}
                                         type='text'
-                                        value={details.clientName}
+                                        value={selectedTicket.clientName}
                                         onSave={(value) => this.handleFieldChange("clientName", value)}/></li>
                             </ul>
                             <ul className="module-list column short-name">
                                 <li className="item">
                                     <div className="name">Type:</div>
-                                    <div className="value">{details.type}</div>
+                                    <div className="value">{selectedTicket.type}</div>
                                 </li>
                                 <li className="item">
                                     <div className="name">Priority:</div>
-
                                     <EdiText
                                         viewProps={{className: 'details-custom-priority'}}
                                         showButtonsOnHover
                                         editOnViewClick={true}
                                         type='text'
-                                        value={details.priority}
+                                        value={selectedTicket.priority}
                                         onSave={(value) => this.handleFieldChange("priority", value)}/>
                                 </li>
                                 <li className="item">
@@ -94,7 +89,7 @@ class TicketsTable extends React.Component {
                                         showButtonsOnHover
                                         editOnViewClick={true}
                                         type='text'
-                                        value={details.status}
+                                        value={selectedTicket.status}
                                         onSave={(value) => this.handleFieldChange("status", value)}/></li>
                             </ul>
                         </div>
@@ -107,14 +102,14 @@ class TicketsTable extends React.Component {
                                     type='textarea'
                                     showButtonsOnHover
                                     editOnViewClick={true}
-                                    value={details.description}
+                                    value={selectedTicket.description}
                                     onSave={(value) => this.handleFieldChange("description", value)}/></div>
                         </div>
                     </div>
                     <div className="module">
                         <div className="module-header">Comments</div>
                         <div className="module-content">
-                            {details.comments && details.comments.map((comment, key) => {
+                            {selectedTicket.comments && selectedTicket.comments.map((comment, key) => {
                                 return (
                                     <ul key={key} className="module-list comment">
                                         <li className="author">
@@ -154,13 +149,13 @@ class TicketsTable extends React.Component {
                                     <div className="name">Created by:</div>
                                     <div className="value">
                                         <AccountCard
-                                            fullname={details.createdBy}/>
+                                            fullname={selectedTicket.createdBy}/>
                                     </div>
                                 </li>
                                 <li className="item">
                                     <div className="name">Assignee:</div>
                                     <AccountCard
-                                        fullname={details.assignee}/>
+                                        fullname={selectedTicket.assignee}/>
                                 </li>
                             </ul>
                         </div>
@@ -171,26 +166,24 @@ class TicketsTable extends React.Component {
                             <ul className="module-list short-name">
                                 <li className="item">
                                     <div className="name">Created at:</div>
-                                    <div className="value">{details.createdAt}</div>
+                                    <div className="value">{selectedTicket.createdAt}</div>
                                 </li>
                                 <li className="item">
                                     <div className="name">Updated at:</div>
-                                    <div className="value">{details.updatedAt}</div>
+                                    <div className="value">{selectedTicket.updatedAt}</div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
         )
     }
 }
 
-
 const mapStateToProps = state => ({
-        details: state.ticketDetails,
-        account: state.accountCard
+        account: state.accountCard,
+        details: state.ticketDetails
     }
 );
 

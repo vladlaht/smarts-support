@@ -32,7 +32,6 @@ class TicketsTable extends React.Component {
     onSort = sortField => {
         const {tickets, changeField} = this.props;
         const sortType = this.typeHandler();
-
         const orderedData = _.orderBy(tickets.data, sortField, sortType);
         changeField(UPDATE_TICKETS_MASSIVE_ACTION, "data", orderedData);
         changeField(TICKET_TABLE_ACTION, "sortField", sortField);
@@ -54,7 +53,7 @@ class TicketsTable extends React.Component {
     }
 
     render() {
-        const {details, ticketsTableData} = this.props;
+        const {ticketsTableData} = this.props;
         const pageSize = 10;
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
@@ -88,11 +87,11 @@ class TicketsTable extends React.Component {
                     </thead>
                     <tbody className="ticket-table-body">
                     {
-                        displayedData && displayedData.map((ticket, key) => (
-                                <tr key={key}>
+                        displayedData && displayedData.map((ticket) => (
+                                <tr key={ticket.id}>
                                     <td>
                                         <Link
-                                            to={`/tickets/details/${ticket.ticketNumber}`}>
+                                            to={`/tickets/details/${ticket.id}`}>
                                             {ticket.ticketNumber}
                                         </Link>
                                     </td>
@@ -105,19 +104,6 @@ class TicketsTable extends React.Component {
                             )
                         )
                     }
-                    <tr>
-                        <td>
-                            <Link
-                                to={`/tickets/details/${details.ticketNumber}`}>
-                                {details.ticketNumber}
-                            </Link>
-                        </td>
-                        <td>{details.ticketName}</td>
-                        <td>{details.clientName}</td>
-                        <td>{details.assignee}</td>
-                        <td>{details.createdAt}</td>
-                        <td>{details.status}</td>
-                    </tr>
                     </tbody>
                 </Table>
                 {filteredData.length > pageSize

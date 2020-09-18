@@ -29,7 +29,7 @@ class Main extends React.Component {
                             <Route exact path="/register" render={(props) => <AuthorizationLayout {...props} />}/>
                             <Route exact path="/" component={HomeLayout}/>
                             <Route exact path="/tickets" component={TicketsLayout}/>
-                            <Route exact path="/tickets/details/:number" component={TicketDetailsLayout}/>
+                            <Route exact path="/tickets/details/:id" component={TicketDetailsLayout}/>
                             <Route exact path="/clients" component={ClientsLayout}/>
                             <Route exact path="/invoices" component={InvoicesLayout}/>
                         </Switch>

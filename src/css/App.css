@@ -3,6 +3,7 @@
  ------------------------------------------ */
 .Main {
   font-family: GothamProRegular;
+  display: flex;
 }
 .Main button:focus {
   outline: none;
@@ -13,10 +14,9 @@
 .Main .btn {
   border: none;
 }
-.Main .container-fluid {
-  margin-left: 120px;
-  width: calc(100% - 120px);
-  padding: 0 3vw;
+.Main .container {
+  width: calc(100% - 100px);
+  background: gray;
 }
 
 .modal-content button.close {
@@ -215,7 +215,6 @@
  SIDEBAR MENU
  ------------------------------------------ */
 .sidebar {
-  position: fixed;
   width: 100px;
   height: 100vh;
   font-family: GothamProLight;
@@ -224,8 +223,7 @@
 }
 .sidebar-logo {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
   margin: 30px 0;
 }
 .sidebar-logo img {
@@ -233,19 +231,19 @@
   width: auto;
 }
 .sidebar-link {
-  height: 90px;
-  width: 100%;
+  height: 100px;
+  width: 100px;
 }
 .sidebar-link.active {
   background: #56457B;
 }
 .sidebar-link-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   color: white;
-  height: 90px;
+  height: 100%;
 }
 .sidebar-link-content:hover {
   background: #56457B;

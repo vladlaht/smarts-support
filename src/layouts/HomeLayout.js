@@ -12,7 +12,7 @@ class HomeLayout extends React.Component {
         return (
             <React.Fragment>
                 <Navigation activeRoute={HOME_ROUTE}/>
-                <Container fluid>
+                <Container>
                     <Row>
                         <Col sm={12}>
                             <div className="layout">
