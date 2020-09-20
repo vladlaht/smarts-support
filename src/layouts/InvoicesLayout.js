@@ -1,30 +1,31 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Navigation from "../global/navigation/Navigation";
 import {INVOICES_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
 class InvoicesLayout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Navigation activeRoute={INVOICES_ROUTE}/>
-                <Container>
-                    <Row>
-                        <Col sm={12}>
-                            <div className="layout">
-                                <div className="layout__header">
-                                    <AccountDropdownCard/>
-                                </div>
-                                <div className="layout__title">
-                                    <h3>Invoices Page</h3>
-                                </div>
+                <div className="layout">
+                    <div className="layout-header">
+                        <Container>
+                            <Navigation activeRoute={INVOICES_ROUTE}/>
+                        </Container>
+                    </div>
+                    <div className="layout-content">
+                        <Container>
+                            <div className="layout-content__title">
+                                <h3>Invoices layout</h3>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
+                            <div className="layout-content__body">
+                                Table of invoices
+                            </div>
+                        </Container>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }

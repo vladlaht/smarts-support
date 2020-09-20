@@ -5,14 +5,23 @@ $font-bold: GothamProBold;
 $color-smarts-main: #655290;
 $color-smarts-main-v2: #8b5da6;
 $color-smarts-secondary: #f68d37;
+$color-white: #ffffff;
 
 /* ------------------------------------------
  GLOBAL CSS
  ------------------------------------------ */
 
+html {
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .Main {
   font-family: $font-regular;
-  display: flex;
 
   button:focus {
     outline: none;
@@ -25,28 +34,6 @@ $color-smarts-secondary: #f68d37;
   .btn {
     border: none;
   }
-
-  .container {
-    width: calc(100% - 100px);
-    background: gray;
-  }
-
-  //@media (min-width: 1200px) {
-  //  .container {
-  //    max-width: 1500px;
-  //  }
-  //}
-  //
-  //@media (min-width: 992px) {
-  //  .container {
-  //    max-width: 1200px;
-  //  }
-  //}
-
-
-
-
-
 }
 
 .modal-content button.close {
@@ -57,14 +44,14 @@ $color-smarts-secondary: #f68d37;
   font-family: $font-regular;
   background: $color-smarts-main;
   border-radius: 10px;
-  padding: 0;
-  color: white;
+  color: $color-white;
   border: none;
   height: 36px;
-  font-size: 16px;
+  font-size: 15px;
+  transition: .3s;
 
   &:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4)
   }
 }
 
@@ -97,40 +84,183 @@ $color-smarts-secondary: #f68d37;
   }
 }
 
+@mixin container-media {
+  @media screen and (min-width: 1200px) {
+    .container {
+      max-width: 1200px;
+    }
+  }
+
+  @media screen and (max-width: 1199px) and (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+
+  @media screen and (max-width: 767px) and (min-width: 576px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+}
+
 /* ------------------------------------------
  LAYOUTS
  ------------------------------------------ */
 
 .layout {
-  margin: 0 4vw;
+  &-header {
+    margin-bottom: 30px;
+    height: 80px;
+    width: 100%;
+    background: $color-smarts-main;
 
-  &__header {
-    height: 9vh;
-    min-height: 50px;
-    padding-top: 40px;
+    @include container-media;
   }
 
-  &__title {
-    font-family: $font-bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
+  &-content {
+    @include container-media;
 
-    &-subtitle {
-      font-family: $font-medium;
+    &__title {
+      font-family: $font-bold;
+      margin-bottom: 20px;
+
+      &-subtitle {
+        font-family: $font-medium;
+      }
     }
 
-    .tickets-table-issues {
-      font-family: $font-light;
+    &__body {
+      padding: 20px 30px;
+      margin: 20px 0;
+      -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+      box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
     }
-  }
-
-  &__body {
-    padding: 20px 30px;
-    margin: 20px 0;
-    -webkit-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
-    box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
   }
 }
+
+/* ------------------------------------------
+ SIDEBAR MENU
+ ------------------------------------------ */
+
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-light;
+  font-size: 13px;
+
+  &-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    padding-right: 25px;
+
+    img {
+      height: 60px;
+      width: auto;
+    }
+  }
+
+  &-link {
+    height: 80px;
+    width: 90px;
+
+    &.active {
+      background: #56457B;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: $color-white;
+      height: 100%;
+
+      &:hover {
+        background: #56457B;
+        text-decoration: none;
+        color: $color-white;
+      }
+
+      &__logo {
+        height: 35px;
+        width: auto;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------
+ ACCOUNT DROPDOWN CARD
+ ------------------------------------------ */
+
+.account-card {
+  display: flex;
+  justify-content: flex-end;
+
+  .dropdown {
+    &-menu {
+      font-size: 13px;
+      width: 100%;
+    }
+
+    &-item {
+      padding: .25rem 0.4rem !important;
+
+      &:active {
+        background: $color-smarts-secondary;
+      }
+    }
+
+    button {
+      font-size: 13px;
+      font-family: $font-medium;
+      background: none;
+    }
+  }
+
+  &__logo {
+    height: 20px;
+    width: auto;
+    color: $color-white;
+  }
+
+  &__items-logo {
+    height: 20px;
+    width: auto;
+    padding: 0 8px;
+
+    &.profile-icon {
+      height: 17px;
+    }
+  }
+
+  &__button {
+    padding: 0 8px;
+  }
+
+  .dropdown button:hover,
+  .show > .btn-primary.dropdown-toggle {
+    background: white !important;
+    color: black !important;
+  }
+
+  .dropdown button:hover .account-card__logo,
+  .show > .btn-primary.dropdown-toggle .account-card__logo {
+    color: $color-smarts-main;
+
+  }
+}
+
 
 /* ------------------------------------------
  AUTHORIZATION / REGISTRATION
@@ -266,120 +396,6 @@ $color-smarts-secondary: #f68d37;
 }
 
 /* ------------------------------------------
- SIDEBAR MENU
- ------------------------------------------ */
-
-.sidebar {
-  width: 100px;
-  height: 100vh;
-  font-family: $font-light;
-  font-size: 13px;
-  background: $color-smarts-main;
-
-  &-logo {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-
-    img {
-      height: 70px;
-      width: auto;
-    }
-  }
-
-  &-link {
-    height: 100px;
-    width: 100px;
-
-    &.active {
-      background: #56457B;
-    }
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      height: 100%;
-
-      &:hover {
-        background: #56457B;
-        text-decoration: none;
-        color: white;
-      }
-
-      &__logo {
-        height: 40px;
-        width: auto;
-      }
-    }
-  }
-}
-
-/* ------------------------------------------
- ACCOUNT DROPDOWN CARD
- ------------------------------------------ */
-
-.account-card {
-  display: flex;
-  justify-content: flex-end;
-
-  .dropdown {
-    &-menu {
-      font-size: 13px;
-      width: 100%;
-    }
-
-    &-item {
-      padding: .25rem 0.4rem !important;
-
-      &:active {
-        background: $color-smarts-secondary;
-      }
-    }
-
-    button {
-      font-size: 13px;
-      font-family: $font-medium;
-      background: none;
-      color: black;
-    }
-  }
-
-  &__logo {
-    height: 20px;
-    width: auto;
-    color: $color-smarts-main;
-  }
-
-  &__items-logo {
-    height: 20px;
-    width: auto;
-    padding: 0 8px;
-
-    &.profile-icon {
-      height: 17px;
-    }
-  }
-
-  &__button {
-    padding: 0 8px;
-  }
-}
-
-.dropdown button:hover,
-.show > .btn-primary.dropdown-toggle {
-  background: $color-smarts-main !important;
-  color: white !important;
-}
-
-.dropdown button:hover .account-card__logo,
-.show > .btn-primary.dropdown-toggle .account-card__logo {
-  color: white;
-}
-
-/* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
 
@@ -399,7 +415,7 @@ $color-smarts-secondary: #f68d37;
     width: 100%;
     background: $color-smarts-main;
     padding: 12px;
-    color: white;
+    color: $color-white;
     border-radius: 3px;
 
     &__picture {
@@ -476,25 +492,31 @@ $color-smarts-secondary: #f68d37;
 /* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
+.layout{
+  .tickets-table-issues {
+    font-family: $font-light;
+    padding-right: 5px;
+  }
 
-.new-ticket-button {
-  width: 160px;
-}
+  .layout-content-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.layout__ticket-table-elements {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    .smarts-input {
+      font-size: 14px;
+      width: 25%;
+      background: #c1c1c1;
+      transition: 0.3s;
 
-  .smarts-input {
-    font-size: 14px;
-    width: 25%;
-    background: #c1c1c1;
-    border-radius: 1px;
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
+      }
+    }
 
-    &:hover,
-    &:focus {
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+    .new-ticket-button {
+      width: 160px;
     }
   }
 }
@@ -542,7 +564,7 @@ $color-smarts-secondary: #f68d37;
   &.active .smarts-page-link {
     background-color: $color-smarts-main;
     border-color: $color-smarts-main;
-    color: white;
+    color: $color-white;
   }
 
   &:last-child .smarts-page-link {
@@ -760,7 +782,7 @@ $color-smarts-secondary: #f68d37;
 
 .details-custom-priority {
   background: #E74C3C;
-  color: white;
+  color: $color-white;
   padding: 0 3px;
   border-radius: 3px;
 }

@@ -1,5 +1,3 @@
-import {TICKETS_ENDPOINT} from "../constants/endpoints";
-
 export function fetchTicketsAPI() {
     return () => {
         //return fetch(TICKETS_ENDPOINT,{

@@ -1,9 +1,17 @@
 /* ------------------------------------------
  GLOBAL CSS
  ------------------------------------------ */
+html {
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .Main {
   font-family: GothamProRegular;
-  display: flex;
 }
 .Main button:focus {
   outline: none;
@@ -14,10 +22,6 @@
 .Main .btn {
   border: none;
 }
-.Main .container {
-  width: calc(100% - 100px);
-  background: gray;
-}
 
 .modal-content button.close {
   outline: none;
@@ -27,14 +31,14 @@
   font-family: GothamProRegular;
   background: #655290;
   border-radius: 10px;
-  padding: 0;
-  color: white;
+  color: #ffffff;
   border: none;
   height: 36px;
-  font-size: 16px;
+  font-size: 15px;
+  transition: 0.3s;
 }
 .smarts-button:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
 }
 
 .smarts-input,
@@ -71,30 +75,158 @@
 /* ------------------------------------------
  LAYOUTS
  ------------------------------------------ */
-.layout {
-  margin: 0 4vw;
+.layout-header {
+  margin-bottom: 30px;
+  height: 80px;
+  width: 100%;
+  background: #655290;
 }
-.layout__header {
-  height: 9vh;
-  min-height: 50px;
-  padding-top: 40px;
+@media screen and (min-width: 1200px) {
+  .layout-header .container {
+    max-width: 1200px;
+  }
 }
-.layout__title {
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .layout-header .container {
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .layout-header .container {
+    max-width: 720px;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 576px) {
+  .layout-header .container {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .layout-content .container {
+    max-width: 1200px;
+  }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .layout-content .container {
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .layout-content .container {
+    max-width: 720px;
+  }
+}
+@media screen and (max-width: 767px) and (min-width: 576px) {
+  .layout-content .container {
+    max-width: 720px;
+  }
+}
+.layout-content__title {
   font-family: GothamProBold;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  margin-bottom: 20px;
 }
-.layout__title-subtitle {
+.layout-content__title-subtitle {
   font-family: GothamProMedium;
 }
-.layout__title .tickets-table-issues {
-  font-family: GothamProLight;
-}
-.layout__body {
+.layout-content__body {
   padding: 20px 30px;
   margin: 20px 0;
-  -webkit-box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
-  box-shadow: 0 8px 64px rgba(32, 32, 32, 0.08), 0 4px 16px rgba(32, 32, 32, 0.02);
+  -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+  box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+}
+
+/* ------------------------------------------
+ SIDEBAR MENU
+ ------------------------------------------ */
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: GothamProLight;
+  font-size: 13px;
+}
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  padding-right: 25px;
+}
+.sidebar-logo img {
+  height: 60px;
+  width: auto;
+}
+.sidebar-link {
+  height: 80px;
+  width: 90px;
+}
+.sidebar-link.active {
+  background: #56457B;
+}
+.sidebar-link-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  height: 100%;
+}
+.sidebar-link-content:hover {
+  background: #56457B;
+  text-decoration: none;
+  color: #ffffff;
+}
+.sidebar-link-content__logo {
+  height: 35px;
+  width: auto;
+}
+
+/* ------------------------------------------
+ ACCOUNT DROPDOWN CARD
+ ------------------------------------------ */
+.account-card {
+  display: flex;
+  justify-content: flex-end;
+}
+.account-card .dropdown-menu {
+  font-size: 13px;
+  width: 100%;
+}
+.account-card .dropdown-item {
+  padding: 0.25rem 0.4rem !important;
+}
+.account-card .dropdown-item:active {
+  background: #f68d37;
+}
+.account-card .dropdown button {
+  font-size: 13px;
+  font-family: GothamProMedium;
+  background: none;
+}
+.account-card__logo {
+  height: 20px;
+  width: auto;
+  color: #ffffff;
+}
+.account-card__items-logo {
+  height: 20px;
+  width: auto;
+  padding: 0 8px;
+}
+.account-card__items-logo.profile-icon {
+  height: 17px;
+}
+.account-card__button {
+  padding: 0 8px;
+}
+.account-card .dropdown button:hover,
+.account-card .show > .btn-primary.dropdown-toggle {
+  background: white !important;
+  color: black !important;
+}
+.account-card .dropdown button:hover .account-card__logo,
+.account-card .show > .btn-primary.dropdown-toggle .account-card__logo {
+  color: #655290;
 }
 
 /* ------------------------------------------
@@ -212,101 +344,6 @@
 }
 
 /* ------------------------------------------
- SIDEBAR MENU
- ------------------------------------------ */
-.sidebar {
-  width: 100px;
-  height: 100vh;
-  font-family: GothamProLight;
-  font-size: 13px;
-  background: #655290;
-}
-.sidebar-logo {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-}
-.sidebar-logo img {
-  height: 70px;
-  width: auto;
-}
-.sidebar-link {
-  height: 100px;
-  width: 100px;
-}
-.sidebar-link.active {
-  background: #56457B;
-}
-.sidebar-link-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  height: 100%;
-}
-.sidebar-link-content:hover {
-  background: #56457B;
-  text-decoration: none;
-  color: white;
-}
-.sidebar-link-content__logo {
-  height: 40px;
-  width: auto;
-}
-
-/* ------------------------------------------
- ACCOUNT DROPDOWN CARD
- ------------------------------------------ */
-.account-card {
-  display: flex;
-  justify-content: flex-end;
-}
-.account-card .dropdown-menu {
-  font-size: 13px;
-  width: 100%;
-}
-.account-card .dropdown-item {
-  padding: 0.25rem 0.4rem !important;
-}
-.account-card .dropdown-item:active {
-  background: #f68d37;
-}
-.account-card .dropdown button {
-  font-size: 13px;
-  font-family: GothamProMedium;
-  background: none;
-  color: black;
-}
-.account-card__logo {
-  height: 20px;
-  width: auto;
-  color: #655290;
-}
-.account-card__items-logo {
-  height: 20px;
-  width: auto;
-  padding: 0 8px;
-}
-.account-card__items-logo.profile-icon {
-  height: 17px;
-}
-.account-card__button {
-  padding: 0 8px;
-}
-
-.dropdown button:hover,
-.show > .btn-primary.dropdown-toggle {
-  background: #655290 !important;
-  color: white !important;
-}
-
-.dropdown button:hover .account-card__logo,
-.show > .btn-primary.dropdown-toggle .account-card__logo {
-  color: white;
-}
-
-/* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
 .modal-body.profile-body {
@@ -323,7 +360,7 @@
   width: 100%;
   background: #655290;
   padding: 12px;
-  color: white;
+  color: #ffffff;
   border-radius: 3px;
 }
 .profile-top__picture {
@@ -387,23 +424,26 @@
 /* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
-.new-ticket-button {
-  width: 160px;
+.layout .tickets-table-issues {
+  font-family: GothamProLight;
+  padding-right: 5px;
 }
-
-.layout__ticket-table-elements {
+.layout .layout-content-elements {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.layout__ticket-table-elements .smarts-input {
+.layout .layout-content-elements .smarts-input {
   font-size: 14px;
   width: 25%;
   background: #c1c1c1;
-  border-radius: 1px;
+  transition: 0.3s;
 }
-.layout__ticket-table-elements .smarts-input:hover, .layout__ticket-table-elements .smarts-input:focus {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.65);
+.layout .layout-content-elements .smarts-input:hover, .layout .layout-content-elements .smarts-input:focus {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
+}
+.layout .layout-content-elements .new-ticket-button {
+  width: 160px;
 }
 
 .ticket-table-head {
@@ -443,7 +483,7 @@
 .smarts-page-item.active .smarts-page-link {
   background-color: #655290;
   border-color: #655290;
-  color: white;
+  color: #ffffff;
 }
 .smarts-page-item:last-child .smarts-page-link {
   border-top-right-radius: 3px;
@@ -621,7 +661,7 @@
 
 .details-custom-priority {
   background: #E74C3C;
-  color: white;
+  color: #ffffff;
   padding: 0 3px;
   border-radius: 3px;
 }

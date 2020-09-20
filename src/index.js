@@ -8,7 +8,7 @@ import {createBrowserHistory} from "history";
 import "./css/App.css";
 import "./css/Font.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashRouter as Router, Route, Switch} from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import TicketsLayout from "./layouts/TicketsLayout";
 import ClientsLayout from "./layouts/ClientsLayout";

@@ -1,10 +1,10 @@
 import React from "react";
-import {Container, Row, Col} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import {connect} from "react-redux";
 import {TICKETS_ROUTE} from "../global/constants/routes";
 import Navigation from "../global/navigation/Navigation";
-import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
-import NewTicketButton from "../modules/tickets/views/cards/NewTicketButton";
+
+import CreateTicketModal from "../modules/tickets/views/modals/CreateTicketModal";
 import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
 import TicketSearch from "../modules/tickets/views/cards/TicketSearch";
 
@@ -14,30 +14,30 @@ class TicketsLayout extends React.Component {
         const unsolvedIssues = this.props.tickets.data.length;
         return (
             <React.Fragment>
-                <Navigation activeRoute={TICKETS_ROUTE}/>
-                <Container>
-                    <Row>
-                        <Col sm={12}>
-                            <div className="layout">
-                                <div className="layout__header">
-                                    <AccountDropdownCard/>
-                                </div>
-                                <div className="layout__title">
-                                    <h3>Customer support tickets</h3>
-                                    <span className="tickets-table-issues">Issues for solving:</span>
-                                    {unsolvedIssues}
-                                </div>
-                                <div className="layout__ticket-table-elements">
-                                    <NewTicketButton/>
-                                    <TicketSearch/>
-                                </div>
-                                <div className="layout__body">
-                                    <TicketsTable/>
-                                </div>
+
+                <div className="layout">
+                    <div className="layout-header">
+                        <Container>
+                            <Navigation activeRoute={TICKETS_ROUTE}/>
+                        </Container>
+                    </div>
+                    <div className="layout-content">
+                        <Container>
+                            <div className="layout-content__title">
+                                <h3>Customer support tickets</h3>
+                                <span className="tickets-table-issues">Issues for solving:</span>
+                                {unsolvedIssues}
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
+                            <div className="layout-content-elements">
+                                <CreateTicketModal/>
+                                <TicketSearch/>
+                            </div>
+                            <div className="layout-content__body">
+                                <TicketsTable/>
+                            </div>
+                        </Container>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }

@@ -1,8 +1,7 @@
 import {
-    ADD_TICKET_DETAILS_COMMENT,
-    EDIT_TICKET_DETAILS_VALUE
+    ADD_TICKET_DETAILS_COMMENT, TICKET_DETAILS_ACTION
 } from "../../tickets/constants/ReducerConstants";
-import {ACTION_STATUS_FORM_FIELD_CHANGE, getAction} from "../../../global/constants/action-types";
+import {ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET, getAction} from "../../../global/constants/action-types";
 
 const initialState = {
     changeEditMode: false,
@@ -28,7 +27,6 @@ const initialState = {
             datetime: "13.08.2019 13:56:42",
             text: "2.Client said that the problem is still not resolved."
         }
-
     ],
     selectedTicket: ""
 };
@@ -52,12 +50,14 @@ export default function reducer(state = initialState, action) {
                     ...state
                 }
             }
-        case getAction(EDIT_TICKET_DETAILS_VALUE, ACTION_STATUS_FORM_FIELD_CHANGE):
-                return {
-                    ...state,
-                    [action.payload.field]: action.payload.value,
+        case getAction(TICKET_DETAILS_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
+            return {
+                ...state,
+                [action.payload.field]: action.payload.value,
 
-                };
+            };
+        case getAction(TICKET_DETAILS_ACTION, ACTION_STATUS_RESET):
+            return initialState;
         default:
             return state
     }

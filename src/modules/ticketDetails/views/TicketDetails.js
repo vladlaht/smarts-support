@@ -5,7 +5,7 @@ import {bindActionCreators} from "redux";
 import AccountCard from "../../account/views/cards/AccountCard";
 import {addComment} from "../actions/TicketDetailsAction";
 import EdiText from "react-editext";
-import {EDIT_TICKET_DETAILS_VALUE} from "../../tickets/constants/ReducerConstants";
+import {TICKET_DETAILS_ACTION} from "../../tickets/constants/ReducerConstants";
 
 
 class TicketsTable extends React.Component {
@@ -19,7 +19,7 @@ class TicketsTable extends React.Component {
     };
 
     handleFieldChange(field, value) {
-        this.props.changeField(EDIT_TICKET_DETAILS_VALUE, field, value);
+        this.props.changeField(TICKET_DETAILS_ACTION, field, value);
     };
 
     render() {
@@ -37,7 +37,7 @@ class TicketsTable extends React.Component {
                                     <EdiText
                                         showButtonsOnHover
                                         editOnViewClick={true}
-                                        type='type'
+                                        type='number'
                                         value={`${selectedTicket.ticketNumber}`}
                                         onSave={(value) => this.handleFieldChange("ticketNumber", value)}/>
                                 </li>

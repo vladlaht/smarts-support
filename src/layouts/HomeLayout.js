@@ -1,31 +1,32 @@
 import React from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Navigation from "../global/navigation/Navigation";
 import {HOME_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import AccountDropdownCard from "../modules/account/views/cards/AccountDropdownCard";
 
 class HomeLayout extends React.Component {
 
     render() {
         return (
             <React.Fragment>
-                <Navigation activeRoute={HOME_ROUTE}/>
-                <Container>
-                    <Row>
-                        <Col sm={12}>
-                            <div className="layout">
-                                <div className="layout__header">
-                                    <AccountDropdownCard/>
-                                </div>
-                                <div className="layout__title">
-                                    <h3>Home page</h3>
-                                </div>
+                <div className="layout">
+                    <div className="layout-header">
+                        <Container>
+                            <Navigation activeRoute={HOME_ROUTE}/>
+                        </Container>
+                    </div>
+                    <div className="layout-content">
+                        <Container>
+                            <div className="layout-content__title">
+                                <h3>Home layout</h3>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
+                            <div className="layout-content__body">
+                                Ticket Table
+                            </div>
+                        </Container>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
