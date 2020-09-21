@@ -28,7 +28,7 @@ const initialState = {
             text: "2.Client said that the problem is still not resolved."
         }
     ],
-    selectedTicket: ""
+    selectedTicket: null
 };
 
 export default function reducer(state = initialState, action) {

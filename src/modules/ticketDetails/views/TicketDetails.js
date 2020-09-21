@@ -25,6 +25,7 @@ class TicketsTable extends React.Component {
     render() {
         const {account, selectedTicket} = this.props;
 
+
         return (
             <div className="details-group">
                 <div className="details-column main-column">

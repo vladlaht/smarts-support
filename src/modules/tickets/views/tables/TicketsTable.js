@@ -9,6 +9,7 @@ import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
 import {BiDownArrowAlt, BiUpArrowAlt} from 'react-icons/bi';
 import {TICKET_TABLE_ACTION, UPDATE_TICKETS_MASSIVE_ACTION} from "../../constants/ReducerConstants";
 import TicketTablePagination from "../cards/TicketTablePagination";
+import {LoopCircleLoading} from 'react-loadingg';
 
 class TicketsTable extends React.Component {
 
@@ -58,12 +59,15 @@ class TicketsTable extends React.Component {
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
         const displayedData = _.chunk(filteredData, pageSize)[ticketsTableData.currentPage];
-        const iconType = ticketsTableData.sortType==="asc" ? <BiDownArrowAlt className="table-sort-icon"/> : <BiUpArrowAlt className="table-sort-icon"/>;
+        const iconType = ticketsTableData.sortType === "asc" ?
+            <BiDownArrowAlt className="table-sort-icon"/> : <BiUpArrowAlt className="table-sort-icon"/>;
 
         return (
             <React.Fragment>
-                <Table hover striped>
-                    <thead className="ticket-table-head">
+                {!displayedData ? <LoopCircleLoading/> : null}
+                <Table className="ticket-table" hover striped>
+
+                    <thead className="ticket-table__head">
                     <tr>
                         <th onClick={() => this.onSort("ticketNumber")}>
                             Number {ticketsTableData.sortField === "ticketNumber" ? iconType : null}
@@ -85,7 +89,8 @@ class TicketsTable extends React.Component {
                         </th>
                     </tr>
                     </thead>
-                    <tbody className="ticket-table-body">
+
+                    <tbody className="ticket-table__body">
                     {
                         displayedData && displayedData.map((ticket) => (
                                 <tr key={ticket.id}>
@@ -104,6 +109,7 @@ class TicketsTable extends React.Component {
                             )
                         )
                     }
+
                     </tbody>
                 </Table>
                 {filteredData.length > pageSize
@@ -116,7 +122,6 @@ class TicketsTable extends React.Component {
 }
 
 const mapStateToProps = state => ({
-        details: state.ticketDetails,
         ticketsTableData: state.ticketsTableData,
         tickets: state.tickets
     }

@@ -14,7 +14,6 @@ class TicketsLayout extends React.Component {
         const unsolvedIssues = this.props.tickets.data.length;
         return (
             <React.Fragment>
-
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
@@ -28,7 +27,7 @@ class TicketsLayout extends React.Component {
                                 <span className="tickets-table-issues">Issues for solving:</span>
                                 {unsolvedIssues}
                             </div>
-                            <div className="layout-content-elements">
+                            <div className="layout-content__elements">
                                 <CreateTicketModal/>
                                 <TicketSearch/>
                             </div>

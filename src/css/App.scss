@@ -184,6 +184,7 @@ body {
       justify-content: center;
       color: $color-white;
       height: 100%;
+      transition: 0.3s;
 
       &:hover {
         background: #56457B;
@@ -200,67 +201,321 @@ body {
 }
 
 /* ------------------------------------------
- ACCOUNT DROPDOWN CARD
+ TICKETS LAYOUT
  ------------------------------------------ */
+.layout {
+  .tickets-table-issues {
+    font-family: $font-light;
+    padding-right: 5px;
+  }
 
-.account-card {
-  display: flex;
-  justify-content: flex-end;
+  .layout-content__body {
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  .dropdown {
-    &-menu {
-      font-size: 13px;
-      width: 100%;
+    .jneUDS > *,
+    .dNbWJJ > *,
+    .ckAHgq > * {
+      background-color: $color-smarts-main;
     }
+  }
 
-    &-item {
-      padding: .25rem 0.4rem !important;
+  .layout-content__elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      &:active {
-        background: $color-smarts-secondary;
+    .smarts-input {
+      font-size: 14px;
+      width: 25%;
+      background: #c1c1c1;
+      transition: 0.3s;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
       }
     }
 
-    button {
+    .new-ticket-button {
+      width: 160px;
+    }
+  }
+
+  .ticket-table {
+
+    &__head {
+      font-size: 14px;
+
+      .table-sort-icon {
+        height: 17px;
+        width: auto;
+      }
+
+      th {
+        border-top: none !important;
+      }
+    }
+
+    &__body {
+      font-family: $font-light;
       font-size: 13px;
-      font-family: $font-medium;
-      background: none;
+
+
+      td:first-child {
+        font-family: $font-regular;
+      }
     }
-  }
-
-  &__logo {
-    height: 20px;
-    width: auto;
-    color: $color-white;
-  }
-
-  &__items-logo {
-    height: 20px;
-    width: auto;
-    padding: 0 8px;
-
-    &.profile-icon {
-      height: 17px;
-    }
-  }
-
-  &__button {
-    padding: 0 8px;
-  }
-
-  .dropdown button:hover,
-  .show > .btn-primary.dropdown-toggle {
-    background: white !important;
-    color: black !important;
-  }
-
-  .dropdown button:hover .account-card__logo,
-  .show > .btn-primary.dropdown-toggle .account-card__logo {
-    color: $color-smarts-main;
-
   }
 }
 
+.pagination {
+  .smarts-page-item {
+    &:hover {
+      background-color: #e9ecef;
+      cursor: pointer;
+    }
+
+    .smarts-page-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      width: 35px;
+      color: #000000;
+      text-decoration: none;
+      border: 1px solid #dee2e6;
+      outline: none;
+    }
+
+    &.active .smarts-page-link {
+      background-color: $color-smarts-main;
+      border-color: $color-smarts-main;
+      color: $color-white;
+    }
+
+    &:last-child .smarts-page-link {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &:first-child .smarts-page-link {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+  }
+}
+
+/* ------------------------------------------
+ TICKET MODAL FORM
+ ------------------------------------------ */
+
+.ticket-modal-content {
+  font-family: $font-regular;
+}
+
+.modal-underline-selector {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+
+.ticket-create-button-area {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+
+  .ticket-create-button {
+    width: 115px;
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+.payments-form-selectors {
+  display: flex;
+  justify-content: space-between;
+
+  .smarts-ticket-form {
+    width: 47%;
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+
+    .smarts-ticket-form {
+      width: 100%;
+    }
+  }
+}
+
+.smarts-ticket-form {
+  position: relative;
+  font-size: 15px;
+
+  &.form-group {
+    margin-bottom: 30px;
+  }
+
+
+  .smarts-ticket-selector-label {
+    color: #8C8C8C;
+    font-size: 13px;
+    margin-bottom: 0 !important;
+  }
+
+  .smarts-ticket-label {
+    position: absolute;
+    pointer-events: none;
+    top: 26%;
+    left: 10px;
+    transition: 0.2s ease all;
+    color: #8C8C8C;
+  }
+
+  .smarts-input,
+  .smarts-textarea {
+    &:focus ~ .smarts-ticket-label,
+    &:not(:focus):valid ~ .smarts-ticket-label {
+      top: -17px;
+      left: 0;
+      font-size: 13px;
+    }
+  }
+}
+
+
+/* ------------------------------------------
+ TICKET DETAILS
+ ------------------------------------------ */
+
+.details-group {
+
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  width: 100%;
+
+  .main-column {
+    flex: 2;
+  }
+
+  .side-column {
+    flex: 1;
+  }
+}
+
+.module {
+  margin-bottom: 30px;
+
+  .module-header {
+    font-family: $font-medium;
+    margin-bottom: 6px;
+  }
+
+  .module-content {
+    .description {
+      margin-right: 45px;
+    }
+
+    .comment {
+      margin-bottom: 25px;
+
+      .date-time {
+        color: #7a869a;
+        font-size: 13px;
+      }
+
+      .text {
+        margin: 7px 0;
+      }
+
+      .author .account-card__logo {
+        height: 25px;
+        width: auto;
+
+      }
+
+      .date-time,
+      .text {
+        padding-left: 33px;
+      }
+    }
+  }
+
+
+  .two-columns {
+    display: flex;
+
+    .column {
+      flex: 1;
+      margin: 0;
+    }
+  }
+}
+
+
+.module-list {
+  list-style: none;
+  padding: 0;
+
+  .item {
+    display: flex;
+    margin-bottom: 7px;
+
+    .name {
+      width: 140px;
+      color: #7a869a;
+      font-family: $font-light;
+    }
+  }
+}
+
+.module-list.short-name .item .name {
+  width: 100px;
+}
+
+.module-footer {
+  .smarts-textarea {
+    border-top: 2px solid $color-smarts-main;
+    margin: 0 !important;
+    border-bottom: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  .button-area {
+    display: flex;
+    justify-content: flex-end;
+
+    .comment-button {
+      width: 160px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.styles_Editext__button__6H8n_,
+.styles_Editext__input__1534X {
+  padding: 0 !important;
+}
+
+.styles_Editext__button__6H8n_ {
+  min-width: 24px !important;
+}
+
+.details-custom-priority {
+  background: #E74C3C;
+  color: $color-white;
+  padding: 0 3px;
+  border-radius: 3px;
+}
 
 /* ------------------------------------------
  AUTHORIZATION / REGISTRATION
@@ -396,6 +651,68 @@ body {
 }
 
 /* ------------------------------------------
+ ACCOUNT DROPDOWN CARD
+ ------------------------------------------ */
+
+.account-card {
+  display: flex;
+  justify-content: flex-end;
+
+  .dropdown {
+    &-menu {
+      font-size: 13px;
+      width: 100%;
+    }
+
+    &-item {
+      padding: .25rem 0.4rem !important;
+
+      &:active {
+        background: $color-smarts-secondary;
+      }
+    }
+
+    button {
+      font-size: 13px;
+      font-family: $font-medium;
+      background: none;
+    }
+  }
+
+  &__logo {
+    height: 20px;
+    width: auto;
+    color: $color-white;
+  }
+
+  &__items-logo {
+    height: 20px;
+    width: auto;
+    padding: 0 8px;
+
+    &.profile-icon {
+      height: 17px;
+    }
+  }
+
+  &__button {
+    padding: 0 8px;
+  }
+
+  .dropdown button:hover,
+  .show > .btn-primary.dropdown-toggle {
+    background: white !important;
+    color: black !important;
+  }
+
+  .dropdown button:hover .account-card__logo,
+  .show > .btn-primary.dropdown-toggle .account-card__logo {
+    color: $color-smarts-main;
+
+  }
+}
+
+/* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
 
@@ -486,305 +803,6 @@ body {
       }
     }
   }
-
-}
-
-/* ------------------------------------------
- TICKETS LAYOUT
- ------------------------------------------ */
-.layout{
-  .tickets-table-issues {
-    font-family: $font-light;
-    padding-right: 5px;
-  }
-
-  .layout-content-elements {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .smarts-input {
-      font-size: 14px;
-      width: 25%;
-      background: #c1c1c1;
-      transition: 0.3s;
-
-      &:hover,
-      &:focus {
-        box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
-      }
-    }
-
-    .new-ticket-button {
-      width: 160px;
-    }
-  }
-}
-
-.ticket-table-head {
-  font-size: 14px;
-
-  .table-sort-icon {
-    height: 17px;
-    width: auto;
-  }
-
-  th {
-    border-top: none !important;
-  }
-}
-
-.ticket-table-body {
-  font-family: $font-light;
-  font-size: 13px;
-
-  td:first-child {
-    font-family: $font-regular;
-  }
-}
-
-.smarts-page-item {
-  &:hover {
-    background-color: #e9ecef;
-    cursor: pointer;
-  }
-
-  .smarts-page-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    width: 35px;
-    color: #000000;
-    text-decoration: none;
-    border: 1px solid #dee2e6;
-    outline: none;
-  }
-
-  &.active .smarts-page-link {
-    background-color: $color-smarts-main;
-    border-color: $color-smarts-main;
-    color: $color-white;
-  }
-
-  &:last-child .smarts-page-link {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-
-  &:first-child .smarts-page-link {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
-}
-
-/* ------------------------------------------
- TICKET MODAL FORM
- ------------------------------------------ */
-
-.ticket-modal-content {
-  font-family: $font-regular;
-}
-
-.modal-underline-selector {
-  border-bottom: none !important;
-  border-top: none !important;
-}
-
-
-.ticket-create-button-area {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-
-  .ticket-create-button {
-    width: 115px;
-    height: 32px;
-    font-size: 13px;
-  }
-}
-
-.payments-form-selectors {
-  display: flex;
-  justify-content: space-between;
-
-  .smarts-ticket-form {
-    width: 47%;
-  }
-
-  @media (max-width: 575px) {
-    flex-direction: column;
-
-    .smarts-ticket-form {
-      width: 100%;
-    }
-  }
-}
-
-.smarts-ticket-form {
-  position: relative;
-  font-size: 15px;
-
-  &.form-group {
-    margin-bottom: 30px;
-  }
-
-
-  .smarts-ticket-selector-label {
-    color: #8C8C8C;
-    font-size: 13px;
-    margin-bottom: 0 !important;
-  }
-
-  .smarts-ticket-label {
-    position: absolute;
-    pointer-events: none;
-    top: 26%;
-    left: 10px;
-    transition: 0.2s ease all;
-    color: #8C8C8C;
-  }
-
-  .smarts-input,
-  .smarts-textarea {
-    &:focus ~ .smarts-ticket-label,
-    &:not(:focus):valid ~ .smarts-ticket-label {
-      top: -17px;
-      left: 0;
-      font-size: 13px;
-    }
-  }
-}
-
-
-/* ------------------------------------------
- TICKET DETAILS
- ------------------------------------------ */
-
-.details-group {
-  display: flex;
-  font-size: 13px;
-  box-sizing: border-box;
-  border-spacing: 0;
-  table-layout: fixed;
-  width: 100%;
-
-  .main-column {
-    flex: 2;
-  }
-
-  .side-column {
-    flex: 1;
-  }
-}
-
-.module {
-  margin-bottom: 30px;
-
-  .module-header {
-    font-family: $font-medium;
-    margin-bottom: 6px;
-  }
-
-  .module-content {
-    .description {
-      margin-right: 45px;
-    }
-
-    .comment {
-      margin-bottom: 25px;
-
-      .date-time {
-        color: #7a869a;
-        font-size: 13px;
-      }
-
-      .text {
-        margin: 7px 0;
-      }
-
-      .author .account-card__logo {
-        height: 25px;
-        width: auto;
-
-      }
-
-      .date-time,
-      .text {
-        padding-left: 33px;
-      }
-    }
-  }
-
-
-  .two-columns {
-    display: flex;
-
-    .column {
-      flex: 1;
-      margin: 0;
-    }
-  }
-}
-
-
-.module-list {
-  list-style: none;
-  padding: 0;
-
-  .item {
-    display: flex;
-    margin-bottom: 7px;
-
-    .name {
-      width: 140px;
-      color: #7a869a;
-      font-family: $font-light;
-    }
-  }
-}
-
-.module-list.short-name .item .name {
-  width: 100px;
-}
-
-.module-footer {
-  .smarts-textarea {
-    border-top: 2px solid $color-smarts-main;
-    margin: 0 !important;
-    border-bottom: none;
-
-    &:hover,
-    &:focus {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
-    }
-  }
-
-  .button-area {
-    display: flex;
-    justify-content: flex-end;
-
-    .comment-button {
-      width: 160px;
-      margin-top: 10px;
-    }
-  }
-}
-
-.styles_Editext__button__6H8n_,
-.styles_Editext__input__1534X {
-  padding: 0 !important;
-}
-
-.styles_Editext__button__6H8n_ {
-  min-width: 24px !important;
-}
-
-.details-custom-priority {
-  background: #E74C3C;
-  color: $color-white;
-  padding: 0 3px;
-  border-radius: 3px;
 }
 
 

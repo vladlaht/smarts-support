@@ -170,6 +170,7 @@ body {
   justify-content: center;
   color: #ffffff;
   height: 100%;
+  transition: 0.3s;
 }
 .sidebar-link-content:hover {
   background: #56457B;
@@ -182,51 +183,256 @@ body {
 }
 
 /* ------------------------------------------
- ACCOUNT DROPDOWN CARD
+ TICKETS LAYOUT
  ------------------------------------------ */
-.account-card {
+.layout .tickets-table-issues {
+  font-family: GothamProLight;
+  padding-right: 5px;
+}
+.layout .layout-content__body {
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.layout .layout-content__body .jneUDS > *,
+.layout .layout-content__body .dNbWJJ > *,
+.layout .layout-content__body .ckAHgq > * {
+  background-color: #655290;
+}
+.layout .layout-content__elements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.layout .layout-content__elements .smarts-input {
+  font-size: 14px;
+  width: 25%;
+  background: #c1c1c1;
+  transition: 0.3s;
+}
+.layout .layout-content__elements .smarts-input:hover, .layout .layout-content__elements .smarts-input:focus {
+  box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
+}
+.layout .layout-content__elements .new-ticket-button {
+  width: 160px;
+}
+.layout .ticket-table__head {
+  font-size: 14px;
+}
+.layout .ticket-table__head .table-sort-icon {
+  height: 17px;
+  width: auto;
+}
+.layout .ticket-table__head th {
+  border-top: none !important;
+}
+.layout .ticket-table__body {
+  font-family: GothamProLight;
+  font-size: 13px;
+}
+.layout .ticket-table__body td:first-child {
+  font-family: GothamProRegular;
+}
+
+.pagination .smarts-page-item:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+.pagination .smarts-page-item .smarts-page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  color: #000000;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+  outline: none;
+}
+.pagination .smarts-page-item.active .smarts-page-link {
+  background-color: #655290;
+  border-color: #655290;
+  color: #ffffff;
+}
+.pagination .smarts-page-item:last-child .smarts-page-link {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.pagination .smarts-page-item:first-child .smarts-page-link {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+/* ------------------------------------------
+ TICKET MODAL FORM
+ ------------------------------------------ */
+.ticket-modal-content {
+  font-family: GothamProRegular;
+}
+
+.modal-underline-selector {
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+.ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
+  padding-bottom: 10px;
 }
-.account-card .dropdown-menu {
+.ticket-create-button-area .ticket-create-button {
+  width: 115px;
+  height: 32px;
+  font-size: 13px;
+}
+
+.payments-form-selectors {
+  display: flex;
+  justify-content: space-between;
+}
+.payments-form-selectors .smarts-ticket-form {
+  width: 47%;
+}
+@media (max-width: 575px) {
+  .payments-form-selectors {
+    flex-direction: column;
+  }
+  .payments-form-selectors .smarts-ticket-form {
+    width: 100%;
+  }
+}
+
+.smarts-ticket-form {
+  position: relative;
+  font-size: 15px;
+}
+.smarts-ticket-form.form-group {
+  margin-bottom: 30px;
+}
+.smarts-ticket-form .smarts-ticket-selector-label {
+  color: #8C8C8C;
+  font-size: 13px;
+  margin-bottom: 0 !important;
+}
+.smarts-ticket-form .smarts-ticket-label {
+  position: absolute;
+  pointer-events: none;
+  top: 26%;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #8C8C8C;
+}
+.smarts-ticket-form .smarts-input:focus ~ .smarts-ticket-label, .smarts-ticket-form .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
+.smarts-ticket-form .smarts-textarea:focus ~ .smarts-ticket-label,
+.smarts-ticket-form .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
+  top: -17px;
+  left: 0;
+  font-size: 13px;
+}
+
+/* ------------------------------------------
+ TICKET DETAILS
+ ------------------------------------------ */
+.details-group {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 13px;
   width: 100%;
 }
-.account-card .dropdown-item {
-  padding: 0.25rem 0.4rem !important;
+.details-group .main-column {
+  flex: 2;
 }
-.account-card .dropdown-item:active {
-  background: #f68d37;
+.details-group .side-column {
+  flex: 1;
 }
-.account-card .dropdown button {
-  font-size: 13px;
+
+.module {
+  margin-bottom: 30px;
+}
+.module .module-header {
   font-family: GothamProMedium;
-  background: none;
+  margin-bottom: 6px;
 }
-.account-card__logo {
-  height: 20px;
+.module .module-content .description {
+  margin-right: 45px;
+}
+.module .module-content .comment {
+  margin-bottom: 25px;
+}
+.module .module-content .comment .date-time {
+  color: #7a869a;
+  font-size: 13px;
+}
+.module .module-content .comment .text {
+  margin: 7px 0;
+}
+.module .module-content .comment .author .account-card__logo {
+  height: 25px;
   width: auto;
+}
+.module .module-content .comment .date-time,
+.module .module-content .comment .text {
+  padding-left: 33px;
+}
+.module .two-columns {
+  display: flex;
+}
+.module .two-columns .column {
+  flex: 1;
+  margin: 0;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+}
+.module-list .item {
+  display: flex;
+  margin-bottom: 7px;
+}
+.module-list .item .name {
+  width: 140px;
+  color: #7a869a;
+  font-family: GothamProLight;
+}
+
+.module-list.short-name .item .name {
+  width: 100px;
+}
+
+.module-footer .smarts-textarea {
+  border-top: 2px solid #655290;
+  margin: 0 !important;
+  border-bottom: none;
+}
+.module-footer .smarts-textarea:hover, .module-footer .smarts-textarea:focus {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+}
+.module-footer .button-area {
+  display: flex;
+  justify-content: flex-end;
+}
+.module-footer .button-area .comment-button {
+  width: 160px;
+  margin-top: 10px;
+}
+
+.styles_Editext__button__6H8n_,
+.styles_Editext__input__1534X {
+  padding: 0 !important;
+}
+
+.styles_Editext__button__6H8n_ {
+  min-width: 24px !important;
+}
+
+.details-custom-priority {
+  background: #E74C3C;
   color: #ffffff;
-}
-.account-card__items-logo {
-  height: 20px;
-  width: auto;
-  padding: 0 8px;
-}
-.account-card__items-logo.profile-icon {
-  height: 17px;
-}
-.account-card__button {
-  padding: 0 8px;
-}
-.account-card .dropdown button:hover,
-.account-card .show > .btn-primary.dropdown-toggle {
-  background: white !important;
-  color: black !important;
-}
-.account-card .dropdown button:hover .account-card__logo,
-.account-card .show > .btn-primary.dropdown-toggle .account-card__logo {
-  color: #655290;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 /* ------------------------------------------
@@ -344,6 +550,54 @@ body {
 }
 
 /* ------------------------------------------
+ ACCOUNT DROPDOWN CARD
+ ------------------------------------------ */
+.account-card {
+  display: flex;
+  justify-content: flex-end;
+}
+.account-card .dropdown-menu {
+  font-size: 13px;
+  width: 100%;
+}
+.account-card .dropdown-item {
+  padding: 0.25rem 0.4rem !important;
+}
+.account-card .dropdown-item:active {
+  background: #f68d37;
+}
+.account-card .dropdown button {
+  font-size: 13px;
+  font-family: GothamProMedium;
+  background: none;
+}
+.account-card__logo {
+  height: 20px;
+  width: auto;
+  color: #ffffff;
+}
+.account-card__items-logo {
+  height: 20px;
+  width: auto;
+  padding: 0 8px;
+}
+.account-card__items-logo.profile-icon {
+  height: 17px;
+}
+.account-card__button {
+  padding: 0 8px;
+}
+.account-card .dropdown button:hover,
+.account-card .show > .btn-primary.dropdown-toggle {
+  background: white !important;
+  color: black !important;
+}
+.account-card .dropdown button:hover .account-card__logo,
+.account-card .show > .btn-primary.dropdown-toggle .account-card__logo {
+  color: #655290;
+}
+
+/* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
 .modal-body.profile-body {
@@ -419,251 +673,6 @@ body {
   font-family: GothamProLight;
   font-size: 13px;
   color: #7a869a;
-}
-
-/* ------------------------------------------
- TICKETS LAYOUT
- ------------------------------------------ */
-.layout .tickets-table-issues {
-  font-family: GothamProLight;
-  padding-right: 5px;
-}
-.layout .layout-content-elements {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.layout .layout-content-elements .smarts-input {
-  font-size: 14px;
-  width: 25%;
-  background: #c1c1c1;
-  transition: 0.3s;
-}
-.layout .layout-content-elements .smarts-input:hover, .layout .layout-content-elements .smarts-input:focus {
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
-}
-.layout .layout-content-elements .new-ticket-button {
-  width: 160px;
-}
-
-.ticket-table-head {
-  font-size: 14px;
-}
-.ticket-table-head .table-sort-icon {
-  height: 17px;
-  width: auto;
-}
-.ticket-table-head th {
-  border-top: none !important;
-}
-
-.ticket-table-body {
-  font-family: GothamProLight;
-  font-size: 13px;
-}
-.ticket-table-body td:first-child {
-  font-family: GothamProRegular;
-}
-
-.smarts-page-item:hover {
-  background-color: #e9ecef;
-  cursor: pointer;
-}
-.smarts-page-item .smarts-page-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  color: #000000;
-  text-decoration: none;
-  border: 1px solid #dee2e6;
-  outline: none;
-}
-.smarts-page-item.active .smarts-page-link {
-  background-color: #655290;
-  border-color: #655290;
-  color: #ffffff;
-}
-.smarts-page-item:last-child .smarts-page-link {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-.smarts-page-item:first-child .smarts-page-link {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-/* ------------------------------------------
- TICKET MODAL FORM
- ------------------------------------------ */
-.ticket-modal-content {
-  font-family: GothamProRegular;
-}
-
-.modal-underline-selector {
-  border-bottom: none !important;
-  border-top: none !important;
-}
-
-.ticket-create-button-area {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-}
-.ticket-create-button-area .ticket-create-button {
-  width: 115px;
-  height: 32px;
-  font-size: 13px;
-}
-
-.payments-form-selectors {
-  display: flex;
-  justify-content: space-between;
-}
-.payments-form-selectors .smarts-ticket-form {
-  width: 47%;
-}
-@media (max-width: 575px) {
-  .payments-form-selectors {
-    flex-direction: column;
-  }
-  .payments-form-selectors .smarts-ticket-form {
-    width: 100%;
-  }
-}
-
-.smarts-ticket-form {
-  position: relative;
-  font-size: 15px;
-}
-.smarts-ticket-form.form-group {
-  margin-bottom: 30px;
-}
-.smarts-ticket-form .smarts-ticket-selector-label {
-  color: #8C8C8C;
-  font-size: 13px;
-  margin-bottom: 0 !important;
-}
-.smarts-ticket-form .smarts-ticket-label {
-  position: absolute;
-  pointer-events: none;
-  top: 26%;
-  left: 10px;
-  transition: 0.2s ease all;
-  color: #8C8C8C;
-}
-.smarts-ticket-form .smarts-input:focus ~ .smarts-ticket-label, .smarts-ticket-form .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
-.smarts-ticket-form .smarts-textarea:focus ~ .smarts-ticket-label,
-.smarts-ticket-form .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
-  top: -17px;
-  left: 0;
-  font-size: 13px;
-}
-
-/* ------------------------------------------
- TICKET DETAILS
- ------------------------------------------ */
-.details-group {
-  display: flex;
-  font-size: 13px;
-  box-sizing: border-box;
-  border-spacing: 0;
-  table-layout: fixed;
-  width: 100%;
-}
-.details-group .main-column {
-  flex: 2;
-}
-.details-group .side-column {
-  flex: 1;
-}
-
-.module {
-  margin-bottom: 30px;
-}
-.module .module-header {
-  font-family: GothamProMedium;
-  margin-bottom: 6px;
-}
-.module .module-content .description {
-  margin-right: 45px;
-}
-.module .module-content .comment {
-  margin-bottom: 25px;
-}
-.module .module-content .comment .date-time {
-  color: #7a869a;
-  font-size: 13px;
-}
-.module .module-content .comment .text {
-  margin: 7px 0;
-}
-.module .module-content .comment .author .account-card__logo {
-  height: 25px;
-  width: auto;
-}
-.module .module-content .comment .date-time,
-.module .module-content .comment .text {
-  padding-left: 33px;
-}
-.module .two-columns {
-  display: flex;
-}
-.module .two-columns .column {
-  flex: 1;
-  margin: 0;
-}
-
-.module-list {
-  list-style: none;
-  padding: 0;
-}
-.module-list .item {
-  display: flex;
-  margin-bottom: 7px;
-}
-.module-list .item .name {
-  width: 140px;
-  color: #7a869a;
-  font-family: GothamProLight;
-}
-
-.module-list.short-name .item .name {
-  width: 100px;
-}
-
-.module-footer .smarts-textarea {
-  border-top: 2px solid #655290;
-  margin: 0 !important;
-  border-bottom: none;
-}
-.module-footer .smarts-textarea:hover, .module-footer .smarts-textarea:focus {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
-}
-.module-footer .button-area {
-  display: flex;
-  justify-content: flex-end;
-}
-.module-footer .button-area .comment-button {
-  width: 160px;
-  margin-top: 10px;
-}
-
-.styles_Editext__button__6H8n_,
-.styles_Editext__input__1534X {
-  padding: 0 !important;
-}
-
-.styles_Editext__button__6H8n_ {
-  min-width: 24px !important;
-}
-
-.details-custom-priority {
-  background: #E74C3C;
-  color: #ffffff;
-  padding: 0 3px;
-  border-radius: 3px;
 }
 
 /*# sourceMappingURL=App.css.map */
