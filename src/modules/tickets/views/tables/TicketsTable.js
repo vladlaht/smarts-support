@@ -15,7 +15,7 @@ class TicketsTable extends React.Component {
 
     componentDidMount() {
         this.props.reset(TICKET_TABLE_ACTION);
-        this.props.fetchTicketsAction();
+        //this.props.fetchTicketsAction();
     }
 
     typeHandler() {

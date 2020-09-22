@@ -10,17 +10,25 @@ body {
   height: 100%;
 }
 
+input,
+select,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
 .Main {
   font-family: GothamProRegular;
 }
 .Main button:focus {
   outline: none;
 }
-.Main .btn-primary:focus {
-  box-shadow: none !important;
-}
 .Main .btn {
   border: none;
+}
+.Main .btn-primary:focus {
+  box-shadow: none !important;
 }
 
 .modal-content button.close {
@@ -55,10 +63,7 @@ body {
 .smarts-select,
 .smarts-textarea {
   width: 100%;
-  outline: none;
-  border: none;
   border-bottom: 1px solid #655290;
-  box-shadow: none;
   margin: 4px 0;
   background: #F0F0F0;
   padding: 6px 12px;
@@ -125,7 +130,7 @@ body {
   font-family: GothamProBold;
   margin-bottom: 20px;
 }
-.layout-content__title-subtitle {
+.layout-content__subtitle {
   font-family: GothamProMedium;
 }
 .layout-content__body {
@@ -335,104 +340,86 @@ body {
 /* ------------------------------------------
  TICKET DETAILS
  ------------------------------------------ */
-.details-group {
-  display: flex;
-  flex-wrap: wrap;
+.details {
   font-size: 13px;
   width: 100%;
 }
-.details-group .main-column {
-  flex: 2;
+.details-main {
+  display: flex;
+  flex-wrap: wrap;
 }
-.details-group .side-column {
-  flex: 1;
+.details-main-half {
+  width: 550px;
 }
-
-.module {
-  margin-bottom: 30px;
-}
-.module .module-header {
-  font-family: GothamProMedium;
-  margin-bottom: 6px;
-}
-.module .module-content .description {
-  margin-right: 45px;
-}
-.module .module-content .comment {
+.details-secondary-comments .comment {
   margin-bottom: 25px;
 }
-.module .module-content .comment .date-time {
+.details-secondary-comments .comment .date-time {
   color: #7a869a;
   font-size: 13px;
 }
-.module .module-content .comment .text {
+.details-secondary-comments .comment .text {
   margin: 7px 0;
 }
-.module .module-content .comment .author .account-card__logo {
+.details-secondary-comments .comment .author .account-card__logo {
   height: 25px;
   width: auto;
 }
-.module .module-content .comment .date-time,
-.module .module-content .comment .text {
+.details-secondary-comments .comment .date-time,
+.details-secondary-comments .comment .text {
   padding-left: 33px;
 }
-.module .two-columns {
-  display: flex;
+.details .module {
+  margin-bottom: 30px;
 }
-.module .two-columns .column {
-  flex: 1;
-  margin: 0;
+.details .module-header {
+  font-family: GothamProMedium;
+  margin-bottom: 6px;
 }
-
-.module-list {
+.details .module .account-card__logo {
+  color: #655290;
+}
+.details .module-content .module-list {
   list-style: none;
   padding: 0;
 }
-.module-list .item {
+.details .module-content .module-list-item {
   display: flex;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
-.module-list .item .name {
+.details .module-content .module-list-item__title {
   width: 140px;
   color: #7a869a;
   font-family: GothamProLight;
 }
-
-.module-list.short-name .item .name {
-  width: 100px;
-}
-
-.module-footer .smarts-textarea {
-  border-top: 2px solid #655290;
-  margin: 0 !important;
-  border-bottom: none;
-}
-.module-footer .smarts-textarea:hover, .module-footer .smarts-textarea:focus {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
-}
-.module-footer .button-area {
-  display: flex;
-  justify-content: flex-end;
-}
-.module-footer .button-area .comment-button {
-  width: 160px;
-  margin-top: 10px;
-}
-
-.styles_Editext__button__6H8n_,
-.styles_Editext__input__1534X {
+.details .module-content .module-list-item .styles_Editext__button__6H8n_,
+.details .module-content .module-list-item .styles_Editext__input__1534X {
   padding: 0 !important;
 }
-
-.styles_Editext__button__6H8n_ {
+.details .module-content .module-list-item .styles_Editext__button__6H8n_ {
   min-width: 24px !important;
 }
-
-.details-custom-priority {
+.details .module-content .module-list-item .details-custom-priority {
   background: #E74C3C;
   color: #ffffff;
   padding: 0 3px;
   border-radius: 3px;
+}
+.details .module-footer .smarts-textarea {
+  border-top: 2px solid #655290;
+  margin: 0;
+  border-bottom: none;
+}
+.details .module-footer .smarts-textarea:hover, .details .module-footer .smarts-textarea:focus {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+}
+.details .module-footer-button-area {
+  display: flex;
+  justify-content: flex-end;
+}
+.details .module-footer-button-area .comment-button {
+  width: 160px;
+  margin-top: 10px;
 }
 
 /* ------------------------------------------

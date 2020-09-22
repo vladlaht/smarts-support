@@ -20,19 +20,28 @@ body {
   height: 100%;
 }
 
+input,
+select,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
 .Main {
   font-family: $font-regular;
+
 
   button:focus {
     outline: none;
   }
 
-  .btn-primary:focus {
-    box-shadow: none !important;
-  }
-
   .btn {
     border: none;
+
+    &-primary:focus {
+      box-shadow: none !important;
+    }
   }
 }
 
@@ -69,10 +78,8 @@ body {
 .smarts-select,
 .smarts-textarea {
   width: 100%;
-  outline: none;
-  border: none;
+
   border-bottom: 1px solid $color-smarts-main;
-  box-shadow: none;
   margin: 4px 0;
   background: #F0F0F0;
   padding: 6px 12px;
@@ -130,10 +137,11 @@ body {
     &__title {
       font-family: $font-bold;
       margin-bottom: 20px;
+    }
 
-      &-subtitle {
-        font-family: $font-medium;
-      }
+    &__subtitle {
+      font-family: $font-medium;
+
     }
 
     &__body {
@@ -392,129 +400,115 @@ body {
  TICKET DETAILS
  ------------------------------------------ */
 
-.details-group {
-
-  display: flex;
-  flex-wrap: wrap;
+.details {
   font-size: 13px;
   width: 100%;
 
-  .main-column {
-    flex: 2;
-  }
-
-  .side-column {
-    flex: 1;
-  }
-}
-
-.module {
-  margin-bottom: 30px;
-
-  .module-header {
-    font-family: $font-medium;
-    margin-bottom: 6px;
-  }
-
-  .module-content {
-    .description {
-      margin-right: 45px;
-    }
-
-    .comment {
-      margin-bottom: 25px;
-
-      .date-time {
-        color: #7a869a;
-        font-size: 13px;
-      }
-
-      .text {
-        margin: 7px 0;
-      }
-
-      .author .account-card__logo {
-        height: 25px;
-        width: auto;
-
-      }
-
-      .date-time,
-      .text {
-        padding-left: 33px;
-      }
-    }
-  }
-
-
-  .two-columns {
+  &-main {
     display: flex;
+    flex-wrap: wrap;
 
-    .column {
-      flex: 1;
-      margin: 0;
-    }
-  }
-}
-
-
-.module-list {
-  list-style: none;
-  padding: 0;
-
-  .item {
-    display: flex;
-    margin-bottom: 7px;
-
-    .name {
-      width: 140px;
-      color: #7a869a;
-      font-family: $font-light;
-    }
-  }
-}
-
-.module-list.short-name .item .name {
-  width: 100px;
-}
-
-.module-footer {
-  .smarts-textarea {
-    border-top: 2px solid $color-smarts-main;
-    margin: 0 !important;
-    border-bottom: none;
-
-    &:hover,
-    &:focus {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+    &-half {
+      width: 550px;
     }
   }
 
-  .button-area {
-    display: flex;
-    justify-content: flex-end;
+  &-secondary {
+    &-comments {
+      .comment {
+        margin-bottom: 25px;
 
-    .comment-button {
-      width: 160px;
-      margin-top: 10px;
+        .date-time {
+          color: #7a869a;
+          font-size: 13px;
+        }
+
+        .text {
+          margin: 7px 0;
+        }
+
+        .author .account-card__logo {
+          height: 25px;
+          width: auto;
+        }
+
+        .date-time,
+        .text {
+          padding-left: 33px;
+        }
+      }
     }
   }
-}
 
-.styles_Editext__button__6H8n_,
-.styles_Editext__input__1534X {
-  padding: 0 !important;
-}
+  .module {
+    margin-bottom: 30px;
 
-.styles_Editext__button__6H8n_ {
-  min-width: 24px !important;
-}
+    &-header {
+      font-family: $font-medium;
+      margin-bottom: 6px;
+    }
 
-.details-custom-priority {
-  background: #E74C3C;
-  color: $color-white;
-  padding: 0 3px;
-  border-radius: 3px;
+    .account-card__logo {
+      color: $color-smarts-main;
+    }
+
+    &-content {
+      .module-list {
+        list-style: none;
+        padding: 0;
+
+        &-item {
+          display: flex;
+          margin-bottom: 10px;
+
+          &__title {
+            width: 140px;
+            color: #7a869a;
+            font-family: GothamProLight;
+          }
+
+          .styles_Editext__button__6H8n_,
+          .styles_Editext__input__1534X {
+            padding: 0 !important;
+          }
+
+          .styles_Editext__button__6H8n_ {
+            min-width: 24px !important;
+          }
+
+          .details-custom-priority {
+            background: #E74C3C;
+            color: $color-white;
+            padding: 0 3px;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+
+    &-footer {
+      .smarts-textarea {
+        border-top: 2px solid $color-smarts-main;
+        margin: 0;
+        border-bottom: none;
+
+        &:hover,
+        &:focus {
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+        }
+      }
+
+      &-button-area {
+        display: flex;
+        justify-content: flex-end;
+
+        .comment-button {
+          width: 160px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 }
 
 /* ------------------------------------------

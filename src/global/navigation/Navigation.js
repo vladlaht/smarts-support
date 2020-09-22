@@ -16,29 +16,25 @@ export default props => {
                 <div
                     className={props.hasOwnProperty("activeRoute") && props.activeRoute === HOME_ROUTE ? "sidebar-link active" : "sidebar-link"}>
                     <Link className="sidebar-link-content" to="/">
-                        <FaHome className="sidebar-link-content__logo"/>
-                        Home
+                        <FaHome className="sidebar-link-content__logo"/>Home
                     </Link>
                 </div>
                 <div
                     className={props.hasOwnProperty("activeRoute") && props.activeRoute === TICKETS_ROUTE ? "sidebar-link active" : "sidebar-link"}>
                     <Link className="sidebar-link-content" to="/tickets">
-                        <FaTasks className="sidebar-link-content__logo"/>
-                        Tickets
+                        <FaTasks className="sidebar-link-content__logo"/>Tickets
                     </Link>
                 </div>
                 <div
                     className={props.hasOwnProperty("activeRoute") && props.activeRoute === CLIENTS_ROUTE ? "sidebar-link active" : "sidebar-link"}>
-                    <Link className="sidebar-link-content" to="/clients">
-                        <FaUsers className="sidebar-link-content__logo"/>
-                        Clients
+                    <Link className="sidebar-link-content" to="/tickets/details/5ec1e2852e54c7392692457c">
+                        <FaUsers className="sidebar-link-content__logo"/>Details
                     </Link>
                 </div>
                 <div
                     className={props.hasOwnProperty("activeRoute") && props.activeRoute === INVOICES_ROUTE ? "sidebar-link active" : "sidebar-link"}>
                     <Link className="sidebar-link-content" to="/invoices">
-                        <FaFileInvoiceDollar className="sidebar-link-content__logo"/>
-                        Invoices
+                        <FaFileInvoiceDollar className="sidebar-link-content__logo"/>Invoices
                     </Link>
                 </div>
             </Nav>
