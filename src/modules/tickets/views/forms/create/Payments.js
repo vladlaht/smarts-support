@@ -5,6 +5,8 @@ import {Form} from "react-bootstrap"
 import {changeField} from "../../../../../global/actions/StandardActions";
 import {CREATE_PAYMENTS_TICKET} from "../../../constants/ReducerConstants";
 import {createPaymentTicket} from "../../../actions/create/CreatePaymentTicket";
+import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants";
+import {capitalizeFirstLetter} from "../../../../../global/utils/StringUpdates";
 
 class Payments extends React.Component {
 
@@ -35,12 +37,11 @@ class Payments extends React.Component {
                         <label className="smarts-ticket-selector-label"> Priority</label>
                         <select className="smarts-select"
                                 defaultValue="default"
-                                onChange={(e) => this.handleFieldChange("priority", e.target.value)}>
+                                onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}>
                             <option value="default" disabled>Priority</option>
-                            <option>Critical</option>
-                            <option>High</option>
-                            <option>Medium</option>
-                            <option>Low</option>
+                            {AVAILABLE_TICKET_PRIORITY_TYPES.map(
+                                type => <option key={type}
+                                                value={type}>{capitalizeFirstLetter(type).replace(/_/, " ")}</option>)}
                         </select>
                     </Form.Group>
                 </div>
@@ -70,7 +71,8 @@ class Payments extends React.Component {
                 </Form.Group>
                 <div className="ticket-create-button-area">
                     <button className="smarts-button ticket-create-button"
-                            onClick={this.createTicket}>Create</button>
+                            onClick={this.createTicket}>Create
+                    </button>
                 </div>
             </React.Fragment>
         )

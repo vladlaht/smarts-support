@@ -20,10 +20,8 @@ class Create extends React.Component {
             <Form.Group className="smarts-ticket-form">
                 <label className="smarts-ticket-selector-label"> Type</label>
                 <select className="smarts-select"
-                        data-placeholder="Select type"
-                        onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}
-                        defaultValue="default">
-                    {console.log()}
+                        defaultValue="default"
+                        onChange={(e) => this.handleFieldChange("ticketType", e.target.value)}>
                     <option value="default" disabled>Select ticket type</option>
                     {AVAILABLE_TICKET_TYPES.map(
                         type => <option key={type}

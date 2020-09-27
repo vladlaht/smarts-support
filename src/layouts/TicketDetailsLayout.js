@@ -13,7 +13,10 @@ import {LoopCircleLoading} from "react-loadingg";
 class TicketDetailsLayout extends React.Component {
 
     componentDidMount() {
-        //this.props.fetchTicketsAction();
+        const {tickets} = this.props;
+        if (!tickets.isFetching && ! tickets.isLoaded){
+            //this.props.fetchTicketsAction();
+        }
     }
 
     render() {
@@ -22,11 +25,11 @@ class TicketDetailsLayout extends React.Component {
         return (
             <React.Fragment>
                 <div className="layout">
-                    <div className="layout-header">
-                        <Container>
-                            <Navigation activeRoute={CLIENTS_ROUTE}/>
-                        </Container>
-                    </div>
+                    {/*<div className="layout-header">*/}
+                    {/*    <Container>*/}
+                    {/*        <Navigation activeRoute={CLIENTS_ROUTE}/>*/}
+                    {/*    </Container>*/}
+                    {/*</div>*/}
                     <div className="layout-content">
                         <Container>
                             <div className="layout-content__title">
@@ -35,7 +38,8 @@ class TicketDetailsLayout extends React.Component {
 
                             </div>
                             <div className="layout-content__subtitle">
-                                <h6>{selectedTicket && selectedTicket.ticketName}</h6>
+                                {/*<h6>{selectedTicket && selectedTicket.ticketName}</h6>*/}
+                                <h6>{this.props.details.ticketName}</h6>
                             </div>
                             <div className="layout-content__body">
                                 {/*{selectedTicket ? <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> : <LoopCircleLoading/>}*/}
@@ -51,6 +55,7 @@ class TicketDetailsLayout extends React.Component {
 
 const mapStateToProps = (state) => ({
         tickets: state.tickets,
+        details: state.ticketDetails
     }
 );
 

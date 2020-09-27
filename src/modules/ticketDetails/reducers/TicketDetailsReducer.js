@@ -11,11 +11,11 @@ const initialState = {
     assignee: "Ilja Andrejev",
     createdBy: "Kristo Truu",
     createdAt: "12.08.2019 16:49:00",
-    updatedAt: "13.08.2019 11:20:00",
+    updatedAt: null,
     status: "Open",
     invoiceNumber: "4234235235235",
     type: "Payments",
-    priority: "CRITICAL",
+    priority: "Medium",
     description: "Money was withdrawn twice from a bank. " +
         "The amount was high and the client asks to hurry up with the return of funds.",
     comments: [
@@ -54,6 +54,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 [action.payload.field]: action.payload.value,
+                updatedAt: new Date().toLocaleString()
 
             };
         case getAction(TICKET_DETAILS_ACTION, ACTION_STATUS_RESET):

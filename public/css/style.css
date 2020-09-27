@@ -1,13 +1,12 @@
 /* ------------------------------------------
  GLOBAL CSS
  ------------------------------------------ */
-html {
-  min-width: 320px;
-  height: 100%;
+* {
+  box-sizing: border-box;
 }
 
-body {
-  height: 100%;
+html {
+  min-width: 320px;
 }
 
 input,
@@ -29,6 +28,14 @@ button {
 }
 .Main .btn-primary:focus {
   box-shadow: none !important;
+}
+.Main select > option {
+  background: white !important;
+  color: #000000;
+  margin-bottom: -1px;
+}
+.Main select > option:disabled {
+  color: #AAAAAA;
 }
 
 .modal-content button.close {
@@ -91,17 +98,17 @@ button {
     max-width: 1200px;
   }
 }
-@media screen and (max-width: 1199px) and (min-width: 992px) {
+@media screen and (max-width: 1199px) and (min-width: 991px) {
   .layout-header .container {
     max-width: 960px;
   }
 }
-@media screen and (max-width: 991px) and (min-width: 768px) {
+@media screen and (max-width: 992px) and (min-width: 767px) {
   .layout-header .container {
     max-width: 720px;
   }
 }
-@media screen and (max-width: 767px) and (min-width: 576px) {
+@media screen and (max-width: 768px) and (min-width: 575px) {
   .layout-header .container {
     max-width: 720px;
   }
@@ -111,17 +118,17 @@ button {
     max-width: 1200px;
   }
 }
-@media screen and (max-width: 1199px) and (min-width: 992px) {
+@media screen and (max-width: 1199px) and (min-width: 991px) {
   .layout-content .container {
     max-width: 960px;
   }
 }
-@media screen and (max-width: 991px) and (min-width: 768px) {
+@media screen and (max-width: 992px) and (min-width: 767px) {
   .layout-content .container {
     max-width: 720px;
   }
 }
-@media screen and (max-width: 767px) and (min-width: 576px) {
+@media screen and (max-width: 768px) and (min-width: 575px) {
   .layout-content .container {
     max-width: 720px;
   }
@@ -342,32 +349,17 @@ button {
  ------------------------------------------ */
 .details {
   font-size: 13px;
-  width: 100%;
 }
 .details-main {
   display: flex;
   flex-wrap: wrap;
 }
 .details-main-half {
-  width: 550px;
+  width: 50%;
 }
-.details-secondary-comments .comment {
-  margin-bottom: 25px;
-}
-.details-secondary-comments .comment .date-time {
-  color: #7a869a;
-  font-size: 13px;
-}
-.details-secondary-comments .comment .text {
-  margin: 7px 0;
-}
-.details-secondary-comments .comment .author .account-card__logo {
-  height: 25px;
-  width: auto;
-}
-.details-secondary-comments .comment .date-time,
-.details-secondary-comments .comment .text {
-  padding-left: 33px;
+.details-secondary-comments .module-content {
+  max-height: 270px;
+  overflow: auto;
 }
 .details .module {
   margin-bottom: 30px;
@@ -375,9 +367,7 @@ button {
 .details .module-header {
   font-family: GothamProMedium;
   margin-bottom: 6px;
-}
-.details .module .account-card__logo {
-  color: #655290;
+  display: inline-block;
 }
 .details .module-content .module-list {
   list-style: none;
@@ -386,24 +376,56 @@ button {
 .details .module-content .module-list-item {
   display: flex;
   margin-bottom: 10px;
+  margin-right: 30px;
 }
 .details .module-content .module-list-item__title {
-  width: 140px;
+  min-width: 125px;
   color: #7a869a;
   font-family: GothamProLight;
 }
+.details .module-content .module-list-item__value .account-card__logo {
+  color: #655290;
+  height: 20px;
+  width: auto;
+}
 .details .module-content .module-list-item .styles_Editext__button__6H8n_,
 .details .module-content .module-list-item .styles_Editext__input__1534X {
-  padding: 0 !important;
+  padding: 0;
 }
 .details .module-content .module-list-item .styles_Editext__button__6H8n_ {
-  min-width: 24px !important;
+  min-width: 21px;
 }
-.details .module-content .module-list-item .details-custom-priority {
-  background: #E74C3C;
-  color: #ffffff;
-  padding: 0 3px;
+.details .module-content .module-list-item .ticket-priority {
+  padding: 0 10px;
   border-radius: 3px;
+  color: #ffffff;
+}
+.details .module-content .module-list-item .ticket-priority.priority-high {
+  background: #E74C3C;
+}
+.details .module-content .module-list-item .ticket-priority.priority-medium {
+  background: #f9ca24;
+}
+.details .module-content .module-list-item .ticket-priority.priority-low {
+  background: #6ab04c;
+}
+.details .module-content .comment {
+  margin-bottom: 25px;
+}
+.details .module-content .comment .author .account-card__logo {
+  height: 25px;
+  width: auto;
+  color: #655290;
+}
+.details .module-content .comment .date-time {
+  color: #7a869a;
+}
+.details .module-content .comment .text {
+  margin: 7px 0;
+}
+.details .module-content .comment .date-time,
+.details .module-content .comment .text {
+  padding-left: 33px;
 }
 .details .module-footer .smarts-textarea {
   border-top: 2px solid #655290;
@@ -413,13 +435,40 @@ button {
 .details .module-footer .smarts-textarea:hover, .details .module-footer .smarts-textarea:focus {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
 }
-.details .module-footer-button-area {
+.details .module-footer .button-area {
   display: flex;
   justify-content: flex-end;
 }
-.details .module-footer-button-area .comment-button {
+.details .module-footer .button-area .comment-button {
   width: 160px;
   margin-top: 10px;
+}
+@media screen and (max-width: 992px) {
+  .details-main {
+    flex-direction: column;
+  }
+  .details-main-half {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .details .module {
+    margin-bottom: 50px;
+  }
+  .details .module-header {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .details .module-content .module-list-item {
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+  .details .module-footer .button-area {
+    justify-content: center;
+  }
+  .details .module-footer .button-area .comment-button {
+    width: 100%;
+  }
 }
 
 /* ------------------------------------------
@@ -507,6 +556,13 @@ button {
   background-color: #655290;
   outline: none !important;
 }
+.auth-body .custom-control-label::before {
+  top: 0.12rem;
+  cursor: pointer;
+}
+.auth-body .custom-control-label::after {
+  cursor: pointer;
+}
 .auth-body .auth-button-area {
   padding-top: 20px;
 }
@@ -559,7 +615,7 @@ button {
   background: none;
 }
 .account-card__logo {
-  height: 20px;
+  height: 26px;
   width: auto;
   color: #ffffff;
 }
@@ -577,7 +633,7 @@ button {
 .account-card .dropdown button:hover,
 .account-card .show > .btn-primary.dropdown-toggle {
   background: white !important;
-  color: black !important;
+  color: #000000 !important;
 }
 .account-card .dropdown button:hover .account-card__logo,
 .account-card .show > .btn-primary.dropdown-toggle .account-card__logo {
@@ -662,4 +718,4 @@ button {
   color: #7a869a;
 }
 
-/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=style.css.map */

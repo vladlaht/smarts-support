@@ -5,7 +5,7 @@ const initialState = {
     sortType: "desc",
     sortField: null,
     filterField: null,
-    currentPage: 0
+    currentPage: 0,
 };
 
 export default function reducer(state = initialState, action) {

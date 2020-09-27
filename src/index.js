@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./css/App.css";
-import * as serviceWorker from "./serviceWorker";
 import {Provider} from "react-redux";
+import * as serviceWorker from "./serviceWorker";
 import {appStore} from "./global/configurations/app-store";
 import {createBrowserHistory} from "history";
-import "./css/App.css";
-import "./css/Font.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import TicketsLayout from "./layouts/TicketsLayout";
 import ClientsLayout from "./layouts/ClientsLayout";

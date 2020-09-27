@@ -1,23 +1,17 @@
-$font-light: GothamProLight;
-$font-regular: GothamProRegular;
-$font-medium: GothamProMedium;
-$font-bold: GothamProBold;
-$color-smarts-main: #655290;
-$color-smarts-main-v2: #8b5da6;
-$color-smarts-secondary: #f68d37;
-$color-white: #ffffff;
+@import "variables/variables";
 
 /* ------------------------------------------
  GLOBAL CSS
  ------------------------------------------ */
 
-html {
-  min-width: 320px;
-  height: 100%;
+
+* {
+  box-sizing: border-box;
 }
 
-body {
-  height: 100%;
+html {
+  min-width: 320px;
+
 }
 
 input,
@@ -31,7 +25,6 @@ button {
 .Main {
   font-family: $font-regular;
 
-
   button:focus {
     outline: none;
   }
@@ -42,6 +35,16 @@ button {
     &-primary:focus {
       box-shadow: none !important;
     }
+  }
+
+  select > option {
+    background: white !important;
+    color: $color-black;
+    margin-bottom: -1px;
+  }
+
+  select > option:disabled {
+    color: #AAAAAA;
   }
 }
 
@@ -98,19 +101,19 @@ button {
     }
   }
 
-  @media screen and (max-width: 1199px) and (min-width: 992px) {
+  @media screen and (max-width: 1199px) and (min-width: 991px) {
     .container {
       max-width: 960px;
     }
   }
 
-  @media screen and (max-width: 991px) and (min-width: 768px) {
+  @media screen and (max-width: 992px) and (min-width: 767px) {
     .container {
       max-width: 720px;
     }
   }
 
-  @media screen and (max-width: 767px) and (min-width: 576px) {
+  @media screen and (max-width: 768px) and (min-width: 575px) {
     .container {
       max-width: 720px;
     }
@@ -123,12 +126,11 @@ button {
 
 .layout {
   &-header {
+    @include container-media;
     margin-bottom: 30px;
     height: 80px;
     width: 100%;
     background: $color-smarts-main;
-
-    @include container-media;
   }
 
   &-content {
@@ -293,7 +295,7 @@ button {
       align-items: center;
       height: 35px;
       width: 35px;
-      color: #000000;
+      color: $color-black;
       text-decoration: none;
       border: 1px solid #dee2e6;
       outline: none;
@@ -402,40 +404,21 @@ button {
 
 .details {
   font-size: 13px;
-  width: 100%;
 
   &-main {
     display: flex;
     flex-wrap: wrap;
 
     &-half {
-      width: 550px;
+      width: 50%;
     }
   }
 
   &-secondary {
     &-comments {
-      .comment {
-        margin-bottom: 25px;
-
-        .date-time {
-          color: #7a869a;
-          font-size: 13px;
-        }
-
-        .text {
-          margin: 7px 0;
-        }
-
-        .author .account-card__logo {
-          height: 25px;
-          width: auto;
-        }
-
-        .date-time,
-        .text {
-          padding-left: 33px;
-        }
+      .module-content {
+        max-height: 270px;
+        overflow: auto;
       }
     }
   }
@@ -446,10 +429,7 @@ button {
     &-header {
       font-family: $font-medium;
       margin-bottom: 6px;
-    }
-
-    .account-card__logo {
-      color: $color-smarts-main;
+      display: inline-block;
     }
 
     &-content {
@@ -460,28 +440,72 @@ button {
         &-item {
           display: flex;
           margin-bottom: 10px;
+          margin-right: 30px;
 
           &__title {
-            width: 140px;
-            color: #7a869a;
-            font-family: GothamProLight;
+            min-width: 125px;
+            color: $color-light-gray;
+            font-family: $font-light;
+          }
+
+          &__value {
+            .account-card__logo {
+              color: $color-smarts-main;
+              height: 20px;
+              width: auto;
+            }
           }
 
           .styles_Editext__button__6H8n_,
           .styles_Editext__input__1534X {
-            padding: 0 !important;
+            padding: 0;
           }
 
           .styles_Editext__button__6H8n_ {
-            min-width: 24px !important;
+            min-width: 21px;
           }
 
-          .details-custom-priority {
-            background: #E74C3C;
-            color: $color-white;
-            padding: 0 3px;
+
+          .ticket-priority {
+            padding: 0 10px;
             border-radius: 3px;
+            color: $color-white;
+
+            &.priority-high {
+              background: #E74C3C;
+            }
+
+            &.priority-medium {
+              background: #f9ca24;
+            }
+
+            &.priority-low {
+              background: #6ab04c;
+            }
           }
+        }
+      }
+
+      .comment {
+        margin-bottom: 25px;
+
+        .author .account-card__logo {
+          height: 25px;
+          width: auto;
+          color: $color-smarts-main;
+        }
+
+        .date-time {
+          color: $color-light-gray;
+        }
+
+        .text {
+          margin: 7px 0;
+        }
+
+        .date-time,
+        .text {
+          padding-left: 33px;
         }
       }
     }
@@ -498,7 +522,7 @@ button {
         }
       }
 
-      &-button-area {
+      .button-area {
         display: flex;
         justify-content: flex-end;
 
@@ -509,6 +533,47 @@ button {
       }
     }
   }
+
+  @media screen and (max-width: 992px) {
+    &-main {
+      flex-direction: column;
+
+      &-half {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .module {
+      margin-bottom: 50px;
+
+      &-header {
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      &-content {
+        .module-list {
+          &-item {
+            flex-direction: column;
+            margin-bottom: 12px;
+          }
+        }
+      }
+
+      &-footer {
+        .button-area {
+          justify-content: center;
+
+          .comment-button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 /* ------------------------------------------
@@ -609,6 +674,16 @@ button {
     outline: none !important;
   }
 
+  .custom-control-label::before {
+    top: .12rem;
+    cursor: pointer;
+  }
+
+  .custom-control-label::after {
+
+    cursor: pointer;
+  }
+
   .auth-button-area {
     padding-top: 20px;
 
@@ -674,7 +749,7 @@ button {
   }
 
   &__logo {
-    height: 20px;
+    height: 26px;
     width: auto;
     color: $color-white;
   }
@@ -696,7 +771,7 @@ button {
   .dropdown button:hover,
   .show > .btn-primary.dropdown-toggle {
     background: white !important;
-    color: black !important;
+    color: $color-black !important;
   }
 
   .dropdown button:hover .account-card__logo,
@@ -792,7 +867,7 @@ button {
         .name {
           font-family: $font-light;
           font-size: 13px;
-          color: #7a869a;
+          color: $color-light-gray;
         }
       }
     }
