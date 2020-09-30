@@ -11,7 +11,11 @@
 
 html {
   min-width: 320px;
+  height: 100%;
+}
 
+body {
+  height: 100%;
 }
 
 input,
@@ -125,16 +129,31 @@ button {
  ------------------------------------------ */
 
 .layout {
+  display: flex;
+  flex-direction: column;
+
   &-header {
     @include container-media;
-    margin-bottom: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 80px;
     width: 100%;
     background: $color-smarts-main;
+    z-index: 10;
+
+    .container {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 60px;
+    }
   }
 
   &-content {
     @include container-media;
+    margin-top: 110px;
 
     &__title {
       font-family: $font-bold;
@@ -156,15 +175,37 @@ button {
 }
 
 /* ------------------------------------------
- SIDEBAR MENU
+  TOP-MENU
  ------------------------------------------ */
 
-.sidebar {
+.top-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: $font-light;
   font-size: 13px;
+  height: 100%;
+
+  .sidebar-hamburger {
+    display: none;
+
+    .sidebar-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 24px;
+      width: 32px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+
+      .sidebar-button__line {
+        width: 100%;
+        height: 2px;
+        background: $color-white;
+      }
+    }
+  }
 
   &-logo {
     display: flex;
@@ -173,18 +214,110 @@ button {
     height: 80px;
     padding-right: 25px;
 
-    img {
+    img:nth-child(1) {
       height: 60px;
       width: auto;
     }
+
+    img:nth-child(2) {
+      display: none;
+      height: auto;
+      width: 80px;
+    }
   }
 
+  @media screen and (max-width: 768px) {
+    .top-menu-links {
+      display: none;
+    }
+    .sidebar-hamburger {
+      display: inherit;
+    }
+
+    &-logo {
+      padding-right: 0;
+      height: 60px;
+
+      img:nth-child(1) {
+        display: none;
+      }
+
+      img:nth-child(2) {
+        display: inherit;
+      }
+    }
+    .account-card__name {
+      display: none;
+    }
+  }
+}
+
+/* ------------------------------------------
+ SIDEBAR-MENU
+ ------------------------------------------ */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 90px;
+  background: $color-smarts-main;
+  box-shadow: 2px 0 7px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+
+  &.open {
+    transform: translateX(0);
+
+    .sidebar-close-button {
+      position: absolute;
+      top: 10px;
+      right: -35px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+  }
+
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.backdrop {
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 20;
+  transition: opacity .3s ease;
+
+}
+
+@media screen and (min-width: 769px) {
+  .sidebar,
+  .backdrop {
+    display: none;
+  }
+
+}
+
+/* ------------------------------------------
+ NAVIGATION LINKS
+ ------------------------------------------ */
+
+.navigation {
   &-link {
     height: 80px;
     width: 90px;
 
     &.active {
-      background: #56457B;
+      background: $color-smarts-hover;
     }
 
     &-content {
@@ -193,11 +326,12 @@ button {
       align-items: center;
       justify-content: center;
       color: $color-white;
-      height: 100%;
+      height: 80px;
+      width: 90px;
       transition: 0.3s;
 
       &:hover {
-        background: #56457B;
+        background: $color-smarts-hover;
         text-decoration: none;
         color: $color-white;
       }
@@ -256,7 +390,6 @@ button {
   }
 
   .ticket-table {
-
     &__head {
       font-size: 14px;
 
@@ -325,39 +458,40 @@ button {
 
 .ticket-modal-content {
   font-family: $font-regular;
-}
-
-.modal-underline-selector {
-  border-bottom: none !important;
-  border-top: none !important;
-}
 
 
-.ticket-create-button-area {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 10px;
-
-  .ticket-create-button {
-    width: 115px;
-    height: 32px;
-    font-size: 13px;
-  }
-}
-
-.payments-form-selectors {
-  display: flex;
-  justify-content: space-between;
-
-  .smarts-ticket-form {
-    width: 47%;
+  .modal-underline-selector {
+    border-bottom: none !important;
+    border-top: none !important;
   }
 
-  @media (max-width: 575px) {
-    flex-direction: column;
+
+  .ticket-create-button-area {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+
+    .ticket-create-button {
+      width: 115px;
+      height: 32px;
+      font-size: 13px;
+    }
+  }
+
+  .payments-form-selectors {
+    display: flex;
+    justify-content: space-between;
 
     .smarts-ticket-form {
-      width: 100%;
+      width: 47%;
+    }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+
+      .smarts-ticket-form {
+        width: 100%;
+      }
     }
   }
 }
@@ -467,7 +601,6 @@ button {
 
 
           .ticket-priority {
-            padding: 0 10px;
             border-radius: 3px;
             color: $color-white;
 
@@ -556,8 +689,13 @@ button {
       &-content {
         .module-list {
           &-item {
+            display: block;
             flex-direction: column;
             margin-bottom: 12px;
+
+            select {
+              min-width: 130px;
+            }
           }
         }
       }
@@ -724,9 +862,6 @@ button {
  ------------------------------------------ */
 
 .account-card {
-  display: flex;
-  justify-content: flex-end;
-
   .dropdown {
     &-menu {
       font-size: 13px;
@@ -742,16 +877,12 @@ button {
     }
 
     button {
+      display: flex;
+      align-items: center;
       font-size: 13px;
       font-family: $font-medium;
       background: none;
     }
-  }
-
-  &__logo {
-    height: 26px;
-    width: auto;
-    color: $color-white;
   }
 
   &__items-logo {
@@ -764,20 +895,28 @@ button {
     }
   }
 
-  &__button {
+  &__logo {
+    height: 26px;
+    width: auto;
+    color: $color-white;
+  }
+
+  &__name {
     padding: 0 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .dropdown {
+      .btn {
+        padding: .375rem .2rem;
+      }
+    }
   }
 
   .dropdown button:hover,
   .show > .btn-primary.dropdown-toggle {
-    background: white !important;
-    color: $color-black !important;
-  }
-
-  .dropdown button:hover .account-card__logo,
-  .show > .btn-primary.dropdown-toggle .account-card__logo {
-    color: $color-smarts-main;
-
+    background: $color-smarts-hover !important;
   }
 }
 

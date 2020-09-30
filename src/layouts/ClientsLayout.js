@@ -1,6 +1,6 @@
 import React from "react";
 import {Container} from "react-bootstrap";
-import Navigation from "../global/navigation/Navigation";
+import TopMenu from "../global/navigation/TopMenu";
 import {CLIENTS_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
@@ -12,7 +12,7 @@ class ClientsLayout extends React.Component {
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
-                            <Navigation activeRoute={CLIENTS_ROUTE}/>
+                            <TopMenu active={CLIENTS_ROUTE}/>
                         </Container>
                     </div>
                     <div className="layout-content">

@@ -2,7 +2,7 @@ import React from "react";
 import {Container} from "react-bootstrap";
 import {connect} from "react-redux";
 import {TICKETS_ROUTE} from "../global/constants/routes";
-import Navigation from "../global/navigation/Navigation";
+import TopMenu from "../global/navigation/TopMenu";
 
 import CreateTicketModal from "../modules/tickets/views/modals/CreateTicketModal";
 import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
@@ -17,7 +17,7 @@ class TicketsLayout extends React.Component {
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
-                            <Navigation activeRoute={TICKETS_ROUTE}/>
+                            <TopMenu active={TICKETS_ROUTE}/>
                         </Container>
                     </div>
                     <div className="layout-content">

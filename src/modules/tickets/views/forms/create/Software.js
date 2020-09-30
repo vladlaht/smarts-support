@@ -1,7 +1,6 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {Col, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants";
 import {capitalizeFirstLetter} from "../../../../../global/utils/StringUpdates";

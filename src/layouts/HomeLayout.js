@@ -1,6 +1,6 @@
 import React from "react";
 import {Container} from "react-bootstrap";
-import Navigation from "../global/navigation/Navigation";
+import TopMenu from "../global/navigation/TopMenu";
 import {HOME_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
@@ -13,7 +13,7 @@ class HomeLayout extends React.Component {
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
-                            <Navigation activeRoute={HOME_ROUTE}/>
+                            <TopMenu active={HOME_ROUTE}/>
                         </Container>
                     </div>
                     <div className="layout-content">

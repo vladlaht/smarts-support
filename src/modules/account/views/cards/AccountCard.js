@@ -5,7 +5,7 @@ export default props => {
     return (
         <React.Fragment>
             <FaUserCircle className="account-card__logo"/>
-            <span className="account-card__button">{props.fullname}</span>
+            <span className="account-card__name">{props.fullname}</span>
         </React.Fragment>
     )
 };

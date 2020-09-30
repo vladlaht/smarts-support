@@ -1,7 +1,7 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import {connect} from "react-redux";
-import Navigation from "../global/navigation/Navigation";
+import TopMenu from "../global/navigation/TopMenu";
 import {CLIENTS_ROUTE, TICKETS_ROUTE} from "../global/constants/routes";
 import {changeField} from "../global/actions/StandardActions";
 import {bindActionCreators} from "redux";
@@ -25,11 +25,11 @@ class TicketDetailsLayout extends React.Component {
         return (
             <React.Fragment>
                 <div className="layout">
-                    {/*<div className="layout-header">*/}
-                    {/*    <Container>*/}
-                    {/*        <Navigation activeRoute={CLIENTS_ROUTE}/>*/}
-                    {/*    </Container>*/}
-                    {/*</div>*/}
+                    <div className="layout-header">
+                        <Container>
+                            <TopMenu active={CLIENTS_ROUTE}/>
+                        </Container>
+                    </div>
                     <div className="layout-content">
                         <Container>
                             <div className="layout-content__title">

@@ -19,7 +19,7 @@ class AccountDropdownCard extends React.Component {
     render() {
         return (
             <div className="account-card">
-                <DropdownButton id="dropdown-basic-button"
+                <DropdownButton id="dropdown-basic-button" alignRight
                                 title={<AccountCard fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item onClick={this.toggleModal}>
                         <FaUser className="account-card__items-logo profile-icon"/>
