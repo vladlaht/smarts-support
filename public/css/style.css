@@ -1,6 +1,3 @@
-/* ------------------------------------------
- GLOBAL CSS
- ------------------------------------------ */
 * {
   box-sizing: border-box;
 }
@@ -22,6 +19,15 @@ button {
   border: none;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------------------------------
+ GLOBAL CSS
+ ------------------------------------------ */
 .Main {
   font-family: GothamProRegular;
 }
@@ -43,17 +49,27 @@ button {
   color: #AAAAAA;
 }
 
+.fade.modal-backdrop.show {
+  width: 100%;
+  height: 100%;
+}
+
 .modal-content button.close {
   outline: none;
+}
+
+.modal .container {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .smarts-button {
   font-family: GothamProRegular;
   background: #655290;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #ffffff;
   border: none;
-  height: 36px;
+  height: 38px;
   font-size: 15px;
   transition: 0.3s;
 }
@@ -63,7 +79,7 @@ button {
 
 .smarts-input,
 .smarts-select {
-  height: 39px;
+  height: 38px;
 }
 
 .smarts-textarea {
@@ -120,7 +136,7 @@ button {
     max-width: 720px;
   }
 }
-@media screen and (max-width: 768px) and (min-width: 575px) {
+@media screen and (max-width: 768px) and (min-width: 576px) {
   .layout-header .container {
     max-width: 720px;
   }
@@ -151,7 +167,7 @@ button {
     max-width: 720px;
   }
 }
-@media screen and (max-width: 768px) and (min-width: 575px) {
+@media screen and (max-width: 768px) and (min-width: 576px) {
   .layout-content .container {
     max-width: 720px;
   }
@@ -168,6 +184,18 @@ button {
   margin: 20px 0;
   -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
   box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+  min-height: 400px;
+  position: relative;
+}
+@media (max-width: 576px) {
+  .layout-content__body {
+    padding: 20px 0;
+  }
+}
+.layout-content__body .jneUDS > *,
+.layout-content__body .dNbWJJ > *,
+.layout-content__body .ckAHgq > * {
+  background-color: #655290;
 }
 
 /* ------------------------------------------
@@ -322,18 +350,6 @@ button {
   font-family: GothamProLight;
   padding-right: 5px;
 }
-.layout .layout-content__body {
-  min-height: 400px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.layout .layout-content__body .jneUDS > *,
-.layout .layout-content__body .dNbWJJ > *,
-.layout .layout-content__body .ckAHgq > * {
-  background-color: #655290;
-}
 .layout .layout-content__elements {
   display: flex;
   justify-content: space-between;
@@ -342,31 +358,101 @@ button {
 .layout .layout-content__elements .smarts-input {
   font-size: 14px;
   width: 25%;
+  min-width: 210px;
   background: #c1c1c1;
   transition: 0.3s;
+  border-radius: 5px;
 }
 .layout .layout-content__elements .smarts-input:hover, .layout .layout-content__elements .smarts-input:focus {
   box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
 }
 .layout .layout-content__elements .new-ticket-button {
-  width: 160px;
+  width: 210px;
 }
-.layout .ticket-table__head {
+@media (max-width: 576px) {
+  .layout .layout-content__elements {
+    flex-direction: column;
+    align-items: center;
+  }
+  .layout .layout-content__elements .smarts-input,
+.layout .layout-content__elements .new-ticket-button {
+    width: 100%;
+  }
+  .layout .layout-content__elements ::-webkit-input-placeholder {
+    text-align: center;
+  }
+  .layout .layout-content__elements ::-moz-placeholder {
+    text-align: center;
+  }
+  .layout .layout-content__elements :-ms-input-placeholder {
+    text-align: center;
+  }
+}
+
+/* ------------------------------------------
+ TICKETS TABLE
+ ------------------------------------------ */
+.ticket-table__head {
   font-size: 14px;
 }
-.layout .ticket-table__head .table-sort-icon {
+.ticket-table__head .table-sort-icon {
   height: 17px;
   width: auto;
 }
-.layout .ticket-table__head th {
+.ticket-table__head th {
   border-top: none !important;
 }
-.layout .ticket-table__body {
+.ticket-table__body {
   font-family: GothamProLight;
   font-size: 13px;
 }
-.layout .ticket-table__body td:first-child {
+.ticket-table__body td:first-child {
   font-family: GothamProRegular;
+}
+@media screen and (max-width: 768px) {
+  .ticket-table table, .ticket-table thead, .ticket-table tbody, .ticket-table th, .ticket-table td, .ticket-table tr {
+    display: block;
+  }
+  .ticket-table thead tr {
+    display: none;
+  }
+  .ticket-table tr {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  .ticket-table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 0;
+    padding-left: 50% !important;
+  }
+  .ticket-table td:before {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 45%;
+    white-space: nowrap;
+    font-family: GothamProMedium;
+  }
+  .ticket-table td:nth-of-type(1):before {
+    content: "Number ";
+  }
+  .ticket-table td:nth-of-type(2):before {
+    content: "Ticket name";
+  }
+  .ticket-table td:nth-of-type(3):before {
+    content: "Client name";
+  }
+  .ticket-table td:nth-of-type(4):before {
+    content: "Assignee";
+  }
+  .ticket-table td:nth-of-type(5):before {
+    content: "Created at";
+  }
+  .ticket-table td:nth-of-type(6):before {
+    content: "Status";
+  }
 }
 
 .pagination .smarts-page-item:hover {
@@ -425,7 +511,7 @@ button {
 .ticket-modal-content .payments-form-selectors .smarts-ticket-form {
   width: 47%;
 }
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   .ticket-modal-content .payments-form-selectors {
     flex-direction: column;
   }
@@ -762,14 +848,10 @@ button {
 /* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
-.modal-body.profile-body {
-  padding: 0 !important;
-}
-
 .profile {
   display: flex;
   flex-direction: column;
-  margin: 0 30px 40px;
+  margin-bottom: 20px;
 }
 .profile-top {
   display: flex;
@@ -799,7 +881,6 @@ button {
   font-size: 20px;
   font-family: GothamProMedium;
   margin-bottom: 8px;
-  padding-left: 5px;
 }
 .profile-top__contact-logo {
   height: 20px;
@@ -820,12 +901,12 @@ button {
 .profile-bottom__amount {
   display: flex;
   width: 100%;
+  justify-content: space-around;
 }
 .profile-bottom__amount-type {
   display: flex;
   align-items: center;
   flex-direction: column;
-  flex: 1;
 }
 .profile-bottom__amount-type .count {
   font-family: GothamProMedium;
@@ -835,6 +916,17 @@ button {
   font-family: GothamProLight;
   font-size: 13px;
   color: #7a869a;
+}
+@media screen and (max-width: 576px) {
+  .profile-top {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  .profile-bottom__amount {
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

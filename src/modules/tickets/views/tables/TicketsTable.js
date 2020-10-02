@@ -15,7 +15,10 @@ class TicketsTable extends React.Component {
 
     componentDidMount() {
         this.props.reset(TICKET_TABLE_ACTION);
-        //this.props.fetchTicketsAction();
+        const {tickets} = this.props;
+        if (!tickets.isFetching && ! tickets.isLoaded){
+            //this.props.fetchTicketsAction();
+        }
     }
 
     typeHandler() {
@@ -54,7 +57,7 @@ class TicketsTable extends React.Component {
     }
 
     render() {
-        const {ticketsTableData} = this.props;
+        const {ticketsTableData, details} = this.props;
         const pageSize = 10;
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
@@ -66,7 +69,6 @@ class TicketsTable extends React.Component {
             <React.Fragment>
                 {!displayedData ? <LoopCircleLoading/> : null}
                 <Table className="ticket-table" hover striped>
-
                     <thead className="ticket-table__head">
                     <tr>
                         <th onClick={() => this.onSort("ticketNumber")}>
@@ -109,7 +111,18 @@ class TicketsTable extends React.Component {
                             )
                         )
                     }
-
+                    <tr>
+                        <td>
+                            <Link to="/tickets/details">
+                                {details.ticketNumber}
+                            </Link>
+                        </td>
+                        <td>{details.ticketName}</td>
+                        <td>{details.clientName}</td>
+                        <td>{details.assignee}</td>
+                        <td>{details.createdAt}</td>
+                        <td>{details.status}</td>
+                    </tr>
                     </tbody>
                 </Table>
                 {filteredData.length > pageSize
@@ -123,7 +136,8 @@ class TicketsTable extends React.Component {
 
 const mapStateToProps = state => ({
         ticketsTableData: state.ticketsTableData,
-        tickets: state.tickets
+        tickets: state.tickets,
+        details: state.ticketDetails
     }
 );
 

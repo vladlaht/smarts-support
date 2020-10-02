@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

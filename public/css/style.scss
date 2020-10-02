@@ -1,30 +1,9 @@
 @import "variables/variables";
+@import "reset/reset";
 
 /* ------------------------------------------
  GLOBAL CSS
  ------------------------------------------ */
-
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-width: 320px;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
-input,
-select,
-textarea,
-button {
-  outline: none;
-  border: none;
-}
 
 .Main {
   font-family: $font-regular;
@@ -52,17 +31,27 @@ button {
   }
 }
 
+.fade.modal-backdrop.show {
+  width: 100%;
+  height: 100%;
+}
+
 .modal-content button.close {
   outline: none;
+}
+
+.modal .container {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .smarts-button {
   font-family: $font-regular;
   background: $color-smarts-main;
-  border-radius: 10px;
+  border-radius: 5px;
   color: $color-white;
   border: none;
-  height: 36px;
+  height: 38px;
   font-size: 15px;
   transition: .3s;
 
@@ -73,7 +62,7 @@ button {
 
 .smarts-input,
 .smarts-select {
-  height: 39px;
+  height: 38px;
 }
 
 .smarts-textarea {
@@ -117,7 +106,7 @@ button {
     }
   }
 
-  @media screen and (max-width: 768px) and (min-width: 575px) {
+  @media screen and (max-width: 768px) and (min-width: 576px) {
     .container {
       max-width: 720px;
     }
@@ -162,7 +151,6 @@ button {
 
     &__subtitle {
       font-family: $font-medium;
-
     }
 
     &__body {
@@ -170,6 +158,18 @@ button {
       margin: 20px 0;
       -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
       box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+      min-height: 400px;
+      position: relative;
+
+      @media (max-width: 576px) {
+        padding: 20px 0;
+      }
+
+      .jneUDS > *,
+      .dNbWJJ > *,
+      .ckAHgq > * {
+        background-color: $color-smarts-main;
+      }
     }
   }
 }
@@ -296,7 +296,6 @@ button {
   top: 0;
   z-index: 20;
   transition: opacity .3s ease;
-
 }
 
 @media screen and (min-width: 769px) {
@@ -304,7 +303,6 @@ button {
   .backdrop {
     display: none;
   }
-
 }
 
 /* ------------------------------------------
@@ -353,20 +351,6 @@ button {
     padding-right: 5px;
   }
 
-  .layout-content__body {
-    min-height: 400px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .jneUDS > *,
-    .dNbWJJ > *,
-    .ckAHgq > * {
-      background-color: $color-smarts-main;
-    }
-  }
-
   .layout-content__elements {
     display: flex;
     justify-content: space-between;
@@ -375,8 +359,10 @@ button {
     .smarts-input {
       font-size: 14px;
       width: 25%;
+      min-width: 210px;
       background: #c1c1c1;
       transition: 0.3s;
+      border-radius: 5px;
 
       &:hover,
       &:focus {
@@ -385,32 +371,111 @@ button {
     }
 
     .new-ticket-button {
-      width: 160px;
+      width: 210px;
     }
   }
 
-  .ticket-table {
-    &__head {
-      font-size: 14px;
+  @media (max-width: 576px) {
+    .layout-content__elements {
+      flex-direction: column;
+      align-items: center;
 
-      .table-sort-icon {
-        height: 17px;
-        width: auto;
+      .smarts-input,
+      .new-ticket-button {
+        width: 100%;
       }
 
-      th {
-        border-top: none !important;
+      ::-webkit-input-placeholder {
+        text-align: center;
+      }
+
+      ::-moz-placeholder {
+        text-align: center;
+      }
+
+      :-ms-input-placeholder {
+        text-align: center;
       }
     }
-
-    &__body {
-      font-family: $font-light;
-      font-size: 13px;
+  }
+}
 
 
-      td:first-child {
-        font-family: $font-regular;
-      }
+/* ------------------------------------------
+ TICKETS TABLE
+ ------------------------------------------ */
+
+.ticket-table {
+  &__head {
+    font-size: 14px;
+
+    .table-sort-icon {
+      height: 17px;
+      width: auto;
+    }
+
+    th {
+      border-top: none !important;
+    }
+  }
+
+  &__body {
+    font-family: $font-light;
+    font-size: 13px;
+
+    td:first-child {
+      font-family: $font-regular;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    tr {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding: 0;
+      padding-left: 50% !important;
+    }
+
+    td:before {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 45%;
+      white-space: nowrap;
+      font-family: $font-medium;
+    }
+
+    td:nth-of-type(1):before {
+      content: "Number ";
+    }
+    td:nth-of-type(2):before {
+      content: "Ticket name";
+    }
+    td:nth-of-type(3):before {
+      content: "Client name";
+    }
+    td:nth-of-type(4):before {
+      content: "Assignee";
+    }
+    td:nth-of-type(5):before {
+      content: "Created at";
+    }
+    td:nth-of-type(6):before {
+      content: "Status";
     }
   }
 }
@@ -486,7 +551,7 @@ button {
       width: 47%;
     }
 
-    @media (max-width: 575px) {
+    @media (max-width: 576px) {
       flex-direction: column;
 
       .smarts-ticket-form {
@@ -923,17 +988,10 @@ button {
 /* ------------------------------------------
  PROFILE MODAL
  ------------------------------------------ */
-
-.modal-body {
-  &.profile-body {
-    padding: 0 !important;
-  }
-}
-
 .profile {
   display: flex;
   flex-direction: column;
-  margin: 0 30px 40px;
+  margin-bottom: 20px;
 
   &-top {
     display: flex;
@@ -965,7 +1023,6 @@ button {
         font-size: 20px;
         font-family: $font-medium;
         margin-bottom: 8px;
-        padding-left: 5px;
       }
 
       &-logo {
@@ -991,12 +1048,12 @@ button {
     &__amount {
       display: flex;
       width: 100%;
+      justify-content: space-around;
 
       &-type {
         display: flex;
         align-items: center;
         flex-direction: column;
-        flex: 1;
 
         .count {
           font-family: $font-medium;
@@ -1011,7 +1068,24 @@ button {
       }
     }
   }
+  @media screen and (max-width: 576px) {
+    &-top {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+  @media screen and (max-width: 425px) {
+    &-bottom {
+      &__amount {
+        justify-content: space-between;
+      }
+    }
+  }
 }
+
+
 
 
 

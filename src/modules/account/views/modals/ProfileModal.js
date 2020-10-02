@@ -7,7 +7,8 @@ import Profile from "../cards/Profile";
 const ProfileModal = props => {
     return (
         <Modal className="ticket-modal-content"
-               show={props.profileDetails.modalIsOpen}
+               show={true}
+               // show={props.profileDetails.modalIsOpen}
                onHide={props.toggle}
                backdrop="static"
                centered>

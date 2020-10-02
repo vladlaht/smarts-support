@@ -45,6 +45,7 @@ class TicketsLayout extends React.Component {
 const mapStateToProps = state => ({
         ticketsTableData: state.ticketsTableData,
         tickets: state.tickets
+
     }
 );
 
