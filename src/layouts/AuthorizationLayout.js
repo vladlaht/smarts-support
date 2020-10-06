@@ -6,10 +6,10 @@ class AuthorizationLayout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="auth-layout">
+                <div className="auth">
                     <div className="auth-form">
-                        <div className="auth-header">
-                            <img className="auth-header-logo" src={`${process.env.PUBLIC_URL}/img/full_logo.png`}
+                        <div className="auth-form-header">
+                            <img className="auth-form-header__logo" src={`${process.env.PUBLIC_URL}/img/full_logo.png`}
                                  alt="logo"/>
                         </div>
                         {this.props.hasOwnProperty("authForm") ? <AuthForm/> : <RegistrationForm/>}

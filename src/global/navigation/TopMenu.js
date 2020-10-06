@@ -4,6 +4,7 @@ import SidebarButton from "./SidebarButton";
 import Sidebar from "./Sidebar";
 import Backdrop from "./Backdrop";
 import NavigationLinks from "./NavigationLinks";
+import {Link} from "react-router-dom";
 
 function TopMenu(props) {
 
@@ -14,10 +15,12 @@ function TopMenu(props) {
     return (
         <div className="top-menu">
             <SidebarButton click={handleClick}/>
-            <div className="top-menu-logo">
-                <img src={process.env.PUBLIC_URL + "/img/small_logo_white.png"} alt="small_logo_white"/>
-                <img src={process.env.PUBLIC_URL + "/img/logo_white.png"} alt="logo_white"/>
-            </div>
+            <Link to="/">
+                <div className="top-menu-logo">
+                    <img src={process.env.PUBLIC_URL + "/img/small_logo_white.png"} alt="small_logo_white"/>
+                    <img src={process.env.PUBLIC_URL + "/img/logo_white.png"} alt="logo_white"/>
+                </div>
+            </Link>
             <div className="top-menu-links">
                 <NavigationLinks active={props.active}/>
             </div>

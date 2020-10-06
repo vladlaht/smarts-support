@@ -5,7 +5,7 @@ import {DropdownButton, Dropdown} from "react-bootstrap";
 import {IoMdLogOut, IoMdClipboard} from "react-icons/io"
 import {FaUser} from "react-icons/fa"
 import {MdSettings} from "react-icons/md"
-import AccountCard from "./AccountCard";
+import Username from "./Username";
 import {OPEN_PROFILE_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import ProfileModal from "../modals/ProfileModal";
@@ -18,23 +18,23 @@ class AccountDropdownCard extends React.Component {
 
     render() {
         return (
-            <div className="account-card">
+            <div className="dropdown-card">
                 <DropdownButton id="dropdown-basic-button" alignRight
-                                title={<AccountCard fullname={this.props.account.profileName}/>}>
+                                title={<Username fullname={this.props.account.profileName}/>}>
                     <Dropdown.Item onClick={this.toggleModal}>
-                        <FaUser className="account-card__items-logo profile-icon"/>
+                        <FaUser className="dropdown-card__items-logo profile-icon"/>
                         My profile
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
-                        <IoMdClipboard className="account-card__items-logo"/>
+                        <IoMdClipboard className="dropdown-card__items-logo"/>
                         Tasks
                     </Dropdown.Item>
                     <Dropdown.Item href="#/action-3">
-                        <MdSettings className="account-card__items-logo"/>
+                        <MdSettings className="dropdown-card__items-logo"/>
                         Settings
                     </Dropdown.Item>
                     <Dropdown.Item href="#/authorize">
-                        <IoMdLogOut className="account-card__items-logo"/>
+                        <IoMdLogOut className="dropdown-card__items-logo"/>
                         Log out
                     </Dropdown.Item>
                 </DropdownButton>

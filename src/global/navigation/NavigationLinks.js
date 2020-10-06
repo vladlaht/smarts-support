@@ -1,4 +1,4 @@
-import {CLIENTS_ROUTE, HOME_ROUTE, INVOICES_ROUTE, TICKETS_ROUTE} from "../constants/routes";
+import {CLIENTS_ROUTE, PROFILE_ROUTE, INVOICES_ROUTE, TICKETS_ROUTE} from "../constants/routes";
 import {FaHome, FaTasks, FaUsers, FaFileInvoiceDollar} from "react-icons/fa"
 import {Link} from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
@@ -11,10 +11,10 @@ function NavigationLinks(props) {
 
     return (
         <Nav>
-            <div className={props.hasOwnProperty("active") && props.active === HOME_ROUTE ? linkActive : link}>
+            <div className={props.hasOwnProperty("active") && props.active === PROFILE_ROUTE ? linkActive : link}>
                 <Link className="navigation-link-content" to="/">
                     <FaHome className="navigation-link-content__logo"/>
-                    Home
+                    My profile
                 </Link>
             </div>
             <div className={props.hasOwnProperty("active") && props.active === TICKETS_ROUTE ? linkActive : link}>

@@ -1,11 +1,13 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import TopMenu from "../global/navigation/TopMenu";
-import {HOME_ROUTE} from "../global/constants/routes";
+import {PROFILE_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import Profile from "../modules/profile/views/Profile";
+import AccountActivities from "../modules/accountActivities/views/AccountActivities";
 
-class HomeLayout extends React.Component {
+class ProfileLayout extends React.Component {
 
     render() {
         return (
@@ -13,16 +15,21 @@ class HomeLayout extends React.Component {
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
-                            <TopMenu active={HOME_ROUTE}/>
+                            <TopMenu active={PROFILE_ROUTE}/>
                         </Container>
                     </div>
                     <div className="layout-content">
                         <Container>
                             <div className="layout-content__title">
-                                <h3>Home layout</h3>
+                                <h3>Profile layout</h3>
                             </div>
-                            <div className="layout-content__body">
-                                Ticket Table
+                            <div className="layout-content__body home">
+                                <div className="layout-content__body-item">
+                                    <Profile/>
+                                </div>
+                                <div className="layout-content__body-item account_activities">
+                                    <AccountActivities/>
+                                </div>
                             </div>
                         </Container>
                     </div>
@@ -35,4 +42,4 @@ class HomeLayout extends React.Component {
 
 const mapDispatchToProps = dispatch => (bindActionCreators({}, dispatch));
 
-export default connect(null, mapDispatchToProps)(HomeLayout);
+export default connect(null, mapDispatchToProps)(ProfileLayout);

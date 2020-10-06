@@ -7,6 +7,7 @@
 
 .Main {
   font-family: $font-regular;
+  font-size: 13px;
 
   button:focus {
     outline: none;
@@ -17,6 +18,7 @@
 
     &-primary:focus {
       box-shadow: none !important;
+      -webkit-box-shadow: none !important;
     }
   }
 
@@ -56,7 +58,8 @@
   transition: .3s;
 
   &:hover {
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4)
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -87,6 +90,21 @@
   }
 }
 
+.username-card {
+  display: flex;
+  align-items: center;
+
+  .username-card__name {
+    padding: 0 8px;
+  }
+
+  .username-card__logo {
+    color: $color-smarts-main;
+    width: auto;
+    height: 25px;
+  }
+}
+
 @mixin container-media {
   @media screen and (min-width: 1200px) {
     .container {
@@ -114,67 +132,6 @@
 }
 
 /* ------------------------------------------
- LAYOUTS
- ------------------------------------------ */
-
-.layout {
-  display: flex;
-  flex-direction: column;
-
-  &-header {
-    @include container-media;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
-    background: $color-smarts-main;
-    z-index: 10;
-
-    .container {
-      height: 100%;
-    }
-
-    @media screen and (max-width: 768px) {
-      height: 60px;
-    }
-  }
-
-  &-content {
-    @include container-media;
-    margin-top: 110px;
-
-    &__title {
-      font-family: $font-bold;
-      margin-bottom: 20px;
-    }
-
-    &__subtitle {
-      font-family: $font-medium;
-    }
-
-    &__body {
-      padding: 20px 30px;
-      margin: 20px 0;
-      -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-      box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-      min-height: 400px;
-      position: relative;
-
-      @media (max-width: 576px) {
-        padding: 20px 0;
-      }
-
-      .jneUDS > *,
-      .dNbWJJ > *,
-      .ckAHgq > * {
-        background-color: $color-smarts-main;
-      }
-    }
-  }
-}
-
-/* ------------------------------------------
   TOP-MENU
  ------------------------------------------ */
 
@@ -183,7 +140,6 @@
   justify-content: space-between;
   align-items: center;
   font-family: $font-light;
-  font-size: 13px;
   height: 100%;
 
   .sidebar-hamburger {
@@ -212,7 +168,6 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    padding-right: 25px;
 
     img:nth-child(1) {
       height: 60px;
@@ -246,7 +201,8 @@
         display: inherit;
       }
     }
-    .account-card__name {
+
+    .username-card__name {
       display: none;
     }
   }
@@ -263,6 +219,7 @@
   width: 90px;
   background: $color-smarts-main;
   box-shadow: 2px 0 7px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 2px 0 7px rgba(0, 0, 0, 0.5);
   z-index: 30;
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
@@ -343,6 +300,252 @@
 }
 
 /* ------------------------------------------
+ LAYOUTS
+ ------------------------------------------ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    @include container-media;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background: $color-smarts-main;
+    z-index: 10;
+
+    .container {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 60px;
+    }
+  }
+
+  &-content {
+    @include container-media;
+    margin-top: 110px;
+
+    &__title {
+      font-family: $font-bold;
+      margin-bottom: 20px;
+    }
+
+    &__body {
+      position: relative;
+      padding: 25px;
+      margin: 20px 0;
+      -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+      box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+      min-height: 300px;
+
+      @media (max-width: 576px) {
+        padding: 20px 0;
+      }
+
+      .jneUDS > *,
+      .dNbWJJ > *,
+      .ckAHgq > * {
+        background-color: $color-smarts-main;
+      }
+    }
+  }
+}
+
+
+/* ------------------------------------------
+ HOME LAYOUT
+ ------------------------------------------ */
+.layout {
+  &-content {
+    &__body {
+      &.home {
+        display: flex;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      &-item {
+        padding: 25px;
+        -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+        box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+
+        &:first-child {
+          margin-right: 40px;
+          height: 100%;
+        }
+
+        &.account_activities {
+          flex: 1;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------------
+ PROFILE [HOME LAYOUT]
+ ------------------------------------------ */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #757577;
+    color: $color-white;
+
+    &__picture {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+
+      img {
+        width: auto;
+        height: 120px;
+        border-radius: 50%;
+      }
+    }
+
+    &__name {
+      font-size: 17px;
+      font-family: $font-medium;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    &__contact {
+      font-family: $font-light;
+      line-height: 2;
+      word-break: break-all;
+
+      &-logo {
+        height: 20px;
+        width: auto;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &-stats {
+    &__related-tickets {
+      width: 100%;
+      margin: 30px 0;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &__title {
+      font-family: $font-regular;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    &__amount {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+
+      &-type {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-width: 70px;
+
+        .count {
+          font-family: $font-medium;
+          font-size: 22px;
+        }
+
+        .name {
+          font-family: $font-light;
+          color: $color-light-gray;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------------
+ ACCOUNT ACTIVITIES [HOME LAYOUT]
+ ------------------------------------------ */
+
+.activities {
+  &-header {
+    font-family: $font-medium;
+    margin-bottom: 30px;
+  }
+
+  &-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    &::before {
+      background-color: $color-smarts-main;
+      content: '';
+      position: absolute;
+      left: calc(19% - 2px);
+      width: 3px;
+      height: 100%;
+    }
+
+    &-item {
+      display: flex;
+      position: relative;
+      margin-bottom: 45px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__date {
+        width: 19%;
+        color: $color-light-gray;
+        padding-right: 26px;
+      }
+
+      &__text {
+        width: 81%;
+        padding-left: 26px;
+
+        &-username {
+          color: $color-smarts-main;
+          font-family: $font-bold;
+          padding-right: 5px;
+        }
+      }
+
+      &__circle {
+        background-color: $color-white;
+        border: 3px solid $color-smarts-main;
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        left: calc(19% - 10px);
+        z-index: 5;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
 .layout {
@@ -367,6 +570,7 @@
       &:hover,
       &:focus {
         box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -421,7 +625,6 @@
 
   &__body {
     font-family: $font-light;
-    font-size: 13px;
 
     td:first-child {
       font-family: $font-regular;
@@ -539,7 +742,6 @@
     .ticket-create-button {
       width: 115px;
       height: 32px;
-      font-size: 13px;
     }
   }
 
@@ -602,8 +804,6 @@
  ------------------------------------------ */
 
 .details {
-  font-size: 13px;
-
   &-main {
     display: flex;
     flex-wrap: wrap;
@@ -618,6 +818,23 @@
       .module-content {
         max-height: 270px;
         overflow: auto;
+
+        .comment {
+          margin-bottom: 25px;
+
+          .date-time {
+            color: $color-light-gray;
+          }
+
+          .text {
+            margin: 7px 0;
+          }
+
+          .date-time,
+          .text {
+            padding-left: 33px;
+          }
+        }
       }
     }
   }
@@ -648,10 +865,8 @@
           }
 
           &__value {
-            .account-card__logo {
-              color: $color-smarts-main;
+            .username-card__logo {
               height: 20px;
-              width: auto;
             }
           }
 
@@ -663,7 +878,6 @@
           .styles_Editext__button__6H8n_ {
             min-width: 21px;
           }
-
 
           .ticket-priority {
             border-radius: 3px;
@@ -683,29 +897,6 @@
           }
         }
       }
-
-      .comment {
-        margin-bottom: 25px;
-
-        .author .account-card__logo {
-          height: 25px;
-          width: auto;
-          color: $color-smarts-main;
-        }
-
-        .date-time {
-          color: $color-light-gray;
-        }
-
-        .text {
-          margin: 7px 0;
-        }
-
-        .date-time,
-        .text {
-          padding-left: 33px;
-        }
-      }
     }
 
     &-footer {
@@ -717,6 +908,7 @@
         &:hover,
         &:focus {
           box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+          -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
         }
       }
 
@@ -776,157 +968,155 @@
       }
     }
   }
-
 }
 
 /* ------------------------------------------
  AUTHORIZATION / REGISTRATION
  ------------------------------------------ */
 
-.auth-layout {
+.auth {
   display: flex;
   align-items: center;
   justify-content: center;
   background: $color-smarts-main-v2;
   height: 100vh;
-}
 
-.auth-form {
-  font-family: $font-light;
-  background-color: #fff;
-  width: 450px;
-  border-radius: 5px;
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
-  padding: 50px;
-}
+  &-form {
+    font-family: $font-light;
+    background-color: #fff;
+    width: 420px;
+    border-radius: 5px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+    padding: 50px;
 
-.auth-header {
-  display: flex;
-  justify-content: center;
+    &-header {
+      display: flex;
+      justify-content: center;
 
-  &-logo {
-    width: 200px;
-    height: auto;
-  }
-}
-
-
-.auth-body {
-  padding: 30px 0 20px 0;
-  font-size: 14px;
-
-  > div {
-    margin: 25px 0;
-  }
-
-  &-item {
-    position: relative;
-
-    &__label {
-      padding-left: 1px;
-      margin-bottom: 0;
-      font-size: 13px;
+      &__logo {
+        width: 200px;
+        height: auto;
+        margin-left: -15px;
+      }
     }
 
-    &__input {
-      width: 100%;
-      height: 34px;
-      border: none;
-      border-bottom: 2px solid #d9d9d9;
-      font-family: $font-regular;
+    &-body {
+      padding: 30px 0 20px 0;
+      font-size: 14px;
 
-      &:focus {
-        outline: none;
+      > div {
+        margin: 25px 0;
       }
 
-      &:focus + .focus-border::before,
-      &:not(:focus):valid ~ .focus-border::before {
+      &__item {
+        position: relative;
+
+        &-label {
+          padding-left: 1px;
+          margin-bottom: 0;
+          font-size: 13px;
+        }
+
+        &-input {
+          width: 100%;
+          height: 34px;
+          border: none;
+          border-bottom: 2px solid #d9d9d9;
+          font-family: $font-regular;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:focus + .focus-border::before,
+          &:not(:focus):valid ~ .focus-border::before {
+            width: 100%;
+          }
+        }
+
+        .focus-border {
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $color-smarts-secondary;
+            -webkit-transition: all .4s;
+            -o-transition: all .4s;
+            -moz-transition: all .4s;
+            transition: all .4s;
+          }
+        }
+      }
+
+      .custom-control-input:checked ~ .custom-control-label::before {
+        border-color: $color-smarts-main;
+        background-color: $color-smarts-main;
+        outline: none !important;
+      }
+
+      .custom-control-label::before {
+        top: .12rem;
+        cursor: pointer;
+      }
+
+      .custom-control-label::after {
+        cursor: pointer;
+      }
+    }
+
+    &-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .smarts-button.btn-sign-in {
         width: 100%;
-      }
-    }
-
-    .focus-border {
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
         background: $color-smarts-secondary;
-        -webkit-transition: all .4s;
-        -o-transition: all .4s;
-        -moz-transition: all .4s;
-        transition: all .4s;
+        border-radius: 5px;
+
+        &:hover {
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
+          -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
+          transition: 0.2s;
+        }
+      }
+
+      a {
+        width: 100%;
+        color: $color-smarts-main;
+        font-family: $font-regular;
+        margin-bottom: 10px;
+
+        &:hover {
+          text-decoration: none;
+          color: $color-smarts-secondary;
+        }
+      }
+
+      span {
+        margin: 5px 0;
       }
     }
-  }
-
-  .custom-control-input:checked ~ .custom-control-label::before {
-    border-color: $color-smarts-main;
-    background-color: $color-smarts-main;
-    outline: none !important;
-  }
-
-  .custom-control-label::before {
-    top: .12rem;
-    cursor: pointer;
-  }
-
-  .custom-control-label::after {
-
-    cursor: pointer;
-  }
-
-  .auth-button-area {
-    padding-top: 20px;
-
-    .smarts-button.btn-sign-in {
-      width: 100%;
-      background: $color-smarts-secondary;
-      border-radius: 5px;
-
-      &:hover {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
-        transition: 0.2s;
-      }
-    }
-  }
-}
-
-.auth-footer {
-  text-align: center;
-  font-size: 13px;
-
-  a {
-    color: $color-smarts-main;
-    font-family: $font-regular;
-
-    &:hover {
-      text-decoration: none;
-      color: $color-smarts-secondary;
-    }
-  }
-
-  div {
-    margin: 5px 0;
   }
 }
 
 /* ------------------------------------------
  ACCOUNT DROPDOWN CARD
  ------------------------------------------ */
-
-.account-card {
+.dropdown-card {
   .dropdown {
     &-menu {
       font-size: 13px;
@@ -960,18 +1150,11 @@
     }
   }
 
-  &__logo {
-    height: 26px;
-    width: auto;
+  .username-card__logo {
     color: $color-white;
   }
 
-  &__name {
-    padding: 0 8px;
-  }
-
   @media screen and (max-width: 768px) {
-
     .dropdown {
       .btn {
         padding: .375rem .2rem;
@@ -984,107 +1167,6 @@
     background: $color-smarts-hover !important;
   }
 }
-
-/* ------------------------------------------
- PROFILE MODAL
- ------------------------------------------ */
-.profile {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-
-  &-top {
-    display: flex;
-    width: 100%;
-    background: $color-smarts-main;
-    padding: 12px;
-    color: $color-white;
-    border-radius: 3px;
-
-    &__picture {
-      display: flex;
-      justify-content: center;
-      flex: 2;
-
-      img {
-        width: auto;
-        height: 120px;
-        border-radius: 50%;
-      }
-    }
-
-    &__contact {
-      flex: 3;
-      font-size: 14px;
-      font-family: $font-light;
-      line-height: 2;
-
-      &-name {
-        font-size: 20px;
-        font-family: $font-medium;
-        margin-bottom: 8px;
-      }
-
-      &-logo {
-        height: 20px;
-        width: auto;
-        margin-right: 5px;
-      }
-    }
-  }
-
-  &-bottom {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-
-    &__title {
-      padding: 30px 0 5px;
-      font-family: $font-regular;
-      font-size: 14px;
-    }
-
-    &__amount {
-      display: flex;
-      width: 100%;
-      justify-content: space-around;
-
-      &-type {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-        .count {
-          font-family: $font-medium;
-          font-size: 26px;
-        }
-
-        .name {
-          font-family: $font-light;
-          font-size: 13px;
-          color: $color-light-gray;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 576px) {
-    &-top {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-
-  @media screen and (max-width: 425px) {
-    &-bottom {
-      &__amount {
-        justify-content: space-between;
-      }
-    }
-  }
-}
-
 
 
 

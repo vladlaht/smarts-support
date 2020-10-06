@@ -9,7 +9,6 @@ import {fetchTicketsAction} from "../modules/tickets/actions/FetchTicketsAction"
 import TicketDetails from "../modules/ticketDetails/views/TicketDetails";
 import {LoopCircleLoading} from "react-loadingg";
 
-
 class TicketDetailsLayout extends React.Component {
 
     componentDidMount() {
@@ -34,12 +33,6 @@ class TicketDetailsLayout extends React.Component {
                         <Container>
                             <div className="layout-content__title">
                                 <h3>Ticket details</h3>
-
-
-                            </div>
-                            <div className="layout-content__subtitle">
-                                {/*<h6>{selectedTicket && selectedTicket.ticketName}</h6>*/}
-                                <h6>{this.props.details.ticketName}</h6>
                             </div>
                             <div className="layout-content__body">
                                 {/*{selectedTicket ? <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> : <LoopCircleLoading/>}*/}

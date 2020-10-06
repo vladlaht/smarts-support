@@ -6,7 +6,7 @@ import {appStore} from "./global/configurations/app-store";
 import {createBrowserHistory} from "history";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
-import HomeLayout from "./layouts/HomeLayout";
+import HomeLayout from "./layouts/ProfileLayout";
 import TicketsLayout from "./layouts/TicketsLayout";
 import ClientsLayout from "./layouts/ClientsLayout";
 import InvoicesLayout from "./layouts/InvoicesLayout";

@@ -2,13 +2,13 @@ import React from "react";
 import {changeField} from "../../../global/actions/StandardActions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import AccountCard from "../../account/views/cards/AccountCard";
+import AccountCard from "../../account/views/cards/Username";
 import {addComment} from "../actions/TicketDetailsAction";
 import EdiText from "react-editext";
 import {TICKET_DETAILS_ACTION} from "../../tickets/constants/ReducerConstants";
 import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "../../tickets/constants";
 
-class TicketsTable extends React.Component {
+class TicketDetails extends React.Component {
 
     componentDidUpdate() {
         this.commentText.value = "";
@@ -187,4 +187,4 @@ const mapDispatchToProps = dispatch => (bindActionCreators({
     addComment
 }, dispatch));
 
-export default connect(mapStateToProps, mapDispatchToProps)(TicketsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(TicketDetails);
