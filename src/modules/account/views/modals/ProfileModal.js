@@ -1,13 +1,13 @@
 import React from "react";
 
 import {Container, Modal} from "react-bootstrap";
-import Profile from "../../../profile/views/Profile";
+import Profile from "../../../accountDetails/views/ProfileDetails";
 
 
 const ProfileModal = props => {
     return (
         <Modal className="ticket-modal-content"
-               show={props.profileDetails.modalIsOpen}
+               show={props.profileModal.modalIsOpen}
                onHide={props.toggle}
                backdrop="static"
                centered>

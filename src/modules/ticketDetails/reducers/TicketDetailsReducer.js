@@ -1,7 +1,5 @@
-import {
-    ADD_TICKET_DETAILS_COMMENT, TICKET_DETAILS_ACTION
-} from "../../tickets/constants/ReducerConstants";
 import {ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET, getAction} from "../../../global/constants/action-types";
+import {CREATE_TICKET_DETAILS_COMMENT_ACTION, TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
 
 const initialState = {
     changeEditMode: false,
@@ -10,7 +8,7 @@ const initialState = {
     clientName: "Peeter Goldberg",
     assignee: "Ilja Andrejev",
     createdBy: "Kristo Truu",
-    createdAt: "12.08.2019 16:49:00",
+    createdAt: "May 21 2019 11:25:48 GMT+0300",
     updatedAt: null,
     status: "Open",
     invoiceNumber: "4234235235235",
@@ -20,30 +18,31 @@ const initialState = {
         "The amount was high and the client asks to hurry up with the return of funds.",
     comments: [
         {
-            datetime: "16.08.2019 16:56:42",
+            datetime: "Sep 1 2020 14:00:48 GMT+0300",
             text: "1.Client sent additional information to the email."
         },
         {
-            datetime: "13.08.2019 13:56:42",
+            datetime: "Jun 24 2020 16:02:53 GMT+0300",
             text: "2.Client said that the problem is still not resolved."
         }
     ],
     selectedTicket: null
 };
 
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_TICKET_DETAILS_COMMENT:
+        case CREATE_TICKET_DETAILS_COMMENT_ACTION:
             if (action.payload.length > 0) {
                 return {
                     ...state,
                     comments: [...state.comments,
                         {
-                            datetime: new Date().toLocaleString(),
+                            datetime: new Date(),
                             text: action.payload
                         }
                     ],
-                    updatedAt: new Date().toLocaleString()
+                    updatedAt: new Date()
                 };
             } else {
                 return {
@@ -51,10 +50,11 @@ export default function reducer(state = initialState, action) {
                 }
             }
         case getAction(TICKET_DETAILS_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
+
             return {
                 ...state,
                 [action.payload.field]: action.payload.value,
-                updatedAt: new Date().toLocaleString()
+                updatedAt: new Date()
 
             };
         case getAction(TICKET_DETAILS_ACTION, ACTION_STATUS_RESET):

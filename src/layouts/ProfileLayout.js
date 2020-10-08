@@ -4,8 +4,8 @@ import TopMenu from "../global/navigation/TopMenu";
 import {PROFILE_ROUTE} from "../global/constants/routes";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import Profile from "../modules/profile/views/Profile";
-import AccountActivities from "../modules/accountActivities/views/AccountActivities";
+import ProfileDetails from "../modules/accountDetails/views/ProfileDetails";
+import AccountActivities from "../modules/accountDetails/views/AccountActivities";
 
 class ProfileLayout extends React.Component {
 
@@ -25,7 +25,7 @@ class ProfileLayout extends React.Component {
                             </div>
                             <div className="layout-content__body home">
                                 <div className="layout-content__body-item">
-                                    <Profile/>
+                                    <ProfileDetails/>
                                 </div>
                                 <div className="layout-content__body-item account_activities">
                                     <AccountActivities/>

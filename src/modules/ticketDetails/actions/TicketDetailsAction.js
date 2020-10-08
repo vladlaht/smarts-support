@@ -1,8 +1,8 @@
-import {ADD_TICKET_DETAILS_COMMENT} from "../../tickets/constants/ReducerConstants";
+import {CREATE_TICKET_DETAILS_COMMENT_ACTION} from "../constants/ReducerConstants";
 
 export function addComment(comment) {
     return (dispatch) => dispatch({
-        type: ADD_TICKET_DETAILS_COMMENT,
+        type: CREATE_TICKET_DETAILS_COMMENT_ACTION,
         payload: comment
     });
 }

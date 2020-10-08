@@ -1,7 +1,5 @@
-import AccountCardReducer from "../../account/reducers/AccountCardReducer";
-import ProfileDetailsReducer from "./ProfileDetailsReducer";
+import ProfileModalReducer from "./ProfileModalReducer";
 
 export default {
-    accountCard : AccountCardReducer,
-    profileDetails: ProfileDetailsReducer,
+    profileModal: ProfileModalReducer
 };

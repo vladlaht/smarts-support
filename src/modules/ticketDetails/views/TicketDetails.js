@@ -1,12 +1,15 @@
 import React from "react";
-import {changeField} from "../../../global/actions/StandardActions";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import AccountCard from "../../account/views/cards/Username";
+import {changeField} from "../../../global/actions/StandardActions";
 import {addComment} from "../actions/TicketDetailsAction";
+import {addAction} from "../../accountDetails/actions/AccountDetailsAction";
 import EdiText from "react-editext";
-import {TICKET_DETAILS_ACTION} from "../../tickets/constants/ReducerConstants";
+import {TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
 import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "../../tickets/constants";
+import {ADDED_COMMENT, CLOSED_TICKET, EDITED_TICKET, OPENED_TICKET}
+    from "../../accountDetails/constants/ActivityConstants";
 
 class TicketDetails extends React.Component {
 
@@ -15,20 +18,38 @@ class TicketDetails extends React.Component {
     }
 
     saveComment = () => {
-        this.props.addComment(this.commentText.value);
+        if (this.commentText.value.length > 0) {
+            console.log("this.props.commentText.value", this.commentText.value.length);
+            this.props.addComment(this.commentText.value);
+            this.props.addAction({actionType: ADDED_COMMENT, ticketNumber: "#" + this.props.details.ticketNumber});
+        }
     };
 
     handleFieldChange(field, value) {
         this.props.changeField(TICKET_DETAILS_ACTION, field, value);
+        if (field === "status" && value === "Closed") {
+            this.props.addAction({actionType: CLOSED_TICKET, ticketNumber: "#" + this.props.details.ticketNumber});
+        } else if (field === "status" && value === "Open") {
+            this.props.addAction({actionType: OPENED_TICKET, ticketNumber: "#" + this.props.details.ticketNumber});
+
+        } else {
+            this.props.addAction({actionType: EDITED_TICKET, ticketNumber: "#" + this.props.details.ticketNumber});
+        }
     };
 
     render() {
-        const {account, details} = this.props;
+        const {details, accountDetails} = this.props;
+
+        details.comments.sort((a, b) => {
+            let dateA = new Date(a.datetime);
+            let dateB = new Date(b.datetime);
+            return dateB - dateA;
+        });
 
         return (
-            <div className="details">
-                <div className="details-main">
-                    <div className="details-main-half">
+            <div className="ticket-details">
+                <div className="ticket-details-main">
+                    <div className="ticket-details-main-half">
                         <div className="module">
                             <div className="module-header">Details</div>
                             <div className="module-content">
@@ -82,7 +103,7 @@ class TicketDetails extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="details-main-half">
+                    <div className="ticket-details-main-half">
                         <div className="module">
                             <span className="module-header">People</span>
                             <div className="module-content">
@@ -115,12 +136,14 @@ class TicketDetails extends React.Component {
                                 <ul className="module-list">
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Created at:</div>
-                                        <div className="module-list-item__value">{details.createdAt}</div>
+                                        <div
+                                            className="module-list-item__value">{new Date(details.createdAt).toLocaleString()}</div>
                                     </li>
                                     {details.updatedAt ?
                                         <li className="module-list-item">
                                             <div className="module-list-item__title">Updated at:</div>
-                                            <div className="module-list-item__value">{details.updatedAt}</div>
+                                            <div
+                                                className="module-list-item__value">{new Date(details.updatedAt).toLocaleString()}</div>
                                         </li>
                                         : null}
                                 </ul>
@@ -128,8 +151,8 @@ class TicketDetails extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="details-secondary">
-                    <div className="details-secondary-description">
+                <div className="ticket-details-secondary">
+                    <div className="ticket-details-secondary-description">
                         <div className="module">
                             <div className="module-header">Description</div>
                             <div className="module-content">
@@ -139,18 +162,19 @@ class TicketDetails extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="details-secondary-comments">
+                    <div className="ticket-details-secondary-comments">
                         <div className="module">
                             <div className="module-header">Comments ({details.comments.length})</div>
                             <div className="module-content">
-                                {details.comments && details.comments.map((comment, key) => {
+                                {details && details.comments.map((comment, key) => {
                                     return (
                                         <ul key={key} className="module-list comment">
                                             <li className="author">
-                                                <AccountCard fullname={account.profileName}/>
+                                                <AccountCard fullname={accountDetails.userDetails.fullName}
+                                                             photo={accountDetails.userDetails.photo}/>
                                             </li>
                                             <li className="date-time">
-                                                {comment.datetime}
+                                                {new Date(comment.datetime).toLocaleString()}
                                             </li>
                                             <li className="text">
                                                 {comment.text}
@@ -177,14 +201,15 @@ class TicketDetails extends React.Component {
 }
 
 const mapStateToProps = state => ({
-        account: state.accountCard,
+        accountDetails: state.accountDetails,
         details: state.ticketDetails
     }
 );
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
-    addComment
+    addComment,
+    addAction
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketDetails);

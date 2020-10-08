@@ -102,6 +102,7 @@
     color: $color-smarts-main;
     width: auto;
     height: 25px;
+    border-radius: 50%;
   }
 }
 
@@ -339,8 +340,8 @@
       position: relative;
       padding: 25px;
       margin: 20px 0;
-      -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-      box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+      -webkit-box-shadow: 0 5px 45px rgba(32, 32, 32, 0.1);
+      box-shadow: 0 5px 45px rgba(32, 32, 32, 0.1);
       min-height: 300px;
 
       @media (max-width: 576px) {
@@ -371,13 +372,14 @@
       }
 
       &-item {
-        padding: 25px;
-        -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-        box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+        -webkit-box-shadow: 0 10px 45px rgba(32, 32, 32, 0.1);
+        box-shadow: 0 10px 45px rgba(32, 32, 32, 0.1);
 
         &:first-child {
           margin-right: 40px;
           height: 100%;
+          border-bottom-right-radius: 5px;
+          border-bottom-left-radius: 5px;
         }
 
         &.account_activities {
@@ -397,24 +399,41 @@
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  border-radius: 5px;
 
-  &-info {
+
+
+  &-details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background: #757577;
+    background: $color-smarts-hover;
     color: $color-white;
+    padding: 25px 35px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 
     &__picture {
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 130px;
+      width: 130px;
       margin-bottom: 15px;
+      border-radius: 50%;
+      border: 1px solid $color-smarts-secondary;
+      -webkit-box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
+      box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
 
-      img {
-        width: auto;
-        height: 120px;
-        border-radius: 50%;
+      &-content {
+         height: 120px;
+        width: 120px;
+
+        img {
+          width: auto;
+          height: 100%;
+          border-radius: 50%;
+        }
       }
     }
 
@@ -427,7 +446,7 @@
 
     &__contact {
       font-family: $font-light;
-      line-height: 2;
+      line-height: 2.3;
       word-break: break-all;
 
       &-logo {
@@ -439,13 +458,9 @@
   }
 
   &-stats {
+    padding: 20px;
     &__related-tickets {
       width: 100%;
-      margin: 30px 0;
-
-      &:last-child {
-        padding-bottom: 0;
-      }
     }
 
     &__title {
@@ -485,6 +500,8 @@
  ------------------------------------------ */
 
 .activities {
+  padding: 25px;
+
   &-header {
     font-family: $font-medium;
     margin-bottom: 30px;
@@ -500,7 +517,7 @@
       background-color: $color-smarts-main;
       content: '';
       position: absolute;
-      left: calc(19% - 2px);
+      left: calc(21% - 2px);
       width: 3px;
       height: 100%;
     }
@@ -515,19 +532,28 @@
       }
 
       &__date {
-        width: 19%;
+        width: 21%;
         color: $color-light-gray;
-        padding-right: 26px;
+        padding-right: 25px;
       }
 
       &__text {
-        width: 81%;
-        padding-left: 26px;
+        width: 79%;
+        padding-left: 25px;
 
         &-username {
-          color: $color-smarts-main;
           font-family: $font-bold;
           padding-right: 5px;
+        }
+
+        &-number a {
+          font-family: $font-medium;
+          text-transform: uppercase;
+        }
+
+        &-username,
+        &-number a {
+          color: $color-smarts-main;
         }
       }
 
@@ -538,7 +564,7 @@
         width: 19px;
         height: 19px;
         border-radius: 50%;
-        left: calc(19% - 10px);
+        left: calc(21% - 10px);
         z-index: 5;
       }
     }
@@ -803,7 +829,7 @@
  TICKET DETAILS
  ------------------------------------------ */
 
-.details {
+.ticket-details {
   &-main {
     display: flex;
     flex-wrap: wrap;

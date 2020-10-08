@@ -119,6 +119,7 @@ img {
   color: #655290;
   width: auto;
   height: 25px;
+  border-radius: 50%;
 }
 
 /* ------------------------------------------
@@ -340,8 +341,8 @@ img {
   position: relative;
   padding: 25px;
   margin: 20px 0;
-  -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-  box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+  -webkit-box-shadow: 0 5px 45px rgba(32, 32, 32, 0.1);
+  box-shadow: 0 5px 45px rgba(32, 32, 32, 0.1);
   min-height: 300px;
 }
 @media (max-width: 576px) {
@@ -365,13 +366,14 @@ img {
   padding: 0;
 }
 .layout-content__body-item {
-  padding: 25px;
-  -webkit-box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
-  box-shadow: 0 5px 64px rgba(32, 32, 32, 0.1);
+  -webkit-box-shadow: 0 10px 45px rgba(32, 32, 32, 0.1);
+  box-shadow: 0 10px 45px rgba(32, 32, 32, 0.1);
 }
 .layout-content__body-item:first-child {
   margin-right: 40px;
   height: 100%;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .layout-content__body-item.account_activities {
   flex: 1;
@@ -385,47 +387,60 @@ img {
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  border-radius: 5px;
 }
-.profile-info {
+.profile-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background: #757577;
+  background: #56457B;
   color: #ffffff;
+  padding: 25px 35px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
-.profile-info__picture {
+.profile-details__picture {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 130px;
+  width: 130px;
   margin-bottom: 15px;
+  border-radius: 50%;
+  border: 1px solid #f68d37;
+  -webkit-box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
+  box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
 }
-.profile-info__picture img {
-  width: auto;
+.profile-details__picture-content {
   height: 120px;
+  width: 120px;
+}
+.profile-details__picture-content img {
+  width: auto;
+  height: 100%;
   border-radius: 50%;
 }
-.profile-info__name {
+.profile-details__name {
   font-size: 17px;
   font-family: GothamProMedium;
   margin-bottom: 8px;
   text-align: center;
 }
-.profile-info__contact {
+.profile-details__contact {
   font-family: GothamProLight;
-  line-height: 2;
+  line-height: 2.3;
   word-break: break-all;
 }
-.profile-info__contact-logo {
+.profile-details__contact-logo {
   height: 20px;
   width: auto;
   margin-right: 5px;
 }
+.profile-stats {
+  padding: 20px;
+}
 .profile-stats__related-tickets {
   width: 100%;
-  margin: 30px 0;
-}
-.profile-stats__related-tickets:last-child {
-  padding-bottom: 0;
 }
 .profile-stats__title {
   font-family: GothamProRegular;
@@ -456,6 +471,9 @@ img {
 /* ------------------------------------------
  ACCOUNT ACTIVITIES [HOME LAYOUT]
  ------------------------------------------ */
+.activities {
+  padding: 25px;
+}
 .activities-header {
   font-family: GothamProMedium;
   margin-bottom: 30px;
@@ -470,7 +488,7 @@ img {
   background-color: #655290;
   content: "";
   position: absolute;
-  left: calc(19% - 2px);
+  left: calc(21% - 2px);
   width: 3px;
   height: 100%;
 }
@@ -483,18 +501,24 @@ img {
   margin-bottom: 0;
 }
 .activities-body-item__date {
-  width: 19%;
+  width: 21%;
   color: #7a869a;
-  padding-right: 26px;
+  padding-right: 25px;
 }
 .activities-body-item__text {
-  width: 81%;
-  padding-left: 26px;
+  width: 79%;
+  padding-left: 25px;
 }
 .activities-body-item__text-username {
-  color: #655290;
   font-family: GothamProBold;
   padding-right: 5px;
+}
+.activities-body-item__text-number a {
+  font-family: GothamProMedium;
+  text-transform: uppercase;
+}
+.activities-body-item__text-username, .activities-body-item__text-number a {
+  color: #655290;
 }
 .activities-body-item__circle {
   background-color: #ffffff;
@@ -503,7 +527,7 @@ img {
   width: 19px;
   height: 19px;
   border-radius: 50%;
-  left: calc(19% - 10px);
+  left: calc(21% - 10px);
   z-index: 5;
 }
 
@@ -714,120 +738,120 @@ img {
 /* ------------------------------------------
  TICKET DETAILS
  ------------------------------------------ */
-.details-main {
+.ticket-details-main {
   display: flex;
   flex-wrap: wrap;
 }
-.details-main-half {
+.ticket-details-main-half {
   width: 50%;
 }
-.details-secondary-comments .module-content {
+.ticket-details-secondary-comments .module-content {
   max-height: 270px;
   overflow: auto;
 }
-.details-secondary-comments .module-content .comment {
+.ticket-details-secondary-comments .module-content .comment {
   margin-bottom: 25px;
 }
-.details-secondary-comments .module-content .comment .date-time {
+.ticket-details-secondary-comments .module-content .comment .date-time {
   color: #7a869a;
 }
-.details-secondary-comments .module-content .comment .text {
+.ticket-details-secondary-comments .module-content .comment .text {
   margin: 7px 0;
 }
-.details-secondary-comments .module-content .comment .date-time,
-.details-secondary-comments .module-content .comment .text {
+.ticket-details-secondary-comments .module-content .comment .date-time,
+.ticket-details-secondary-comments .module-content .comment .text {
   padding-left: 33px;
 }
-.details .module {
+.ticket-details .module {
   margin-bottom: 30px;
 }
-.details .module-header {
+.ticket-details .module-header {
   font-family: GothamProMedium;
   margin-bottom: 6px;
   display: inline-block;
 }
-.details .module-content .module-list {
+.ticket-details .module-content .module-list {
   list-style: none;
   padding: 0;
 }
-.details .module-content .module-list-item {
+.ticket-details .module-content .module-list-item {
   display: flex;
   margin-bottom: 10px;
   margin-right: 30px;
 }
-.details .module-content .module-list-item__title {
+.ticket-details .module-content .module-list-item__title {
   min-width: 125px;
   color: #7a869a;
   font-family: GothamProLight;
 }
-.details .module-content .module-list-item__value .username-card__logo {
+.ticket-details .module-content .module-list-item__value .username-card__logo {
   height: 20px;
 }
-.details .module-content .module-list-item .styles_Editext__button__6H8n_,
-.details .module-content .module-list-item .styles_Editext__input__1534X {
+.ticket-details .module-content .module-list-item .styles_Editext__button__6H8n_,
+.ticket-details .module-content .module-list-item .styles_Editext__input__1534X {
   padding: 0;
 }
-.details .module-content .module-list-item .styles_Editext__button__6H8n_ {
+.ticket-details .module-content .module-list-item .styles_Editext__button__6H8n_ {
   min-width: 21px;
 }
-.details .module-content .module-list-item .ticket-priority {
+.ticket-details .module-content .module-list-item .ticket-priority {
   border-radius: 3px;
   color: #ffffff;
 }
-.details .module-content .module-list-item .ticket-priority.priority-high {
+.ticket-details .module-content .module-list-item .ticket-priority.priority-high {
   background: #E74C3C;
 }
-.details .module-content .module-list-item .ticket-priority.priority-medium {
+.ticket-details .module-content .module-list-item .ticket-priority.priority-medium {
   background: #f9ca24;
 }
-.details .module-content .module-list-item .ticket-priority.priority-low {
+.ticket-details .module-content .module-list-item .ticket-priority.priority-low {
   background: #6ab04c;
 }
-.details .module-footer .smarts-textarea {
+.ticket-details .module-footer .smarts-textarea {
   border-top: 2px solid #655290;
   margin: 0;
   border-bottom: none;
 }
-.details .module-footer .smarts-textarea:hover, .details .module-footer .smarts-textarea:focus {
+.ticket-details .module-footer .smarts-textarea:hover, .ticket-details .module-footer .smarts-textarea:focus {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
 }
-.details .module-footer .button-area {
+.ticket-details .module-footer .button-area {
   display: flex;
   justify-content: flex-end;
 }
-.details .module-footer .button-area .comment-button {
+.ticket-details .module-footer .button-area .comment-button {
   width: 160px;
   margin-top: 10px;
 }
 @media screen and (max-width: 992px) {
-  .details-main {
+  .ticket-details-main {
     flex-direction: column;
   }
-  .details-main-half {
+  .ticket-details-main-half {
     width: 100%;
   }
 }
 @media screen and (max-width: 576px) {
-  .details .module {
+  .ticket-details .module {
     margin-bottom: 50px;
   }
-  .details .module-header {
+  .ticket-details .module-header {
     font-size: 14px;
     text-transform: uppercase;
   }
-  .details .module-content .module-list-item {
+  .ticket-details .module-content .module-list-item {
     display: block;
     flex-direction: column;
     margin-bottom: 12px;
   }
-  .details .module-content .module-list-item select {
+  .ticket-details .module-content .module-list-item select {
     min-width: 130px;
   }
-  .details .module-footer .button-area {
+  .ticket-details .module-footer .button-area {
     justify-content: center;
   }
-  .details .module-footer .button-area .comment-button {
+  .ticket-details .module-footer .button-area .comment-button {
     width: 100%;
   }
 }

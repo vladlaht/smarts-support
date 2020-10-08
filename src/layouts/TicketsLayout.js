@@ -3,7 +3,6 @@ import {Container} from "react-bootstrap";
 import {connect} from "react-redux";
 import {TICKETS_ROUTE} from "../global/constants/routes";
 import TopMenu from "../global/navigation/TopMenu";
-
 import CreateTicketModal from "../modules/tickets/views/modals/CreateTicketModal";
 import TicketsTable from "../modules/tickets/views/tables/TicketsTable";
 import TicketSearch from "../modules/tickets/views/cards/TicketSearch";
