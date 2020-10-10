@@ -24,7 +24,7 @@ class ProfileLayout extends React.Component {
                                 <h3>Profile layout</h3>
                             </div>
                             <div className="layout-content__body home">
-                                <div className="layout-content__body-item">
+                                <div className="layout-content__body-item account_profile">
                                     <ProfileDetails/>
                                 </div>
                                 <div className="layout-content__body-item account_activities">

@@ -111,18 +111,18 @@ class TicketsTable extends React.Component {
                             )
                         )
                     }
-                    <tr>
-                        <td>
-                            <Link to="/tickets/details">
-                                {details.ticketNumber}
-                            </Link>
-                        </td>
-                        <td>{details.ticketName}</td>
-                        <td>{details.clientName}</td>
-                        <td>{details.assignee}</td>
-                        <td>{details.createdAt}</td>
-                        <td>{details.status}</td>
-                    </tr>
+                    {/*<tr>*/}
+                    {/*    <td>*/}
+                    {/*        <Link to="/tickets/details">*/}
+                    {/*            {details.ticketNumber}*/}
+                    {/*        </Link>*/}
+                    {/*    </td>*/}
+                    {/*    <td>{details.ticketName}</td>*/}
+                    {/*    <td>{details.clientName}</td>*/}
+                    {/*    <td>{details.assignee}</td>*/}
+                    {/*    <td>{new Date(details.createdAt).toLocaleString()}</td>*/}
+                    {/*    <td>{details.status}</td>*/}
+                    {/*</tr>*/}
                     </tbody>
                 </Table>
                 {filteredData.length > pageSize

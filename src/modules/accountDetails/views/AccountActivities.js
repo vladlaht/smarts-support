@@ -22,7 +22,7 @@ class AccountActivities extends React.Component {
                         accountDetails && accountDetails.userActivities.map((action, index) => (
                             <div key={index} className="activities-body-item">
                                 <div
-                                     className="activities-body-item__date">{new Date(action.dateTime).toLocaleString()}</div>
+                                    className="activities-body-item__date">{new Date(action.dateTime).toLocaleString()}</div>
                                 <div className="activities-body-item__text">
                                     <span
                                         className="activities-body-item__text-username">{accountDetails.userDetails.fullName}</span>
@@ -31,7 +31,7 @@ class AccountActivities extends React.Component {
                                     <span className="activities-body-item__text-number">
                                         <Link
                                             to={`/tickets/details/${action.ticketNumber}`}>
-                                            {action.ticketNumber}
+                                             #{action.ticketNumber}
                                         </Link>
                                     </span>
                                 </div>
@@ -46,7 +46,7 @@ class AccountActivities extends React.Component {
 }
 
 const mapStateToProps = state => ({
-        accountDetails: state.accountDetails
+        accountDetails: state.accountDetails,
     }
 );
 

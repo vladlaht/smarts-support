@@ -24,9 +24,9 @@ function NavigationLinks(props) {
                 </Link>
             </div>
             <div className={props.hasOwnProperty("active") && props.active === CLIENTS_ROUTE ? linkActive : link}>
-                <Link className="navigation-link-content" to="/tickets/details/5ec1e2852e54c7392692457c">
+                <Link className="navigation-link-content" to="/clients">
                     <FaUsers className="navigation-link-content__logo"/>
-                    Details
+                    Clients
                 </Link>
             </div>
             <div className={props.hasOwnProperty("active") && props.active === INVOICES_ROUTE ? linkActive : link}>

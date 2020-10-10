@@ -2,11 +2,44 @@ import React from "react";
 import {connect} from "react-redux";
 import {MdLocationOn, MdPhoneAndroid} from "react-icons/md"
 import {IoIosMail} from "react-icons/io"
+import {fetchTicketsAction} from "../../tickets/actions/FetchTicketsAction";
+import {bindActionCreators} from "redux";
 
 class ProfileDetails extends React.Component {
 
+    componentDidMount() {
+        const {tickets} = this.props;
+        if (!tickets.isFetching && !tickets.isLoaded) {
+            //this.props.fetchTicketsAction();
+        }
+    }
+
+    countFinishedTickets() {
+        const filterVal = this.props.tickets.data.filter(ticket => ticket.assignee === "Vladislav Lahtarin" && ticket.status === "Closed");
+        return filterVal.length;
+    }
+
+    countOpenTickets() {
+        const filterVal = this.props.tickets.data.filter(ticket => ticket.assignee === "Vladislav Lahtarin" && ticket.status === "Open");
+        return filterVal.length;
+    }
+
+    countAssigneeTickets() {
+        const filterVal = this.props.tickets.data.filter(ticket => ticket.assignee === "Vladislav Lahtarin");
+        return filterVal.length;
+    }
+
     render() {
         const {accountDetails} = this.props;
+
+        const finishedTickets = this.countFinishedTickets();
+        const openTickets = this.countOpenTickets();
+        const assigneeTickets = this.countAssigneeTickets();
+
+
+        console.log("finishedTickets", finishedTickets);
+        console.log("openTickets", openTickets);
+        console.log("assigneeTickets", assigneeTickets);
 
         return (
             <div className="profile">
@@ -39,11 +72,11 @@ class ProfileDetails extends React.Component {
                         </div>
                         <div className="profile-stats__amount">
                             <div className="profile-stats__amount-type">
-                                <div className="count">8</div>
+                                <div className="count">{finishedTickets}</div>
                                 <div className="name">Completed</div>
                             </div>
                             <div className="profile-stats__amount-type">
-                                <div className="count">12</div>
+                                <div className="count">{openTickets}</div>
                                 <div className="name">In progress</div>
                             </div>
                         </div>
@@ -55,8 +88,13 @@ class ProfileDetails extends React.Component {
 }
 
 const mapStateToProps = state => ({
-        accountDetails: state.accountDetails
+        accountDetails: state.accountDetails,
+        tickets: state.tickets,
     }
 );
 
-export default connect(mapStateToProps, null)(ProfileDetails);
+const mapDispatchToProps = dispatch => (bindActionCreators({
+    fetchTicketsAction
+}, dispatch));
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileDetails);

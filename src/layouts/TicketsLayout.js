@@ -30,7 +30,7 @@ class TicketsLayout extends React.Component {
                                 <CreateTicketModal/>
                                 <TicketSearch/>
                             </div>
-                            <div className="layout-content__body">
+                            <div className="layout-content__body tickets-table-content">
                                 <TicketsTable/>
                             </div>
                         </Container>

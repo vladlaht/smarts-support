@@ -14,23 +14,23 @@ const initialState = {
     userActivities: [
         {
             dateTime: "Sep 1 2020 00:02:48 GMT+0300",
-            actionType: "has closed ticket",
-            ticketNumber: "#581d171e89e81e1"
+            actionType: "edited ticket",
+            ticketNumber: "5ec1e2852e54c7392692457c"
         },
         {
             dateTime: "May 3 2020 00:02:48 GMT+0300",
             actionType: "edited ticket",
-            ticketNumber: "#5g15rw42wer251"
+            ticketNumber: "5ec1e2d82e54c7392692457d"
         },
         {
             dateTime: "Oct 4 2020 00:02:48 GMT+0300",
-            actionType: "added comment to the ticket",
-            ticketNumber: "#56hwq5t216g61"
+            actionType: "edited ticket",
+            ticketNumber: "5ec27aabd159332e5bc2cd4d"
         },
         {
             dateTime: "Jun 6 2020 00:02:48 GMT+0300",
             actionType: "created ticket",
-            ticketNumber: "#5q15g6ru4uh64w"
+            ticketNumber: "5ec27a73d159332e5bc2cd49"
         }
     ],
 };

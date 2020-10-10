@@ -344,10 +344,6 @@
       box-shadow: 0 5px 45px rgba(32, 32, 32, 0.1);
       min-height: 300px;
 
-      @media (max-width: 576px) {
-        padding: 20px 0;
-      }
-
       .jneUDS > *,
       .dNbWJJ > *,
       .ckAHgq > * {
@@ -387,6 +383,36 @@
           height: 100%;
         }
       }
+
+      @media screen and (max-width: 768px) {
+        &.home {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        &-item {
+          &.account_activities {
+            width: 100%;
+          }
+          &.account_profile {
+           align-self: flex-start;
+          }
+
+          &:first-child{
+            margin-right: 0;
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        &-item {
+          &.account_profile {
+            width: 100%;
+          }
+        }
+
+      }
     }
   }
 }
@@ -399,8 +425,8 @@
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  min-width: 226px;
   border-radius: 5px;
-
 
 
   &-details {
@@ -424,9 +450,10 @@
       border: 1px solid $color-smarts-secondary;
       -webkit-box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
       box-shadow: 0 0 20px rgba(241, 141, 55, 0.4);
+      transition: 0.2s;
 
       &-content {
-         height: 120px;
+        height: 120px;
         width: 120px;
 
         img {
@@ -434,6 +461,11 @@
           height: 100%;
           border-radius: 50%;
         }
+      }
+
+      &:hover {
+        -webkit-box-shadow: 0 0 25px rgba(241, 141, 55, 0.5);
+        box-shadow: 0 0 25px rgba(241, 141, 55, 0.5);
       }
     }
 
@@ -459,6 +491,7 @@
 
   &-stats {
     padding: 20px;
+
     &__related-tickets {
       width: 100%;
     }
@@ -493,6 +526,10 @@
       }
     }
   }
+
+  @media screen and (max-width: 576px) {
+    max-width: 100%;
+  }
 }
 
 /* ------------------------------------------
@@ -511,7 +548,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     &::before {
       background-color: $color-smarts-main;
@@ -520,6 +557,7 @@
       left: calc(21% - 2px);
       width: 3px;
       height: 100%;
+      transition: 0.1s;
     }
 
     &-item {
@@ -549,6 +587,10 @@
         &-number a {
           font-family: $font-medium;
           text-transform: uppercase;
+
+          &:hover {
+            color: $color-smarts-secondary;
+          }
         }
 
         &-username,
@@ -561,14 +603,56 @@
         background-color: $color-white;
         border: 3px solid $color-smarts-main;
         position: absolute;
-        width: 19px;
-        height: 19px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         left: calc(21% - 10px);
         z-index: 5;
+        transition: left 0.1s, transform 0.2s;
+      }
+
+      &:hover &__circle {
+        transform: scale(1.2);
       }
     }
   }
+
+  @media screen and (max-width: 992px) {
+    &-body {
+
+      &::before {
+        background-color: $color-smarts-main;
+        content: '';
+        position: absolute;
+        left: 8px;
+        width: 3px;
+        height: 100%;
+      }
+
+      &-item {
+        flex-direction: column;
+
+        &__date {
+          width: 100%;
+          order: 2;
+          //padding-right: 0;
+          //padding-left: 30px;
+          padding: 5px 0 0 30px;
+        }
+
+        &__text {
+          width: 100%;
+          order: 1;
+          padding-left: 30px;
+        }
+
+        &__circle {
+          left: 0;
+        }
+      }
+    }
+  }
+
 }
 
 /* ------------------------------------------
@@ -580,7 +664,7 @@
     padding-right: 5px;
   }
 
-  .layout-content__elements {
+  &-content__elements {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -606,7 +690,7 @@
   }
 
   @media (max-width: 576px) {
-    .layout-content__elements {
+    &-content__elements {
       flex-direction: column;
       align-items: center;
 
@@ -625,6 +709,12 @@
 
       :-ms-input-placeholder {
         text-align: center;
+      }
+    }
+
+    &-content__body {
+      &.tickets-table-content {
+        padding: 20px 0;
       }
     }
   }
@@ -779,7 +869,7 @@
       width: 47%;
     }
 
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
       flex-direction: column;
 
       .smarts-ticket-form {

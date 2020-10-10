@@ -2,7 +2,7 @@ import React from "react";
 import {Container} from "react-bootstrap";
 import {connect} from "react-redux";
 import TopMenu from "../global/navigation/TopMenu";
-import {CLIENTS_ROUTE, TICKETS_ROUTE} from "../global/constants/routes";
+import {TICKETS_ROUTE} from "../global/constants/routes";
 import {changeField} from "../global/actions/StandardActions";
 import {bindActionCreators} from "redux";
 import {fetchTicketsAction} from "../modules/tickets/actions/FetchTicketsAction";
@@ -14,7 +14,7 @@ class TicketDetailsLayout extends React.Component {
     componentDidMount() {
         const {tickets} = this.props;
         if (!tickets.isFetching && ! tickets.isLoaded){
-            //this.props.fetchTicketsAction();
+            this.props.fetchTicketsAction();
         }
     }
 
@@ -26,7 +26,7 @@ class TicketDetailsLayout extends React.Component {
                 <div className="layout">
                     <div className="layout-header">
                         <Container>
-                            <TopMenu active={CLIENTS_ROUTE}/>
+                            <TopMenu active={TICKETS_ROUTE}/>
                         </Container>
                     </div>
                     <div className="layout-content">
@@ -35,8 +35,8 @@ class TicketDetailsLayout extends React.Component {
                                 <h3>Ticket details</h3>
                             </div>
                             <div className="layout-content__body">
-                                {/*{selectedTicket ? <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> : <LoopCircleLoading/>}*/}
-                                <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/>
+                                {selectedTicket ? <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> : <LoopCircleLoading/>}
+                                {/*<TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/>*/}
                             </div>
                         </Container>
                     </div>

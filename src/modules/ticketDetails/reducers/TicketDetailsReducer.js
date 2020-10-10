@@ -2,7 +2,6 @@ import {ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET, getAction} from ".
 import {CREATE_TICKET_DETAILS_COMMENT_ACTION, TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
 
 const initialState = {
-    changeEditMode: false,
     ticketNumber: "15741",
     ticketName: "Payed twice for the invoice",
     clientName: "Peeter Goldberg",
@@ -14,8 +13,7 @@ const initialState = {
     invoiceNumber: "4234235235235",
     type: "Payments",
     priority: "Medium",
-    description: "Money was withdrawn twice from a bank. " +
-        "The amount was high and the client asks to hurry up with the return of funds.",
+    description: "Money was withdrawn twice from a bank. The amount was high and the client asks to hurry up with the return of funds.",
     comments: [
         {
             datetime: "Sep 1 2020 14:00:48 GMT+0300",

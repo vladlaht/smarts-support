@@ -2,8 +2,7 @@ import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {DropdownButton, Dropdown} from "react-bootstrap";
-import {IoMdLogOut, IoMdClipboard} from "react-icons/io"
-import {MdSettings} from "react-icons/md"
+import {IoMdLogOut} from "react-icons/io"
 import Username from "./Username";
 import {OPEN_PROFILE_ACTION} from "../../constants/ReducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
