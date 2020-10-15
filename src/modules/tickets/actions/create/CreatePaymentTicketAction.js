@@ -1,8 +1,8 @@
 import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAction} from "../../../../global/constants/action-types";
-import {CREATE_PAYMENTS_TICKET} from "../../constants/ReducerConstants";
+import {CREATE_PAYMENTS_TICKET_ACTION} from "../../constants/ReducerConstants";
 import {createTicketAction} from "../CreateTicketAction";
 
-export function createPaymentTicket() {
+export function createPaymentTicketAction() {
     return (dispatch, getState) => {
         const form = getState().createPaymentTicketForm;
         const type = getState().createTicket.ticketType;
@@ -26,20 +26,20 @@ export function createPaymentTicket() {
 
 function start() {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET, ACTION_STATUS_START)
+        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_START)
     }
 }
 
 function success(payload) {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET, ACTION_STATUS_SUCCESS),
+        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_SUCCESS),
         payload,
     }
 }
 
 function failed(error) {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET, ACTION_STATUS_FAILED),
+        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_FAILED),
         error
     }
 }

@@ -13,7 +13,7 @@ class TicketDetailsLayout extends React.Component {
 
     componentDidMount() {
         const {tickets} = this.props;
-        if (!tickets.isFetching && ! tickets.isLoaded){
+        if (!tickets.isFetching && !tickets.isLoaded) {
             this.props.fetchTicketsAction();
         }
     }
@@ -35,8 +35,9 @@ class TicketDetailsLayout extends React.Component {
                                 <h3>Ticket details</h3>
                             </div>
                             <div className="layout-content__body">
-                                {selectedTicket ? <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> : <LoopCircleLoading/>}
-                                {/*<TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/>*/}
+                                {selectedTicket ?
+                                    <TicketDetails selectedTicket={selectedTicket ? selectedTicket : ""}/> :
+                                    <LoopCircleLoading/>}
                             </div>
                         </Container>
                     </div>
@@ -48,13 +49,12 @@ class TicketDetailsLayout extends React.Component {
 
 const mapStateToProps = (state) => ({
         tickets: state.tickets,
-        details: state.ticketDetails
     }
 );
 
-const mapDispatchToProps = dispatch => (bindActionCreators({
+const mapDispatchToProps = (dispatch) => (bindActionCreators({
     changeField,
-    fetchTicketsAction,
+    fetchTicketsAction
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketDetailsLayout);

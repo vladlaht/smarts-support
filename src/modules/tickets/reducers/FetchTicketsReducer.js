@@ -4,7 +4,11 @@ import {
     ACTION_STATUS_SUCCESS,
     getAction
 } from "../../../global/constants/action-types";
-import {FETCH_TICKET_ACTION, UPDATE_TICKETS_MASSIVE_ACTION,} from "../constants/ReducerConstants";
+import {
+    CREATE_PAYMENTS_TICKET_DEMO_ACTION,
+    FETCH_TICKET_ACTION,
+    UPDATE_TICKETS_MASSIVE_ACTION,
+} from "../constants/ReducerConstants";
 
 const initialState = {
     data: [],
@@ -38,6 +42,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 [action.payload.field]: action.payload.value
+            };
+        case CREATE_PAYMENTS_TICKET_DEMO_ACTION:
+            return {
+                ...state,
+                // data: state.data ? [...state.data, action.payload] : [action.payload]
+                data: [...state.data, action.payload]
             };
         default:
             return state;

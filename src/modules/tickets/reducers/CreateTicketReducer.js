@@ -7,7 +7,7 @@ import {
 } from "../../../global/constants/action-types";
 
 const initialState = {
-    modalIsOpen: false,
+    modalIsOpen: null,
     ticketType: null
 };
 export default function reducer(state = initialState, action) {

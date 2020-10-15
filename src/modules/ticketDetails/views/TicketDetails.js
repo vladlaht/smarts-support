@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import AccountCard from "../../account/views/cards/Username";
-import {changeField} from "../../../global/actions/StandardActions";
+import {changeField, reset} from "../../../global/actions/StandardActions";
 import {addComment} from "../actions/TicketDetailsAction";
 import {addAction} from "../../accountDetails/actions/AccountDetailsAction";
 import EdiText from "react-editext";
@@ -10,37 +10,46 @@ import {TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
 import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "../../tickets/constants";
 import {ADDED_COMMENT, CLOSED_TICKET, EDITED_TICKET, OPENED_TICKET}
     from "../../accountDetails/constants/ActivityConstants";
+import {fetchTicketDetails} from "../actions/FetchTicketDetailsAction";
+
 
 class TicketDetails extends React.Component {
+
+    componentDidMount() {
+        const {reset, selectedTicket, fetchTicketDetails} = this.props;
+        reset(TICKET_DETAILS_ACTION);
+        fetchTicketDetails(selectedTicket);
+    }
 
     componentDidUpdate() {
         this.commentText.value = "";
     }
 
     saveComment = () => {
+        const {addAction, addComment, details} = this.props;
         if (this.commentText.value.length > 0) {
-            console.log("this.props.commentText.value", this.commentText.value.length);
-            this.props.addComment(this.commentText.value);
-            this.props.addAction({actionType: ADDED_COMMENT, ticketNumber: "#" + this.props.details.ticketNumber});
+            addComment(this.commentText.value);
+            addAction({actionType: ADDED_COMMENT, ticketNumber: "#" + details.ticketNumber});
         }
     };
 
     handleFieldChange(field, value) {
-        const {changeField, addAction, selectedTicket} = this.props;
-        changeField(TICKET_DETAILS_ACTION, field, value);
-        if (field === "status" && value === "Closed") {
-            addAction({actionType: CLOSED_TICKET, ticketNumber: selectedTicket.id});
-        } else if (field === "status" && value === "Open") {
-            addAction({actionType: OPENED_TICKET, ticketNumber: selectedTicket.id});
-        } else {
-            addAction({actionType: EDITED_TICKET, ticketNumber: selectedTicket.id});
+        const {changeField, addAction, details} = this.props;
+        if (details[field] !== value) {
+            changeField(TICKET_DETAILS_ACTION, field, value);
+            if (field === "status" && value === "Closed") {
+                addAction({actionType: CLOSED_TICKET, ticketNumber: details.id});
+            } else if (field === "status" && value === "Open") {
+                addAction({actionType: OPENED_TICKET, ticketNumber: details.id});
+            } else {
+                addAction({actionType: EDITED_TICKET, ticketNumber: details.id});
+            }
         }
     };
 
     render() {
-        const {details, accountDetails, selectedTicket} = this.props;
-
-        details.comments.sort((a, b) => {
+        const {details, accountDetails} = this.props;
+        details.comments && details.comments.sort((a, b) => {
             let dateA = new Date(a.datetime);
             let dateB = new Date(b.datetime);
             return dateB - dateA;
@@ -58,34 +67,34 @@ class TicketDetails extends React.Component {
                                         <div className="module-list-item__title">Ticket number:</div>
                                         <EdiText viewProps={{className: "module-list-item__value"}}
                                                  showButtonsOnHover editOnViewClick={true} type="number"
-                                                 value={`${selectedTicket.ticketNumber}`}
+                                                 value={`${details.ticketNumber}`}
                                                  onSave={(value) => this.handleFieldChange("ticketNumber", value)}/>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Ticket name:</div>
                                         <EdiText viewProps={{className: "module-list-item__value"}}
                                                  showButtonsOnHover editOnViewClick={true} type="text"
-                                                 value={selectedTicket.ticketName}
+                                                 value={details.ticketName}
                                                  onSave={(value) => this.handleFieldChange("ticketName", value)}/>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Invoice number:</div>
                                         <EdiText viewProps={{className: "module-list-item__value"}}
                                                  showButtonsOnHover editOnViewClick={true} type="text"
-                                                 value={selectedTicket.invoiceNumber}
+                                                 value={details.invoiceNumber}
                                                  onSave={(value) => this.handleFieldChange("invoiceNumber", value)}/>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Type:</div>
-                                        <div className="module-list-item__value">{selectedTicket.type}</div>
+                                        <div className="module-list-item__value">{details.type}</div>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Priority:</div>
                                         <select defaultValue="default"
-                                                className={["module-list-item__value", "ticket-priority", `priority-${selectedTicket.priority}`.toLowerCase()].join(" ")}
+                                                className={["module-list-item__value", "ticket-priority", `priority-${details.priority}`.toLowerCase()].join(" ")}
                                                 onChange={(e) => this.handleFieldChange("priority", e.target.value)}>
                                             <option value="default"
-                                                    disabled>{selectedTicket.priority}</option>
+                                                    disabled>{details.priority}</option>
                                             {AVAILABLE_TICKET_PRIORITY_TYPES.map(
                                                 type => <option key={type} value={type}>{type}</option>)}
                                         </select>
@@ -94,7 +103,7 @@ class TicketDetails extends React.Component {
                                         <div className="module-list-item__title">Status:</div>
                                         <select defaultValue="default"
                                                 onChange={(e) => this.handleFieldChange("status", e.target.value)}>
-                                            <option value="default" disabled>{selectedTicket.status}</option>
+                                            <option value="default" disabled>{details.status}</option>
                                             {AVAILABLE_TICKET_STATUS_TYPES.map(
                                                 status => <option key={status} value={status}>{status}</option>)}
                                         </select>
@@ -111,19 +120,19 @@ class TicketDetails extends React.Component {
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Client:</div>
                                         <EdiText viewProps={{className: "module-list-item__value"}} showButtonsOnHover
-                                                 editOnViewClick={true} type="text" value={selectedTicket.clientName}
+                                                 editOnViewClick={true} type="text" value={details.clientName}
                                                  onSave={(value) => this.handleFieldChange("clientName", value)}/>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Created by:</div>
                                         <div className="module-list-item__value">
-                                            <AccountCard fullname={selectedTicket.createdBy}/>
+                                            <AccountCard fullname={details.createdBy}/>
                                         </div>
                                     </li>
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Assignee:</div>
                                         <div className="module-list-item__value">
-                                            <AccountCard fullname={selectedTicket.assignee}/>
+                                            <AccountCard fullname={details.assignee}/>
                                         </div>
                                     </li>
 
@@ -137,13 +146,13 @@ class TicketDetails extends React.Component {
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Created at:</div>
                                         <div
-                                            className="module-list-item__value">{new Date(selectedTicket.createdAt).toLocaleString()}</div>
+                                            className="module-list-item__value">{new Date(details.createdAt).toLocaleString()}</div>
                                     </li>
-                                    {selectedTicket.updatedAt ?
+                                    {details.updatedAt ?
                                         <li className="module-list-item">
                                             <div className="module-list-item__title">Updated at:</div>
                                             <div
-                                                className="module-list-item__value">{new Date(selectedTicket.updatedAt).toLocaleString()}</div>
+                                                className="module-list-item__value">{new Date(details.updatedAt).toLocaleString()}</div>
                                         </li>
                                         : null}
                                 </ul>
@@ -157,7 +166,7 @@ class TicketDetails extends React.Component {
                             <div className="module-header">Description</div>
                             <div className="module-content">
                                 <EdiText type="textarea" showButtonsOnHover editOnViewClick={true}
-                                         value={selectedTicket.description}
+                                         value={details.description}
                                          onSave={(value) => this.handleFieldChange("description", value)}/>
                             </div>
                         </div>
@@ -165,10 +174,10 @@ class TicketDetails extends React.Component {
                     <div className="ticket-details-secondary-comments">
                         <div className="module">
                             <div className="module-header">Comments
-                                ({selectedTicket.comments ? selectedTicket.comments.length : "0"})
+                                ({details.comments ? details.comments.length : "0"})
                             </div>
                             <div className="module-content">
-                                {selectedTicket && selectedTicket.comments && selectedTicket.comments.map((comment, key) => {
+                                {details && details.comments && details.comments.map((comment, key) => {
                                     return (
                                         <ul key={key} className="module-list comment">
                                             <li className="author">
@@ -211,7 +220,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
     addComment,
-    addAction
+    addAction,
+    fetchTicketDetails,
+    reset
 }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketDetails);

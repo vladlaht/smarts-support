@@ -14,16 +14,15 @@ import {LoopCircleLoading} from 'react-loadingg';
 class TicketsTable extends React.Component {
 
     componentDidMount() {
-        this.props.reset(TICKET_TABLE_ACTION);
-        const {tickets} = this.props;
-        if (!tickets.isFetching && ! tickets.isLoaded){
-            //this.props.fetchTicketsAction();
+        const {tickets, reset, fetchTicketsAction} = this.props;
+        reset(TICKET_TABLE_ACTION);
+        if (!tickets.isFetching && !tickets.isLoaded) {
+           // fetchTicketsAction()
         }
     }
 
     typeHandler() {
         const {ticketsTableData, changeField} = this.props;
-
         if (ticketsTableData.sortType.indexOf("asc") > -1) {
             changeField(TICKET_TABLE_ACTION, "sortType", "desc");
             return "desc"
@@ -44,20 +43,22 @@ class TicketsTable extends React.Component {
     getFilteredData() {
         const {ticketsTableData, tickets} = this.props;
         const filterField = ticketsTableData.filterField;
-
+        const sortField = ticketsTableData.sortField === "ticketNumber" ? "ticketNumber" : ticketsTableData.sortField;
+        const sortType = ticketsTableData.sortType === "desc" ? "desc" : "asc";
         if (!filterField) {
-            return tickets.data;
+            return _.orderBy(tickets.data, sortField, sortType);
+        } else {
+            return tickets.data.filter(item => {
+                return item["ticketName"].toLowerCase().includes(filterField.toLowerCase())
+                    || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
+                    || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
+                    || item["status"].toLowerCase().includes(filterField.toLowerCase())
+            })
         }
-        return tickets.data.filter(item => {
-            return item["ticketName"].toLowerCase().includes(filterField.toLowerCase())
-                || item["clientName"].toLowerCase().includes(filterField.toLowerCase())
-                || item["assignee"].toLowerCase().includes(filterField.toLowerCase())
-                || item["status"].toLowerCase().includes(filterField.toLowerCase())
-        })
     }
 
     render() {
-        const {ticketsTableData, details} = this.props;
+        const {ticketsTableData} = this.props;
         const pageSize = 10;
         const filteredData = this.getFilteredData();
         const pageCount = Math.ceil(filteredData.length / pageSize);
@@ -72,22 +73,40 @@ class TicketsTable extends React.Component {
                     <thead className="ticket-table__head">
                     <tr>
                         <th onClick={() => this.onSort("ticketNumber")}>
-                            Number {ticketsTableData.sortField === "ticketNumber" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                               Number {ticketsTableData.sortField === "ticketNumber" ? iconType : null}
+                            </span>
+
                         </th>
                         <th onClick={() => this.onSort("ticketName")}>
-                            Ticket name {ticketsTableData.sortField === "ticketName" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                                  Ticket name {ticketsTableData.sortField === "ticketName" ? iconType : null}
+                            </span>
+
                         </th>
                         <th onClick={() => this.onSort("clientName")}>
-                            Client name {ticketsTableData.sortField === "clientName" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                                Client name {ticketsTableData.sortField === "clientName" ? iconType : null}
+                            </span>
+
                         </th>
                         <th onClick={() => this.onSort("assignee")}>
-                            Assignee {ticketsTableData.sortField === "assignee" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                                 Assignee {ticketsTableData.sortField === "assignee" ? iconType : null}
+                            </span>
+
                         </th>
                         <th onClick={() => this.onSort("createdAt")}>
-                            Created at {ticketsTableData.sortField === "createdAt" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                                 Created at {ticketsTableData.sortField === "createdAt" ? iconType : null}
+                            </span>
+
                         </th>
                         <th onClick={() => this.onSort("status")}>
-                            Status {ticketsTableData.sortField === "status" ? iconType : null}
+                            <span className="ticket-table__head-col-name">
+                                Status {ticketsTableData.sortField === "status" ? iconType : null}
+                            </span>
+
                         </th>
                     </tr>
                     </thead>
@@ -111,24 +130,12 @@ class TicketsTable extends React.Component {
                             )
                         )
                     }
-                    {/*<tr>*/}
-                    {/*    <td>*/}
-                    {/*        <Link to="/tickets/details">*/}
-                    {/*            {details.ticketNumber}*/}
-                    {/*        </Link>*/}
-                    {/*    </td>*/}
-                    {/*    <td>{details.ticketName}</td>*/}
-                    {/*    <td>{details.clientName}</td>*/}
-                    {/*    <td>{details.assignee}</td>*/}
-                    {/*    <td>{new Date(details.createdAt).toLocaleString()}</td>*/}
-                    {/*    <td>{details.status}</td>*/}
-                    {/*</tr>*/}
                     </tbody>
                 </Table>
                 {filteredData.length > pageSize
                     ? <TicketTablePagination pageCount={pageCount}
                                              ticketsTableData={ticketsTableData}/>
-                    : null}
+                     : null}
             </React.Fragment>
         )
     }

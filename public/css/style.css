@@ -613,8 +613,8 @@ img {
   border-radius: 5px;
 }
 .layout-content__elements .smarts-input:hover, .layout-content__elements .smarts-input:focus {
-  box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
 }
 .layout-content__elements .new-ticket-button {
   width: 210px;
@@ -648,12 +648,15 @@ img {
 .ticket-table__head {
   font-size: 14px;
 }
-.ticket-table__head .table-sort-icon {
+.ticket-table__head th {
+  border-top: none !important;
+}
+.ticket-table__head th .table-sort-icon {
   height: 17px;
   width: auto;
 }
-.ticket-table__head th {
-  border-top: none !important;
+.ticket-table__head-col-name:hover {
+  cursor: pointer;
 }
 .ticket-table__body {
   font-family: GothamProLight;

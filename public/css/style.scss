@@ -394,11 +394,12 @@
           &.account_activities {
             width: 100%;
           }
+
           &.account_profile {
-           align-self: flex-start;
+            align-self: flex-start;
           }
 
-          &:first-child{
+          &:first-child {
             margin-right: 0;
             margin-bottom: 40px;
           }
@@ -679,8 +680,8 @@
 
       &:hover,
       &:focus {
-        box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
-        -webkit-box-shadow: 0 0 3px 0.1px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -729,13 +730,19 @@
   &__head {
     font-size: 14px;
 
-    .table-sort-icon {
-      height: 17px;
-      width: auto;
-    }
-
     th {
       border-top: none !important;
+
+      .table-sort-icon {
+        height: 17px;
+        width: auto;
+      }
+    }
+
+    &-col-name {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
