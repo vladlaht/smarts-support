@@ -856,6 +856,41 @@
     border-top: none !important;
   }
 
+  .smarts-ticket-form {
+    position: relative;
+    font-size: 15px;
+      margin-bottom: 40px;
+
+    .smarts-ticket-selector-label {
+      color: #8C8C8C;
+      font-size: 13px;
+      margin-bottom: 0 !important;
+    }
+
+    .smarts-ticket-label {
+      position: absolute;
+      pointer-events: none;
+      top: 26%;
+      left: 10px;
+      transition: 0.2s ease all;
+      color: #8C8C8C;
+    }
+
+    .smarts-input,
+    .smarts-textarea {
+      &:focus ~ .smarts-ticket-label,
+      &:not(:focus):valid ~ .smarts-ticket-label {
+        top: -17px;
+        left: 0;
+        font-size: 13px;
+      }
+    }
+
+    .smarts-ticket-error-text {
+      color: red;
+      font-size: 13px;
+    }
+  }
 
   .ticket-create-button-area {
     display: flex;
@@ -885,42 +920,6 @@
     }
   }
 }
-
-.smarts-ticket-form {
-  position: relative;
-  font-size: 15px;
-
-  &.form-group {
-    margin-bottom: 30px;
-  }
-
-
-  .smarts-ticket-selector-label {
-    color: #8C8C8C;
-    font-size: 13px;
-    margin-bottom: 0 !important;
-  }
-
-  .smarts-ticket-label {
-    position: absolute;
-    pointer-events: none;
-    top: 26%;
-    left: 10px;
-    transition: 0.2s ease all;
-    color: #8C8C8C;
-  }
-
-  .smarts-input,
-  .smarts-textarea {
-    &:focus ~ .smarts-ticket-label,
-    &:not(:focus):valid ~ .smarts-ticket-label {
-      top: -17px;
-      left: 0;
-      font-size: 13px;
-    }
-  }
-}
-
 
 /* ------------------------------------------
  TICKET DETAILS

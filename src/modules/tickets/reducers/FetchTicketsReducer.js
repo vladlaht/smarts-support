@@ -46,7 +46,6 @@ export default function reducer(state = initialState, action) {
         case CREATE_PAYMENTS_TICKET_DEMO_ACTION:
             return {
                 ...state,
-                // data: state.data ? [...state.data, action.payload] : [action.payload]
                 data: [...state.data, action.payload]
             };
         default:

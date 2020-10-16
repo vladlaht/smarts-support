@@ -9,9 +9,10 @@ export function createPaymentTicketDemo() {
     return (dispatch, getState) => {
         const form = getState().createPaymentTicketForm;
         const type = getState().createTicket.ticketType;
+        const currentTimeInMs = new Date().getTime();
 
         const payload = {
-            id: form.id ,
+            id: `${currentTimeInMs}`,
             type: type,
             assignee: form.assignee,
             priority: form.priority,
@@ -20,9 +21,9 @@ export function createPaymentTicketDemo() {
             invoiceNumber: form.invoiceNumber,
             description: form.description,
             createdBy: form.createdBy,
-            createdAt: form.createdAt,
+            createdAt: currentTimeInMs,
             status: form.status,
-            ticketNumber: form.ticketNumber,
+            ticketNumber: Math.round(currentTimeInMs / 1000),
         };
         dispatch(start());
         dispatch(createTicketDemo(payload))

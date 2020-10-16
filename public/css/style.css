@@ -749,6 +749,35 @@ img {
   border-bottom: none !important;
   border-top: none !important;
 }
+.ticket-modal-content .smarts-ticket-form {
+  position: relative;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+.ticket-modal-content .smarts-ticket-form .smarts-ticket-selector-label {
+  color: #8C8C8C;
+  font-size: 13px;
+  margin-bottom: 0 !important;
+}
+.ticket-modal-content .smarts-ticket-form .smarts-ticket-label {
+  position: absolute;
+  pointer-events: none;
+  top: 26%;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #8C8C8C;
+}
+.ticket-modal-content .smarts-ticket-form .smarts-input:focus ~ .smarts-ticket-label, .ticket-modal-content .smarts-ticket-form .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
+.ticket-modal-content .smarts-ticket-form .smarts-textarea:focus ~ .smarts-ticket-label,
+.ticket-modal-content .smarts-ticket-form .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
+  top: -17px;
+  left: 0;
+  font-size: 13px;
+}
+.ticket-modal-content .smarts-ticket-form .smarts-ticket-error-text {
+  color: red;
+  font-size: 13px;
+}
 .ticket-modal-content .ticket-create-button-area {
   display: flex;
   justify-content: flex-end;
@@ -772,34 +801,6 @@ img {
   .ticket-modal-content .payments-form-selectors .smarts-ticket-form {
     width: 100%;
   }
-}
-
-.smarts-ticket-form {
-  position: relative;
-  font-size: 15px;
-}
-.smarts-ticket-form.form-group {
-  margin-bottom: 30px;
-}
-.smarts-ticket-form .smarts-ticket-selector-label {
-  color: #8C8C8C;
-  font-size: 13px;
-  margin-bottom: 0 !important;
-}
-.smarts-ticket-form .smarts-ticket-label {
-  position: absolute;
-  pointer-events: none;
-  top: 26%;
-  left: 10px;
-  transition: 0.2s ease all;
-  color: #8C8C8C;
-}
-.smarts-ticket-form .smarts-input:focus ~ .smarts-ticket-label, .smarts-ticket-form .smarts-input:not(:focus):valid ~ .smarts-ticket-label,
-.smarts-ticket-form .smarts-textarea:focus ~ .smarts-ticket-label,
-.smarts-ticket-form .smarts-textarea:not(:focus):valid ~ .smarts-ticket-label {
-  top: -17px;
-  left: 0;
-  font-size: 13px;
 }
 
 /* ------------------------------------------
