@@ -12,9 +12,9 @@ import {LoopCircleLoading} from "react-loadingg";
 class TicketDetailsLayout extends React.Component {
 
     componentDidMount() {
-        const {tickets} = this.props;
+        const {tickets, fetchTicketsAction} = this.props;
         if (!tickets.isFetching && !tickets.isLoaded) {
-            this.props.fetchTicketsAction();
+            fetchTicketsAction();
         }
     }
 

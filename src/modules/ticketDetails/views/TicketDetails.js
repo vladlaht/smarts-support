@@ -11,6 +11,7 @@ import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "..
 import {ADDED_COMMENT, CLOSED_TICKET, EDITED_TICKET, OPENED_TICKET}
     from "../../accountDetails/constants/ActivityConstants";
 import {fetchTicketDetails} from "../actions/FetchTicketDetailsAction";
+import {updateTicket} from "../../tickets/actions/create/UpdateTicketAction";
 
 
 class TicketDetails extends React.Component {
@@ -29,12 +30,12 @@ class TicketDetails extends React.Component {
         const {addAction, addComment, details} = this.props;
         if (this.commentText.value.length > 0) {
             addComment(this.commentText.value);
-            addAction({actionType: ADDED_COMMENT, ticketNumber: "#" + details.ticketNumber});
+            addAction({actionType: ADDED_COMMENT, ticketNumber: details.ticketNumber});
         }
     };
 
     handleFieldChange(field, value) {
-        const {changeField, addAction, details} = this.props;
+        const {changeField, addAction, details, updateTicket} = this.props;
         if (details[field] !== value) {
             changeField(TICKET_DETAILS_ACTION, field, value);
             if (field === "status" && value === "Closed") {
@@ -44,6 +45,7 @@ class TicketDetails extends React.Component {
             } else {
                 addAction({actionType: EDITED_TICKET, ticketNumber: details.id});
             }
+            updateTicket(field,value);
         }
     };
 
@@ -126,7 +128,8 @@ class TicketDetails extends React.Component {
                                     <li className="module-list-item">
                                         <div className="module-list-item__title">Created by:</div>
                                         <div className="module-list-item__value">
-                                            <AccountCard fullname={details.createdBy}/>
+                                            <AccountCard fullname={details.createdBy}
+                                                         photo={accountDetails.userDetails.photo}/>
                                         </div>
                                     </li>
                                     <li className="module-list-item">
@@ -213,7 +216,8 @@ class TicketDetails extends React.Component {
 
 const mapStateToProps = state => ({
         accountDetails: state.accountDetails,
-        details: state.ticketDetails
+        details: state.ticketDetails,
+        tickets: state.tickets,
     }
 );
 
@@ -221,6 +225,7 @@ const mapDispatchToProps = dispatch => (bindActionCreators({
     changeField,
     addComment,
     addAction,
+    updateTicket,
     fetchTicketDetails,
     reset
 }, dispatch));

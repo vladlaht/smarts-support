@@ -7,7 +7,7 @@ import _ from "lodash";
 import {changeField, reset} from "../../../../global/actions/StandardActions";
 import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
 import {BiDownArrowAlt, BiUpArrowAlt} from 'react-icons/bi';
-import {TICKET_TABLE_ACTION, UPDATE_TICKETS_MASSIVE_ACTION} from "../../constants/ReducerConstants";
+import {TICKET_TABLE_ACTION, REORDER_TICKETS_ACTION} from "../../constants/ReducerConstants";
 import TicketTablePagination from "../cards/TicketTablePagination";
 import {LoopCircleLoading} from 'react-loadingg';
 
@@ -17,7 +17,7 @@ class TicketsTable extends React.Component {
         const {tickets, reset, fetchTicketsAction} = this.props;
         reset(TICKET_TABLE_ACTION);
         if (!tickets.isFetching && !tickets.isLoaded) {
-           // fetchTicketsAction()
+            fetchTicketsAction()
         }
     }
 
@@ -36,7 +36,7 @@ class TicketsTable extends React.Component {
         const {tickets, changeField} = this.props;
         const sortType = this.typeHandler();
         const orderedData = _.orderBy(tickets.data, sortField, sortType);
-        changeField(UPDATE_TICKETS_MASSIVE_ACTION, "data", orderedData);
+        changeField(REORDER_TICKETS_ACTION, "data", orderedData);
         changeField(TICKET_TABLE_ACTION, "sortField", sortField);
     };
 

@@ -281,6 +281,7 @@ img {
   width: 100%;
   background: #655290;
   z-index: 10;
+  border-bottom: 1px solid #f68d37;
 }
 @media screen and (min-width: 1200px) {
   .layout-header .container {
@@ -403,7 +404,7 @@ img {
   display: flex;
   flex-direction: column;
   max-width: 300px;
-  min-width: 226px;
+  min-width: 240px;
   border-radius: 5px;
 }
 .profile-details {
@@ -563,7 +564,7 @@ img {
   transition: left 0.1s, transform 0.2s;
 }
 .activities-body-item:hover .activities-body-item__circle {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 @media screen and (max-width: 992px) {
   .activities-body::before {
@@ -595,7 +596,10 @@ img {
 /* ------------------------------------------
  TICKETS LAYOUT
  ------------------------------------------ */
-.layout .tickets-table-issues {
+.layout .tickets-table-issue {
+  margin-bottom: 8px;
+}
+.layout .tickets-table-issue-text {
   font-family: GothamProLight;
   padding-right: 5px;
 }

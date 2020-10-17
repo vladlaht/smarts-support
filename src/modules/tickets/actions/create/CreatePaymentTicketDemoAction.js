@@ -1,5 +1,5 @@
 import {
-    CREATE_PAYMENTS_TICKET_DEMO_ACTION,
+    CREATE_PAYMENT_TICKET_DEMO_ACTION,
     CREATE_TICKET_ACTION
 } from "../../constants/ReducerConstants";
 import {ACTION_STATUS_START, getAction} from "../../../../global/constants/action-types";
@@ -39,7 +39,7 @@ function start() {
 
 function createTicketDemo(payload) {
     return {
-        type: CREATE_PAYMENTS_TICKET_DEMO_ACTION,
+        type: CREATE_PAYMENT_TICKET_DEMO_ACTION,
         payload,
     }
 }

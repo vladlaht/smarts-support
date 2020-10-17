@@ -14,7 +14,6 @@ export function CreateTicketAPI(body) {
                 case 200:
                     return res.json();
                 case 401:
-                    //dispatch(accountSignOut());
                     throw new Error("Permission denied");
                 default:
                     throw Error("Something went wrong");

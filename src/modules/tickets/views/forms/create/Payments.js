@@ -3,7 +3,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Form} from "react-bootstrap"
 import {changeField, clearErrors, reset} from "../../../../../global/actions/StandardActions";
-import {CREATE_PAYMENTS_TICKET_ACTION} from "../../../constants/ReducerConstants";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../../../constants/ReducerConstants";
 import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants";
 import {capitalizeFirstLetter, countCharacters, splitOnUpperCase} from "../../../../../global/utils/StringUpdates";
 import {createPaymentTicketDemo} from "../../../actions/create/CreatePaymentTicketDemoAction";
@@ -11,29 +11,29 @@ import {createPaymentTicketDemo} from "../../../actions/create/CreatePaymentTick
 class Payments extends React.Component {
 
     componentDidMount() {
-        this.props.reset(CREATE_PAYMENTS_TICKET_ACTION);
+        this.props.reset(CREATE_PAYMENT_TICKET_ACTION);
     }
 
     handleFieldChange = (field, value) => {
         const {changeField} = this.props;
-        changeField(CREATE_PAYMENTS_TICKET_ACTION, field, value);
+        changeField(CREATE_PAYMENT_TICKET_ACTION, field, value);
         if (countCharacters(value) > 0) {
-            changeField(CREATE_PAYMENTS_TICKET_ACTION, field + "Error", null);
+            changeField(CREATE_PAYMENT_TICKET_ACTION, field + "Error", null);
         }
     };
 
     validate = () => {
         const {clearErrors, createPaymentTicketForm, changeField} = this.props;
 
-        clearErrors(CREATE_PAYMENTS_TICKET_ACTION);
+        clearErrors(CREATE_PAYMENT_TICKET_ACTION);
         const validationFields = ["assignee", "priority", "ticketName", "clientName", "invoiceNumber", "description"];
         let isValid = true;
         validationFields.forEach(field => {
             if (createPaymentTicketForm[field] === null || countCharacters(createPaymentTicketForm[field]) <= 0) {
                 if (field === "assignee" || field === "priority") {
-                    changeField(CREATE_PAYMENTS_TICKET_ACTION, field + "Error", "Please select " + field);
+                    changeField(CREATE_PAYMENT_TICKET_ACTION, field + "Error", "Please select " + field);
                 } else {
-                    changeField(CREATE_PAYMENTS_TICKET_ACTION, field + "Error", "Please enter " + splitOnUpperCase(field));
+                    changeField(CREATE_PAYMENT_TICKET_ACTION, field + "Error", "Please enter " + splitOnUpperCase(field));
                 }
                 isValid = false;
             }

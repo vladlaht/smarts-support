@@ -10,7 +10,7 @@ class ProfileDetails extends React.Component {
     componentDidMount() {
         const {tickets} = this.props;
         if (!tickets.isFetching && !tickets.isLoaded) {
-            //this.props.fetchTicketsAction();
+            this.props.fetchTicketsAction();
         }
     }
 
@@ -24,22 +24,11 @@ class ProfileDetails extends React.Component {
         return filterVal.length;
     }
 
-    countAssigneeTickets() {
-        const filterVal = this.props.tickets.data.filter(ticket => ticket.assignee === "Vladislav Lahtarin");
-        return filterVal.length;
-    }
-
     render() {
         const {accountDetails} = this.props;
 
         const finishedTickets = this.countFinishedTickets();
         const openTickets = this.countOpenTickets();
-        const assigneeTickets = this.countAssigneeTickets();
-
-
-        console.log("finishedTickets", finishedTickets);
-        console.log("openTickets", openTickets);
-        console.log("assigneeTickets", assigneeTickets);
 
         return (
             <div className="profile">

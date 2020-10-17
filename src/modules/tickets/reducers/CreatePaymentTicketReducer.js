@@ -1,4 +1,4 @@
-import {CREATE_PAYMENTS_TICKET_ACTION} from "../constants/ReducerConstants";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../constants/ReducerConstants";
 import {
     ACTION_STATUS_FORM_CLEAR_ERRORS,
     ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET,
@@ -28,12 +28,12 @@ const initialState = {
 };
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
+        case getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_FORM_FIELD_CHANGE):
             return {
                 ...state,
                 [action.payload.field]: action.payload.value,
             };
-        case getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_FORM_CLEAR_ERRORS): {
+        case getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_FORM_CLEAR_ERRORS): {
             return {
                 ...state,
                 assigneeError: null,
@@ -44,9 +44,9 @@ export default function reducer(state = initialState, action) {
                 descriptionError: null,
             }
         }
-        case getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_RESET):
+        case getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_RESET):
             return initialState;
-        case getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_SUCCESS):
+        case getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_SUCCESS):
             return initialState;
         default:
             return state;

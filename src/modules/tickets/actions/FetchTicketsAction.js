@@ -1,5 +1,5 @@
 import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAction} from "../../../global/constants/action-types";
-import {FETCH_TICKET_ACTION} from "../constants/ReducerConstants";
+import {FETCH_TICKETS_ACTION} from "../constants/ReducerConstants";
 import {fetchTicketsAPI} from "../api/FetchTicketsAPI";
 
 export function fetchTicketsAction() {
@@ -13,20 +13,20 @@ export function fetchTicketsAction() {
 
 export function start() {
     return {
-        type: getAction(FETCH_TICKET_ACTION, ACTION_STATUS_START)
+        type: getAction(FETCH_TICKETS_ACTION, ACTION_STATUS_START)
     }
 }
 
 export function success(payload) {
     return {
-        type: getAction(FETCH_TICKET_ACTION, ACTION_STATUS_SUCCESS),
+        type: getAction(FETCH_TICKETS_ACTION, ACTION_STATUS_SUCCESS),
         payload
     }
 }
 
 export function failed(error) {
     return {
-        type: getAction(FETCH_TICKET_ACTION, ACTION_STATUS_FAILED),
+        type: getAction(FETCH_TICKETS_ACTION, ACTION_STATUS_FAILED),
         error,
     }
 }

@@ -1,5 +1,5 @@
 import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAction} from "../../../../global/constants/action-types";
-import {CREATE_PAYMENTS_TICKET_ACTION} from "../../constants/ReducerConstants";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../../constants/ReducerConstants";
 import {createTicketAction} from "../CreateTicketAction";
 
 export function createPaymentTicketAction() {
@@ -26,20 +26,20 @@ export function createPaymentTicketAction() {
 
 function start() {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_START)
+        type: getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_START)
     }
 }
 
 function success(payload) {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_SUCCESS),
+        type: getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_SUCCESS),
         payload,
     }
 }
 
 function failed(error) {
     return {
-        type: getAction(CREATE_PAYMENTS_TICKET_ACTION, ACTION_STATUS_FAILED),
+        type: getAction(CREATE_PAYMENT_TICKET_ACTION, ACTION_STATUS_FAILED),
         error
     }
 }

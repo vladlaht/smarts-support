@@ -317,6 +317,7 @@
     width: 100%;
     background: $color-smarts-main;
     z-index: 10;
+    border-bottom: 1px solid $color-smarts-secondary;
 
     .container {
       height: 100%;
@@ -426,7 +427,7 @@
   display: flex;
   flex-direction: column;
   max-width: 300px;
-  min-width: 226px;
+  min-width: 240px;
   border-radius: 5px;
 
 
@@ -613,7 +614,7 @@
       }
 
       &:hover &__circle {
-        transform: scale(1.2);
+        transform: scale(1.25);
       }
     }
   }
@@ -660,9 +661,13 @@
  TICKETS LAYOUT
  ------------------------------------------ */
 .layout {
-  .tickets-table-issues {
-    font-family: $font-light;
-    padding-right: 5px;
+  .tickets-table-issue {
+    margin-bottom: 8px;
+
+    &-text {
+      font-family: $font-light;
+      padding-right: 5px;
+    }
   }
 
   &-content__elements {
@@ -859,7 +864,7 @@
   .smarts-ticket-form {
     position: relative;
     font-size: 15px;
-      margin-bottom: 40px;
+    margin-bottom: 40px;
 
     .smarts-ticket-selector-label {
       color: #8C8C8C;

@@ -1,7 +1,5 @@
 export const TICKET_TYPE_PAYMENTS = "PAYMENTS";
 export const TICKET_TYPE_SOFTWARE = "SOFTWARE_ISSUES";
-// export const TICKET_TYPE_SHOP = "SHOP_ISSUES";
-// export const TICKET_TYPE_HELP = "HELP_NEEDED";
 
 export const TICKET_PRIORITY_HIGH = "High";
 export const TICKET_PRIORITY_MEDIUM= "Medium";
