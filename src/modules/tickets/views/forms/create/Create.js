@@ -2,10 +2,10 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {Form} from "react-bootstrap";
-import {AVAILABLE_TICKET_TYPES, TICKET_TYPE_PAYMENTS, TICKET_TYPE_SOFTWARE} from "../../../constants";
+import {AVAILABLE_TICKET_TYPES, TICKET_TYPE_PAYMENTS, TICKET_TYPE_SOFTWARE} from "../../../constants/ticketConstants";
 import {capitalizeFirstLetter} from "../../../../../global/utils/StringUpdates";
 import {changeField} from "../../../../../global/actions/StandardActions";
-import {CREATE_TICKET_ACTION} from "../../../constants/ReducerConstants";
+import {CREATE_TICKET_ACTION} from "../../../constants/reducerConstants";
 import Payments from "./Payments";
 import Software from "./Software";
 

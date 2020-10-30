@@ -1,13 +1,13 @@
-import CreateTicketReducer from "./CreateTicketReducer";
-import CreatePaymentTicketReducer from "./CreatePaymentTicketReducer";
-import TicketsTableReducer from "./TicketsTableReducer";
-import FetchTicketsReducer from "./FetchTicketsReducer";
+import createTicketReducer from "./createTicketReducer";
+import createPaymentTicketReducer from "./createPaymentTicketReducer";
+import ticketsTableReducer from "./ticketsTableReducer";
+import fetchTicketsReducer from "./fetchTicketsReducer";
 
 
 export default {
-    createTicket: CreateTicketReducer,
-    createPaymentTicketForm: CreatePaymentTicketReducer,
-    ticketsTableData : TicketsTableReducer,
-    tickets: FetchTicketsReducer
+    createTicket: createTicketReducer,
+    createPaymentTicketForm: createPaymentTicketReducer,
+    ticketsTableData : ticketsTableReducer,
+    tickets: fetchTicketsReducer
     
 };

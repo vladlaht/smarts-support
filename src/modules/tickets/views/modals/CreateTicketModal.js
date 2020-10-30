@@ -1,7 +1,7 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {CREATE_TICKET_ACTION} from "../../constants/ReducerConstants";
+import {CREATE_TICKET_ACTION} from "../../constants/reducerConstants";
 import {changeField, reset} from "../../../../global/actions/StandardActions";
 import {Container, Modal} from "react-bootstrap";
 import Create from "../forms/create/Create";

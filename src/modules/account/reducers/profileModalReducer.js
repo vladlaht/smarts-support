@@ -1,4 +1,4 @@
-import {OPEN_PROFILE_ACTION} from "../constants/ReducerConstants";
+import {OPEN_PROFILE_ACTION} from "../constants/reducerConstants";
 import {ACTION_STATUS_FORM_FIELD_CHANGE, getAction} from "../../../global/constants/action-types";
 
 const initialState = {

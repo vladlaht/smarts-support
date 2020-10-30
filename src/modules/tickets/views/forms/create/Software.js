@@ -2,7 +2,7 @@ import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import Form from "react-bootstrap/Form";
-import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants";
+import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants/ticketConstants";
 import {capitalizeFirstLetter} from "../../../../../global/utils/StringUpdates";
 
 

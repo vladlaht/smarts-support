@@ -5,7 +5,7 @@ import TopMenu from "../global/navigation/TopMenu";
 import {TICKETS_ROUTE} from "../global/constants/routes";
 import {changeField} from "../global/actions/StandardActions";
 import {bindActionCreators} from "redux";
-import {fetchTicketsAction} from "../modules/tickets/actions/FetchTicketsAction";
+import {fetchTicketsAction} from "../modules/tickets/actions/fetchTicketsAction";
 import TicketDetails from "../modules/ticketDetails/views/TicketDetails";
 import {LoopCircleLoading} from "react-loadingg";
 

@@ -1,4 +1,4 @@
-import {CREATE_TICKET_ACTION} from "../constants/ReducerConstants";
+import {CREATE_TICKET_ACTION} from "../constants/reducerConstants";
 import {
     ACTION_STATUS_FAILED,
     ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET,

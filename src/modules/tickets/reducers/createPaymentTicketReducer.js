@@ -1,4 +1,4 @@
-import {CREATE_PAYMENT_TICKET_ACTION} from "../constants/ReducerConstants";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../constants/reducerConstants";
 import {
     ACTION_STATUS_FORM_CLEAR_ERRORS,
     ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET,

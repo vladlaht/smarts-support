@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {MdLocationOn, MdPhoneAndroid} from "react-icons/md"
 import {IoIosMail} from "react-icons/io"
-import {fetchTicketsAction} from "../../tickets/actions/FetchTicketsAction";
+import {fetchTicketsAction} from "../../tickets/actions/fetchTicketsAction";
 import {bindActionCreators} from "redux";
 
 class ProfileDetails extends React.Component {

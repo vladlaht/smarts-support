@@ -1,5 +1,5 @@
-import AccountDetailsReducer from "./AccountDetailsReducer";
+import accountDetailsReducer from "./accountDetailsReducer";
 
 export default {
-    accountDetails: AccountDetailsReducer
+    accountDetails: accountDetailsReducer
 };

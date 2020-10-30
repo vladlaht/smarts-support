@@ -4,8 +4,8 @@ import {
     ACTION_STATUS_SUCCESS,
     getAction
 } from "../../../global/constants/action-types";
-import {CREATE_TICKET_ACTION} from "../constants/ReducerConstants";
-import {CreateTicketAPI} from "../api/CreateTicketAPI";
+import {CREATE_TICKET_ACTION} from "../constants/reducerConstants";
+import {CreateTicketAPI} from "../api/createTicketAPI";
 import {showFlipNotification} from "../../../global/utils/NotificationHelper";
 
 export function createTicketAction(body) {

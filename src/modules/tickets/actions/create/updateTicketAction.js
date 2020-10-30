@@ -1,4 +1,4 @@
-import {UPDATE_TICKET_ACTION,} from "../../constants/ReducerConstants";
+import {UPDATE_TICKET_ACTION,} from "../../constants/reducerConstants";
 
 export function updateTicket(field, value) {
     return (dispatch, getState) => {

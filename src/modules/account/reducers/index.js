@@ -1,5 +1,5 @@
-import ProfileModalReducer from "./ProfileModalReducer";
+import profileModalReducer from "./profileModalReducer";
 
 export default {
-    profileModal: ProfileModalReducer
+    profileModal: profileModalReducer
 };

@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {DropdownButton, Dropdown} from "react-bootstrap";
 import {IoMdLogOut} from "react-icons/io"
 import Username from "./Username";
-import {OPEN_PROFILE_ACTION} from "../../constants/ReducerConstants";
+import {OPEN_PROFILE_ACTION} from "../../constants/reducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import ProfileModal from "../modals/ProfileModal";
 

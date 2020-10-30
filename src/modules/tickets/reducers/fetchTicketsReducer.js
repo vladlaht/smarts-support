@@ -8,7 +8,7 @@ import {
     CREATE_PAYMENT_TICKET_DEMO_ACTION,
     FETCH_TICKETS_ACTION,
     REORDER_TICKETS_ACTION, UPDATE_TICKET_ACTION,
-} from "../constants/ReducerConstants";
+} from "../constants/reducerConstants";
 
 const initialState = {
     data: [],

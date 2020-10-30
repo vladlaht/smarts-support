@@ -29,7 +29,7 @@ img {
  GLOBAL CSS
  ------------------------------------------ */
 .Main {
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
   font-size: 13px;
 }
 .Main button:focus {
@@ -66,7 +66,7 @@ img {
 }
 
 .smarts-button {
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
   background: #655290;
   border-radius: 5px;
   color: #ffffff;
@@ -129,7 +129,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
   height: 100%;
 }
 .top-menu .sidebar-hamburger {
@@ -152,9 +152,10 @@ img {
 }
 .top-menu-logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 80px;
+  width: 90px;
 }
 .top-menu-logo img:nth-child(1) {
   height: 60px;
@@ -335,7 +336,7 @@ img {
   }
 }
 .layout-content__title {
-  font-family: GothamProBold;
+  font-family: GothamProBold, sans-serif;
   margin-bottom: 20px;
 }
 .layout-content__body {
@@ -445,12 +446,12 @@ img {
 }
 .profile-details__name {
   font-size: 17px;
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   margin-bottom: 8px;
   text-align: center;
 }
 .profile-details__contact {
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
   line-height: 2.3;
   word-break: break-all;
 }
@@ -466,7 +467,7 @@ img {
   width: 100%;
 }
 .profile-stats__title {
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
   font-size: 14px;
   text-align: center;
   margin-bottom: 5px;
@@ -483,11 +484,11 @@ img {
   min-width: 70px;
 }
 .profile-stats__amount-type .count {
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   font-size: 22px;
 }
 .profile-stats__amount-type .name {
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
   color: #7a869a;
 }
 @media screen and (max-width: 576px) {
@@ -503,7 +504,7 @@ img {
   padding: 25px;
 }
 .activities-header {
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   margin-bottom: 30px;
 }
 .activities-body {
@@ -539,11 +540,11 @@ img {
   padding-left: 25px;
 }
 .activities-body-item__text-username {
-  font-family: GothamProBold;
+  font-family: GothamProBold, sans-serif;
   padding-right: 5px;
 }
 .activities-body-item__text-number a {
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   text-transform: uppercase;
 }
 .activities-body-item__text-number a:hover {
@@ -600,7 +601,7 @@ img {
   margin-bottom: 8px;
 }
 .layout .tickets-table-issue-text {
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
   padding-right: 5px;
 }
 .layout-content__elements {
@@ -663,10 +664,10 @@ img {
   cursor: pointer;
 }
 .ticket-table__body {
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
 }
 .ticket-table__body td:first-child {
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
 }
 @media screen and (max-width: 768px) {
   .ticket-table table, .ticket-table thead, .ticket-table tbody, .ticket-table th, .ticket-table td, .ticket-table tr {
@@ -692,7 +693,7 @@ img {
     left: 12px;
     width: 45%;
     white-space: nowrap;
-    font-family: GothamProMedium;
+    font-family: GothamProMedium, sans-serif;
   }
   .ticket-table td:nth-of-type(1):before {
     content: "Number ";
@@ -747,7 +748,7 @@ img {
  TICKET MODAL FORM
  ------------------------------------------ */
 .ticket-modal-content {
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
 }
 .ticket-modal-content .modal-underline-selector {
   border-bottom: none !important;
@@ -838,7 +839,7 @@ img {
   margin-bottom: 30px;
 }
 .ticket-details .module-header {
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   margin-bottom: 6px;
   display: inline-block;
 }
@@ -854,7 +855,7 @@ img {
 .ticket-details .module-content .module-list-item__title {
   min-width: 125px;
   color: #7a869a;
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
 }
 .ticket-details .module-content .module-list-item__value .username-card__logo {
   height: 20px;
@@ -939,7 +940,7 @@ img {
   height: 100vh;
 }
 .auth-form {
-  font-family: GothamProLight;
+  font-family: GothamProLight, sans-serif;
   background-color: #fff;
   width: 420px;
   border-radius: 5px;
@@ -976,7 +977,7 @@ img {
   height: 34px;
   border: none;
   border-bottom: 2px solid #d9d9d9;
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
 }
 .auth-form-body__item-input:focus {
   outline: none;
@@ -1037,7 +1038,7 @@ img {
 .auth-form-footer a {
   width: 100%;
   color: #655290;
-  font-family: GothamProRegular;
+  font-family: GothamProRegular, sans-serif;
   margin-bottom: 10px;
 }
 .auth-form-footer a:hover {
@@ -1065,7 +1066,7 @@ img {
   display: flex;
   align-items: center;
   font-size: 13px;
-  font-family: GothamProMedium;
+  font-family: GothamProMedium, sans-serif;
   background: none;
 }
 .dropdown-card__items-logo {

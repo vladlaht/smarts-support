@@ -3,10 +3,10 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Form} from "react-bootstrap"
 import {changeField, clearErrors, reset} from "../../../../../global/actions/StandardActions";
-import {CREATE_PAYMENT_TICKET_ACTION} from "../../../constants/ReducerConstants";
-import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../../../constants/reducerConstants";
+import {AVAILABLE_TICKET_PRIORITY_TYPES} from "../../../constants/ticketConstants";
 import {capitalizeFirstLetter, countCharacters, splitOnUpperCase} from "../../../../../global/utils/StringUpdates";
-import {createPaymentTicketDemo} from "../../../actions/create/CreatePaymentTicketDemoAction";
+import {createPaymentTicketDemo} from "../../../actions/create/createPaymentTicketDemoAction";
 
 class Payments extends React.Component {
 

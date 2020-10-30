@@ -1,4 +1,4 @@
-import {UPDATE_ACCOUNT_ACTIVITY_ACTION} from "../constants/ReducerConstants";
+import {UPDATE_ACCOUNT_ACTIVITY_ACTION} from "../constants/reducerConstants";
 
 const initialState = {
     userDetails: {

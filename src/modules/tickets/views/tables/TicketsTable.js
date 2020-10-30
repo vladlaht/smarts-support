@@ -5,9 +5,9 @@ import {Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import _ from "lodash";
 import {changeField, reset} from "../../../../global/actions/StandardActions";
-import {fetchTicketsAction} from "../../actions/FetchTicketsAction";
+import {fetchTicketsAction} from "../../actions/fetchTicketsAction";
 import {BiDownArrowAlt, BiUpArrowAlt} from 'react-icons/bi';
-import {TICKET_TABLE_ACTION, REORDER_TICKETS_ACTION} from "../../constants/ReducerConstants";
+import {TICKET_TABLE_ACTION, REORDER_TICKETS_ACTION} from "../../constants/reducerConstants";
 import TicketTablePagination from "../cards/TicketTablePagination";
 import {LoopCircleLoading} from 'react-loadingg';
 

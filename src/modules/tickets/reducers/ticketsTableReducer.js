@@ -1,5 +1,5 @@
 import {ACTION_STATUS_FORM_FIELD_CHANGE, ACTION_STATUS_RESET, getAction} from "../../../global/constants/action-types";
-import {TICKET_TABLE_ACTION, FILTER_TABLE_ACTION} from "../constants/ReducerConstants";
+import {TICKET_TABLE_ACTION, FILTER_TABLE_ACTION} from "../constants/reducerConstants";
 
 const initialState = {
     sortType: "desc",

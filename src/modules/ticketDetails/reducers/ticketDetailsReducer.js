@@ -3,7 +3,7 @@ import {
     TICKET_DETAILS_CREATE_COMMENT_ACTION,
     TICKET_DETAILS_ACTION,
     FETCH_TICKET_DETAILS_ACTION
-} from "../constants/ReducerConstants";
+} from "../constants/reducerConstants";
 
 const initialState = {
     id: "",

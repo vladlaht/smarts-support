@@ -2,7 +2,7 @@ import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {changeField} from "../../../../global/actions/StandardActions";
-import {FILTER_TABLE_ACTION} from "../../constants/ReducerConstants";
+import {FILTER_TABLE_ACTION} from "../../constants/reducerConstants";
 
 class TicketSearch extends React.Component {
 

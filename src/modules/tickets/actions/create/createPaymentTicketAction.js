@@ -1,6 +1,6 @@
 import {ACTION_STATUS_FAILED, ACTION_STATUS_START, ACTION_STATUS_SUCCESS, getAction} from "../../../../global/constants/action-types";
-import {CREATE_PAYMENT_TICKET_ACTION} from "../../constants/ReducerConstants";
-import {createTicketAction} from "../CreateTicketAction";
+import {CREATE_PAYMENT_TICKET_ACTION} from "../../constants/reducerConstants";
+import {createTicketAction} from "../createTicketAction";
 
 export function createPaymentTicketAction() {
     return (dispatch, getState) => {

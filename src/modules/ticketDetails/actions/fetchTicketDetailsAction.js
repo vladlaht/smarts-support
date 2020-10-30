@@ -1,4 +1,4 @@
-import {FETCH_TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
+import {FETCH_TICKET_DETAILS_ACTION} from "../constants/reducerConstants";
 
 export function fetchTicketDetails(ticket) {
     return (dispatch) => dispatch({

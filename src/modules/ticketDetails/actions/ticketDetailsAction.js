@@ -1,4 +1,4 @@
-import {TICKET_DETAILS_CREATE_COMMENT_ACTION} from "../constants/ReducerConstants";
+import {TICKET_DETAILS_CREATE_COMMENT_ACTION} from "../constants/reducerConstants";
 
 export function addComment(comment) {
     return (dispatch) => dispatch({

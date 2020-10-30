@@ -1,7 +1,7 @@
-import TicketDetailsReducer from "./TicketDetailsReducer";
+import ticketDetailsReducer from "./ticketDetailsReducer";
 
 export default {
-    ticketDetails: TicketDetailsReducer
+    ticketDetails: ticketDetailsReducer
 }
 
 

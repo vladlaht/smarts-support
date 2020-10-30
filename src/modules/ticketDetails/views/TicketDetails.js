@@ -3,15 +3,15 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import AccountCard from "../../account/views/cards/Username";
 import {changeField, reset} from "../../../global/actions/StandardActions";
-import {addComment} from "../actions/TicketDetailsAction";
-import {addAction} from "../../accountDetails/actions/AccountDetailsAction";
+import {addComment} from "../actions/ticketDetailsAction";
+import {addAction} from "../../accountDetails/actions/accountDetailsAction";
 import EdiText from "react-editext";
-import {TICKET_DETAILS_ACTION} from "../constants/ReducerConstants";
-import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "../../tickets/constants";
+import {TICKET_DETAILS_ACTION} from "../constants/reducerConstants";
+import {AVAILABLE_TICKET_PRIORITY_TYPES, AVAILABLE_TICKET_STATUS_TYPES} from "../../tickets/constants/ticketConstants";
 import {ADDED_COMMENT, CLOSED_TICKET, EDITED_TICKET, OPENED_TICKET}
-    from "../../accountDetails/constants/ActivityConstants";
-import {fetchTicketDetails} from "../actions/FetchTicketDetailsAction";
-import {updateTicket} from "../../tickets/actions/create/UpdateTicketAction";
+    from "../../accountDetails/constants/activityConstants";
+import {fetchTicketDetails} from "../actions/fetchTicketDetailsAction";
+import {updateTicket} from "../../tickets/actions/create/updateTicketAction";
 
 
 class TicketDetails extends React.Component {

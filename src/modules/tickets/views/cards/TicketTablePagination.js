@@ -1,7 +1,7 @@
 import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {TICKET_TABLE_ACTION} from "../../constants/ReducerConstants";
+import {TICKET_TABLE_ACTION} from "../../constants/reducerConstants";
 import {changeField} from "../../../../global/actions/StandardActions";
 import ReactPaginate from "react-paginate";
 
