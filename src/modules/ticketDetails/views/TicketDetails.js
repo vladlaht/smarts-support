@@ -30,7 +30,7 @@ class TicketDetails extends React.Component {
         const {addAction, addComment, details} = this.props;
         if (this.commentText.value.length > 0) {
             addComment(this.commentText.value);
-            addAction({actionType: ADDED_COMMENT, ticketNumber: details.ticketNumber});
+            addAction({actionType: ADDED_COMMENT, ticketNumber: details.id});
         }
     };
 
